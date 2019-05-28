@@ -37,3 +37,7 @@ Route::get('/admin/create-new-page', function () {
 Route::get('/admin/login', function () {
     return view('login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
