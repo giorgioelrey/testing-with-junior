@@ -24,17 +24,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div id="app">
-      @include('partials.header')
 
-      <main class="py-4">
-          @yield('user_feedback')
-          @yield('alerts')
-          @yield('content')
-      </main>
+    <div id="app">
+        @include('partials.header')
 
-      @include('partials.footer')
-  </div>
-  @yield('scripts')
+        <main class="py-4">
+
+            @yield('user_feedback')
+            @yield('alerts')
+            @yield('content')
+        </main>
+
+        @include('partials.footer')
+    </div>
+    @yield('scripts')
+
 </body>
 </html>
