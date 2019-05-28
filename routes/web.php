@@ -10,6 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('storage/{img}', function ($img) {
+
+    $path = storage_path($img);
+
+    $mime = \File::mimeType($path);
+
+    header('Content-type: ' . $mime);
+
+    return readfile($path);
+
+})->where('img', '(.*)');
 
 Route::get('/', function () {
     return view('welcome');
