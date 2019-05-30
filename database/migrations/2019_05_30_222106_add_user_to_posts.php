@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class AddUserToPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('posts', function (Blueprint $table) {
+
+        $table->unsignedInteger('user_id')->after('id');
+
+        $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 
@@ -27,6 +29,10 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('posts', function (Blueprint $table) {
+
+          $table->dropForeign('posts_user_id_foreign');
+
+        });
     }
 }

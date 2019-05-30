@@ -14,7 +14,7 @@ class CreateServicesTable extends Migration
     public function up()
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             //TODO: Must create a link to a category
             $table->string('name');
             $table->string('short_description');

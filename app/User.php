@@ -37,4 +37,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //******** RELATIONSHIPS *****************//
+
+    //RELATIONSHIP USER(ONE) <-> POSTS(MANY)
+    //One User(author) has many posts
+    //One Post belongs to one User (Author)
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
+
+
 }

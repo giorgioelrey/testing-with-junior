@@ -14,7 +14,7 @@ class CreateLocationsTable extends Migration
     public function up()
     {
         Schema::create('locations', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
             //TODO: Must create a link to a category (could be an enum\)
             $table->string('address');
