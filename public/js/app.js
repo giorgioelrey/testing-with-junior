@@ -61691,8 +61691,8 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\testing\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\testing\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/silvicardo/Desktop/WEBDEVELOPMENT/con-giorgio/testing-with-junior/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/silvicardo/Desktop/WEBDEVELOPMENT/con-giorgio/testing-with-junior/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
