@@ -10662,6 +10662,12 @@ a.text-dark:focus {
   }
 }
 
+#dashboard-page a {
+  color: #24EAB6;
+  text-decoration: none;
+  background-color: transparent;
+}
+
 #login-page img {
   max-width: 100%;
 }
