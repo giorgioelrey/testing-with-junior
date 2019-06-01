@@ -12,7 +12,6 @@ class Post extends Model
 
   protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body'];
 
-
   //******** RELATIONSHIPS *****************//
 
   //RELATIONSHIP USER(ONE) <-> POSTS(MANY)

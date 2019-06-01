@@ -10770,3 +10770,7 @@ a.text-dark:focus {
   border-radius: 0rem;
 }
 
+#navbar-backoffice a.nav-link {
+  color: green;
+}
+

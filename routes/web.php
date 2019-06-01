@@ -22,9 +22,7 @@ Route::get('storage/{img}', function ($img) {
 
 })->where('img', '(.*)');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 Route::get('/admin', function () {
     return view('dashboard');
 });
