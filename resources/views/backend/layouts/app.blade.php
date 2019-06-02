@@ -4,17 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    @php
-      $nomePaginaCorrente = Route::current()->getName();
-    @endphp
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'IlNostroCMS') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -25,19 +18,11 @@
 </head>
 <body>
 
-    <div id="app">
-        @include('partials.header')
+    <!-- REACT DIV -->
+    <div id="app"></div>
 
-        <main class="py-4">
-
-            @yield('user_feedback')
-            @yield('alerts')
-            @yield('content')
-        </main>
-
-        @include('partials.footer')
-    </div>
-    @yield('scripts')
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/backend.js') }}" defer></script>
+    
 </body>
 </html>

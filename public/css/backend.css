@@ -10662,10 +10662,15 @@ a.text-dark:focus {
   }
 }
 
-#dashboard-page a {
+#dashboard-page .sidebar {
+  width: 200px;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#dashboard-page .sidebar a.nav-link {
   color: #24EAB6;
-  text-decoration: none;
-  background-color: transparent;
 }
 
 #login-page img {
@@ -10768,6 +10773,12 @@ a.text-dark:focus {
 #login-page .btn {
   font-size: 1.9rem;
   border-radius: 0rem;
+}
+
+#navbar-backoffice {
+  z-index: 1000;
+  height: 60px;
+  background: #ffffff;
 }
 
 #navbar-backoffice a.nav-link {
