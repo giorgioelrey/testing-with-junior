@@ -18,7 +18,6 @@ constructor(props){
   }
 }
 
-
   render() {
 
     let errorsContent = this.state.errors.length > 0 && (<ErrorsAlert errors={this.state.errors} />) || null;
@@ -70,7 +69,7 @@ constructor(props){
 
                                 console.log('login issues', error.response.data);
 
-                                this.setState({errors: [error.response.data.error]})
+                                this.setState({errors: error.response.data.errors})
 
                               }
 

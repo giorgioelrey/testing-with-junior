@@ -84016,7 +84016,7 @@ function (_Component) {
                     console.log('login issues', _context.t0.response.data);
 
                     _this2.setState({
-                      errors: [_context.t0.response.data.error]
+                      errors: _context.t0.response.data.errors
                     });
 
                   case 15:

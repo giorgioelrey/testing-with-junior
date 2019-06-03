@@ -50,7 +50,7 @@ class AuthController extends Controller
     //If db query DID NOT return a result...
     if (!$user) {
 
-      $response = ['error' => 'User does not exist'];
+      $response = ['errors' => ['User does not exist']];
       return response($response, 422);
     }
 
@@ -69,7 +69,7 @@ class AuthController extends Controller
     } else {
 
       //response brings password error
-      $response = ['error' => "Password missmatch"];
+      $response = ['errors' => ["Password missmatch"]];
 
       return response($response, 422);
     }
