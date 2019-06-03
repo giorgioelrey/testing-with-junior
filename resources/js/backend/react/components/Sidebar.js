@@ -45,10 +45,11 @@ Sidebar.defaultProps = {
       innerSvg: (<Fragment><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></Fragment>)
     },
     {
-      linkEndpoint: 'news'  ,
+      linkEndpoint: 'news',
       linkName: 'News',
       svgClass : 'feather-layers',
-      innerSvg: (<Fragment><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></Fragment>)
+      innerSvg: (<Fragment><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></Fragment>),
+      options: ['Add','Edit', 'List'],
     },
   ]
 }

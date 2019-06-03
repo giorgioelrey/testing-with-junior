@@ -66213,7 +66213,7 @@ function (_Component) {
   _createClass(NewsPage, [{
     key: "render",
     value: function render() {
-      return 'News';
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null);
     }
   }]);
 
@@ -66395,7 +66395,8 @@ Sidebar.defaultProps = {
       points: "2 17 12 22 22 17"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("polyline", {
       points: "2 12 12 17 22 12"
-    }))
+    })),
+    options: ['Add', 'Edit', 'List']
   }]
 };
 
@@ -66422,7 +66423,16 @@ var SidebarLink = function SidebarLink(_ref) {
       svgClass = _ref.svgClass,
       innerSvg = _ref.innerSvg,
       width = _ref.width,
-      height = _ref.height;
+      height = _ref.height,
+      options = _ref.options;
+  var optionsList = options && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: "flex-column"
+  }, options.map(function (option, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "d-block",
+      key: idx
+    }, option);
+  })) || null;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -66439,7 +66449,7 @@ var SidebarLink = function SidebarLink(_ref) {
     strokeLinecap: "round",
     strokeLinejoin: "round",
     className: "feather ".concat(svgClass, " mr-3")
-  }, innerSvg), linkName));
+  }, innerSvg), linkName), optionsList);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SidebarLink);

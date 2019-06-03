@@ -1,8 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
-const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height }) => (
+const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height, options }) => {
 
+  let optionsList = options &&  (<ul className="flex-column">
+                                  {options.map((option, idx) => (<Link className="d-block" key={idx}>{option}</Link>))}
+                                </ul>) || null
+
+  return(
       <li className="nav-item">
         <Link className="nav-link d-flex align-items-center" to={`/admin/dashboard/${linkEndpoint}`}>
 
@@ -21,8 +26,9 @@ const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height
           </svg>
           {linkName}
         </Link>
+        {optionsList}
       </li>
-
-);
+    );
+}
 
 export default SidebarLink;
