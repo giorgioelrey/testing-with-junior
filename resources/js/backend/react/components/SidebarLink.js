@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height, options }) => {
 
   let optionsList = options &&  (<ul className="flex-column">
-                                  {options.map((option, idx) => (<Link className="d-block" key={idx}>{option}</Link>))}
+                                  {options.map((option, idx) => (<Link className="d-block" key={idx} to="#">{option}</Link>))}
                                 </ul>) || null
 
   return(

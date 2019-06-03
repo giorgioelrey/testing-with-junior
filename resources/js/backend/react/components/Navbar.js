@@ -46,7 +46,7 @@ class Navbar extends Component {
     }
 
     return (
-      <nav className="navbar navbar-expand-lg navbar-light shadow sticky-top" id="navbar-backoffice" >
+      <nav className="navbar navbar-expand-sm navbar-light shadow sticky-top" id="navbar-backoffice" >
 
         <NavLink className="navbar-brand" to="/">
           <img height="30" src={logo_core} alt="ciao" />
@@ -56,7 +56,7 @@ class Navbar extends Component {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
-          <div className="navbar-nav">
+          <div className="navbar-nav ml-auto">
             {authLinks}
           </div>
         </div>

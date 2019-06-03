@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import Navbar from './Navbar';
 import NewsPage from './NewsPage';
 import UsersPage from './UsersPage';
 import Sidebar from './Sidebar';
@@ -39,6 +40,7 @@ class DashboardPage extends Component {
     return (
       <Fragment>
 
+        <Navbar />
         <div className="container-fluid d-flex" id="dashboard-page">
 
               <div className="row">

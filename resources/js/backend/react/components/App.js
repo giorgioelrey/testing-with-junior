@@ -8,7 +8,6 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar />
         <main>
         <Switch>
           <Route
