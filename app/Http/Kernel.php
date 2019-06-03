@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'permission' =>
          \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
+        'json.response' => \App\Http\Middleware\ForceJsonResponse::class,
     ];
 
     /**
