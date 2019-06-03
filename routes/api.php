@@ -31,4 +31,7 @@ Route::middleware(['auth:api','json.response'])->group(function () {
   Route::get('/admin/user','backendApi\UserController@show')->name('user.show');
   //->logout - GET
   Route::get('/admin/logout', 'backendApi\AuthController@logout')->name('logout');
+
+
+  Route::resource('/admin/post', 'backendApi\PostController');
 });

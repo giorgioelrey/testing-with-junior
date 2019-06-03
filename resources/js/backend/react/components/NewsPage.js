@@ -8,6 +8,10 @@ class NewsPage extends Component {
           
 
 
+
+
+
+
         </Fragment>
     );
   }
