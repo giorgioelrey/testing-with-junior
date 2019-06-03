@@ -49,7 +49,7 @@ class DashboardPage extends Component {
 
                 <div role="main" className="px-4">
 
-                  <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                  <div className="pt-5">
                       {contentArea}
                   </div>
 

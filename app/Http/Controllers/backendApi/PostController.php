@@ -19,7 +19,7 @@ class PostController extends Controller
       $response = [
            'success' => true,
            'data' => Post::all()->toArray(),
-           'message' => 'Books retrieved successfully.'
+           'message' => 'Posts retrieved successfully.'
        ];
 
        return response()->json($response, 200);

@@ -83836,7 +83836,7 @@ function (_Component) {
         role: "main",
         className: "px-4"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+        className: "pt-5"
       }, contentArea)))));
     }
   }]);
@@ -84016,7 +84016,7 @@ function (_Component) {
                     console.log('login issues', _context.t0.response.data);
 
                     _this2.setState({
-                      errors: _context.t0.response.data.errors
+                      errors: [_context.t0.response.data.errors]
                     });
 
                   case 15:
@@ -84239,7 +84239,10 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/PostCard.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -84259,6 +84262,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
 var NewsPage =
 /*#__PURE__*/
 function (_Component) {
@@ -84273,7 +84277,13 @@ function (_Component) {
   _createClass(NewsPage, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here's all your posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: ""
+      }, this.props.posts && this.props.posts.map(function (post, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostCard__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({
+          key: idx
+        }, post));
+      }) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "No posts to show")));
     }
   }]);
 
@@ -84337,6 +84347,44 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (PagesManagementPage);
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/PostCard.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/backend/react/components/PostCard.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PostCard = function PostCard(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    key: props.key,
+    "class": "card",
+    style: "width: 18rem;"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: props.imgSrc,
+    "class": "card-img-top",
+    alt: "..."
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    "class": "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    "class": "card-title"
+  }, props.title || 'Sample title'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    "class": "card-text"
+  }, props.text || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    "class": "btn btn-primary"
+  }, "Go somewhere")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PostCard);
 
 /***/ }),
 

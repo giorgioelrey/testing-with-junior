@@ -69,7 +69,7 @@ constructor(props){
 
                                 console.log('login issues', error.response.data);
 
-                                this.setState({errors: error.response.data.errors})
+                                this.setState({errors: [error.response.data.errors]})
 
                               }
 
