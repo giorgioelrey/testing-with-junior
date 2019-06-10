@@ -26,15 +26,27 @@ class App extends Component {
           {/* DashboardPages receive props to manage routing + the currentUser from the state */}
           <Route
           exact path="/admin/dashboard/users"
-          render={(props) => (<DashboardPage {...props} contentPage="users" user={{name: 'test-user'}}/>)}
+          render={(props) => (<DashboardPage {...props} contentPage="list" user={{name: 'test-user'}}/>)}
           />
           <Route
           exact path="/admin/dashboard/news"
-          render={(props) => (<DashboardPage {...props} contentPage="news" user={{name: 'test-user'}} />)}
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="list" user={{name: 'test-user'}} />)}
+          />
+          <Route
+          exact path="/admin/dashboard/news/create"
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="create" user={{name: 'test-user', section: 'create'}} />)}
+          />
+          <Route
+          exact path="/admin/dashboard/news/:id/show"
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="show" user={{name: 'test-user', section: 'show'}} />)}
+          />
+          <Route
+          exact path="/admin/dashboard/news/:id/edit"
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="edit" user={{name: 'test-user', section: 'edit'}} />)}
           />
           <Route
           exact path="/admin/dashboard/pages"
-          render={(props) => (<DashboardPage {...props} contentPage="pages" user={{name: 'test-user'}} />)}
+          render={(props) => (<DashboardPage {...props} contentPage="list" user={{name: 'test-user'}} />)}
           />
           <Route to="/admin/dashboard/{*}" render={() => <Redirect to="/admin" />} />
           <Route render={() => <Redirect to="/admin" />} />

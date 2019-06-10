@@ -28,7 +28,7 @@ class DashboardPage extends Component {
       contentArea = (<UsersPage user={this.props.user}/>)
       break;
     case 'news':
-      contentArea = (<NewsPage user={this.props.user}/>)
+      contentArea = (<NewsPage user={this.props.user} section={this.props.section}/>)
       break;
     case 'pages':
       contentArea = (<PagesManagementPage user={this.props.user}/>)
