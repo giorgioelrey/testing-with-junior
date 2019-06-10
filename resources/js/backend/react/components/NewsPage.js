@@ -6,8 +6,6 @@ import NewsShow from './NewsShow';
 import NewsCreate from './NewsCreate';
 import NewsEdit from './NewsEdit';
 
-
-
 const NewsPage = (props) => {
 
 
@@ -19,26 +17,27 @@ const NewsPage = (props) => {
 
   let contentArea;
 
-  switch(this.props.section) {
+  switch(props.section) {
 
     case 'list':
-      contentArea = (<NewsList user={this.props.user}/>)
+      contentArea = (<NewsList user={props.user}/>)
       break;
     case 'show':
-      contentArea = (<NewsShow user={this.props.user} postId={this.props.match.params.id}/>)
+      contentArea = (<NewsShow user={props.user} postId={props.match.params.id}/>)
       break;
     case 'create':
-        contentArea = (<NewsCreate user={this.props.user}/>)
+        contentArea = (<NewsCreate user={props.user}/>)
       break;
     case 'edit':
-        contentArea = (<NewsEdit user={this.props.user} postId={this.props.match.params.id}/>)
+        contentArea = (<NewsEdit user={props.user} postId={props.match.params.id}/>)
   default:
     contentArea = (<div>not chosen</div>)
   }
 
     return (
         <Fragment>
-            {content}
+            {props.section}
+            {contentArea}
         </Fragment>
     );
 

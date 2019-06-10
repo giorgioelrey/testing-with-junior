@@ -5,7 +5,7 @@ const NewsShow = (props) => {
 
     return (
       <React.Fragment>
-
+          Show a post
       </React.Fragment>
     );
 

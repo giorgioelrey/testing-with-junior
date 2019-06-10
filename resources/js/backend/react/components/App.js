@@ -34,15 +34,15 @@ class App extends Component {
           />
           <Route
           exact path="/admin/dashboard/news/create"
-          render={(props) => (<DashboardPage {...props} contentPage="news" section="create" user={{name: 'test-user', section: 'create'}} />)}
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="create" user={{name: 'test-user'}} />)}
           />
           <Route
-          exact path="/admin/dashboard/news/:id/show"
-          render={(props) => (<DashboardPage {...props} contentPage="news" section="show" user={{name: 'test-user', section: 'show'}} />)}
+          path="/admin/dashboard/news/:id/show"
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="show" user={{name: 'test-user'}} />)}
           />
           <Route
-          exact path="/admin/dashboard/news/:id/edit"
-          render={(props) => (<DashboardPage {...props} contentPage="news" section="edit" user={{name: 'test-user', section: 'edit'}} />)}
+           path="/admin/dashboard/news/:id/edit"
+          render={(props) => (<DashboardPage {...props} contentPage="news" section="edit" user={{name: 'test-user'}} />)}
           />
           <Route
           exact path="/admin/dashboard/pages"

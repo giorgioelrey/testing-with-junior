@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
+import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
-import logo_core from './../assets/logo_core.png';
 import ErrorsAlert from './ErrorsAlert';
 
-class NewCreate extends Component {
+class NewsCreate extends Component {
 
   constructor(props){
     super(props);
@@ -74,16 +74,22 @@ class NewCreate extends Component {
                        render={({ errors, status, touched }) => (
                            <Form className="cms-form login">
                                <div className="form-group form-label-group">
-                                  <label htmlFor="title">Email</label>
+                                  <label htmlFor="title">Title</label>
                                    <Field name="title" type="text" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} placeholder="Email address"/>
                                    <ErrorMessage name="title" component="div" className="invalid-feedback" />
 
                                </div>
                                <div className="form-group form-label-group">
-                                  <label htmlFor="subtitle">Password</label>
+                                  <label htmlFor="subtitle">Subtitle</label>
                                    <Field name="subtitle" type="subtitle" className={'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : '')} placeholder="subtitle"/>
 
                                    <ErrorMessage name="subtitle" component="div" className="invalid-feedback" />
+                               </div>
+
+                               <div className="form-group form-label-group">
+                                  <label htmlFor="subtitle">Subtitle</label>
+                                  <Field name="designation">{({ field }) => <ReactQuill value={field.value} onChange={field.onChange(field.name)} />}</Field>
+
                                </div>
 
                                <div className="form-group">
@@ -106,4 +112,4 @@ class NewCreate extends Component {
 
 }
 
-export default NewCreate;
+export default NewsCreate;

@@ -6,6 +6,8 @@ const NewsEdit = (props) => {
     return (
       <React.Fragment>
 
+      Edit a post
+
       </React.Fragment>
     );
 
