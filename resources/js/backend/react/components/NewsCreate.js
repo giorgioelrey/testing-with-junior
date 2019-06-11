@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -23,13 +24,7 @@ class NewsCreate extends Component {
       <Fragment>
         <div className="container" id="create-news-page">
 
-          <div className="card card-login mx-auto mt-5">
-
-                <div className="card-header">
-                  <h1>Create a new post</h1>
-                </div>
-
-                <div className="card-body">
+                <h1>Create a new post</h1>
 
                 {errorsContent}
 
@@ -54,13 +49,11 @@ class NewsCreate extends Component {
                            console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
 
                            try {
+
                                 console.log('fields', fields)
 
-                                const { data } = await axios(axiosHelper.getLoginConfig(fields));
 
-                                console.log('login response.data ', data);
-
-                                this.props.history.push('/admin/dashboard');
+                                this.props.history.push('/admin/dashboard/news');
 
                               } catch(error) {
 
@@ -87,9 +80,9 @@ class NewsCreate extends Component {
                                </div>
 
                                <div className="form-group form-label-group">
-                                  <label htmlFor="subtitle">Subtitle</label>
-                                  <Field name="designation">{({ field }) => <ReactQuill value={field.value} onChange={field.onChange(field.name)} />}</Field>
-
+                                  <label htmlFor="post_body">Subtitle</label>
+                                  <Field name="post_body">{({ field }) => <ReactQuill value={field.value} onChange={field.onChange(field.name)} />}</Field>
+                                   <ErrorMessage name="post_body" component="div" className="invalid-feedback" />
                                </div>
 
                                <div className="form-group">
@@ -100,16 +93,11 @@ class NewsCreate extends Component {
                        )}
                    />
 
-                </div>
-
-          </div>
-
         </div>
-
       </Fragment>
     );
   }
 
 }
 
-export default NewsCreate;
+export default withRouter(NewsCreate);

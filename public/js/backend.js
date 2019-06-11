@@ -104247,12 +104247,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
-/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
 
 
@@ -104277,6 +104277,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -104313,22 +104314,16 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container",
         id: "create-news-page"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card card-login mx-auto mt-5"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card-header"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "card-body"
-      }, errorsContent, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Formik"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), errorsContent, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Formik"], {
         initialValues: {
           title: '',
           subtitle: '',
           post_body: ''
         },
-        validationSchema: yup__WEBPACK_IMPORTED_MODULE_4__["object"]().shape({
-          title: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().min(6, 'Title must be at least 6 characters').required('Title is required'),
-          subtitle: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().min(6, 'Subtitle must be at least 6 characters').required('Subtitle is required'),
-          post_body: yup__WEBPACK_IMPORTED_MODULE_4__["string"]().min(30, 'Subtitle must be at least 30 characters').required('Post body is required')
+        validationSchema: yup__WEBPACK_IMPORTED_MODULE_5__["object"]().shape({
+          title: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(6, 'Title must be at least 6 characters').required('Title is required'),
+          subtitle: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(6, 'Subtitle must be at least 6 characters').required('Subtitle is required'),
+          post_body: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(30, 'Subtitle must be at least 30 characters').required('Post body is required')
         }),
         onSubmit:
         /*#__PURE__*/
@@ -104336,65 +104331,52 @@ function (_Component) {
           var _ref = _asyncToGenerator(
           /*#__PURE__*/
           _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
-            var _ref2, data;
-
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
                     console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                    _context.prev = 1;
-                    console.log('fields', fields);
-                    _context.next = 5;
-                    return axios(axiosHelper.getLoginConfig(fields));
 
-                  case 5:
-                    _ref2 = _context.sent;
-                    data = _ref2.data;
-                    console.log('login response.data ', data);
+                    try {
+                      console.log('fields', fields);
 
-                    _this2.props.history.push('/admin/dashboard');
+                      _this2.props.history.push('/admin/dashboard/news');
+                    } catch (error) {
+                      console.log('login issues', error.response.data);
 
-                    _context.next = 15;
-                    break;
+                      _this2.setState({
+                        errors: [error.response.data.errors]
+                      });
+                    }
 
-                  case 11:
-                    _context.prev = 11;
-                    _context.t0 = _context["catch"](1);
-                    console.log('login issues', _context.t0.response.data);
-
-                    _this2.setState({
-                      errors: [_context.t0.response.data.errors]
-                    });
-
-                  case 15:
+                  case 2:
                   case "end":
                     return _context.stop();
                 }
               }
-            }, _callee, null, [[1, 11]]);
+            }, _callee);
           }));
 
           return function (_x) {
             return _ref.apply(this, arguments);
           };
         }(),
-        render: function render(_ref3) {
-          var errors = _ref3.errors,
-              status = _ref3.status,
-              touched = _ref3.touched;
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Form"], {
+        render: function render(_ref2) {
+          var errors = _ref2.errors,
+              status = _ref2.status,
+              touched = _ref2.touched;
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Form"], {
             className: "cms-form login"
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "form-group form-label-group"
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "title"
-          }, "Title"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
+          }, "Title"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
             name: "title",
             type: "text",
             className: 'form-control' + (errors.title && touched.title ? ' is-invalid' : ''),
             placeholder: "Email address"
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["ErrorMessage"], {
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
             name: "title",
             component: "div",
             className: "invalid-feedback"
@@ -104402,27 +104384,31 @@ function (_Component) {
             className: "form-group form-label-group"
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
             htmlFor: "subtitle"
-          }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
+          }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
             name: "subtitle",
             type: "subtitle",
             className: 'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : ''),
             placeholder: "subtitle"
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["ErrorMessage"], {
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
             name: "subtitle",
             component: "div",
             className: "invalid-feedback"
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "form-group form-label-group"
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "subtitle"
-          }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_3__["Field"], {
-            name: "designation"
-          }, function (_ref4) {
-            var field = _ref4.field;
-            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_2___default.a, {
+            htmlFor: "post_body"
+          }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
+            name: "post_body"
+          }, function (_ref3) {
+            var field = _ref3.field;
+            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_3___default.a, {
               value: field.value,
               onChange: field.onChange(field.name)
             });
+          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
+            name: "post_body",
+            component: "div",
+            className: "invalid-feedback"
           })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
             className: "form-group"
           }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
@@ -104433,14 +104419,14 @@ function (_Component) {
             className: "btn btn-info text- mr-2"
           }, "Reset")));
         }
-      })))));
+      })));
     }
   }]);
 
   return NewsCreate;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (NewsCreate);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(NewsCreate));
 
 /***/ }),
 

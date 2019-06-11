@@ -20,7 +20,7 @@ const NewsPage = (props) => {
   switch(props.section) {
 
     case 'list':
-      contentArea = (<NewsList user={props.user}/>)
+      contentArea = (<NewsList user={props.user} />)
       break;
     case 'show':
       contentArea = (<NewsShow user={props.user} postId={props.match.params.id}/>)
