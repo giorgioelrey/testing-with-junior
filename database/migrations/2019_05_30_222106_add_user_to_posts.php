@@ -15,7 +15,7 @@ class AddUserToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
 
-        $table->unsignedInteger('user_id')->after('id');
+        $table->unsignedInteger('user_id')->after('id')->nullable();//must change nullable, just for post testing
 
         $table->foreign('user_id')->references('id')->on('users');
 

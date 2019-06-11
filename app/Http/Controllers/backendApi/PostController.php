@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
       $response = [
@@ -26,12 +22,7 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
       $input = $request->all();
@@ -53,8 +44,10 @@ class PostController extends Controller
 
        */
 
-         $post = Post::create($input);
-         $data = $post->toArray();
+        $post = new Post;
+        $post->fill($input);
+        $post->save();
+        $data = $post->toArray();
 
          $response = [
              'success' => true,
@@ -66,16 +59,11 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
+
+    public function show($id)
     {
-      $post = Post::find($post->id);
-      $data = $book->toArray();
+      $post = Post::find($id);
+      $data = $post->toArray();
 
       if (is_null($post)) {
           $response = [
@@ -96,17 +84,21 @@ class PostController extends Controller
       return response()->json($response, 200);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
       $input = $request->all();
+
+      $post = Post::find($id);
+      $data = $post->toArray();
+
+      if (is_null($post)) {
+          $response = [
+              'success' => false,
+              'data' => 'Empty',
+              'message' => 'Post not found.'
+          ];
+          return response()->json($response, 404);
+      }
 
       /*
 
@@ -144,14 +136,21 @@ class PostController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+
+      $post = Post::find($id);
+      $data = $post->toArray();
+
+      if (is_null($post)) {
+          $response = [
+              'success' => false,
+              'data' => 'Empty',
+              'message' => 'Post not found.'
+          ];
+          return response()->json($response, 404);
+      }
+
       $post->delete();
       $data = $post->toArray();
 
