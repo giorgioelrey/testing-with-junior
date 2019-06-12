@@ -29,7 +29,7 @@ Route::middleware('json.response')->namespace('backendApi')->group(function () {
 
     Route::post('/admin/post/update', 'PostController@update')->name('post.all');
 
-    Route::delete('/admin/post/destroy/{id}', 'PostController@update')->name('post.all');
+    Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.all');
 
     Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 

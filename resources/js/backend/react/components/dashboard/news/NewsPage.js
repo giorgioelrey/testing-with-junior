@@ -5,15 +5,9 @@ import NewsList from './NewsList';
 import NewsShow from './NewsShow';
 import NewsCreate from './NewsCreate';
 import NewsEdit from './NewsEdit';
+import {withRouter } from 'react-router-dom';
 
 const NewsPage = (props) => {
-
-
-  const deleteSingleNews = (id) => {
-
-    //axios call for deletion
-
-  }
 
   let contentArea;
 
@@ -43,4 +37,4 @@ const NewsPage = (props) => {
 
 }
 
-export default NewsPage;
+export default withRouter(NewsPage);

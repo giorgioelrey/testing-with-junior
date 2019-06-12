@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
 import PostCard from './PostCard';
 
+
 import * as postHelper from './../../../helpers/postHelper';
 
 class NewsList extends Component {
@@ -13,16 +14,15 @@ class NewsList extends Component {
     this.state = { posts: [], api_errors: []}
   }
 
-componentDidMount(){
+  componentDidMount(){
 
-  //getAllPosts(success, fail)
-  postHelper.getAllPosts(
-    ({data}) => { console.log(data); this.setState({posts: data}) },
-    (errors) => { this.setState({ api_errors: errors}) }
-)
+    //getAllPosts(success, fail)
+    postHelper.getAllPosts(
+      ({data}) => { console.log(data); this.setState({posts: data}) },
+      (errors) => { this.setState({ api_errors: errors}) }
+    )
 
-
-}
+  }
 
 
   render() {
@@ -37,7 +37,7 @@ componentDidMount(){
 
             <h1>Here's all your posts</h1>
 
-            <div className="">
+            <div className="row">
               {this.state.posts.length > 0 &&
                 this.state.posts.map((post, idx) => (<PostCard key={idx} post={post} />)) || (<h2>No posts to show</h2>)}
             </div>

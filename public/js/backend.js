@@ -103542,6 +103542,17 @@ module.exports = "/images/logo_core.png?7a8c25553a3595014036a1763a2aeaf9";
 
 /***/ }),
 
+/***/ "./resources/js/backend/react/assets/placeholder_post_image.png":
+/*!**********************************************************************!*\
+  !*** ./resources/js/backend/react/assets/placeholder_post_image.png ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/placeholder_post_image.png?ddc08f4ad02abd6ac6abc0d2c8052647";
+
+/***/ }),
+
 /***/ "./resources/js/backend/react/backoffice.js":
 /*!**************************************************!*\
   !*** ./resources/js/backend/react/backoffice.js ***!
@@ -103690,7 +103701,7 @@ function (_Component) {
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/admin/dashboard/news/:id/show",
+        path: "/admin/dashboard/news/show/:id",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
@@ -103701,7 +103712,7 @@ function (_Component) {
           }));
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/admin/dashboard/news/:id/edit",
+        path: "/admin/dashboard/news/edit/:id",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
@@ -104015,23 +104026,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _users_UsersPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users/UsersPage */ "./resources/js/backend/react/components/dashboard/users/UsersPage.js");
 /* harmony import */ var _sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sidebar/Sidebar */ "./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js");
 /* harmony import */ var _pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/PagesManagementPage */ "./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
 
@@ -104040,67 +104034,47 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var DashboardPage = function DashboardPage(_ref) {
+  var user = _ref.user,
+      section = _ref.section,
+      contentPage = _ref.contentPage;
+  var contentArea;
 
-var DashboardPage =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(DashboardPage, _Component);
+  switch (contentPage) {
+    case 'main':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Main Content ");
+      break;
 
-  function DashboardPage(props) {
-    _classCallCheck(this, DashboardPage);
+    case 'users':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_UsersPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        user: user
+      });
+      break;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DashboardPage).call(this, props));
+    case 'news':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_NewsPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        user: user,
+        section: section
+      });
+      break;
+
+    case 'pages':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        user: user
+      });
+      break;
+
+    default:
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
   }
 
-  _createClass(DashboardPage, [{
-    key: "render",
-    value: function render() {
-      var contentArea;
-
-      switch (this.props.contentPage) {
-        case 'main':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Main Content ");
-          break;
-
-        case 'users':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_UsersPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            user: this.props.user
-          });
-          break;
-
-        case 'news':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_NewsPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            user: this.props.user,
-            section: this.props.section
-          });
-          break;
-
-        case 'pages':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            user: this.props.user
-          });
-          break;
-
-        default:
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid d-flex",
-        id: "dashboard-page"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        role: "main",
-        className: "px-4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pt-5"
-      }, contentArea)))));
-    }
-  }]);
-
-  return DashboardPage;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container-fluid d-flex",
+    id: "dashboard-page"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container px-4 pt-5"
+  }, contentArea)));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (DashboardPage);
 
@@ -104604,7 +104578,7 @@ function (_Component) {
         to: "/admin/dashboard/news/create",
         className: "btn btn-primary btn-lg"
       }, "Add a new Post")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here's all your posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
+        className: "row"
       }, this.state.posts.length > 0 && this.state.posts.map(function (post, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
           key: idx,
@@ -104646,10 +104620,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var NewsPage = function NewsPage(props) {
-  var deleteSingleNews = function deleteSingleNews(id) {//axios call for deletion
-  };
 
+var NewsPage = function NewsPage(props) {
   var contentArea;
 
   switch (props.section) {
@@ -104685,7 +104657,7 @@ var NewsPage = function NewsPage(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, props.section, contentArea);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (NewsPage);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NewsPage));
 
 /***/ }),
 
@@ -104700,13 +104672,98 @@ var NewsPage = function NewsPage(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../assets/placeholder_post_image.png */ "./resources/js/backend/react/assets/placeholder_post_image.png");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3__);
+var _this = undefined;
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
 
 
 var NewsShow = function NewsShow(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, "Show a post");
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      post = _useState2[0],
+      setPost = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isLoading = _useState4[0],
+      setIsLoading = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      apiError = _useState6[0],
+      setApiError = _useState6[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    console.log('post loading id', props.postId);
+    setIsLoading(true);
+    _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["getPost"](props.postId, function (_ref) {
+      var data = _ref.data;
+      console.log('success', data);
+      setPost(data);
+      setIsLoading(false);
+    }, function (error) {
+      console.log('error submit', error);
+      setApiError(error);
+      setIsLoading(false);
+    });
+  }, []);
+
+  var deleteSingleNews = function deleteSingleNews(id) {
+    //axios call for deletion
+    _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["deletePost"](id, function (_ref2) {
+      var data = _ref2.data;
+      console.log('success', data);
+      props.history.push('/admin/dashboard');
+    }, function (error) {
+      console.log('error submit', error);
+      setApiError(error);
+      setIsLoading(false);
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card mb-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: post && post.image || _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+    className: "card-img-top",
+    alt: "...",
+    style: {
+      maxWidth: '100%'
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title"
+  }, post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, post.post_body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "text-muted"
+  }, post.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/news/edit/".concat(post.id),
+    className: "btn btn-warning btn-lg mr-3"
+  }, "Edit this post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: deleteSingleNews.bind(_this, post.id),
+    className: "btn btn-danger btn-lg text-white"
+  }, "Delete this post"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (NewsShow);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NewsShow));
 
 /***/ }),
 
@@ -104721,17 +104778,23 @@ var NewsShow = function NewsShow(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../assets/placeholder_post_image.png */ "./resources/js/backend/react/assets/placeholder_post_image.png");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+
+
+
 
 
 var PostCard = function PostCard(_ref) {
   var post = _ref.post;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card",
-    style: {
-      'width': '18rem'
-    }
+    className: "col-md-6 col-xl-4 px-2 mb-5"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: post.imgSrc || null,
+    src: post && post.image || _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2___default.a,
     className: "card-img-top",
     alt: "...where is the image"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -104740,10 +104803,10 @@ var PostCard = function PostCard(_ref) {
     className: "card-title"
   }, post.title || 'Sample title'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, post.subtitle || 'Sample subtitle'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "card-text"
-  }, post.post_body || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
+  }, post.post_body || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/news/show/".concat(post.id),
     className: "btn btn-primary"
-  }, "Open")));
+  }, "Open"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostCard);
@@ -105141,7 +105204,7 @@ function getAllPosts(success, fail) {
   });
 }
 function getPost(postId, success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/admin/post/show/".concat(postId)).then(function (res) {
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/admin/post/".concat(postId)).then(function (res) {
     success(res.data);
   })["catch"](function (error) {
     fail(error.response.data);

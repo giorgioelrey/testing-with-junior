@@ -20,7 +20,7 @@ export function getAllPosts(success, fail){
 
 export function getPost(postId, success, fail){
 
-  axios.get(`/api/admin/post/show/${postId}`)
+  axios.get(`/api/admin/post/${postId}`)
     .then(res => {
 
       success(res.data);

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Navbar from './Navbar';
 import NewsPage from './news/NewsPage';
@@ -7,31 +7,23 @@ import Sidebar from './sidebar/Sidebar';
 import PagesManagementPage from './pages/PagesManagementPage';
 
 
-class DashboardPage extends Component {
 
-  constructor(props) {
-
-    super(props);
-
-  }
-
-
-  render() {
+const DashboardPage = ({user, section, contentPage}) => {
 
     let contentArea;
 
-    switch(this.props.contentPage) {
+    switch(contentPage) {
     case 'main':
       contentArea = (<div>Main Content </div>)
       break;
     case 'users':
-      contentArea = (<UsersPage user={this.props.user}/>)
+      contentArea = (<UsersPage user={user}/>)
       break;
     case 'news':
-      contentArea = (<NewsPage user={this.props.user} section={this.props.section}/>)
+      contentArea = (<NewsPage user={user} section={section}/>)
       break;
     case 'pages':
-      contentArea = (<PagesManagementPage user={this.props.user}/>)
+      contentArea = (<PagesManagementPage user={user}/>)
       break;
     default:
       contentArea = (<div>not chosen</div>)
@@ -43,26 +35,20 @@ class DashboardPage extends Component {
         <Navbar />
         <div className="container-fluid d-flex" id="dashboard-page">
 
-              <div className="row">
-
               <Sidebar />
 
-                <div role="main" className="px-4">
+              <div className="container px-4 pt-5">
 
-                  <div className="pt-5">
-                      {contentArea}
-                  </div>
+                  {contentArea}
 
-                </div>
               </div>
+
             </div>
-
-
 
       </Fragment>
 
     );
-  }
+
 }
 
 export default DashboardPage;

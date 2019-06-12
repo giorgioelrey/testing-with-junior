@@ -37,11 +37,11 @@ class App extends Component {
           render={(props) => (<DashboardPage {...props} contentPage="news" section="create" user={{name: 'test-user'}} />)}
           />
           <Route
-          path="/admin/dashboard/news/:id/show"
+          path="/admin/dashboard/news/show/:id"
           render={(props) => (<DashboardPage {...props} contentPage="news" section="show" user={{name: 'test-user'}} />)}
           />
           <Route
-           path="/admin/dashboard/news/:id/edit"
+           path="/admin/dashboard/news/edit/:id"
           render={(props) => (<DashboardPage {...props} contentPage="news" section="edit" user={{name: 'test-user'}} />)}
           />
           <Route
