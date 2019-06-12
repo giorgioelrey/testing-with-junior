@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import {Switch, Route, Link,Redirect} from 'react-router-dom';
-import LoginPage from './LoginPage';
-import Navbar from './Navbar';
-import DashboardPage from './DashboardPage';
+import LoginPage from './auth/LoginPage';
+import Navbar from './dashboard/Navbar';
+import DashboardPage from './dashboard/DashboardPage';
 
 class App extends Component {
   render() {

@@ -103583,9 +103583,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./LoginPage */ "./resources/js/backend/react/components/LoginPage.js");
-/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Navbar */ "./resources/js/backend/react/components/Navbar.js");
-/* harmony import */ var _DashboardPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DashboardPage */ "./resources/js/backend/react/components/DashboardPage.js");
+/* harmony import */ var _auth_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/LoginPage */ "./resources/js/backend/react/components/auth/LoginPage.js");
+/* harmony import */ var _dashboard_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/Navbar */ "./resources/js/backend/react/components/dashboard/Navbar.js");
+/* harmony import */ var _dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/DashboardPage */ "./resources/js/backend/react/components/dashboard/DashboardPage.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -103630,13 +103630,13 @@ function (_Component) {
         exact: true,
         path: "/admin/",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], props);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_auth_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], props);
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "/admin/dashboard",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "main",
             user: {
               name: 'test-user'
@@ -103647,7 +103647,7 @@ function (_Component) {
         exact: true,
         path: "/admin/dashboard/main",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "main",
             user: {
               name: 'test-user'
@@ -103658,7 +103658,7 @@ function (_Component) {
         exact: true,
         path: "/admin/dashboard/users",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "list",
             user: {
               name: 'test-user'
@@ -103669,7 +103669,7 @@ function (_Component) {
         exact: true,
         path: "/admin/dashboard/news",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
             section: "list",
             user: {
@@ -103681,7 +103681,7 @@ function (_Component) {
         exact: true,
         path: "/admin/dashboard/news/create",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
             section: "create",
             user: {
@@ -103692,7 +103692,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/admin/dashboard/news/:id/show",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
             section: "show",
             user: {
@@ -103703,7 +103703,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/admin/dashboard/news/:id/edit",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "news",
             section: "edit",
             user: {
@@ -103715,7 +103715,7 @@ function (_Component) {
         exact: true,
         path: "/admin/dashboard/pages",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
             contentPage: "list",
             user: {
               name: 'test-user'
@@ -103743,114 +103743,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
-
-/***/ }),
-
-/***/ "./resources/js/backend/react/components/DashboardPage.js":
-/*!****************************************************************!*\
-  !*** ./resources/js/backend/react/components/DashboardPage.js ***!
-  \****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navbar */ "./resources/js/backend/react/components/Navbar.js");
-/* harmony import */ var _NewsPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsPage */ "./resources/js/backend/react/components/NewsPage.js");
-/* harmony import */ var _UsersPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UsersPage */ "./resources/js/backend/react/components/UsersPage.js");
-/* harmony import */ var _Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Sidebar */ "./resources/js/backend/react/components/Sidebar.js");
-/* harmony import */ var _PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./PagesManagementPage */ "./resources/js/backend/react/components/PagesManagementPage.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-
-
-
-
-var DashboardPage =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(DashboardPage, _Component);
-
-  function DashboardPage(props) {
-    _classCallCheck(this, DashboardPage);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(DashboardPage).call(this, props));
-  }
-
-  _createClass(DashboardPage, [{
-    key: "render",
-    value: function render() {
-      var contentArea;
-
-      switch (this.props.contentPage) {
-        case 'main':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Main Content ");
-          break;
-
-        case 'users':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UsersPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            user: this.props.user
-          });
-          break;
-
-        case 'news':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            user: this.props.user,
-            section: this.props.section
-          });
-          break;
-
-        case 'pages':
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
-            user: this.props.user
-          });
-          break;
-
-        default:
-          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
-      }
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "container-fluid d-flex",
-        id: "dashboard-page"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        role: "main",
-        className: "px-4"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "pt-5"
-      }, contentArea)))));
-    }
-  }]);
-
-  return DashboardPage;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (DashboardPage);
 
 /***/ }),
 
@@ -103885,10 +103777,10 @@ var ErrorsAlert = function ErrorsAlert(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/LoginPage.js":
-/*!************************************************************!*\
-  !*** ./resources/js/backend/react/components/LoginPage.js ***!
-  \************************************************************/
+/***/ "./resources/js/backend/react/components/auth/LoginPage.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/backend/react/components/auth/LoginPage.js ***!
+  \*****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -103902,10 +103794,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../assets/logo_core.png */ "./resources/js/backend/react/assets/logo_core.png");
+/* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../assets/logo_core.png */ "./resources/js/backend/react/assets/logo_core.png");
 /* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_assets_logo_core_png__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _helpers_axiosHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../helpers/axiosHelper */ "./resources/js/backend/react/helpers/axiosHelper.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _helpers_axiosHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../helpers/axiosHelper */ "./resources/js/backend/react/helpers/axiosHelper.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -104106,10 +103998,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/Navbar.js":
-/*!*********************************************************!*\
-  !*** ./resources/js/backend/react/components/Navbar.js ***!
-  \*********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/DashboardPage.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/DashboardPage.js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104118,7 +104010,115 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../assets/logo_core.png */ "./resources/js/backend/react/assets/logo_core.png");
+/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navbar */ "./resources/js/backend/react/components/dashboard/Navbar.js");
+/* harmony import */ var _news_NewsPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./news/NewsPage */ "./resources/js/backend/react/components/dashboard/news/NewsPage.js");
+/* harmony import */ var _users_UsersPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users/UsersPage */ "./resources/js/backend/react/components/dashboard/users/UsersPage.js");
+/* harmony import */ var _sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sidebar/Sidebar */ "./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js");
+/* harmony import */ var _pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/PagesManagementPage */ "./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var DashboardPage =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(DashboardPage, _Component);
+
+  function DashboardPage(props) {
+    _classCallCheck(this, DashboardPage);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(DashboardPage).call(this, props));
+  }
+
+  _createClass(DashboardPage, [{
+    key: "render",
+    value: function render() {
+      var contentArea;
+
+      switch (this.props.contentPage) {
+        case 'main':
+          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Main Content ");
+          break;
+
+        case 'users':
+          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_UsersPage__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            user: this.props.user
+          });
+          break;
+
+        case 'news':
+          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_news_NewsPage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            user: this.props.user,
+            section: this.props.section
+          });
+          break;
+
+        case 'pages':
+          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            user: this.props.user
+          });
+          break;
+
+        default:
+          contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container-fluid d-flex",
+        id: "dashboard-page"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "row"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        role: "main",
+        className: "px-4"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "pt-5"
+      }, contentArea)))));
+    }
+  }]);
+
+  return DashboardPage;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (DashboardPage);
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/Navbar.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/Navbar.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../assets/logo_core.png */ "./resources/js/backend/react/assets/logo_core.png");
 /* harmony import */ var _assets_logo_core_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_logo_core_png__WEBPACK_IMPORTED_MODULE_2__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -104234,10 +104234,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/NewsCreate.js":
-/*!*************************************************************!*\
-  !*** ./resources/js/backend/react/components/NewsCreate.js ***!
-  \*************************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsCreate.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsCreate.js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104253,9 +104253,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
-/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -104500,10 +104500,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/NewsEdit.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/components/NewsEdit.js ***!
-  \***********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsEdit.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsEdit.js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104521,10 +104521,10 @@ var NewsEdit = function NewsEdit(props) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/NewsList.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/components/NewsList.js ***!
-  \***********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsList.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsList.js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104533,9 +104533,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/PostCard.js");
-/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/dashboard/news/PostCard.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -104621,10 +104621,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/NewsPage.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/components/NewsPage.js ***!
-  \***********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsPage.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsPage.js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104633,11 +104633,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/PostCard.js");
-/* harmony import */ var _NewsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsList */ "./resources/js/backend/react/components/NewsList.js");
-/* harmony import */ var _NewsShow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NewsShow */ "./resources/js/backend/react/components/NewsShow.js");
-/* harmony import */ var _NewsCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsCreate */ "./resources/js/backend/react/components/NewsCreate.js");
-/* harmony import */ var _NewsEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NewsEdit */ "./resources/js/backend/react/components/NewsEdit.js");
+/* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/dashboard/news/PostCard.js");
+/* harmony import */ var _NewsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsList */ "./resources/js/backend/react/components/dashboard/news/NewsList.js");
+/* harmony import */ var _NewsShow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NewsShow */ "./resources/js/backend/react/components/dashboard/news/NewsShow.js");
+/* harmony import */ var _NewsCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsCreate */ "./resources/js/backend/react/components/dashboard/news/NewsCreate.js");
+/* harmony import */ var _NewsEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NewsEdit */ "./resources/js/backend/react/components/dashboard/news/NewsEdit.js");
 
 
 
@@ -104689,10 +104689,10 @@ var NewsPage = function NewsPage(props) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/NewsShow.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/components/NewsShow.js ***!
-  \***********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsShow.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsShow.js ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104710,10 +104710,50 @@ var NewsShow = function NewsShow(props) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/PagesManagementPage.js":
-/*!**********************************************************************!*\
-  !*** ./resources/js/backend/react/components/PagesManagementPage.js ***!
-  \**********************************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/PostCard.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/PostCard.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var PostCard = function PostCard(_ref) {
+  var post = _ref.post;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card",
+    style: {
+      'width': '18rem'
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: post.imgSrc || null,
+    className: "card-img-top",
+    alt: "...where is the image"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title"
+  }, post.title || 'Sample title'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, post.subtitle || 'Sample subtitle'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, post.post_body || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    href: "#",
+    className: "btn btn-primary"
+  }, "Open")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PostCard);
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js ***!
+  \**************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104766,50 +104806,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/PostCard.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/components/PostCard.js ***!
-  \***********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var PostCard = function PostCard(_ref) {
-  var post = _ref.post;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card",
-    style: {
-      'width': '18rem'
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: post.imgSrc || null,
-    className: "card-img-top",
-    alt: "...where is the image"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "card-body"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
-    className: "card-title"
-  }, post.title || 'Sample title'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, post.subtitle || 'Sample subtitle'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "card-text"
-  }, post.post_body || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "#",
-    className: "btn btn-primary"
-  }, "Go somewhere")));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (PostCard);
-
-/***/ }),
-
-/***/ "./resources/js/backend/react/components/Sidebar.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/backend/react/components/Sidebar.js ***!
-  \**********************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104818,7 +104818,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Sidebar; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SidebarLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SidebarLink */ "./resources/js/backend/react/components/SidebarLink.js");
+/* harmony import */ var _SidebarLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SidebarLink */ "./resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -104928,10 +104928,10 @@ Sidebar.defaultProps = {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/SidebarLink.js":
-/*!**************************************************************!*\
-  !*** ./resources/js/backend/react/components/SidebarLink.js ***!
-  \**************************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104983,10 +104983,10 @@ var SidebarLink = function SidebarLink(_ref) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/UsersPage.js":
-/*!************************************************************!*\
-  !*** ./resources/js/backend/react/components/UsersPage.js ***!
-  \************************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/users/UsersPage.js":
+/*!****************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/users/UsersPage.js ***!
+  \****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

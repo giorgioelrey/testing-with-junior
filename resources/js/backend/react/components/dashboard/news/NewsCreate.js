@@ -4,11 +4,11 @@ import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
-import ErrorsAlert from './ErrorsAlert';
+import ErrorsAlert from './../../ErrorsAlert';
 
 //Helpers
-import * as pagesHelper from './../helpers/pagesHelper';
-import * as postHelper from './../helpers/postHelper';
+import * as pagesHelper from './../../../helpers/pagesHelper';
+import * as postHelper from './../../../helpers/postHelper';
 
 class NewsCreate extends Component {
 

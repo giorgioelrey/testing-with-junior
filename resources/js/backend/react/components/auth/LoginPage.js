@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom';
-import logo_core from './../assets/logo_core.png';
-import ErrorsAlert from './ErrorsAlert';
+import logo_core from './../../assets/logo_core.png';
+import ErrorsAlert from './../ErrorsAlert';
 //Helpers
-import * as axiosHelper from './../helpers/axiosHelper';
+import * as axiosHelper from './../../helpers/axiosHelper';
 
 class LoginPage extends Component {
 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import ErrorsAlert from './ErrorsAlert';
+import ErrorsAlert from './../../ErrorsAlert';
 import PostCard from './PostCard';
-import * as postHelper from './../helpers/postHelper';
+
+import * as postHelper from './../../../helpers/postHelper';
 
 class NewsList extends Component {
 

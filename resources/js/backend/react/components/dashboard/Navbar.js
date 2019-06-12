@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 //withRouter gives us the ability to navigate
 //even if the component is not within a Route
 import { NavLink, withRouter } from 'react-router-dom';
-import logo_core from './../assets/logo_core.png';
+import logo_core from './../../assets/logo_core.png';
 
 class Navbar extends Component {
 

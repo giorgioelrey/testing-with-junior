@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Navbar from './Navbar';
-import NewsPage from './NewsPage';
-import UsersPage from './UsersPage';
-import Sidebar from './Sidebar';
-import PagesManagementPage from './PagesManagementPage';
+import NewsPage from './news/NewsPage';
+import UsersPage from './users/UsersPage';
+import Sidebar from './sidebar/Sidebar';
+import PagesManagementPage from './pages/PagesManagementPage';
 
 
 class DashboardPage extends Component {
