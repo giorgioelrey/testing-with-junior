@@ -41,7 +41,7 @@ const NewsShow = (props) => {
       ({data}) => {
 
         console.log('success', data);
-        props.history.push('/admin/dashboard');
+        props.history.push('/admin/dashboard/news');
 
       },
       (error) => {

@@ -104727,7 +104727,7 @@ var NewsShow = function NewsShow(props) {
     _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["deletePost"](id, function (_ref2) {
       var data = _ref2.data;
       console.log('success', data);
-      props.history.push('/admin/dashboard');
+      props.history.push('/admin/dashboard/news');
     }, function (error) {
       console.log('error submit', error);
       setApiError(error);
