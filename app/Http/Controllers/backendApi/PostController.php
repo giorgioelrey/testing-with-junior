@@ -86,9 +86,11 @@ class PostController extends Controller
 
     public function update(Request $request)
     {
+
+
       $input = $request->all();
 
-      $post = Post::find($id);
+      $post = Post::find($input['id']);
       $data = $post->toArray();
 
       if (is_null($post)) {
@@ -100,7 +102,7 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
-      /*
+/*
 
       APPLY VALIDATION
        $validator = Validator::make($input, [
@@ -117,12 +119,11 @@ class PostController extends Controller
            return response()->json($response, 404);
        }
 
-       */
+      */
 
       //UPDATE OPS
-      //$post->title = $input['title'];
-
-       $post->save();
+      $post->update($input);
+      $post->save();
 
        $data = $post->toArray();
 

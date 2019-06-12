@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
 import PostCard from './PostCard';
-
-
 import * as postHelper from './../../../helpers/postHelper';
 
 class NewsList extends Component {
@@ -31,11 +29,11 @@ class NewsList extends Component {
       return (
         <React.Fragment>
 
-            <div>
-            <Link to="/admin/dashboard/news/create" className="btn btn-primary btn-lg">Add a new Post</Link>
+            <div className="d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap">
+              <h1>Here's all your posts</h1>
+              <Link to="/admin/dashboard/news/create" className="btn btn-primary btn-lg">Add a new Post</Link>
             </div>
 
-            <h1>Here's all your posts</h1>
 
             <div className="row">
               {this.state.posts.length > 0 &&

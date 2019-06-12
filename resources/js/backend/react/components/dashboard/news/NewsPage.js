@@ -24,13 +24,14 @@ const NewsPage = (props) => {
       break;
     case 'edit':
         contentArea = (<NewsEdit user={props.user} postId={props.match.params.id}/>)
+        break;
   default:
     contentArea = (<div>not chosen</div>)
   }
 
     return (
         <Fragment>
-            {props.section}
+            {/*props.section*/}
             {contentArea}
         </Fragment>
     );

@@ -104222,14 +104222,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
-/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
-/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
-/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _NewsForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsForm */ "./resources/js/backend/react/components/dashboard/news/NewsForm.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -104246,15 +104242,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
 
 
 
@@ -104277,192 +104271,78 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsCreate).call(this, props));
     _this.state = {
-      errors: [],
-      pages_available: [],
-      api_error: null
+      serverValidationErrors: [],
+      pagesAvailable: ['Travel', 'Blog', 'Hotels'],
+      apiError: null
     };
+    _this.onNewPostSubmit = _this.onNewPostSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
+  /*
+    componentDidMount(){
+  
+      //getAllPagesAvailableForPublishing(success, fail)
+      pagesHelper.getAllPages(
+        ({data}) => { console.log('pages found', data); this.setState({pagesAvailable: data}) },
+        (error) => {console.log(error); this.setState({ apiError: error}) }
+      )
+  
+    }
+  */
+
 
   _createClass(NewsCreate, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
+    key: "onNewPostSubmit",
+    value: function () {
+      var _onNewPostSubmit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
+        var _this2 = this;
 
-      //getAllPagesAvailableForPublishing(success, fail)
-      _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_7__["getAllPages"](function (_ref) {
-        var data = _ref.data;
-        console.log('pages found', data);
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
+                _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["submitPost"](fields, function (_ref) {
+                  var data = _ref.data;
+                  console.log('success', data);
 
-        _this2.setState({
-          pages_available: data
-        });
-      }, function (error) {
-        console.log(error);
+                  _this2.props.history.push('/admin/dashboard/news');
+                }, function (error) {
+                  console.log('error submit', error);
 
-        _this2.setState({
-          api_error: error
-        });
-      });
-    }
+                  _this2.setState({
+                    errors: error
+                  });
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function onNewPostSubmit(_x) {
+        return _onNewPostSubmit.apply(this, arguments);
+      }
+
+      return onNewPostSubmit;
+    }()
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
-
-      var errorsContent = this.state.errors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        errors: this.state.errors
+      var serverErrors = this.state.serverValidationErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        errors: this.state.serverValidationErrors
       }) || null;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container",
         id: "create-news-page"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), this.state.api_error, errorsContent, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Formik"], {
-        initialValues: {
-          title: '',
-          subtitle: '',
-          post_body: '',
-          publish_status: '',
-          destination_page: '',
-          slug: 'test'
-        },
-        validationSchema: yup__WEBPACK_IMPORTED_MODULE_5__["object"]().shape({
-          title: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(6, 'Title must be at least 6 characters').required('Title is required'),
-          subtitle: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(6, 'Subtitle must be at least 6 characters').required('Subtitle is required'),
-          post_body: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().min(30, 'Post body must be at least 30 characters').required('Post body is required'),
-          publish_status: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().required('Please select if you want to publish now or later'),
-          destination_page: yup__WEBPACK_IMPORTED_MODULE_5__["string"]().required('Please select wich page you want to publish this post at')
-        }),
-        onSubmit:
-        /*#__PURE__*/
-        function () {
-          var _ref2 = _asyncToGenerator(
-          /*#__PURE__*/
-          _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
-                  case 0:
-                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                    _helpers_postHelper__WEBPACK_IMPORTED_MODULE_8__["submitPost"](fields, function (_ref3) {
-                      var data = _ref3.data;
-                      console.log('success', data);
-
-                      _this3.props.history.push('/admin/dashboard/news');
-                    }, function (error) {
-                      console.log('error submit', error);
-
-                      _this3.setState({
-                        api_error: error
-                      });
-                    });
-
-                  case 2:
-                  case "end":
-                    return _context.stop();
-                }
-              }
-            }, _callee);
-          }));
-
-          return function (_x) {
-            return _ref2.apply(this, arguments);
-          };
-        }(),
-        render: function render(_ref4) {
-          var errors = _ref4.errors,
-              status = _ref4.status,
-              touched = _ref4.touched;
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Form"], {
-            className: "cms-form login"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group form-label-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "title"
-          }, "Title"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
-            name: "title",
-            type: "text",
-            className: 'form-control' + (errors.title && touched.title ? ' is-invalid' : ''),
-            placeholder: "Type title"
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
-            name: "title",
-            component: "div",
-            className: "invalid-feedback"
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group form-label-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "subtitle"
-          }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
-            name: "subtitle",
-            type: "text",
-            className: 'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : ''),
-            placeholder: "Type subtitle"
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
-            name: "subtitle",
-            component: "div",
-            className: "invalid-feedback"
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group form-label-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "post_body"
-          }, "Post Body"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
-            name: "post_body"
-          }, function (_ref5) {
-            var field = _ref5.field,
-                errors = _ref5.errors;
-            //console.log(field, errors);
-            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_3___default.a, {
-              value: field.value,
-              onChange: field.onChange(field.name)
-            });
-          }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: 'invalid-feedback ' + (errors.post_body ? 'd-block' : '')
-          }, errors.post_body)), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group form-label-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "publish_status"
-          }, "When do you want to publish"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
-            name: "publish_status",
-            component: "select",
-            className: 'form-control ' + (errors.publish_status && touched.publish_status ? ' is-invalid' : '')
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-            value: ""
-          }, "Select now or later"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-            value: "now"
-          }, "Now"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-            value: "pending"
-          }, "Later")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
-            name: "publish_status",
-            component: "div",
-            className: "invalid-feedback"
-          })), _this3.state.pages_available.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group form-label-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-            htmlFor: "destination_page"
-          }, "Where do you want to publish this post at"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["Field"], {
-            name: "destination_page",
-            component: "select",
-            className: 'form-control ' + (errors.destination_page && touched.destination_page ? ' is-invalid' : '')
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-            value: ""
-          }, "Select destination page"), _this3.state.pages_available.map(function (page, idx) {
-            return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
-              key: idx,
-              value: idx
-            }, page);
-          })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_4__["ErrorMessage"], {
-            name: "destination_page",
-            component: "div",
-            className: "invalid-feedback"
-          })) || null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-            className: "form-group"
-          }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-            type: "submit",
-            className: "btn btn-primary mr-2"
-          }, "Submit new post"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-            type: "reset",
-            className: "btn btn-info text- mr-2"
-          }, "Reset")));
-        }
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), this.state.apiError, serverErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onSubmit: this.onNewPostSubmit,
+        pagesAvailable: this.state.pagesAvailable
       })));
     }
   }]);
@@ -104483,15 +104363,328 @@ function (_Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _NewsForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsForm */ "./resources/js/backend/react/components/dashboard/news/NewsForm.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+ //Helpers
+
+
+
+
+var NewsEdit =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(NewsEdit, _Component);
+
+  function NewsEdit(props) {
+    var _this;
+
+    _classCallCheck(this, NewsEdit);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsEdit).call(this, props));
+    _this.state = {
+      serverErrors: [],
+      pagesAvailable: ['Travel', 'Blog', 'Hotels'],
+      apiError: null,
+      isLoading: true,
+      post: {}
+    };
+    _this.onNewsEditSubmit = _this.onNewsEditSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(NewsEdit, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      /*
+      //getAllPagesAvailableForPublishing(success, fail)
+      pagesHelper.getAllPages(
+        ({data}) => { console.log('pages found', data); this.setState({pagesAvailable: data}) },
+        (error) => {console.log(error); this.setState({ apiError: error}) }
+      )
+      */
+      _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["getPost"](this.props.postId, function (_ref) {
+        var data = _ref.data;
+        console.log('success', data);
+
+        _this2.setState({
+          post: data,
+          isLoading: false
+        });
+      }, function (error) {
+        console.log('error submit', error);
+
+        _this2.setState({
+          serverErrors: [error],
+          isLoading: false
+        });
+      });
+    }
+  }, {
+    key: "onNewsEditSubmit",
+    value: function () {
+      var _onNewsEditSubmit = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
+        var _this3 = this;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
+                _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["updatePost"](fields, function (_ref2) {
+                  var data = _ref2.data;
+                  console.log('success', data);
+
+                  _this3.props.history.push('/admin/dashboard/news');
+                }, function (error) {
+                  console.log('error submit', error);
+
+                  _this3.setState({
+                    errors: error
+                  });
+                });
+
+              case 2:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function onNewsEditSubmit(_x) {
+        return _onNewsEditSubmit.apply(this, arguments);
+      }
+
+      return onNewsEditSubmit;
+    }()
+  }, {
+    key: "render",
+    value: function render() {
+      var serverErrors = this.state.serverErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        errors: this.state.serverErrors
+      }) || null;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "container",
+        id: "create-news-page"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Edit your post"), this.state.apiError, serverErrors, !this.state.isLoading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        onSubmit: this.onNewsEditSubmit,
+        pagesAvailable: this.state.pagesAvailable,
+        post: this.state.post
+      })));
+    }
+  }]);
+
+  return NewsEdit;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(NewsEdit));
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsForm.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsForm.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_3__);
 
 
-var NewsEdit = function NewsEdit(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, "Edit a post");
+
+
+
+var NewsForm = function NewsForm(_ref) {
+  var post = _ref.post,
+      initialValues = _ref.initialValues,
+      yupSchema = _ref.yupSchema,
+      pagesAvailable = _ref.pagesAvailable,
+      _onSubmit = _ref.onSubmit;
+  var formStartingValues = post && {
+    title: post.title || '',
+    subtitle: post.subtitle || '',
+    post_body: post.post_body || '',
+    publish_status: post.publish_status || '',
+    destination_page: post.destination_page || '',
+    slug: post.slug || 'test',
+    id: post.id || ''
+  } || initialValues;
+  console.log(formStartingValues);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Formik"], {
+    initialValues: formStartingValues,
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__["object"]().shape(yupSchema),
+    onSubmit: function onSubmit(fields) {
+      _onSubmit(fields);
+    },
+    render: function render(_ref2) {
+      var errors = _ref2.errors,
+          status = _ref2.status,
+          touched = _ref2.touched;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+        className: "cms-form login"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        type: "hidden",
+        className: "form-control",
+        name: "id"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "title"
+      }, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "title",
+        type: "text",
+        className: 'form-control' + (errors.title && touched.title ? ' is-invalid' : ''),
+        placeholder: "Type title"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "title",
+        component: "div",
+        className: "invalid-feedback"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "subtitle"
+      }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "subtitle",
+        type: "text",
+        className: 'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : ''),
+        placeholder: "Type subtitle"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "subtitle",
+        component: "div",
+        className: "invalid-feedback"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "post_body"
+      }, "Post Body"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "post_body"
+      }, function (_ref3) {
+        var field = _ref3.field,
+            errors = _ref3.errors;
+        //console.log(field, errors);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          value: field.value,
+          onChange: field.onChange(field.name)
+        });
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: 'invalid-feedback ' + (errors.post_body ? 'd-block' : '')
+      }, errors.post_body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "publish_status"
+      }, "When do you want to publish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "publish_status",
+        component: "select",
+        className: 'form-control ' + (errors.publish_status && touched.publish_status ? ' is-invalid' : '')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "Select now or later"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "now"
+      }, "Now"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "pending"
+      }, "Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "publish_status",
+        component: "div",
+        className: "invalid-feedback"
+      })), pagesAvailable.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "destination_page"
+      }, "Where do you want to publish this post at"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "destination_page",
+        component: "select",
+        className: 'form-control ' + (errors.destination_page && touched.destination_page ? ' is-invalid' : '')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "Select destination page"), pagesAvailable.map(function (page, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: idx,
+          value: idx
+        }, page);
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "destination_page",
+        component: "div",
+        className: "invalid-feedback"
+      })) || null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-primary mr-2"
+      }, "Submit new post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "reset",
+        className: "btn btn-info text- mr-2"
+      }, "Reset")));
+    }
+  }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (NewsEdit);
+/* harmony default export */ __webpack_exports__["default"] = (NewsForm);
+NewsForm.defaultProps = {
+  initialValues: {
+    title: '',
+    subtitle: '',
+    post_body: '',
+    publish_status: '',
+    destination_page: '',
+    slug: 'test',
+    id: ''
+  },
+  yupSchema: {
+    title: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(6, 'Title must be at least 6 characters').required('Title is required'),
+    subtitle: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(6, 'Subtitle must be at least 6 characters').required('Subtitle is required'),
+    post_body: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(30, 'Post body must be at least 30 characters').required('Post body is required'),
+    publish_status: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Please select if you want to publish now or later'),
+    destination_page: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Please select wich page you want to publish this post at')
+  },
+  pagesAvailable: []
+};
 
 /***/ }),
 
@@ -104574,10 +104767,12 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here's all your posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/admin/dashboard/news/create",
         className: "btn btn-primary btn-lg"
-      }, "Add a new Post")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here's all your posts"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Add a new Post")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, this.state.posts.length > 0 && this.state.posts.map(function (post, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PostCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -104649,12 +104844,13 @@ var NewsPage = function NewsPage(props) {
         user: props.user,
         postId: props.match.params.id
       });
+      break;
 
     default:
       contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, props.section, contentArea);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, contentArea);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NewsPage));
@@ -104805,8 +105001,11 @@ var PostCard = function PostCard(_ref) {
     className: "card-text"
   }, post.post_body || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/admin/dashboard/news/show/".concat(post.id),
-    className: "btn btn-primary"
-  }, "Open"))));
+    className: "btn btn-primary btn-lg"
+  }, "Open"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/news/edit/".concat(post.id),
+    className: "btn btn-warning btn-lg ml-3"
+  }, "Edit this post"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PostCard);
