@@ -80090,11 +80090,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/frontend/bootstrap.js");
  */
 
 
-console.log(window.location.pathname === '/');
-
-if (window.location.pathname === '/') {
-  __webpack_require__(/*! ./calendar/homeCalendar.js */ "./resources/js/frontend/calendar/homeCalendar.js");
-}
+__webpack_require__(/*! ./calendar/homeCalendar.js */ "./resources/js/frontend/calendar/homeCalendar.js");
 
 /***/ }),
 
@@ -80249,6 +80245,8 @@ function (_Component) {
 
       if (!!nextState.date) {
         nextState.date.locale(this.props.locale);
+        console.log('Calendar component componentWillUpdate');
+        this.props.showEventsOnChange(nextState.date);
       }
 
       nextState.month.locale(this.props.locale);
@@ -80603,6 +80601,56 @@ DayOfWeek.propTypes = {
 
 /***/ }),
 
+/***/ "./resources/js/frontend/calendar/components/Event.js":
+/*!************************************************************!*\
+  !*** ./resources/js/frontend/calendar/components/Event.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Event = function Event(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Evento");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Event);
+
+/***/ }),
+
+/***/ "./resources/js/frontend/calendar/components/EventsList.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/frontend/calendar/components/EventsList.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Event__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Event */ "./resources/js/frontend/calendar/components/Event.js");
+
+
+
+var EventsList = function EventsList(_ref) {
+  var events = _ref.events,
+      date = _ref.date;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hai selezionato ", date), events.length > 0 && events.map(function (event, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Event__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      key: idx
+    }, event.title, " ");
+  }) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Nessun evento da mostrare"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EventsList);
+
+/***/ }),
+
 /***/ "./resources/js/frontend/calendar/components/Week.js":
 /*!***********************************************************!*\
   !*** ./resources/js/frontend/calendar/components/Week.js ***!
@@ -80642,10 +80690,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_Calendar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Calendar */ "./resources/js/frontend/calendar/components/Calendar.js");
 /* harmony import */ var _components_CustomDayRenderer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CustomDayRenderer */ "./resources/js/frontend/calendar/components/CustomDayRenderer.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment/locale/it */ "./node_modules/moment/locale/it.js");
-/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_locale_it__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_EventsList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/EventsList */ "./resources/js/frontend/calendar/components/EventsList.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment/locale/it */ "./node_modules/moment/locale/it.js");
+/* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_locale_it__WEBPACK_IMPORTED_MODULE_6__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80656,13 +80705,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -80676,25 +80726,47 @@ var EventsCalendar =
 function (_Component) {
   _inherits(EventsCalendar, _Component);
 
-  function EventsCalendar() {
+  function EventsCalendar(props) {
+    var _this;
+
     _classCallCheck(this, EventsCalendar);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EventsCalendar).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EventsCalendar).call(this, props));
+    _this.state = {
+      date: _this.props.date,
+      events: []
+    };
+    _this.onSelect = _this.onSelect.bind(_assertThisInitialized(_this));
+    _this.getEventsPerDay = _this.getEventsPerDay.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(EventsCalendar, [{
+    key: "getEventsPerDay",
+    value: function getEventsPerDay(date) {
+      console.log('chiamo api e invio ', date);
+    }
+  }, {
     key: "onSelect",
     value: function onSelect(date, previousDate, currentMonth) {
-      if (moment__WEBPACK_IMPORTED_MODULE_4___default()(date).isSame(previousDate)) {
+      if (moment__WEBPACK_IMPORTED_MODULE_5___default()(date).isSame(previousDate)) {
         console.info('onSelect: false', date);
         return false;
       } else if (currentMonth.isSame(date, 'month')) {
         console.info('onSelect: true', date);
-        console.log('chiamo api');
+        this.setState({
+          date: date
+        });
         return true;
       } else {
         console.info('onSelect: none', date);
       }
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      console.log('componentDidMount', this.state.date);
+      this.getEventsPerDay(this.state.date);
     }
   }, {
     key: "render",
@@ -80710,11 +80782,16 @@ function (_Component) {
       };
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Calendario Ita"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Calendar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        date: this.state.date,
         onSelect: this.onSelect,
         locale: "it",
         dayRenderer: _components_CustomDayRenderer__WEBPACK_IMPORTED_MODULE_3__["default"],
         startOfWeekIndex: 1,
+        showEventsOnChange: this.getEventsPerDay,
         dayClasses: dayClasses
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_EventsList__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        date: this.state.date.format('DD/MM/YYYY'),
+        events: this.state.events
       }));
     }
   }]);
@@ -80722,7 +80799,9 @@ function (_Component) {
   return EventsCalendar;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventsCalendar, null), document.getElementById('react-calendar'));
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EventsCalendar, {
+  date: moment__WEBPACK_IMPORTED_MODULE_5___default()()
+}), document.getElementById('react-calendar'));
 
 /***/ }),
 

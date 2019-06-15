@@ -12,9 +12,4 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-console.log(window.location.pathname === '/')
-
-
- if (window.location.pathname === '/') {
    require('./calendar/homeCalendar.js')
- }

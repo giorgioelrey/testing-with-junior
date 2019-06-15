@@ -40,6 +40,8 @@ class Calendar extends Component {
 
     if (!!nextState.date) {
       nextState.date.locale(this.props.locale);
+      console.log('Calendar component componentWillUpdate');
+      this.props.showEventsOnChange(nextState.date);
     }
 
     nextState.month.locale(this.props.locale);
