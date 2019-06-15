@@ -61702,9 +61702,9 @@ if (document.getElementById('example')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\testing\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\laragon\www\testing\resources\sass\frontend\app.scss */"./resources/sass/frontend/app.scss");
-module.exports = __webpack_require__(/*! C:\laragon\www\testing\resources\sass\backend\app.scss */"./resources/sass/backend/app.scss");
+__webpack_require__(/*! /Users/silvicardo/Desktop/WEBDEVELOPMENT/con-giorgio/testing-with-junior/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/silvicardo/Desktop/WEBDEVELOPMENT/con-giorgio/testing-with-junior/resources/sass/frontend/app.scss */"./resources/sass/frontend/app.scss");
+module.exports = __webpack_require__(/*! /Users/silvicardo/Desktop/WEBDEVELOPMENT/con-giorgio/testing-with-junior/resources/sass/backend/app.scss */"./resources/sass/backend/app.scss");
 
 
 /***/ })
