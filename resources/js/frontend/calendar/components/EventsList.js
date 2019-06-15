@@ -8,7 +8,7 @@ const EventsList = ({events, date} ) => {
       <h1>Hai selezionato {date}</h1>
       { events.length > 0 &&
         events.map((event, idx) => (
-            <Event key={idx}>{event.title} </Event>
+            <Event key={idx} event={event}/>
           )) || <p>Nessun evento da mostrare</p>
       }
     </div>

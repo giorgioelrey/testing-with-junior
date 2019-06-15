@@ -8,8 +8,8 @@ class Event extends Model
 {
   protected $table = 'events';
 
-  protected $timestamps = true;
+  //protected $timestamps = true;
 
-  protected $fillable = ['title', 'subtitle','description','date', 'address'];
+  //protected $fillable = ['title', 'subtitle','description','date', 'address'];
 
 }

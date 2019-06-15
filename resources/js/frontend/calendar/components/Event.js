@@ -3,7 +3,9 @@ import React from 'react';
 const Event = (props) => {
 
   return (
-    <div>Evento</div>
+    <div>
+      <h3>{props.event.title}</h3>
+    </div>
   )
 
 

@@ -6,6 +6,7 @@ import CustomDayRenderer from './components/CustomDayRenderer';
 import EventsList from './components/EventsList';
 import moment from 'moment';
 import momentIt from 'moment/locale/it';
+import axios from 'axios';
 
 
 class EventsCalendar extends Component {
@@ -24,6 +25,22 @@ class EventsCalendar extends Component {
 
     console.log('chiamo api e invio ' , date)
 
+    axios({
+      url: `/api/events/${date.format('YYYY-MM-DD')}`,
+      method: 'get',
+      headers: { 'X-Requested-With': 'XMLHttpRequest'},
+      responseType: 'json',
+    })
+    .then(({data}) => {
+
+      console.log('events found', data.events);
+
+      this.setState({events: data.events});
+    })
+    .catch(error => {
+      console.log(error.response.data.message)
+    })
+
   }
 
   onSelect(date, previousDate, currentMonth) {
@@ -32,19 +49,21 @@ class EventsCalendar extends Component {
       console.info('onSelect: false', date);
       return false;
     } else if (currentMonth.isSame(date, 'month')) {
-      console.info('onSelect: true', date);
+      console.log('onSelect: true', date);
 
-      this.setState({date: date})
+      this.setState({date: date}, () => {
+        this.getEventsPerDay(this.state.date);
+      });
 
       return true;
 
     } else {
-      console.info('onSelect: none', date);
+      console.log('onSelect: none', date);
     }
   }
 
   componentDidMount(){
-    console.log('componentDidMount',this.state.date);
+    console.log('componentDidMount', this.state.date);
     this.getEventsPerDay(this.state.date);
   }
 

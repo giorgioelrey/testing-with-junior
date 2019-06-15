@@ -80245,8 +80245,7 @@ function (_Component) {
 
       if (!!nextState.date) {
         nextState.date.locale(this.props.locale);
-        console.log('Calendar component componentWillUpdate');
-        this.props.showEventsOnChange(nextState.date);
+        console.log('Calendar component componentWillUpdate'); //this.props.showEventsOnChange(nextState.date);
       }
 
       nextState.month.locale(this.props.locale);
@@ -80615,7 +80614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Event = function Event(props) {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Evento");
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, props.event.title));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Event);
@@ -80642,8 +80641,9 @@ var EventsList = function EventsList(_ref) {
       date = _ref.date;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Hai selezionato ", date), events.length > 0 && events.map(function (event, idx) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Event__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      key: idx
-    }, event.title, " ");
+      key: idx,
+      event: event
+    });
   }) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Nessun evento da mostrare"));
 };
 
@@ -80695,6 +80695,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment/locale/it */ "./node_modules/moment/locale/it.js");
 /* harmony import */ var moment_locale_it__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_locale_it__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80712,6 +80714,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -80744,22 +80747,45 @@ function (_Component) {
   _createClass(EventsCalendar, [{
     key: "getEventsPerDay",
     value: function getEventsPerDay(date) {
+      var _this2 = this;
+
       console.log('chiamo api e invio ', date);
+      axios__WEBPACK_IMPORTED_MODULE_7___default()({
+        url: "/api/events/".concat(date.format('YYYY-MM-DD')),
+        method: 'get',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        responseType: 'json'
+      }).then(function (_ref) {
+        var data = _ref.data;
+        console.log('events found', data.events);
+
+        _this2.setState({
+          events: data.events
+        });
+      })["catch"](function (error) {
+        console.log(error.response.data.message);
+      });
     }
   }, {
     key: "onSelect",
     value: function onSelect(date, previousDate, currentMonth) {
+      var _this3 = this;
+
       if (moment__WEBPACK_IMPORTED_MODULE_5___default()(date).isSame(previousDate)) {
         console.info('onSelect: false', date);
         return false;
       } else if (currentMonth.isSame(date, 'month')) {
-        console.info('onSelect: true', date);
+        console.log('onSelect: true', date);
         this.setState({
           date: date
+        }, function () {
+          _this3.getEventsPerDay(_this3.state.date);
         });
         return true;
       } else {
-        console.info('onSelect: none', date);
+        console.log('onSelect: none', date);
       }
     }
   }, {

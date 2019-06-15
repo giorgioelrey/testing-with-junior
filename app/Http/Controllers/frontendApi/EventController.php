@@ -5,6 +5,7 @@ namespace App\Http\Controllers\frontendApi;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -45,9 +46,29 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($date)
     {
-        //
+
+      $foundEvents = DB::table('events')->whereDate('date', $date)->get();
+      $eventsArray = $foundEvents->toArray();
+
+      if (is_null($eventsArray)) {
+          $response = [
+              'success' => false,
+              'data' => 'Empty',
+              'message' => 'No events found'
+          ];
+          return response()->json($response, 404);
+      }
+
+
+      $response = [
+          'success' => true,
+          'events' => $eventsArray,
+          'message' => 'Events retrieved successfully.'
+      ];
+
+      return response()->json($response, 200);
     }
 
     /**
