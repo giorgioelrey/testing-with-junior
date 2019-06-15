@@ -1,0 +1,41 @@
+#nav {
+  .bg-light {
+    background-color: #ffffff !important;
+}
+.nav-link{
+color:#000000;
+}
+.nav-link:hover{
+  color:#caa660;
+}
+.nav-link:focus{
+  color:#caa660;
+}
+.lingua {
+    font-size: 18px;
+
+
+    li a{
+      font-family: 'Playfair Display', serif;
+    color: black;
+    }
+}
+.nav-item{
+  text-transform: uppercase;
+  padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  font-size: 21px;
+  font-weight: 500;
+font-family: 'Roboto', sans-serif;
+
+}
+
+
+
+
+.navbar-brand img{
+  width: 180px;
+}
+
+
+}

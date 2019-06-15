@@ -1,7 +1,6 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
 
 // Variables
 @import 'variables';
@@ -15,5 +14,8 @@
 
 
 //Frontend Pages
+@import 'partial/_nav';
+@import 'partial/_footer';
 @import 'pages/_home';
-@import 'pages/_news';
+@import 'pages/_press';
+@import 'pages/_soci';
