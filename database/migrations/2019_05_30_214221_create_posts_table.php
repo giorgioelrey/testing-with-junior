@@ -20,7 +20,8 @@ class CreatePostsTable extends Migration
             //TODO: must create a relation to category/more than one category??
             //TODO: must create a relation to author
             $table->dateTimeTz('expires_at')->nullable(); //dateTime with Timezone
-            $table->string('slug');
+            //TODO: slug to manage with library
+            $table->string('slug')->nullable();
             $table->text('post_body');
             $table->timestamps();
         });

@@ -1,11 +1,17 @@
 #dashboard-page {
-  a {
-      color: #24EAB6;
-      text-decoration: none;
-      background-color: transparent;
+
+  .sidebar {
+
+    width: 200px;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    a.nav-link {
+      color: #24EAB6
+    }
+
   }
-
-
 
 
 }

@@ -11,9 +11,12 @@
 |
 */
 
+//BACKEND
+
+Route::view('/admin/{path?}', 'backend.layouts.app');
 
 
-
+//FRONTEND
 
 Route::get('/', function () {
     return view('frontend.pages.home');
@@ -39,7 +42,5 @@ Route::get('/archivio-storico', function () {
 Route::get('/contatti', function () {
     return view('frontend.pages.contatti');
 });
-
-
 
 Auth::routes();
