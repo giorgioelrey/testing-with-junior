@@ -51,16 +51,15 @@ constructor(props){
                                .required('Password is required'),
                        })}
                        onSubmit={async fields => {
-                           console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4));
 
                            try {
-                                console.log('fields', fields)
+                                console.log('fields', fields);
 
                                 const { data } = await axios(axiosHelper.getLoginConfig(fields));
 
                                 console.log('login response.data ', data);
 
-                                this.props.setUserData(data.user);
+                                this.props.setUserData(data);
 
                                 this.props.history.push({pathname:'/admin/dashboard/'});
 

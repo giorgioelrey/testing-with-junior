@@ -4,6 +4,9 @@ import LoginPage from './auth/LoginPage';
 import Navbar from './dashboard/Navbar';
 import DashboardPage from './dashboard/DashboardPage';
 
+//Helpers
+import * as axiosHelper from './../helpers/axiosHelper';
+
 class App extends Component {
 
 constructor(props){
@@ -15,16 +18,33 @@ constructor(props){
   }
 
   this.addUserDataAndtoken = this.addUserDataAndtoken.bind(this);
+  this.logoutClicked = this.logoutClicked.bind(this);
+}
+
+addUserDataAndtoken(data){
+
+  this.setState({ user: {...data.user, token: data.token} });
 
 }
 
-addUserDataAndtoken(user){
+//callbacks will be used in the descendant component
+async logoutClicked(token,successCallback, errorCallback){
 
-  this.setState({ user });
+  try {
+
+    const {data} = await axios(axiosHelper.getLogoutConfig(token));
+
+    this.setState({ user: {} });
+
+  } catch(error){
+
+    console.log(error.response.data);
+
+    this.setState({ errors: [error.response.data.message]});
+
+  }
+
 }
-
-
-
 
   render() {
 
@@ -41,36 +61,36 @@ addUserDataAndtoken(user){
           {/* DashboardPage receives props to manage routing + the currentUser from the state */}
           <Route
           exact path="/admin/dashboard"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="main"/>)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="main"/>)}
           />
           <Route
           exact path="/admin/dashboard/main"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="main" />)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="main" />)}
           />
           {/* DashboardPages receive props to manage routing + the currentUser from the state */}
           <Route
           exact path="/admin/dashboard/users"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="list"/>)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="list"/>)}
           />
           <Route
           exact path="/admin/dashboard/news"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="news" section="list"/>)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="list"/>)}
           />
           <Route
           exact path="/admin/dashboard/news/create"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="news" section="create" />)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="create" />)}
           />
           <Route
           path="/admin/dashboard/news/show/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="news" section="show" />)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="show" />)}
           />
           <Route
            path="/admin/dashboard/news/edit/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="news" section="edit" />)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
           />
           <Route
           exact path="/admin/dashboard/pages"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} contentPage="list" />)}
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="list" />)}
           />
           <Route to="/admin/dashboard/{*}" render={() => <Redirect to="/admin" />} />
           <Route render={() => <Redirect to="/admin" />} />

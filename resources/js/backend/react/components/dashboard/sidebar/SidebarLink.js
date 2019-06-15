@@ -4,13 +4,19 @@ import {Link} from 'react-router-dom';
 const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, height, options, match, history, location }) => {
 
   let optionsList = options &&  (<ul className="flex-column">
-                                  {options.map((option, idx) => (<Link className="d-block" key={idx} to="#">{option}</Link>))}
+                                  {options.map((option, idx) => (
+                                    <Link
+                                      className="d-block"
+                                      key={idx}
+                                      to={`/admin/dashboard/${linkEndpoint}/${option.linkEndpoint}`}>
+                                        {option.linkName}
+                                    </Link>))
+                                  }
                                 </ul>) || null
 
   return(
       <li className="nav-item">
         <Link className="nav-link d-flex align-items-center"
-
         to={{
               pathname: `/admin/dashboard/${linkEndpoint}`,
               state: {
@@ -20,7 +26,6 @@ const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, h
               }
             }}
         >
-
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={width || 24}

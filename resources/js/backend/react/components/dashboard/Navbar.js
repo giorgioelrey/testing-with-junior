@@ -9,38 +9,28 @@ class Navbar extends Component {
   constructor(props){
     super(props);
 
-    this.logoutBtnClicked = this.logoutBtnClicked.bind(this);
     this.backToTheHomePage = this.backToTheHomePage.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
-  backToTheHomePage(){
+  backToTheHomePage(){ this.props.history.push('/admin') }
 
-    this.props.history.push('/');
-  }
-
-  logoutBtnClicked(){
-
-    //Perform Logout and then reach the homeepage anyway (success, fail)
-    this.props.logoutClicked(this.backToTheHomePage,this.backToTheHomePage);
+  logout() {
+    this.props.logoutAction(this.props.user.token)
   }
 
   render() {
 
     //SHOW LINKS based on userLogin status
-    let authLinks;
+    let authLinks = null
 
-    if (!this.props.isLoggedIn){//NOT LOGGED IN
+    if (this.props.user.token !== ''){//LOGGED IN
       authLinks = (
         <Fragment>
-          <NavLink className="nav-item nav-link" to="/register">Register</NavLink>
-          <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
-        </Fragment>
-      )
-    } else {//LOGGED IN
-      authLinks = (
-        <Fragment>
-          <NavLink className="nav-item nav-link" to="/Dashboard">Dashboard</NavLink>
-          <button className="ml-5 btn btn-danger" onClick={this.logoutBtnClicked}>Logout</button>
+          <NavLink className="nav-item nav-link" to="/admin/">
+            <button className="ml-5 btn btn-danger" onClick={this.logout}>Logout</button>
+          </NavLink>
+
         </Fragment>
       )
     }

@@ -6,7 +6,7 @@ import ErrorsAlert from './../../ErrorsAlert';
 
 //Helpers
 import * as pagesHelper from './../../../helpers/pagesHelper';
-import * as postHelper from './../../../helpers/postHelper';
+import PostConnector from './../../../helpers/postHelper';
 
 class NewsCreate extends Component {
 
@@ -14,7 +14,7 @@ class NewsCreate extends Component {
 
     super(props);
 
-    this.state = { serverValidationErrors: [], pagesAvailable: ['Travel', 'Blog', 'Hotels'], apiError: null};
+    this.state = { serverValidationErrors: [], pagesAvailable: ['Travel', 'Blog', 'Hotels'], apiError: this.props.api_errors};
 
     this.onNewPostSubmit = this.onNewPostSubmit.bind(this);
 
@@ -35,22 +35,21 @@ class NewsCreate extends Component {
   async onNewPostSubmit(fields) {
         console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
 
-         postHelper.submitPost(fields,
-             ({data}) => {
+        this.props.submitPost(fields)
+          .then(({data}) => {
 
-               console.log('success', data);
+            console.log('success', data);
 
-               this.props.history.push('/admin/dashboard/news');
+            this.props.history.push('/admin/dashboard/news');
 
-             },
-             (error) => {
+          })
+          .catch((error) => {
 
-               console.log('error submit', error);
+            console.log('error submit', error);
 
-               this.setState({errors: error});
+            this.setState({errors: error});
 
-             }
-         )
+          })
     }
 
   render() {
@@ -62,7 +61,7 @@ class NewsCreate extends Component {
         <div className="container" id="create-news-page">
 
                 <h1>Create a new post</h1>
-                {this.state.apiError }
+                {this.state.apiError[0] }
                 {serverErrors}
 
                 <NewsForm
@@ -77,4 +76,4 @@ class NewsCreate extends Component {
 
 }
 
-export default withRouter(NewsCreate);
+export default withRouter(PostConnector(NewsCreate));

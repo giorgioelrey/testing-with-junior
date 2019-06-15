@@ -1,56 +1,25 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import * as postHelper from './../../../helpers/postHelper';
+import PostConnector from './../../../helpers/postHelper';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
 
 
 const NewsShow = (props) => {
 
-  const [ post, setPost ] = useState({});
-  const [ isLoading, setIsLoading ] =  useState(false);
-  const [ apiError, setApiError ] = useState(null);
-
-  useEffect(() => {
-
-    console.log('post loading id', props.postId);
-
-    setIsLoading(true);
-
-    postHelper.getPost(props.postId,
-      ({data}) => {
-
-        console.log('success', data);
-
-        setPost(data);
-        setIsLoading(false);
-      },
-      (error) => {
-
-        console.log('error submit', error)
-        setApiError(error);
-        setIsLoading(false);
-      }
-    );
-
-  }, []);
-
   const deleteSingleNews = (id) => {
 
     //axios call for deletion
-    postHelper.deletePost(id,
-      ({data}) => {
+    this.props.deletePost(id)
+      .then(({data}) => {
 
         console.log('success', data);
         props.history.push('/admin/dashboard/news');
 
-      },
-      (error) => {
+      })
+      .catch((error) => {
 
         console.log('error submit', error);
-        setApiError(error);
-        setIsLoading(false);
-      }
-    );
+      })
 
   }
 
@@ -75,4 +44,4 @@ const NewsShow = (props) => {
 
 }
 
-export default withRouter(NewsShow);
+export default withRouter(PostConnector(NewsShow));

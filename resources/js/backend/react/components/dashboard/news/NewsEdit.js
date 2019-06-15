@@ -6,7 +6,7 @@ import ErrorsAlert from './../../ErrorsAlert';
 
 //Helpers
 import * as pagesHelper from './../../../helpers/pagesHelper';
-import * as postHelper from './../../../helpers/postHelper';
+import PostConnector from './../../../helpers/postHelper';
 
 class NewsEdit extends Component {
 
@@ -23,13 +23,6 @@ class NewsEdit extends Component {
 
   componentDidMount(){
     /*
-    //getAllPagesAvailableForPublishing(success, fail)
-    pagesHelper.getAllPages(
-      ({data}) => { console.log('pages found', data); this.setState({pagesAvailable: data}) },
-      (error) => {console.log(error); this.setState({ apiError: error}) }
-    )
-    */
-
     postHelper.getPost(this.props.postId,
       ({data}) => {
 
@@ -44,6 +37,8 @@ class NewsEdit extends Component {
 
       }
     );
+
+    */
   }
 
 

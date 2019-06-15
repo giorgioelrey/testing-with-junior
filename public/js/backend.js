@@ -103591,15 +103591,28 @@ if (document.getElementById('app')) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _auth_LoginPage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth/LoginPage */ "./resources/js/backend/react/components/auth/LoginPage.js");
-/* harmony import */ var _dashboard_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/Navbar */ "./resources/js/backend/react/components/dashboard/Navbar.js");
-/* harmony import */ var _dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/DashboardPage */ "./resources/js/backend/react/components/dashboard/DashboardPage.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _auth_LoginPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth/LoginPage */ "./resources/js/backend/react/components/auth/LoginPage.js");
+/* harmony import */ var _dashboard_Navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/Navbar */ "./resources/js/backend/react/components/dashboard/Navbar.js");
+/* harmony import */ var _dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dashboard/DashboardPage */ "./resources/js/backend/react/components/dashboard/DashboardPage.js");
+/* harmony import */ var _helpers_axiosHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../helpers/axiosHelper */ "./resources/js/backend/react/helpers/axiosHelper.js");
+
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -103621,6 +103634,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+ //Helpers
+
 
 
 var App =
@@ -103638,114 +103653,173 @@ function (_Component) {
       user: {}
     };
     _this.addUserDataAndtoken = _this.addUserDataAndtoken.bind(_assertThisInitialized(_this));
+    _this.logoutClicked = _this.logoutClicked.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(App, [{
     key: "addUserDataAndtoken",
-    value: function addUserDataAndtoken(user) {
+    value: function addUserDataAndtoken(data) {
       this.setState({
-        user: user
+        user: _objectSpread({}, data.user, {
+          token: data.token
+        })
       });
-    }
+    } //callbacks will be used in the descendant component
+
+  }, {
+    key: "logoutClicked",
+    value: function () {
+      var _logoutClicked = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(token, successCallback, errorCallback) {
+        var _ref, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios(_helpers_axiosHelper__WEBPACK_IMPORTED_MODULE_6__["getLogoutConfig"](token));
+
+              case 3:
+                _ref = _context.sent;
+                data = _ref.data;
+                this.setState({
+                  user: {}
+                });
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0.response.data);
+                this.setState({
+                  errors: [_context.t0.response.data.message]
+                });
+
+              case 12:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 8]]);
+      }));
+
+      function logoutClicked(_x, _x2, _x3) {
+        return _logoutClicked.apply(this, arguments);
+      }
+
+      return logoutClicked;
+    }()
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
       var user = this.state.user;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("main", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_auth_LoginPage__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_auth_LoginPage__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({}, props, {
             setUserData: _this2.addUserDataAndtoken
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "main"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard/main",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "main"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard/users",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "list"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard/news",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "news",
             section: "list"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard/news/create",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "news",
             section: "create"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/admin/dashboard/news/show/:id",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "news",
             section: "show"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/admin/dashboard/news/edit/:id",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "news",
             section: "edit"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
         path: "/admin/dashboard/pages",
         render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
             user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
             contentPage: "list"
           }));
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         to: "/admin/dashboard/{*}",
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
             to: "/admin"
           });
         }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         render: function render() {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
             to: "/admin"
           });
         }
@@ -103754,7 +103828,7 @@ function (_Component) {
   }]);
 
   return App;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -103905,41 +103979,40 @@ function (_Component) {
               while (1) {
                 switch (_context.prev = _context.next) {
                   case 0:
-                    console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4));
-                    _context.prev = 1;
+                    _context.prev = 0;
                     console.log('fields', fields);
-                    _context.next = 5;
+                    _context.next = 4;
                     return axios(_helpers_axiosHelper__WEBPACK_IMPORTED_MODULE_7__["getLoginConfig"](fields));
 
-                  case 5:
+                  case 4:
                     _ref2 = _context.sent;
                     data = _ref2.data;
                     console.log('login response.data ', data);
 
-                    _this2.props.setUserData(data.user);
+                    _this2.props.setUserData(data);
 
                     _this2.props.history.push({
                       pathname: '/admin/dashboard/'
                     });
 
-                    _context.next = 16;
+                    _context.next = 15;
                     break;
 
-                  case 12:
-                    _context.prev = 12;
-                    _context.t0 = _context["catch"](1);
+                  case 11:
+                    _context.prev = 11;
+                    _context.t0 = _context["catch"](0);
                     console.log('login issues', _context.t0.response.data);
 
                     _this2.setState({
                       errors: [_context.t0.response.data.errors]
                     });
 
-                  case 16:
+                  case 15:
                   case "end":
                     return _context.stop();
                 }
               }
-            }, _callee, null, [[1, 12]]);
+            }, _callee, null, [[0, 11]]);
           }));
 
           return function (_x) {
@@ -104058,7 +104131,7 @@ var DashboardPage = function DashboardPage(props) {
       contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid d-flex",
     id: "dashboard-page"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -104119,46 +104192,36 @@ function (_Component) {
     _classCallCheck(this, Navbar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
-    _this.logoutBtnClicked = _this.logoutBtnClicked.bind(_assertThisInitialized(_this));
     _this.backToTheHomePage = _this.backToTheHomePage.bind(_assertThisInitialized(_this));
+    _this.logout = _this.logout.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Navbar, [{
     key: "backToTheHomePage",
     value: function backToTheHomePage() {
-      this.props.history.push('/');
+      this.props.history.push('/admin');
     }
   }, {
-    key: "logoutBtnClicked",
-    value: function logoutBtnClicked() {
-      //Perform Logout and then reach the homeepage anyway (success, fail)
-      this.props.logoutClicked(this.backToTheHomePage, this.backToTheHomePage);
+    key: "logout",
+    value: function logout() {
+      this.props.logoutAction(this.props.user.token);
     }
   }, {
     key: "render",
     value: function render() {
       //SHOW LINKS based on userLogin status
-      var authLinks;
+      var authLinks = null;
 
-      if (!this.props.isLoggedIn) {
-        //NOT LOGGED IN
-        authLinks = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          className: "nav-item nav-link",
-          to: "/register"
-        }, "Register"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          className: "nav-item nav-link",
-          to: "/login"
-        }, "Login"));
-      } else {
+      if (this.props.user.token !== '') {
         //LOGGED IN
         authLinks = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           className: "nav-item nav-link",
-          to: "/Dashboard"
-        }, "Dashboard"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          to: "/admin/"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "ml-5 btn btn-danger",
-          onClick: this.logoutBtnClicked
-        }, "Logout"));
+          onClick: this.logout
+        }, "Logout")));
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -104263,7 +104326,7 @@ function (_Component) {
     _this.state = {
       serverValidationErrors: [],
       pagesAvailable: ['Travel', 'Blog', 'Hotels'],
-      apiError: null
+      apiError: _this.props.api_errors
     };
     _this.onNewPostSubmit = _this.onNewPostSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -104294,12 +104357,12 @@ function (_Component) {
             switch (_context.prev = _context.next) {
               case 0:
                 console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["submitPost"](fields, function (_ref) {
+                this.props.submitPost(fields).then(function (_ref) {
                   var data = _ref.data;
                   console.log('success', data);
 
                   _this2.props.history.push('/admin/dashboard/news');
-                }, function (error) {
+                })["catch"](function (error) {
                   console.log('error submit', error);
 
                   _this2.setState({
@@ -104312,7 +104375,7 @@ function (_Component) {
                 return _context.stop();
             }
           }
-        }, _callee);
+        }, _callee, this);
       }));
 
       function onNewPostSubmit(_x) {
@@ -104330,7 +104393,7 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "container",
         id: "create-news-page"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), this.state.apiError, serverErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), this.state.apiError[0], serverErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onSubmit: this.onNewPostSubmit,
         pagesAvailable: this.state.pagesAvailable
       })));
@@ -104340,7 +104403,7 @@ function (_Component) {
   return NewsCreate;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(NewsCreate));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(_helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["default"])(NewsCreate)));
 
 /***/ }),
 
@@ -104420,31 +104483,18 @@ function (_Component) {
   _createClass(NewsEdit, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this2 = this;
-
       /*
-      //getAllPagesAvailableForPublishing(success, fail)
-      pagesHelper.getAllPages(
-        ({data}) => { console.log('pages found', data); this.setState({pagesAvailable: data}) },
-        (error) => {console.log(error); this.setState({ apiError: error}) }
-      )
-      */
-      _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["getPost"](this.props.postId, function (_ref) {
-        var data = _ref.data;
-        console.log('success', data);
-
-        _this2.setState({
-          post: data,
-          isLoading: false
-        });
-      }, function (error) {
-        console.log('error submit', error);
-
-        _this2.setState({
-          serverErrors: [error],
-          isLoading: false
-        });
-      });
+      postHelper.getPost(this.props.postId,
+        ({data}) => {
+           console.log('success', data);
+           this.setState({ post: data, isLoading: false });
+        },
+        (error) => {
+           console.log('error submit', error)
+          this.setState({ serverErrors: [error] , isLoading: false });
+         }
+      );
+       */
     }
   }, {
     key: "onNewsEditSubmit",
@@ -104452,22 +104502,22 @@ function (_Component) {
       var _onNewsEditSubmit = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
-        var _this3 = this;
+        var _this2 = this;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["updatePost"](fields, function (_ref2) {
-                  var data = _ref2.data;
+                postHelper.updatePost(fields, function (_ref) {
+                  var data = _ref.data;
                   console.log('success', data);
 
-                  _this3.props.history.push('/admin/dashboard/news');
+                  _this2.props.history.push('/admin/dashboard/news');
                 }, function (error) {
                   console.log('error submit', error);
 
-                  _this3.setState({
+                  _this2.setState({
                     errors: error
                   });
                 });
@@ -104798,60 +104848,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3__);
 var _this = undefined;
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 
 
 
 
 
 var NewsShow = function NewsShow(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      post = _useState2[0],
-      setPost = _useState2[1];
-
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      isLoading = _useState4[0],
-      setIsLoading = _useState4[1];
-
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
-      _useState6 = _slicedToArray(_useState5, 2),
-      apiError = _useState6[0],
-      setApiError = _useState6[1];
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    console.log('post loading id', props.postId);
-    setIsLoading(true);
-    _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["getPost"](props.postId, function (_ref) {
-      var data = _ref.data;
-      console.log('success', data);
-      setPost(data);
-      setIsLoading(false);
-    }, function (error) {
-      console.log('error submit', error);
-      setApiError(error);
-      setIsLoading(false);
-    });
-  }, []);
-
   var deleteSingleNews = function deleteSingleNews(id) {
     //axios call for deletion
-    _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["deletePost"](id, function (_ref2) {
-      var data = _ref2.data;
+    _this.props.deletePost(id).then(function (_ref) {
+      var data = _ref.data;
       console.log('success', data);
       props.history.push('/admin/dashboard/news');
-    }, function (error) {
+    })["catch"](function (error) {
       console.log('error submit', error);
-      setApiError(error);
-      setIsLoading(false);
     });
   };
 
@@ -104883,7 +104893,7 @@ var NewsShow = function NewsShow(props) {
   }, "Delete this post"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(NewsShow));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(_helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["default"])(NewsShow)));
 
 /***/ }),
 
@@ -105073,7 +105083,10 @@ Sidebar.defaultProps = {
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("polyline", {
       points: "2 12 12 17 22 12"
     })),
-    options: ['Add', 'Edit', 'List']
+    options: [{
+      linkName: 'Create New',
+      linkEndpoint: 'create'
+    }]
   }]
 };
 
@@ -105112,8 +105125,8 @@ var SidebarLink = function SidebarLink(_ref) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       className: "d-block",
       key: idx,
-      to: "#"
-    }, option);
+      to: "/admin/dashboard/".concat(linkEndpoint, "/").concat(option.linkEndpoint)
+    }, option.linkName);
   })) || null;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
@@ -105281,24 +105294,27 @@ function getAllPages(success, fail) {
 /*!**********************************************************!*\
   !*** ./resources/js/backend/react/helpers/postHelper.js ***!
   \**********************************************************/
-/*! exports provided: getAllPosts, getPost, submitPost, updatePost, deletePost, default */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllPosts", function() { return getAllPosts; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPost", function() { return getPost; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitPost", function() { return submitPost; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updatePost", function() { return updatePost; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deletePost", function() { return deletePost; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../components/ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -105308,9 +105324,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -105319,46 +105335,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-function getAllPosts(token) {
-  console.log('sto per fare la chiamata dal hoc');
-  return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-    url: "/api/admin/post/all",
-    method: 'get',
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization': 'Bearer ' + token
-    },
-    responseType: 'json'
-  });
-}
-function getPost(postId, success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/admin/post/".concat(postId)).then(function (res) {
-    success(res.data);
-  })["catch"](function (error) {
-    fail(error.response.data);
-  });
-}
-function submitPost(newPost, success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/admin/post/store', newPost).then(function (res) {
-    success(res.data);
-  })["catch"](function (error) {
-    fail(error.response.data);
-  });
-}
-function updatePost(updatedPost, success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/admin/post/update', updatedPost).then(function (res) {
-    success(res.data);
-  })["catch"](function (error) {
-    fail(error.response.data);
-  });
-}
-function deletePost(postId, success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("/api/admin/post/destroy/".concat(postId)).then(function (res) {
-    success(res.data);
-  })["catch"](function (error) {
-    fail(error.response.data);
-  });
-}
 
 var PostConnector = function PostConnector(WrappedComponent) {
   return (
@@ -105377,41 +105353,172 @@ var PostConnector = function PostConnector(WrappedComponent) {
           posts: [],
           api_errors: []
         };
+        _this.getAllPosts = _this.getAllPosts.bind(_assertThisInitialized(_this));
+        _this.getPost = _this.getPost.bind(_assertThisInitialized(_this));
+        _this.deletePost = _this.deletePost.bind(_assertThisInitialized(_this));
+        _this.submitPost = _this.submitPost.bind(_assertThisInitialized(_this));
+        _this.updatePost = _this.updatePost.bind(_assertThisInitialized(_this));
         return _this;
       }
 
       _createClass(PostLoader, [{
         key: "componentDidMount",
-        value: function componentDidMount() {
-          var _this2 = this;
+        value: function () {
+          var _componentDidMount = _asyncToGenerator(
+          /*#__PURE__*/
+          _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+            var apiResponse;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    console.log('hoc props', this.props);
+                    _context.prev = 1;
+                    _context.t0 = this.props.section;
+                    _context.next = _context.t0 === 'list' ? 5 : _context.t0 === 'show' ? 11 : 16;
+                    break;
 
-          console.log('hoc props', this.props);
-          getAllPosts(this.props.user.token).then(function (res) {
-            _this2.setState({
-              posts: res.data.posts,
-              isLoading: false
-            });
-          })["catch"](function (error) {
-            console.log('hocs error call', error.response.data);
+                  case 5:
+                    _context.next = 7;
+                    return this.getAllPosts();
 
-            _this2.setState({
-              api_errors: [error.response.data.message]
-            });
+                  case 7:
+                    apiResponse = _context.sent;
+                    console.log(apiResponse);
+                    this.setState({
+                      posts: apiResponse.data.posts,
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 17);
+
+                  case 11:
+                    _context.next = 13;
+                    return this.getPost(this.props.postId);
+
+                  case 13:
+                    apiResponse = _context.sent;
+                    this.setState({
+                      post: apiResponse.data.post,
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 17);
+
+                  case 16:
+                    this.setState({
+                      isLoading: false
+                    });
+
+                  case 17:
+                    _context.next = 23;
+                    break;
+
+                  case 19:
+                    _context.prev = 19;
+                    _context.t1 = _context["catch"](1);
+                    console.log('hocs error call', _context.t1.response.data);
+                    this.setState({
+                      api_errors: [_context.t1.response.data.message]
+                    });
+
+                  case 23:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this, [[1, 19]]);
+          }));
+
+          function componentDidMount() {
+            return _componentDidMount.apply(this, arguments);
+          }
+
+          return componentDidMount;
+        }()
+      }, {
+        key: "getAllPosts",
+        value: function getAllPosts() {
+          console.log('sto per fare la chiamata dal hoc');
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/post/all",
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "getPost",
+        value: function getPost(postId) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/post/".concat(postId),
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "submitPost",
+        value: function submitPost(newPost) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: '/api/admin/post/store',
+            data: newPost,
+            method: 'post',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "updatePost",
+        value: function updatePost(updatedPost) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: '/api/admin/post/update',
+            data: updatedPost,
+            method: 'post',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "deletePost",
+        value: function deletePost(postId) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/post/destroy/".concat(postId),
+            method: 'delete',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + token
+            },
+            responseType: 'json'
           });
         }
       }, {
         key: "render",
         value: function render() {
-          if (this.state.api_errors.length > 0) return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          if (this.state.api_errors.length > 0) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
             errors: this.state.api_errors
           }); //if (!this.state.isLoading && this.state.posts.length === 0 ) return <ErrorsAlert errors={['No posts found']} />
 
-          return this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "Loading data...") : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(WrappedComponent, _extends({}, this.state, this.props));
+          return this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, "Loading data...") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, _extends({}, this.state, this.props, {
+            deletePost: this.deletePost,
+            updatePost: this.updatePost,
+            submitPost: this.submitPost
+          }));
         }
       }]);
 
       return PostLoader;
-    }(react__WEBPACK_IMPORTED_MODULE_1__["Component"])
+    }(react__WEBPACK_IMPORTED_MODULE_2__["Component"])
   );
 };
 

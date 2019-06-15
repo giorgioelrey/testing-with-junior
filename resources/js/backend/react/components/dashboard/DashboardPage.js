@@ -36,7 +36,7 @@ const DashboardPage = (props) => {
     return (
       <Fragment>
 
-        <Navbar />
+        <Navbar {...props} />
         <div className="container-fluid d-flex" id="dashboard-page">
 
               <Sidebar {...props} />

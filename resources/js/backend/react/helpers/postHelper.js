@@ -2,94 +2,7 @@ import axios from 'axios';
 import React, { Component } from "react";
 import ErrorsAlert from './../components/ErrorsAlert';
 
- export function getAllPosts(token){
-
-   console.log('sto per fare la chiamata dal hoc')
-
-  return axios({
-    url: `/api/admin/post/all`,
-    method: 'get',
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest',
-      'Authorization' : 'Bearer ' + token},
-    responseType: 'json',
-  })
-
-
-}
-
- export function getPost(postId, success, fail){
-
-  axios.get(`/api/admin/post/${postId}`)
-    .then(res => {
-
-      success(res.data);
-
-    })
-    .catch(error => {
-
-      fail(error.response.data);
-
-    })
-
-
-}
-
-
- export function submitPost(newPost, success, fail){
-
-  axios.post('/api/admin/post/store', newPost)
-    .then(res => {
-
-      success(res.data);
-
-    })
-    .catch(error => {
-
-      fail(error.response.data);
-
-    })
-
-
-}
-
- export function updatePost(updatedPost, success, fail){
-
-  axios.post('/api/admin/post/update', updatedPost)
-    .then(res => {
-
-      success(res.data);
-
-    })
-    .catch(error => {
-
-      fail(error.response.data);
-
-    })
-
-
-}
- export function deletePost(postId, success, fail){
-
-  axios.delete(`/api/admin/post/destroy/${postId}`)
-    .then(res => {
-
-      success(res.data);
-
-    })
-    .catch(error => {
-
-      fail(error.response.data);
-
-    })
-
-
-}
-
-
-
 const PostConnector = ((WrappedComponent) => {
-
 
     return class PostLoader extends Component {
 
@@ -104,26 +17,111 @@ const PostConnector = ((WrappedComponent) => {
             api_errors: []
           }
 
+          this.getAllPosts = this.getAllPosts.bind(this);
+          this.getPost = this.getPost.bind(this);
+          this.deletePost = this.deletePost.bind(this);
+          this.submitPost = this.submitPost.bind(this);
+          this.updatePost = this.updatePost.bind(this);
+
         }
 
-        componentDidMount(){
+        async componentDidMount(){
 
           console.log('hoc props', this.props)
 
+          let apiResponse;
 
-          getAllPosts(this.props.user.token)
-            .then(res => {
+          try {
 
-              this.setState({posts: res.data.posts, isLoading: false})
+            switch(this.props.section){
 
-            })
-            .catch(error => {
+              case 'list': apiResponse = await this.getAllPosts();
+                          console.log(apiResponse)
+                           this.setState({ posts: apiResponse.data.posts, isLoading: false })
+                           ; break;
+              case 'show': apiResponse = await this.getPost(this.props.postId)
+                          this.setState({ post: apiResponse.data.post, isLoading: false })
+                          ; break;
+
+              default: this.setState({ isLoading: false });
+            }
+
+          } catch(error){
 
              console.log('hocs error call',error.response.data); this.setState({ api_errors: [error.response.data.message]})
-
-            })
+          }
 
         }
+
+        getAllPosts(){
+
+          console.log('sto per fare la chiamata dal hoc')
+
+         return axios({
+           url: `/api/admin/post/all`,
+           method: 'get',
+           headers: {
+             'X-Requested-With': 'XMLHttpRequest',
+             'Authorization' : 'Bearer ' + this.props.user.token},
+           responseType: 'json',
+         })
+
+
+       }
+
+        getPost(postId){
+
+         return axios({
+           url: `/api/admin/post/${postId}`,
+           method: 'get',
+           headers: {
+             'X-Requested-With': 'XMLHttpRequest',
+             'Authorization' : 'Bearer ' + this.props.user.token},
+           responseType: 'json',
+         })
+
+       }
+
+        submitPost(newPost){
+
+          return axios({
+            url: '/api/admin/post/store',
+            data: newPost,
+            method: 'post',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + this.props.user.token},
+            responseType: 'json',
+          })
+
+       }
+
+        updatePost(updatedPost){
+
+          return axios({
+            url: '/api/admin/post/update',
+            data: updatedPost,
+            method: 'post',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + this.props.user.token},
+            responseType: 'json',
+          })
+
+       }
+
+        deletePost(postId) {
+
+          return axios({
+            url: `/api/admin/post/destroy/${postId}`,
+            method: 'delete',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + token},
+            responseType: 'json',
+          })
+
+       }
 
 
         render(){
@@ -132,7 +130,7 @@ const PostConnector = ((WrappedComponent) => {
 
           //if (!this.state.isLoading && this.state.posts.length === 0 ) return <ErrorsAlert errors={['No posts found']} />
 
-          return this.state.isLoading ? (<div>Loading data...</div>): <WrappedComponent {...this.state} {...this.props}/>
+          return this.state.isLoading ? (<div>Loading data...</div>): <WrappedComponent {...this.state} {...this.props} deletePost={this.deletePost} updatePost={this.updatePost} submitPost={this.submitPost}/>
 
         }
 
