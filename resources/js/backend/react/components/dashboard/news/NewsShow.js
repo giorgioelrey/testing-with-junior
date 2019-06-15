@@ -1,15 +1,15 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PostConnector from './../../../helpers/postHelper';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
 
 
-const NewsShow = (props) => {
+const NewsShow = ({post, deletePost}) => {
 
   const deleteSingleNews = (id) => {
 
     //axios call for deletion
-    this.props.deletePost(id)
+    deletePost(id)
       .then(({data}) => {
 
         console.log('success', data);

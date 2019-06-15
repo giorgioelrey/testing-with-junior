@@ -20,8 +20,6 @@ Route::middleware('json.response')->namespace('backendApi')->group(function () {
     Route::post('/admin/login', 'AuthController@login')->name('login.api');
 
 
-
-
 });
 
 // private routes
@@ -34,7 +32,7 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->group(
   Route::get('/admin/logout', 'AuthController@logout')->name('logout');
 
   //->register - POST
-  Route::post('/admin/register', 'AuthController@register')->name('register.api');
+  //Route::post('/admin/register', 'AuthController@register')->name('register.api');
 
   Route::get('/admin/post/all', 'PostController@index')->name('post.all');
 

@@ -14,7 +14,7 @@ const PostConnector = ((WrappedComponent) => {
           this.state = {
             isLoading: true,
             posts: [],
-            api_errors: []
+            apiErrors: []
           }
 
           this.getAllPosts = this.getAllPosts.bind(this);
@@ -39,7 +39,7 @@ const PostConnector = ((WrappedComponent) => {
                           console.log(apiResponse)
                            this.setState({ posts: apiResponse.data.posts, isLoading: false })
                            ; break;
-              case 'show': apiResponse = await this.getPost(this.props.postId)
+              case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
                           this.setState({ post: apiResponse.data.post, isLoading: false })
                           ; break;
 
@@ -48,7 +48,7 @@ const PostConnector = ((WrappedComponent) => {
 
           } catch(error){
 
-             console.log('hocs error call',error.response.data); this.setState({ api_errors: [error.response.data.message]})
+             console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
           }
 
         }
@@ -126,11 +126,11 @@ const PostConnector = ((WrappedComponent) => {
 
         render(){
 
-          if (this.state.api_errors.length > 0)  return (<ErrorsAlert errors={this.state.api_errors} />)
+          if (this.state.apiErrors.length > 0)  return (<ErrorsAlert errors={this.state.apiErrors} />)
 
           //if (!this.state.isLoading && this.state.posts.length === 0 ) return <ErrorsAlert errors={['No posts found']} />
 
-          return this.state.isLoading ? (<div>Loading data...</div>): <WrappedComponent {...this.state} {...this.props} deletePost={this.deletePost} updatePost={this.updatePost} submitPost={this.submitPost}/>
+          return this.state.isLoading ? (<div>Loading data...</div>): <WrappedComponent {...this.state} {...this.props} deletePost={this.deletePost} updatePost={this.updatePost} submitPost={this.submitPost}  pagesAvailable={ ['Travel', 'Blog', 'Hotels']}/>
 
         }
 

@@ -78,7 +78,7 @@ class PostController extends Controller
 
       $response = [
           'success' => true,
-          'data' => $data,
+          'post' => $data,
           'message' => 'Post retrieved successfully.'
       ];
 

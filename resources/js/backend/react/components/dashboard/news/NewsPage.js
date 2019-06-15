@@ -3,8 +3,7 @@ import {Link} from 'react-router-dom';
 import PostCard from './PostCard';
 import NewsList from './NewsList';
 import NewsShow from './NewsShow';
-import NewsCreate from './NewsCreate';
-import NewsEdit from './NewsEdit';
+import NewsCreateEdit from './NewsCreateEdit';
 import {withRouter } from 'react-router-dom';
 
 const NewsPage = (props) => {
@@ -20,10 +19,10 @@ const NewsPage = (props) => {
       contentArea = (<NewsShow {...props} postId={props.match.params.id}/>)
       break;
     case 'create':
-        contentArea = (<NewsCreate {...props}/>)
+        contentArea = (<NewsCreateEdit {...props}/>)
       break;
     case 'edit':
-        contentArea = (<NewsEdit {...props} postId={props.match.params.id}/>)
+        contentArea = (<NewsCreateEdit {...props} postId={props.match.params.id}/>)
         break;
   default:
     contentArea = (<div>not chosen</div>)
@@ -31,7 +30,6 @@ const NewsPage = (props) => {
 
     return (
         <Fragment>
-            {/*props.section*/}
             {contentArea}
         </Fragment>
     );

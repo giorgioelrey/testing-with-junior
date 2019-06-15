@@ -104261,10 +104261,10 @@ function (_Component) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/components/dashboard/news/NewsCreate.js":
-/*!****************************************************************************!*\
-  !*** ./resources/js/backend/react/components/dashboard/news/NewsCreate.js ***!
-  \****************************************************************************/
+/***/ "./resources/js/backend/react/components/dashboard/news/NewsCreateEdit.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/news/NewsCreateEdit.js ***!
+  \********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -104277,31 +104277,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _NewsForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsForm */ "./resources/js/backend/react/components/dashboard/news/NewsForm.js");
 /* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
-/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
 
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -104311,252 +104300,77 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var NewsCreateEdit = function NewsCreateEdit(_ref) {
+  var post = _ref.post,
+      updatePost = _ref.updatePost,
+      submitPost = _ref.submitPost,
+      history = _ref.history,
+      pagesAvailable = _ref.pagesAvailable,
+      postId = _ref.postId,
+      section = _ref.section;
 
-var NewsCreate =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NewsCreate, _Component);
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      submissionErrors = _useState2[0],
+      setSubmissionErrors = _useState2[1];
 
-  function NewsCreate(props) {
-    var _this;
+  var postSubmit =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
+      var _ref3, data;
 
-    _classCallCheck(this, NewsCreate);
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return section === 'create' ? submitPost(fields) : updatePost(fields);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsCreate).call(this, props));
-    _this.state = {
-      serverValidationErrors: [],
-      pagesAvailable: ['Travel', 'Blog', 'Hotels'],
-      apiError: _this.props.api_errors
-    };
-    _this.onNewPostSubmit = _this.onNewPostSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-  /*
-    componentDidMount(){
-  
-      //getAllPagesAvailableForPublishing(success, fail)
-      pagesHelper.getAllPages(
-        ({data}) => { console.log('pages found', data); this.setState({pagesAvailable: data}) },
-        (error) => {console.log(error); this.setState({ apiError: error}) }
-      )
-  
-    }
-  */
+            case 3:
+              _ref3 = _context.sent;
+              data = _ref3.data;
+              console.log('success', data);
+              history.push('/admin/dashboard/news');
+              _context.next = 13;
+              break;
 
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](0);
+              console.log('error submit', _context.t0);
+              setSubmissionErrors([_context.t0]);
 
-  _createClass(NewsCreate, [{
-    key: "onNewPostSubmit",
-    value: function () {
-      var _onNewPostSubmit = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
-        var _this2 = this;
-
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                this.props.submitPost(fields).then(function (_ref) {
-                  var data = _ref.data;
-                  console.log('success', data);
-
-                  _this2.props.history.push('/admin/dashboard/news');
-                })["catch"](function (error) {
-                  console.log('error submit', error);
-
-                  _this2.setState({
-                    errors: error
-                  });
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
+            case 13:
+            case "end":
+              return _context.stop();
           }
-        }, _callee, this);
-      }));
+        }
+      }, _callee, null, [[0, 9]]);
+    }));
 
-      function onNewPostSubmit(_x) {
-        return _onNewPostSubmit.apply(this, arguments);
-      }
-
-      return onNewPostSubmit;
-    }()
-  }, {
-    key: "render",
-    value: function render() {
-      var serverErrors = this.state.serverValidationErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        errors: this.state.serverValidationErrors
-      }) || null;
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container",
-        id: "create-news-page"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Create a new post"), this.state.apiError[0], serverErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onSubmit: this.onNewPostSubmit,
-        pagesAvailable: this.state.pagesAvailable
-      })));
-    }
-  }]);
-
-  return NewsCreate;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(_helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__["default"])(NewsCreate)));
-
-/***/ }),
-
-/***/ "./resources/js/backend/react/components/dashboard/news/NewsEdit.js":
-/*!**************************************************************************!*\
-  !*** ./resources/js/backend/react/components/dashboard/news/NewsEdit.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _NewsForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsForm */ "./resources/js/backend/react/components/dashboard/news/NewsForm.js");
-/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
-/* harmony import */ var _helpers_pagesHelper__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../helpers/pagesHelper */ "./resources/js/backend/react/helpers/pagesHelper.js");
-/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
-
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
- //Helpers
-
-
-
-
-var NewsEdit =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NewsEdit, _Component);
-
-  function NewsEdit(props) {
-    var _this;
-
-    _classCallCheck(this, NewsEdit);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NewsEdit).call(this, props));
-    _this.state = {
-      serverErrors: [],
-      pagesAvailable: ['Travel', 'Blog', 'Hotels'],
-      apiError: null,
-      isLoading: true,
-      post: {}
+    return function postSubmit(_x) {
+      return _ref2.apply(this, arguments);
     };
-    _this.onNewsEditSubmit = _this.onNewsEditSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
+  }();
 
-  _createClass(NewsEdit, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      /*
-      postHelper.getPost(this.props.postId,
-        ({data}) => {
-           console.log('success', data);
-           this.setState({ post: data, isLoading: false });
-        },
-        (error) => {
-           console.log('error submit', error)
-          this.setState({ serverErrors: [error] , isLoading: false });
-         }
-      );
-       */
-    }
-  }, {
-    key: "onNewsEditSubmit",
-    value: function () {
-      var _onNewsEditSubmit = _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
-        var _this2 = this;
+  var submitErrors = submissionErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    errors: submissionErrors
+  }) || null;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "container",
+    id: "create-edit-news-page"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, section === 'create' ? 'Create' : 'Edit', " your post"), submitErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onSubmit: postSubmit,
+    pagesAvailable: pagesAvailable,
+    post: post
+  })));
+};
 
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 3));
-                postHelper.updatePost(fields, function (_ref) {
-                  var data = _ref.data;
-                  console.log('success', data);
-
-                  _this2.props.history.push('/admin/dashboard/news');
-                }, function (error) {
-                  console.log('error submit', error);
-
-                  _this2.setState({
-                    errors: error
-                  });
-                });
-
-              case 2:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function onNewsEditSubmit(_x) {
-        return _onNewsEditSubmit.apply(this, arguments);
-      }
-
-      return onNewsEditSubmit;
-    }()
-  }, {
-    key: "render",
-    value: function render() {
-      var serverErrors = this.state.serverErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        errors: this.state.serverErrors
-      }) || null;
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "container",
-        id: "create-news-page"
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Edit your post"), this.state.apiError, serverErrors, !this.state.isLoading && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_NewsForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        onSubmit: this.onNewsEditSubmit,
-        pagesAvailable: this.state.pagesAvailable,
-        post: this.state.post
-      })));
-    }
-  }]);
-
-  return NewsEdit;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(NewsEdit));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(_helpers_postHelper__WEBPACK_IMPORTED_MODULE_5__["default"])(NewsCreateEdit)));
 
 /***/ }),
 
@@ -104783,10 +104597,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PostCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostCard */ "./resources/js/backend/react/components/dashboard/news/PostCard.js");
 /* harmony import */ var _NewsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NewsList */ "./resources/js/backend/react/components/dashboard/news/NewsList.js");
 /* harmony import */ var _NewsShow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NewsShow */ "./resources/js/backend/react/components/dashboard/news/NewsShow.js");
-/* harmony import */ var _NewsCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsCreate */ "./resources/js/backend/react/components/dashboard/news/NewsCreate.js");
-/* harmony import */ var _NewsEdit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./NewsEdit */ "./resources/js/backend/react/components/dashboard/news/NewsEdit.js");
+/* harmony import */ var _NewsCreateEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsCreateEdit */ "./resources/js/backend/react/components/dashboard/news/NewsCreateEdit.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
 
 
 
@@ -104811,11 +104623,11 @@ var NewsPage = function NewsPage(props) {
       break;
 
     case 'create':
-      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsCreate__WEBPACK_IMPORTED_MODULE_5__["default"], props);
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsCreateEdit__WEBPACK_IMPORTED_MODULE_5__["default"], props);
       break;
 
     case 'edit':
-      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsEdit__WEBPACK_IMPORTED_MODULE_6__["default"], _extends({}, props, {
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_NewsCreateEdit__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
         postId: props.match.params.id
       }));
       break;
@@ -104853,11 +104665,14 @@ var _this = undefined;
 
 
 
-var NewsShow = function NewsShow(props) {
+var NewsShow = function NewsShow(_ref) {
+  var post = _ref.post,
+      deletePost = _ref.deletePost;
+
   var deleteSingleNews = function deleteSingleNews(id) {
     //axios call for deletion
-    _this.props.deletePost(id).then(function (_ref) {
-      var data = _ref.data;
+    deletePost(id).then(function (_ref2) {
+      var data = _ref2.data;
       console.log('success', data);
       props.history.push('/admin/dashboard/news');
     })["catch"](function (error) {
@@ -105267,29 +105082,6 @@ function getLogoutConfig(token) {
 
 /***/ }),
 
-/***/ "./resources/js/backend/react/helpers/pagesHelper.js":
-/*!***********************************************************!*\
-  !*** ./resources/js/backend/react/helpers/pagesHelper.js ***!
-  \***********************************************************/
-/*! exports provided: getAllPages */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllPages", function() { return getAllPages; });
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-function getAllPages(success, fail) {
-  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/admin/pages/all').then(function (res) {
-    success(res.data);
-  })["catch"](function (error) {
-    fail(error.response.data);
-  });
-}
-
-/***/ }),
-
 /***/ "./resources/js/backend/react/helpers/postHelper.js":
 /*!**********************************************************!*\
   !*** ./resources/js/backend/react/helpers/postHelper.js ***!
@@ -105351,7 +105143,7 @@ var PostConnector = function PostConnector(WrappedComponent) {
         _this.state = {
           isLoading: true,
           posts: [],
-          api_errors: []
+          apiErrors: []
         };
         _this.getAllPosts = _this.getAllPosts.bind(_assertThisInitialized(_this));
         _this.getPost = _this.getPost.bind(_assertThisInitialized(_this));
@@ -105375,7 +105167,7 @@ var PostConnector = function PostConnector(WrappedComponent) {
                     console.log('hoc props', this.props);
                     _context.prev = 1;
                     _context.t0 = this.props.section;
-                    _context.next = _context.t0 === 'list' ? 5 : _context.t0 === 'show' ? 11 : 16;
+                    _context.next = _context.t0 === 'list' ? 5 : _context.t0 === 'show' ? 11 : _context.t0 === 'edit' ? 11 : 16;
                     break;
 
                   case 5:
@@ -105417,7 +105209,7 @@ var PostConnector = function PostConnector(WrappedComponent) {
                     _context.t1 = _context["catch"](1);
                     console.log('hocs error call', _context.t1.response.data);
                     this.setState({
-                      api_errors: [_context.t1.response.data.message]
+                      apiErrors: [_context.t1.response.data.message]
                     });
 
                   case 23:
@@ -105505,14 +105297,15 @@ var PostConnector = function PostConnector(WrappedComponent) {
       }, {
         key: "render",
         value: function render() {
-          if (this.state.api_errors.length > 0) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            errors: this.state.api_errors
+          if (this.state.apiErrors.length > 0) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            errors: this.state.apiErrors
           }); //if (!this.state.isLoading && this.state.posts.length === 0 ) return <ErrorsAlert errors={['No posts found']} />
 
           return this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, "Loading data...") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, _extends({}, this.state, this.props, {
             deletePost: this.deletePost,
             updatePost: this.updatePost,
-            submitPost: this.submitPost
+            submitPost: this.submitPost,
+            pagesAvailable: ['Travel', 'Blog', 'Hotels']
           }));
         }
       }]);

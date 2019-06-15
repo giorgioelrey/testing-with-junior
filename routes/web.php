@@ -14,7 +14,7 @@
 //BACKEND
 
 Route::view('/admin/{path?}', 'backend.layouts.app');
-Route::view('/admin/dashboard/{path?}', 'backend.layouts.app');
+
 
 //FRONTEND
 
