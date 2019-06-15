@@ -8,7 +8,11 @@ import PagesManagementPage from './pages/PagesManagementPage';
 
 
 
-const DashboardPage = ({user, section, contentPage}) => {
+const DashboardPage = (props) => {
+
+
+  const {user, match, history, location, section, contentPage} = props;
+  console.log('dash props',props);
 
     let contentArea;
 
@@ -17,13 +21,13 @@ const DashboardPage = ({user, section, contentPage}) => {
       contentArea = (<div>Main Content </div>)
       break;
     case 'users':
-      contentArea = (<UsersPage user={user}/>)
+      contentArea = (<UsersPage {...props}/>)
       break;
     case 'news':
-      contentArea = (<NewsPage user={user} section={section}/>)
+      contentArea = (<NewsPage {...props} />)
       break;
     case 'pages':
-      contentArea = (<PagesManagementPage user={user}/>)
+      contentArea = (<PagesManagementPage {...props}/>)
       break;
     default:
       contentArea = (<div>not chosen</div>)
@@ -35,7 +39,7 @@ const DashboardPage = ({user, section, contentPage}) => {
         <Navbar />
         <div className="container-fluid d-flex" id="dashboard-page">
 
-              <Sidebar />
+              <Sidebar {...props} />
 
               <div className="container px-4 pt-5">
 

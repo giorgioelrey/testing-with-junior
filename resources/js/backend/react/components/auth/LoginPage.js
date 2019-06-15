@@ -49,9 +49,6 @@ constructor(props){
                            password: Yup.string()
                                .min(6, 'Password must be at least 6 characters')
                                .required('Password is required'),
-                           password_confirmation:  Yup.string()
-                               .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                               .required('Confirm Password is required')
                        })}
                        onSubmit={async fields => {
                            console.log('SUCCESS!! :-)\n\n' + JSON.stringify(fields, null, 4));
@@ -63,7 +60,9 @@ constructor(props){
 
                                 console.log('login response.data ', data);
 
-                                this.props.history.push('/admin/dashboard');
+                                this.props.setUserData(data.user);
+
+                                this.props.history.push({pathname:'/admin/dashboard/'});
 
                               } catch(error) {
 
@@ -88,11 +87,7 @@ constructor(props){
 
                                    <ErrorMessage name="password" component="div" className="invalid-feedback" />
                                </div>
-                               <div className="form-group form-label-group">
-                                  <label htmlFor="password-confirmation">Confirm Password</label>
-                                   <Field name="password_confirmation" type="password" className={'form-control' + (errors.password_confirmation && touched.password_confirmation ? ' is-invalid' : '')} placeholder="password confirmation"/>
-                                   <ErrorMessage name="password_confirmation" component="div" className="invalid-feedback" />
-                               </div>
+
                                <div className="form-group">
                                    <button type="submit" className="btn btn-primary mr-2">Login</button>
                                    <button type="reset" className="btn btn-info text- mr-2">Reset</button>

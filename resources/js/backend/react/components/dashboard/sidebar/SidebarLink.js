@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 
-const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height, options }) => {
+const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, height, options, match, history, location }) => {
 
   let optionsList = options &&  (<ul className="flex-column">
                                   {options.map((option, idx) => (<Link className="d-block" key={idx} to="#">{option}</Link>))}
@@ -9,7 +9,17 @@ const SidebarLink = ({ linkEndpoint, linkName, svgClass, innerSvg, width, height
 
   return(
       <li className="nav-item">
-        <Link className="nav-link d-flex align-items-center" to={`/admin/dashboard/${linkEndpoint}`}>
+        <Link className="nav-link d-flex align-items-center"
+
+        to={{
+              pathname: `/admin/dashboard/${linkEndpoint}`,
+              state: {
+                  token: user.token,
+                  user: user
+
+              }
+            }}
+        >
 
           <svg
             xmlns="http://www.w3.org/2000/svg"

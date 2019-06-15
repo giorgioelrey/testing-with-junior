@@ -12,9 +12,10 @@ class PostController extends Controller
 
     public function index()
     {
+
       $response = [
            'success' => true,
-           'data' => Post::all()->toArray(),
+           'posts' => Post::all()->toArray(),
            'message' => 'Posts retrieved successfully.'
        ];
 

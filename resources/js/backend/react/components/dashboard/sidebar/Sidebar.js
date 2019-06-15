@@ -1,14 +1,13 @@
 import React, {Component, Fragment} from 'react';
 import SidebarLink from './SidebarLink';
 
-export default class Sidebar extends Component {
+ const Sidebar = (props) => {
 
 
-  render() {
+    console.log('sidebar props', props)
+    const {navItemsData} = props;
 
-    const {navItemsData} = this.props;
-
-    const navItems = navItemsData.map((navItem, idx) => <SidebarLink key={idx} {...navItem} />)
+    const navItems = navItemsData.map((navItem, idx) => <SidebarLink key={idx} {...navItem} {...props} />)
 
     return (
       <nav className="bg-light sidebar">
@@ -20,8 +19,10 @@ export default class Sidebar extends Component {
       </nav>
 
     );
-  }
+
 }
+
+export default Sidebar;
 
 //https://feathericons.com/
 Sidebar.defaultProps = {
