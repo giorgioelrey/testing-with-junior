@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10660,5 +10660,85 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.bg-gold {
+  background-color: #caa660;
+  height: 100vh;
+}
+
+.bg-green {
+  background-color: #799f6f;
+  height: 100vh;
+}
+
+#nav .bg-light {
+  background-color: #ffffff !important;
+}
+
+#nav .nav-link {
+  color: #000000;
+}
+
+#nav .nav-link:hover {
+  color: #caa660;
+}
+
+#nav .nav-link:focus {
+  color: #caa660;
+}
+
+#nav .lingua {
+  font-size: 18px;
+}
+
+#nav .lingua li a {
+  font-family: "Playfair Display", serif;
+  color: black;
+}
+
+#nav .nav-item {
+  text-transform: uppercase;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 21px;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+}
+
+#nav .navbar-brand img {
+  width: 180px;
+}
+
+#footer {
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #ffffff;
+}
+
+#footer a {
+  color: #000000;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+#footer a:hover {
+  color: #caa660;
+}
+
+#soci .hotel {
+  color: #000000;
+  font-size: 18px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  list-style: none;
+}
+
+#soci .hotel a {
+  color: #000000;
+  font-size: 18px;
+  text-decoration: none;
 }
 
