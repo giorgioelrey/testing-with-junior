@@ -10672,6 +10672,21 @@ a.text-dark:focus {
   height: 100vh;
 }
 
+.title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  margin-top: 70px;
+}
+
+.sotto_title {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 160px;
+  height: 3px;
+  background-color: #000000;
+}
+
 #nav .bg-light {
   background-color: #ffffff !important;
 }
@@ -10740,5 +10755,29 @@ a.text-dark:focus {
   color: #000000;
   font-size: 18px;
   text-decoration: none;
+}
+
+#soci .title {
+  font-family: "Playfair Display", serif;
+  left: 50%;
+  font-size: 50px;
+  position: absolute;
+  text-transform: uppercase;
+  margin-top: 70px;
+  z-index: 999999;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#soci .sotto_title {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 30px;
+  left: 50%;
+  z-index: 999999;
+  position: absolute;
+  width: 160px;
+  height: 3px;
+  background-color: #000000;
 }
 
