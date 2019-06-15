@@ -47,6 +47,11 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->group(
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 
 
+});
 
+Route::middleware('json.response')->namespace('frontendApi')->group(function () {
+
+    // public routes
+    Route::get('/events/{date}', 'EventController@show')->name('events.date');
 
 });
