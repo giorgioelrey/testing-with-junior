@@ -72,7 +72,7 @@ const EventConnector = ((WrappedComponent) => {
         getEvent(eventId){
 
          return axios({
-           url: `/api/admin/events/${eventId}`,
+           url: `/api/admin/event/${eventId}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -85,7 +85,7 @@ const EventConnector = ((WrappedComponent) => {
         getEventsByMonth(month){
 
          return axios({
-           url: `/api/admin/events/month/${month}`,
+           url: `/api/admin/events/by-month/${month}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -98,7 +98,7 @@ const EventConnector = ((WrappedComponent) => {
         submitEvent(newEvent){
 
           return axios({
-            url: '/api/admin/events/store',
+            url: '/api/admin/event/store',
             data: newEvent,
             method: 'events',
             headers: {
@@ -112,7 +112,7 @@ const EventConnector = ((WrappedComponent) => {
         updateEvent(updatedEvent){
 
           return axios({
-            url: '/api/admin/events/update',
+            url: '/api/admin/event/update',
             data: updatedEvent,
             method: 'events',
             headers: {
@@ -126,7 +126,7 @@ const EventConnector = ((WrappedComponent) => {
         deleteEvent(eventId) {
 
           return axios({
-            url: `/api/admin/events/destroy/${eventId}`,
+            url: `/api/admin/event/destroy/${eventId}`,
             method: 'delete',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

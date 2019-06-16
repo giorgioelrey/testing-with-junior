@@ -103772,7 +103772,7 @@ var EventConnector = function EventConnector(WrappedComponent) {
         key: "getEvent",
         value: function getEvent(eventId) {
           return axios__WEBPACK_IMPORTED_MODULE_1___default()({
-            url: "/api/admin/events/".concat(eventId),
+            url: "/api/admin/event/".concat(eventId),
             method: 'get',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
@@ -103785,7 +103785,7 @@ var EventConnector = function EventConnector(WrappedComponent) {
         key: "getEventsByMonth",
         value: function getEventsByMonth(month) {
           return axios__WEBPACK_IMPORTED_MODULE_1___default()({
-            url: "/api/admin/events/month/".concat(month),
+            url: "/api/admin/events/by-month/".concat(month),
             method: 'get',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
@@ -103798,7 +103798,7 @@ var EventConnector = function EventConnector(WrappedComponent) {
         key: "submitEvent",
         value: function submitEvent(newEvent) {
           return axios__WEBPACK_IMPORTED_MODULE_1___default()({
-            url: '/api/admin/events/store',
+            url: '/api/admin/event/store',
             data: newEvent,
             method: 'events',
             headers: {
@@ -103812,7 +103812,7 @@ var EventConnector = function EventConnector(WrappedComponent) {
         key: "updateEvent",
         value: function updateEvent(updatedEvent) {
           return axios__WEBPACK_IMPORTED_MODULE_1___default()({
-            url: '/api/admin/events/update',
+            url: '/api/admin/event/update',
             data: updatedEvent,
             method: 'events',
             headers: {
@@ -103826,7 +103826,7 @@ var EventConnector = function EventConnector(WrappedComponent) {
         key: "deleteEvent",
         value: function deleteEvent(eventId) {
           return axios__WEBPACK_IMPORTED_MODULE_1___default()({
-            url: "/api/admin/events/destroy/".concat(eventId),
+            url: "/api/admin/event/destroy/".concat(eventId),
             method: 'delete',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

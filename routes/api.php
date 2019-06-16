@@ -34,6 +34,8 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
   //->register - POST
   //Route::post('/admin/register', 'AuthController@register')->name('register.api');
 
+  //****** POSTS ****//
+
   Route::get('/admin/post/all', 'PostController@index')->name('post.all');
 
   Route::get('/admin/post/{id}', 'PostController@show')->name('post.show');
@@ -43,6 +45,20 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
   Route::post('/admin/post/update', 'PostController@update')->name('post.all');
 
   Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.all');
+
+  //****** EVENTS *****//
+
+  Route::get('/admin/events/all', 'EventController@index')->name('events.all');
+
+  Route::get('/admin/events/by-month', 'EventController@index')->name('events.byMonth');
+
+  Route::get('/admin/event/{id}', 'EventController@show')->name('events.show');
+
+  Route::events('/admin/event/store', 'EventController@store')->name('events.store');
+
+  Route::events('/admin/event/update', 'EventController@update')->name('events.all');
+
+  Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('events.all');
 
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 
