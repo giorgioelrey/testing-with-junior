@@ -63,10 +63,6 @@ async logoutClicked(token,successCallback, errorCallback){
           exact path="/admin/dashboard"
           render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="main"/>)}
           />
-          <Route
-          exact path="/admin/dashboard/main"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="main" />)}
-          />
           {/* DashboardPages receive props to manage routing + the currentUser from the state */}
           <Route
           exact path="/admin/dashboard/users"
@@ -87,6 +83,22 @@ async logoutClicked(token,successCallback, errorCallback){
           <Route
            path="/admin/dashboard/news/edit/:id"
           render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
+          />
+          <Route
+          exact path="/admin/dashboard/events"
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="list"/>)}
+          />
+          <Route
+          exact path="/admin/dashboard/events/create"
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="create" />)}
+          />
+          <Route
+          path="/admin/dashboard/events/show/:id"
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="show" />)}
+          />
+          <Route
+           path="/admin/dashboard/events/edit/:id"
+          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="edit" />)}
           />
           <Route
           exact path="/admin/dashboard/pages"

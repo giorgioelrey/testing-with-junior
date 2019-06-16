@@ -1,7 +1,7 @@
 <div class='container-fluid' id='nav'>
 
 
-<nav class="navbar navbar-expand-lg navbar-light  bg-light">
+<nav class="navbar navbar-expand-xl navbar-light  bg-light">
 
   <a class="navbar-brand" href="#"><img src='{{ asset('images/logo.jpg')   }}'></a>
 
