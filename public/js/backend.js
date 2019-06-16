@@ -94274,7 +94274,7 @@ QuillToolbar.defaultColors = defaultColors;
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -103596,6 +103596,270 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/backend/react/HOCs/EventConnector.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/backend/react/HOCs/EventConnector.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../components/ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+var EventConnector = function EventConnector(WrappedComponent) {
+  return (
+    /*#__PURE__*/
+    function (_Component) {
+      _inherits(EventsManager, _Component);
+
+      function EventsManager(props) {
+        var _this;
+
+        _classCallCheck(this, EventsManager);
+
+        _this = _possibleConstructorReturn(this, _getPrototypeOf(EventsManager).call(this, props));
+        _this.state = {
+          isLoading: true,
+          events: [],
+          apiErrors: []
+        };
+        _this.getAllEvents = _this.getAllEvents.bind(_assertThisInitialized(_this));
+        _this.getEvent = _this.getEvent.bind(_assertThisInitialized(_this));
+        _this.getEventByMonth = _this.getEventByMonth.bind(_assertThisInitialized(_this));
+        _this.deleteEvent = _this.deleteEvent.bind(_assertThisInitialized(_this));
+        _this.submitEvent = _this.submitEvent.bind(_assertThisInitialized(_this));
+        _this.updateEvent = _this.updateEvent.bind(_assertThisInitialized(_this));
+        return _this;
+      }
+
+      _createClass(EventsManager, [{
+        key: "componentDidMount",
+        value: function () {
+          var _componentDidMount = _asyncToGenerator(
+          /*#__PURE__*/
+          _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+            var apiResponse;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    console.log('hoc props', this.props);
+                    _context.prev = 1;
+                    _context.t0 = this.props.section;
+                    _context.next = _context.t0 === 'list' ? 5 : _context.t0 === 'show' ? 11 : _context.t0 === 'edit' ? 11 : _context.t0 === 'show-by-month' ? 16 : 21;
+                    break;
+
+                  case 5:
+                    _context.next = 7;
+                    return this.getAllEvents();
+
+                  case 7:
+                    apiResponse = _context.sent;
+                    console.log(apiResponse);
+                    this.setState({
+                      events: apiResponse.data.events,
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 23);
+
+                  case 11:
+                    _context.next = 13;
+                    return this.getEvent(this.props.eventId);
+
+                  case 13:
+                    apiResponse = _context.sent;
+                    this.setState({
+                      events: apiResponse.data.event,
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 23);
+
+                  case 16:
+                    _context.next = 18;
+                    return this.getEventsByMonth(this.props.month);
+
+                  case 18:
+                    apiResponse = _context.sent;
+                    this.setState({
+                      events: apiResponse.data.events,
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 23);
+
+                  case 21:
+                    this.setState({
+                      isLoading: false
+                    });
+                    return _context.abrupt("break", 23);
+
+                  case 23:
+                    _context.next = 29;
+                    break;
+
+                  case 25:
+                    _context.prev = 25;
+                    _context.t1 = _context["catch"](1);
+                    console.log('hocs error call', _context.t1.response.data);
+                    this.setState({
+                      apiErrors: [_context.t1.response.data.message]
+                    });
+
+                  case 29:
+                  case "end":
+                    return _context.stop();
+                }
+              }
+            }, _callee, this, [[1, 25]]);
+          }));
+
+          function componentDidMount() {
+            return _componentDidMount.apply(this, arguments);
+          }
+
+          return componentDidMount;
+        }()
+      }, {
+        key: "getAllEvents",
+        value: function getAllEvents() {
+          console.log('sto per fare la chiamata dal hoc');
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/events/all",
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "getEvent",
+        value: function getEvent(eventId) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/events/".concat(eventId),
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "getEventsByMonth",
+        value: function getEventsByMonth(month) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/events/month/".concat(month),
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "submitEvent",
+        value: function submitEvent(newEvent) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: '/api/admin/events/store',
+            data: newEvent,
+            method: 'events',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "updateEvent",
+        value: function updateEvent(updatedEvent) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: '/api/admin/events/update',
+            data: updatedEvent,
+            method: 'events',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + this.props.user.token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "deleteEvent",
+        value: function deleteEvent(eventId) {
+          return axios__WEBPACK_IMPORTED_MODULE_1___default()({
+            url: "/api/admin/events/destroy/".concat(eventId),
+            method: 'delete',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization': 'Bearer ' + token
+            },
+            responseType: 'json'
+          });
+        }
+      }, {
+        key: "render",
+        value: function render() {
+          if (this.state.apiErrors.length > 0) return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_components_ErrorsAlert__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            errors: this.state.apiErrors
+          }); //if (!this.state.isLoading && this.state.events.length === 0 ) return <ErrorsAlert errors={['No events found']} />
+
+          return this.state.isLoading ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", null, "Loading data...") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(WrappedComponent, _extends({}, this.state, this.props, {
+            deleteEvent: this.deleteEvent,
+            updateEvent: this.updateEvent,
+            submitEvent: this.submitEvent,
+            pagesAvailable: ['Travel', 'Blog', 'Hotels']
+          }));
+        }
+      }]);
+
+      return EventsManager;
+    }(react__WEBPACK_IMPORTED_MODULE_2__["Component"])
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EventConnector);
+
+/***/ }),
+
 /***/ "./resources/js/backend/react/assets/logo_core.png":
 /*!*********************************************************!*\
   !*** ./resources/js/backend/react/assets/logo_core.png ***!
@@ -103805,16 +104069,6 @@ function (_Component) {
         }
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         exact: true,
-        path: "/admin/dashboard/main",
-        render: function render(props) {
-          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
-            user: _this2.state.user,
-            logoutAction: _this2.logoutClicked,
-            contentPage: "main"
-          }));
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-        exact: true,
         path: "/admin/dashboard/users",
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
@@ -103862,6 +104116,48 @@ function (_Component) {
             user: _this2.state.user,
             logoutAction: _this2.logoutClicked,
             contentPage: "news",
+            section: "edit"
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/admin/dashboard/events",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
+            user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
+            contentPage: "events",
+            section: "list"
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        exact: true,
+        path: "/admin/dashboard/events/create",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
+            user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
+            contentPage: "events",
+            section: "create"
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/admin/dashboard/events/show/:id",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
+            user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
+            contentPage: "events",
+            section: "show"
+          }));
+        }
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        path: "/admin/dashboard/events/edit/:id",
+        render: function render(props) {
+          return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_dashboard_DashboardPage__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
+            user: _this2.state.user,
+            logoutAction: _this2.logoutClicked,
+            contentPage: "events",
             section: "edit"
           }));
         }
@@ -104155,8 +104451,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Navbar */ "./resources/js/backend/react/components/dashboard/Navbar.js");
 /* harmony import */ var _news_NewsPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./news/NewsPage */ "./resources/js/backend/react/components/dashboard/news/NewsPage.js");
 /* harmony import */ var _users_UsersPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./users/UsersPage */ "./resources/js/backend/react/components/dashboard/users/UsersPage.js");
-/* harmony import */ var _sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sidebar/Sidebar */ "./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js");
-/* harmony import */ var _pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/PagesManagementPage */ "./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js");
+/* harmony import */ var _events_EventsPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./events/EventsPage */ "./resources/js/backend/react/components/dashboard/events/EventsPage.js");
+/* harmony import */ var _sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sidebar/Sidebar */ "./resources/js/backend/react/components/dashboard/sidebar/Sidebar.js");
+/* harmony import */ var _pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/PagesManagementPage */ "./resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js");
+
 
 
 
@@ -104189,7 +104487,11 @@ var DashboardPage = function DashboardPage(props) {
       break;
 
     case 'pages':
-      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_6__["default"], props);
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_PagesManagementPage__WEBPACK_IMPORTED_MODULE_7__["default"], props);
+      break;
+
+    case 'events':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_events_EventsPage__WEBPACK_IMPORTED_MODULE_5__["default"], props);
       break;
 
     default:
@@ -104199,7 +104501,7 @@ var DashboardPage = function DashboardPage(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid d-flex",
     id: "dashboard-page"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_5__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sidebar_Sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], props), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container px-4 pt-5"
   }, contentArea)));
 };
@@ -104323,6 +104625,504 @@ function (_Component) {
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Navbar));
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventCard.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventCard.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../assets/placeholder_post_image.png */ "./resources/js/backend/react/assets/placeholder_post_image.png");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var EventCard = function EventCard(_ref) {
+  var event = _ref.event;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-6 col-xl-4 px-2 mb-5"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: event && event.image || placeholder_postt_image,
+    className: "card-img-top",
+    alt: "...where is the image"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title"
+  }, event.title || 'Sample title'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, event.date), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, event.subtitle || 'Sample subtitle'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, event.description || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/events/show/".concat(event.id),
+    className: "btn btn-primary btn-lg"
+  }, "Open"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/events/edit/".concat(event.id),
+    className: "btn btn-warning btn-lg ml-3"
+  }, "Edit this event"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EventCard);
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventCreateEdit.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventCreateEdit.js ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _EventForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EventForm */ "./resources/js/backend/react/components/dashboard/events/EventForm.js");
+/* harmony import */ var _ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../ErrorsAlert */ "./resources/js/backend/react/components/ErrorsAlert.js");
+/* harmony import */ var _HOCs_EventConnector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../../HOCs/EventConnector */ "./resources/js/backend/react/HOCs/EventConnector.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+ //Helpers
+
+
+
+var NewsCreateEdit = function NewsCreateEdit(_ref) {
+  var post = _ref.post,
+      updatePost = _ref.updatePost,
+      submitPost = _ref.submitPost,
+      history = _ref.history,
+      pagesAvailable = _ref.pagesAvailable,
+      postId = _ref.postId,
+      section = _ref.section;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      submissionErrors = _useState2[0],
+      setSubmissionErrors = _useState2[1];
+
+  var postSubmit =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(fields) {
+      var _ref3, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.prev = 0;
+              _context.next = 3;
+              return section === 'create' ? submitPost(fields) : updatePost(fields);
+
+            case 3:
+              _ref3 = _context.sent;
+              data = _ref3.data;
+              console.log('success', data);
+              history.push('/admin/dashboard/news');
+              _context.next = 13;
+              break;
+
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](0);
+              console.log('error submit', _context.t0);
+              setSubmissionErrors([_context.t0]);
+
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[0, 9]]);
+    }));
+
+    return function postSubmit(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var submitErrors = submissionErrors.length > 0 && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ErrorsAlert__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    errors: submissionErrors
+  }) || null;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "container",
+    id: "create-edit-news-page"
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, section === 'create' ? 'Create' : 'Edit', " your post"), submitErrors, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(NewsForm, {
+    onSubmit: postSubmit,
+    pagesAvailable: pagesAvailable,
+    post: post
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Object(_HOCs_EventConnector__WEBPACK_IMPORTED_MODULE_5__["default"])(NewsCreateEdit)));
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventForm.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventForm.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-quill */ "./node_modules/react-quill/lib/index.js");
+/* harmony import */ var react_quill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_quill__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var formik__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! formik */ "./node_modules/formik/dist/formik.esm.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! yup */ "./node_modules/yup/lib/index.js");
+/* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(yup__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+var EventForm = function EventForm(_ref) {
+  var post = _ref.post,
+      initialValues = _ref.initialValues,
+      yupSchema = _ref.yupSchema,
+      pagesAvailable = _ref.pagesAvailable,
+      _onSubmit = _ref.onSubmit;
+  var formStartingValues = post && {
+    title: post.title || '',
+    subtitle: post.subtitle || '',
+    post_body: post.post_body || '',
+    publish_status: post.publish_status || '',
+    destination_page: post.destination_page || '',
+    slug: post.slug || 'test',
+    id: post.id || ''
+  } || initialValues;
+  console.log(formStartingValues);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Formik"], {
+    initialValues: formStartingValues,
+    validationSchema: yup__WEBPACK_IMPORTED_MODULE_3__["object"]().shape(yupSchema),
+    onSubmit: function onSubmit(fields) {
+      _onSubmit(fields);
+    },
+    render: function render(_ref2) {
+      var errors = _ref2.errors,
+          status = _ref2.status,
+          touched = _ref2.touched;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+        className: "cms-form login"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        type: "hidden",
+        className: "form-control",
+        name: "id"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "title"
+      }, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "title",
+        type: "text",
+        className: 'form-control' + (errors.title && touched.title ? ' is-invalid' : ''),
+        placeholder: "Type title"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "title",
+        component: "div",
+        className: "invalid-feedback"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "subtitle"
+      }, "Subtitle"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "subtitle",
+        type: "text",
+        className: 'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : ''),
+        placeholder: "Type subtitle"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "subtitle",
+        component: "div",
+        className: "invalid-feedback"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "post_body"
+      }, "Post Body"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "post_body"
+      }, function (_ref3) {
+        var field = _ref3.field,
+            errors = _ref3.errors;
+        //console.log(field, errors);
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_quill__WEBPACK_IMPORTED_MODULE_1___default.a, {
+          value: field.value,
+          onChange: field.onChange(field.name)
+        });
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: 'invalid-feedback ' + (errors.post_body ? 'd-block' : '')
+      }, errors.post_body)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "publish_status"
+      }, "When do you want to publish"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "publish_status",
+        component: "select",
+        className: 'form-control ' + (errors.publish_status && touched.publish_status ? ' is-invalid' : '')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "Select now or later"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "now"
+      }, "Now"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "pending"
+      }, "Later")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "publish_status",
+        component: "div",
+        className: "invalid-feedback"
+      })), pagesAvailable.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group form-label-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "destination_page"
+      }, "Where do you want to publish this post at"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+        name: "destination_page",
+        component: "select",
+        className: 'form-control ' + (errors.destination_page && touched.destination_page ? ' is-invalid' : '')
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "Select destination page"), pagesAvailable.map(function (page, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: idx,
+          value: idx
+        }, page);
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(formik__WEBPACK_IMPORTED_MODULE_2__["ErrorMessage"], {
+        name: "destination_page",
+        component: "div",
+        className: "invalid-feedback"
+      })) || null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "submit",
+        className: "btn btn-primary mr-2"
+      }, "Submit new post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "reset",
+        className: "btn btn-info text- mr-2"
+      }, "Reset")));
+    }
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (EventForm);
+EventForm.defaultProps = {
+  initialValues: {
+    title: '',
+    subtitle: '',
+    post_body: '',
+    publish_status: '',
+    destination_page: '',
+    slug: 'test',
+    id: ''
+  },
+  yupSchema: {
+    title: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(6, 'Title must be at least 6 characters').required('Title is required'),
+    subtitle: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(6, 'Subtitle must be at least 6 characters').required('Subtitle is required'),
+    post_body: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().min(30, 'Post body must be at least 30 characters').required('Post body is required'),
+    publish_status: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Please select if you want to publish now or later'),
+    destination_page: yup__WEBPACK_IMPORTED_MODULE_3__["string"]().required('Please select wich page you want to publish this post at')
+  },
+  pagesAvailable: []
+};
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventsList.js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventsList.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _EventCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EventCard */ "./resources/js/backend/react/components/dashboard/events/EventCard.js");
+/* harmony import */ var _HOCs_EventConnector__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../HOCs/EventConnector */ "./resources/js/backend/react/HOCs/EventConnector.js");
+
+
+
+
+
+var EventsList = function EventsList(_ref) {
+  var events = _ref.events;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Here's all your events"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/news/create",
+    className: "btn btn-primary btn-lg"
+  }, "Add a new Event")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row"
+  }, events.length > 0 && events.map(function (post, idx) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      key: idx,
+      post: post
+    });
+  }) || react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "No events to show")));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_HOCs_EventConnector__WEBPACK_IMPORTED_MODULE_3__["default"])(EventsList));
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventsPage.js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventsPage.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _EventCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EventCard */ "./resources/js/backend/react/components/dashboard/events/EventCard.js");
+/* harmony import */ var _EventsList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EventsList */ "./resources/js/backend/react/components/dashboard/events/EventsList.js");
+/* harmony import */ var _EventsShow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./EventsShow */ "./resources/js/backend/react/components/dashboard/events/EventsShow.js");
+/* harmony import */ var _EventCreateEdit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EventCreateEdit */ "./resources/js/backend/react/components/dashboard/events/EventCreateEdit.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
+
+
+
+
+
+var EventsPage = function EventsPage(props) {
+  var contentArea;
+
+  switch (props.section) {
+    case 'list':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventsList__WEBPACK_IMPORTED_MODULE_3__["default"], props);
+      break;
+
+    case 'show':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventsShow__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, props, {
+        eventId: props.match.params.id
+      }));
+      break;
+
+    case 'create':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCreateEdit__WEBPACK_IMPORTED_MODULE_5__["default"], props);
+      break;
+
+    case 'edit':
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_EventCreateEdit__WEBPACK_IMPORTED_MODULE_5__["default"], _extends({}, props, {
+        eventId: props.match.params.id
+      }));
+      break;
+
+    default:
+      contentArea = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "not chosen");
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, contentArea);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(EventsPage));
+
+/***/ }),
+
+/***/ "./resources/js/backend/react/components/dashboard/events/EventsShow.js":
+/*!******************************************************************************!*\
+  !*** ./resources/js/backend/react/components/dashboard/events/EventsShow.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../helpers/postHelper */ "./resources/js/backend/react/helpers/postHelper.js");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../assets/placeholder_post_image.png */ "./resources/js/backend/react/assets/placeholder_post_image.png");
+/* harmony import */ var _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3__);
+var _this = undefined;
+
+
+
+
+
+
+var NewsShow = function NewsShow(_ref) {
+  var post = _ref.post,
+      deletePost = _ref.deletePost;
+
+  var deleteSingleNews = function deleteSingleNews(id) {
+    //axios call for deletion
+    deletePost(id).then(function (_ref2) {
+      var data = _ref2.data;
+      console.log('success', data);
+      props.history.push('/admin/dashboard/news');
+    })["catch"](function (error) {
+      console.log('error submit', error);
+    });
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card mb-3"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: post && post.image || _assets_placeholder_post_image_png__WEBPACK_IMPORTED_MODULE_3___default.a,
+    className: "card-img-top",
+    alt: "...",
+    style: {
+      maxWidth: '100%'
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "card-title"
+  }, post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, post.post_body), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    className: "text-muted"
+  }, post.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/admin/dashboard/news/edit/".concat(post.id),
+    className: "btn btn-warning btn-lg mr-3"
+  }, "Edit this post"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    onClick: deleteSingleNews.bind(_this, post.id),
+    className: "btn btn-danger btn-lg text-white"
+  }, "Delete this post"))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Object(_helpers_postHelper__WEBPACK_IMPORTED_MODULE_2__["default"])(NewsShow)));
 
 /***/ }),
 
@@ -104962,6 +105762,37 @@ Sidebar.defaultProps = {
       points: "2 17 12 22 22 17"
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("polyline", {
       points: "2 12 12 17 22 12"
+    })),
+    options: [{
+      linkName: 'Create New',
+      linkEndpoint: 'create'
+    }]
+  }, {
+    linkEndpoint: 'events',
+    linkName: 'Events',
+    svgClass: 'feather-calendar',
+    innerSvg: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("rect", {
+      x: "3",
+      y: "4",
+      width: "18",
+      height: "18",
+      rx: "2",
+      ry: "2"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
+      x1: "16",
+      y1: "2",
+      x2: "16",
+      y2: "6"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
+      x1: "8",
+      y1: "2",
+      x2: "8",
+      y2: "6"
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("line", {
+      x1: "3",
+      y1: "10",
+      x2: "21",
+      y2: "10"
     })),
     options: [{
       linkName: 'Create New',

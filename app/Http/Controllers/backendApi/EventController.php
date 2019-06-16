@@ -48,7 +48,7 @@ class EventController extends Controller
 
          $response = [
              'success' => true,
-             'post' => $data,
+             'event' => $data,
              'message' => 'Event stored successfully.'
          ];
 
@@ -64,7 +64,7 @@ class EventController extends Controller
       if (is_null($eventsArray)) {
           $response = [
               'success' => false,
-              'data' => [],
+              'events' => [],
               'message' => 'No events found'
           ];
           return response()->json($response, 404);
@@ -90,7 +90,7 @@ class EventController extends Controller
       if (is_null($eventsArray)) {
           $response = [
               'success' => false,
-              'data' => [],
+              'events' => [],
               'message' => 'No events found'
           ];
           return response()->json($response, 404);
@@ -117,7 +117,7 @@ class EventController extends Controller
       if (is_null($event)) {
           $response = [
               'success' => false,
-              'data' => [],
+              'event' => [],
               'message' => 'Event not found.'
           ];
           return response()->json($response, 404);
@@ -150,7 +150,7 @@ class EventController extends Controller
 
        $response = [
            'success' => true,
-           'data' => $data,
+           'event' => $data,
            'message' => 'Event updated successfully.'
        ];
 
@@ -165,8 +165,8 @@ class EventController extends Controller
       if (is_null($event)) {
           $response = [
               'success' => false,
-              'data' => 'Empty',
-              'message' => 'Post not found.'
+              'event' => [],
+              'message' => 'Event not found.'
           ];
           return response()->json($response, 404);
       }
@@ -176,11 +176,11 @@ class EventController extends Controller
 
        $response = [
            'success' => true,
-           'data' => $data,
-           'message' => 'Post deleted successfully.'
+           'event' => $data,
+           'message' => 'Event deleted successfully.'
        ];
 
      return response()->json($response, 200);
-     
+
     }
 }

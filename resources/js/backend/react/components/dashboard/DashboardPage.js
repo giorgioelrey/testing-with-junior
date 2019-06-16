@@ -3,10 +3,9 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import Navbar from './Navbar';
 import NewsPage from './news/NewsPage';
 import UsersPage from './users/UsersPage';
+import EventsPage from './events/EventsPage';
 import Sidebar from './sidebar/Sidebar';
 import PagesManagementPage from './pages/PagesManagementPage';
-
-
 
 const DashboardPage = (props) => {
 
@@ -28,6 +27,9 @@ const DashboardPage = (props) => {
       break;
     case 'pages':
       contentArea = (<PagesManagementPage {...props}/>)
+      break;
+    case 'events':
+      contentArea = (<EventsPage {...props}/>)
       break;
     default:
       contentArea = (<div>not chosen</div>)
