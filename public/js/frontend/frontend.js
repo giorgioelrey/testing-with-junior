@@ -80245,7 +80245,7 @@ function (_Component) {
 
       if (!!nextState.date) {
         nextState.date.locale(this.props.locale);
-        console.log('Calendar component componentWillUpdate'); //this.props.showEventsOnChange(nextState.date);
+        console.log('Calendar component componentWillUpdate');
       }
 
       nextState.month.locale(this.props.locale);
@@ -80751,7 +80751,7 @@ function (_Component) {
 
       console.log('chiamo api e invio ', date);
       axios__WEBPACK_IMPORTED_MODULE_7___default()({
-        url: "/api/events/".concat(date.format('YYYY-MM-DD')),
+        url: "/api/events/date/".concat(date.format('YYYY-MM-DD')),
         method: 'get',
         headers: {
           'X-Requested-With': 'XMLHttpRequest'

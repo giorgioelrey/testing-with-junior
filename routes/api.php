@@ -13,18 +13,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('json.response')->namespace('backendApi')->group(function () {
+Route::middleware('json.response')->namespace('backendApi')->name('be.api.')->group(function () {
 
     // public routes
     //->login - POST
-    Route::post('/admin/login', 'AuthController@login')->name('login.api');
+    Route::post('/admin/login', 'AuthController@login')->name('login');
 
 
 });
 
 // private routes
 
-Route::middleware(['auth:api','json.response'])->namespace('backendApi')->group(function () {
+Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('be.api.')->group(function () {
 
   //->user - GET
   Route::get('/admin/user','UserController@show')->name('user.show');
@@ -38,7 +38,7 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->group(
 
   Route::get('/admin/post/{id}', 'PostController@show')->name('post.show');
 
-  Route::post('/admin/post/store', 'PostController@store')->name('post.store.api');
+  Route::post('/admin/post/store', 'PostController@store')->name('post.store');
 
   Route::post('/admin/post/update', 'PostController@update')->name('post.all');
 
@@ -49,9 +49,14 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->group(
 
 });
 
-Route::middleware('json.response')->namespace('frontendApi')->group(function () {
+Route::middleware('json.response')->namespace('frontendApi')->name('fe.api.')->group(function () {
 
     // public routes
-    Route::get('/events/{date}', 'EventController@show')->name('events.date');
+
+    Route::get('/events', 'EventController@index')->name('events.all');
+
+    Route::get('/events/date/{date}', 'EventController@showByDate')->name('events.date');
+
+    Route::get('/events/month/{month}', 'EventController@showByMonth')->name('events.month');
 
 });
