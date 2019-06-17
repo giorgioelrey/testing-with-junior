@@ -4,9 +4,9 @@ import EventConnector from './../../../HOCs/EventConnector';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
 
 
-const EventsShow = ({events, deleteEvent}) => {
+const EventsShow = ({event, deleteEvent, history}) => {
 
-  console.log(events)
+  console.log(event)
 
   const deleteCurrentEvent = (id) => {
 
@@ -15,7 +15,7 @@ const EventsShow = ({events, deleteEvent}) => {
       .then(({data}) => {
 
         console.log('success', data);
-        props.history.push('/admin/dashboard/events');
+        history.push('/admin/dashboard/events');
 
       })
       .catch((error) => {
@@ -28,16 +28,16 @@ const EventsShow = ({events, deleteEvent}) => {
     return (
       <Fragment>
         <div className="card mb-3">
-          <img src={events && events.image || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
+          <img src={event && event.image || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
           <div className="card-body">
-            <h5 className="card-title">{events.title}</h5>
-            <h3>{events.subtitle}</h3>
-            <p>{events.date}</p>
-            <p className="card-text">{events.description}</p>
-            <p className="card-text"><small className="text-muted">{events.created_at}</small></p>
+            <h5 className="card-title">{event.title}</h5>
+            <h3>{event.subtitle}</h3>
+            <p>{event.date}</p>
+            <p className="card-text">{event.description}</p>
+            <p className="card-text"><small className="text-muted">{event.created_at}</small></p>
 
-              <Link to={`/admin/dashboard/news/edit/${events.id}`} className="btn btn-warning btn-lg mr-3">Edit this event</Link>
-            <a onClick={deleteCurrentEvent.bind(this, events.id)} className="btn btn-danger btn-lg text-white">Delete this event</a>
+              <Link to={`/admin/dashboard/news/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Edit this event</Link>
+            <a onClick={deleteCurrentEvent.bind(this, event.id)} className="btn btn-danger btn-lg text-white">Delete this event</a>
 
 
           </div>

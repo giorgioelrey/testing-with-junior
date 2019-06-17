@@ -14,8 +14,8 @@ const EventCard = ({ event }) => {
           <h3>{event.date}</h3>
           <h3>{event.subtitle || 'Sample subtitle'}</h3>
           <p className="card-text">{event.description || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'}</p>
-            <Link to={`/admin/dashboard/events/show/${event.id}`} className="btn btn-primary btn-lg">Open</Link>
-            <Link to={`/admin/dashboard/events/edit/${event.id}`} className="btn btn-warning btn-lg ml-3">Edit this event</Link>
+            <Link to={`/admin/dashboard/event/show/id/${event.id}`} className="btn btn-primary btn-lg">Open</Link>
+            <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg ml-3">Edit this event</Link>
         </div>
       </div>
 

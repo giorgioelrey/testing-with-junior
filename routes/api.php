@@ -49,11 +49,11 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
 
   Route::get('/admin/events/all', 'EventController@index')->name('event.all');
 
-  Route::get('/admin/events/by-month/{month}', 'EventController@showByMonth')->name('event.byMonth');
+  Route::get('/admin/events/show/by-month/{month}', 'EventController@showByMonth')->name('event.byMonth');
 
-  Route::get('/admin/event/date/{date}', 'EventController@showByDate')->name('event.byDate');
+  Route::get('/admin/events/show/by-date/{date}', 'EventController@showByDate')->name('event.byDate');
 
-  Route::get('/admin/event/id/{id}', 'EventController@showById')->name('event.showById');
+  Route::get('/admin/event/show/id/{id}', 'EventController@showById')->name('event.showById');
 
   Route::post('/admin/event/store', 'EventController@store')->name('event.store');
 

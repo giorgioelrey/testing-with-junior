@@ -10,13 +10,12 @@ import moment from 'moment';
 const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
 
-    const formStartingValues = event && {
+    const formStartingValues = event && event.id && {
           title: event.title || '',
           subtitle: event.subtitle || '',
           address: event.address || '',
           description: event.description || '',
-          date: event.date || '',
-          publish_status: event.publish_status || '',
+          date: new Date(event.date) || '',
           id: event.id || ''
       } || initialValues;
 
@@ -28,7 +27,7 @@ const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }
         <Formik
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
-               onSubmit={ (fields) => {onSubmit(fields)} }
+               onSubmit={ (fields) => {console.log('submit event'); onSubmit(fields)} }
                render={({ errors, status, touched }) => (
                    <Form className="cms-form login">
 
@@ -121,6 +120,7 @@ EventForm.defaultProps = {
       title: '',
       subtitle: '',
       description: '',
+      address: '',
       date: '',
       id: ''
   },

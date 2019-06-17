@@ -4,7 +4,7 @@ import PostConnector from './../../../helpers/postHelper';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
 
 
-const NewsShow = ({post, deletePost}) => {
+const NewsShow = ({post, deletePost, history}) => {
 
   const deleteSingleNews = (id) => {
 
@@ -13,12 +13,13 @@ const NewsShow = ({post, deletePost}) => {
       .then(({data}) => {
 
         console.log('success', data);
-        props.history.push('/admin/dashboard/news');
+        history.push('/admin/dashboard/news');
 
       })
       .catch((error) => {
 
         console.log('error submit', error);
+
       })
 
   }

@@ -11,7 +11,7 @@ const EventConnector = ((WrappedComponent) => {
           super(props);
 
 
-          this.state = { isLoading: true, events: [], apiErrors: [] }
+          this.state = { isLoading: true, events: [], event:{}, apiErrors: [] }
 
           this.getAllEvents = this.getAllEvents.bind(this);
           this.getEventById = this.getEventById.bind(this);
@@ -37,7 +37,7 @@ const EventConnector = ((WrappedComponent) => {
                            this.setState({ events: apiResponse.data.events, isLoading: false })
                            ; break;
               case 'show': case 'edit': apiResponse = await this.getEventById(this.props.eventId)
-                          this.setState({ events: apiResponse.data.event, isLoading: false })
+                          this.setState({ event: apiResponse.data.event, isLoading: false })
                           ; break;
               case 'show-by-month': apiResponse = await this.getEventsByMonth(this.props.month)
                           this.setState({ events: apiResponse.data.events, isLoading: false })
@@ -72,7 +72,7 @@ const EventConnector = ((WrappedComponent) => {
         getEventById(eventId){
 
          return axios({
-           url: `/api/admin/event/id/${eventId}`,
+           url: `/api/admin/event/show/id/${eventId}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -85,7 +85,7 @@ const EventConnector = ((WrappedComponent) => {
         getEventsByMonth(month){
 
          return axios({
-           url: `/api/admin/events/by-month/${month}`,
+           url: `/api/admin/events/show/by-month/${month}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -100,7 +100,7 @@ const EventConnector = ((WrappedComponent) => {
           return axios({
             url: '/api/admin/event/store',
             data: newEvent,
-            method: 'events',
+            method: 'post',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
               'Authorization' : 'Bearer ' + this.props.user.token},
@@ -114,7 +114,7 @@ const EventConnector = ((WrappedComponent) => {
           return axios({
             url: '/api/admin/event/update',
             data: updatedEvent,
-            method: 'events',
+            method: 'post',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
               'Authorization' : 'Bearer ' + this.props.user.token},
@@ -130,7 +130,7 @@ const EventConnector = ((WrappedComponent) => {
             method: 'delete',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
-              'Authorization' : 'Bearer ' + token},
+              'Authorization' : 'Bearer ' + this.props.user.token},
             responseType: 'json',
           })
 

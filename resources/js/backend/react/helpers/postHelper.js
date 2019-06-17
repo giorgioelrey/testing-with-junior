@@ -14,6 +14,7 @@ const PostConnector = ((WrappedComponent) => {
           this.state = {
             isLoading: true,
             posts: [],
+            post: {},
             apiErrors: []
           }
 
@@ -117,7 +118,7 @@ const PostConnector = ((WrappedComponent) => {
             method: 'delete',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
-              'Authorization' : 'Bearer ' + token},
+              'Authorization' : 'Bearer ' + this.props.user.token},
             responseType: 'json',
           })
 

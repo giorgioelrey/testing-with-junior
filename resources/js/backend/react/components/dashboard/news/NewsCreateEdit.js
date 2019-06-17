@@ -26,7 +26,7 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
 
       console.log('error submit', error);
 
-      setSubmissionErrors([error]);
+      setSubmissionErrors([error.response.data.message]);
 
     }
 
