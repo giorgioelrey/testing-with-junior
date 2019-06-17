@@ -18,6 +18,7 @@ Route::middleware('json.response')->namespace('backendApi')->name('be.api.')->gr
     // public routes
     //->login - POST
     Route::post('/admin/login', 'AuthController@login')->name('login');
+    Route::post('/admin/image/store', 'ImageController@store')->name('image.store');
 
 
 });
@@ -58,6 +59,8 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
   Route::post('/admin/event/store', 'EventController@store')->name('event.store');
 
   Route::post('/admin/event/update', 'EventController@update')->name('event.update');
+
+
 
   Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('event.destroy');
 

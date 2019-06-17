@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import NewsForm from './NewsForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
+import ImageUploader from './ImageUploader';
 
 //Helpers
 import PostConnector from './../../../helpers/postHelper';
@@ -41,6 +42,7 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
               <h1>{section === 'create' ? 'Create' : 'Edit'} your post</h1>
               {submitErrors}
 
+                <ImageUploader />
                 <NewsForm
                 onSubmit={postSubmit}
                 pagesAvailable={pagesAvailable}
