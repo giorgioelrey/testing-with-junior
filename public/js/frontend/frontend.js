@@ -80090,7 +80090,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/frontend/bootstrap.js");
  */
 
 
-__webpack_require__(/*! ./calendar/homeCalendar.js */ "./resources/js/frontend/calendar/homeCalendar.js");
+if (window.location.pathname === '/') {
+  __webpack_require__(/*! ./calendar/homeCalendar.js */ "./resources/js/frontend/calendar/homeCalendar.js");
+}
+
+if (window.location.pathname === '/eventi') {}
 
 /***/ }),
 

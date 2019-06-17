@@ -42,23 +42,25 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
 
   Route::post('/admin/post/store', 'PostController@store')->name('post.store');
 
-  Route::post('/admin/post/update', 'PostController@update')->name('post.all');
+  Route::post('/admin/post/update', 'PostController@update')->name('post.update');
 
-  Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.all');
+  Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
 
-  //****** EVENTS *****//
 
-  Route::get('/admin/events/all', 'EventController@index')->name('events.all');
+  Route::get('/admin/events/all', 'EventController@index')->name('event.all');
 
-  Route::get('/admin/events/by-month', 'EventController@index')->name('events.byMonth');
+  Route::get('/admin/events/by-month/{month}', 'EventController@showByMonth')->name('event.byMonth');
 
-  Route::get('/admin/event/{id}', 'EventController@show')->name('events.show');
+  Route::get('/admin/event/date/{date}', 'EventController@showByDate')->name('event.byDate');
 
-  Route::events('/admin/event/store', 'EventController@store')->name('events.store');
+  Route::get('/admin/event/id/{id}', 'EventController@showById')->name('event.showById');
 
-  Route::events('/admin/event/update', 'EventController@update')->name('events.all');
+  Route::post('/admin/event/store', 'EventController@store')->name('event.store');
 
-  Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('events.all');
+  Route::post('/admin/event/update', 'EventController@update')->name('event.update');
+
+  Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('event.destroy');
+
 
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 
@@ -71,8 +73,9 @@ Route::middleware('json.response')->namespace('frontendApi')->name('fe.api.')->g
 
     Route::get('/events', 'EventController@index')->name('events.all');
 
-    Route::get('/events/date/{date}', 'EventController@showByDate')->name('events.date');
+    Route::get('/events/date/{date}', 'EventController@showByDate')->name('event.date');
 
-    Route::get('/events/month/{month}', 'EventController@showByMonth')->name('events.month');
+    Route::get('/events/month/{month}', 'EventController@showByMonth')->name('event.month');
+
 
 });

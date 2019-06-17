@@ -8,7 +8,7 @@ const EventCard = ({ event }) => {
     <div className="col-md-6 col-xl-4 px-2 mb-5">
 
       <div className="card">
-        <img src={event && event.image || placeholder_postt_image} className="card-img-top" alt="...where is the image"/>
+        <img src={event && event.image || placeholder_post_image} className="card-img-top" alt="...where is the image"/>
         <div className="card-body">
           <h5 className="card-title">{event.title || 'Sample title'}</h5>
           <h3>{event.date}</h3>

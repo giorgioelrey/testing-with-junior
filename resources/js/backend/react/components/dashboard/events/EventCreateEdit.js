@@ -3,24 +3,22 @@ import { withRouter } from 'react-router-dom';
 import EventForm from './EventForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
-
-//Helpers
 import EventConnector from './../../../HOCs/EventConnector';
 
-const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
+const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvailable, eventId, section }) => {
 
 
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
-  const postSubmit = async (fields) => {
+  const eventSubmit = async (fields) => {
 
     try {
 
-      const {data} = await (section === 'create' ?   submitPost(fields) : updatePost(fields));
+      const {data} = await (section === 'create' ?   submitEvent(fields) : updateEvent(fields));
 
       console.log('success', data);
 
-      history.push('/admin/dashboard/news');
+      history.push('/admin/dashboard/events');
 
     } catch(error){
 
@@ -36,15 +34,15 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
 
   return (
     <Fragment>
-      <div className="container" id="create-edit-news-page">
+      <div className="container" id="create-edit-event-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your post</h1>
+              <h1>{section === 'create' ? 'Create' : 'Edit'} your event</h1>
               {submitErrors}
 
-                <NewsForm
-                onSubmit={postSubmit}
+                <EventForm
+                onSubmit={eventSubmit}
                 pagesAvailable={pagesAvailable}
-                post={post}
+                event={event}
                 />
 
       </div>
@@ -53,4 +51,4 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
 
 }
 
-export default withRouter(EventConnector(NewsCreateEdit));
+export default withRouter(EventConnector(EventCreateEdit));
