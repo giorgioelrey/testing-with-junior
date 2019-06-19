@@ -84,7 +84,7 @@ class EventsCalendar extends Component {
         <Calendar
           date={this.state.date}
           onSelect={this.onSelect}
-          locale="it"
+          locale={userLanguage /* userlanguage received by views.frontend.layout.app */}
           dayRenderer={CustomDayRenderer}
           startOfWeekIndex={1}
           showEventsOnChange={this.getEventsPerDay}

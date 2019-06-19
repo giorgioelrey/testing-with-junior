@@ -19,6 +19,10 @@
   //$lang gets received by route function
 
   @endphp
+  {{-- Passing to js userLanguage--}}
+  <script type="text/javascript">
+    const userLanguage = "{{$lang}}";
+  </script>
 
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,7 +30,7 @@
   <title>{{ config('app.name', 'frontend_test') }}</title>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/frontend/frontend.js') }}" defer></script>
+  <script src="{{ asset('js/frontend/app.js') }}" defer></script>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
