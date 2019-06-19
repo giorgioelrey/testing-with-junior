@@ -60,10 +60,7 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
 
   Route::post('/admin/event/update', 'EventController@update')->name('event.update');
 
-
-
   Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('event.destroy');
-
 
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 

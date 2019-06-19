@@ -2,9 +2,16 @@
 @section('content')
 
 
-  <div class='container-fluid  ' id='soci'>
+  <div class='container-fluid' id='soci'>
   <div class='row'>
 
+<div  class='title'>Boutiques
+
+<div class='sotto_title'>
+
+
+</div>
+</div>
   <div class='col-md-6 bg-gold d-flex align-items-center'>
     <div class="form-group m-auto w-50">
        <label for="exampleFormControlSelect1">scegli la via</label>
@@ -21,11 +28,27 @@
   </div>
   <div class='col-md-6 '>
 
-
-
+  </div>
+  </div>
   </div>
 
+
+
+  <div class='container-fluid' id='soci'>
+  <div class='row'>
+
+  <div  class='title'>Hotels
+
+  <div class='sotto_title'>
+
+  </div>
+  </div>
+
+
+
+
   <div class='col-md-6 d-flex align-items-center '>
+
     <ul class='hotel'>
 
   <li><a href='#'>LE GRAND HOTEL DE MILAN </a></li>
