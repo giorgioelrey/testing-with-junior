@@ -46,15 +46,21 @@ class PressList extends React.Component{
 
           <div key={idx} className='col-md-4'>
 
-            <h1>{pressPost.title} </h1>
+            <img className="img-fluid" src={pressPost.image_url} alt="no image" />
 
-            <p>{pressPost.address}</p>
+            <h1>Titolo: <br/>{pressPost.title} </h1>
+
+            <h3>Sottotitolo: <br/>{pressPost.subtitle}</h3>
+
+            <p>Data: <br/>{pressPost.title}</p>
+
+            <p>Post Body: <br/>{pressPost.post_body}</p>
 
           </div>
 
 
 
-)) || (<div>no post.</div>)}
+)) || (<div>No press posts available</div>)}
 
       </React.Fragment>
     )

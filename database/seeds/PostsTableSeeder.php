@@ -26,6 +26,7 @@ class PostsTableSeeder extends Seeder
             $newsPost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
             $newsPost->date = $faker->dateTimeInInterval($startDate = 'now', $interval = '+ 90 days', $timezone = 'Europe/Paris');
             $newsPost->category_id = 1;
+            $newsPost->image_url = $faker->imageUrl(640, 480, 'city');
             $newsPost->save();
 
         }
@@ -37,8 +38,9 @@ class PostsTableSeeder extends Seeder
             $archivePost->title = $faker->sentence($nbWords = 3, $variableNbWords = true);
             $archivePost->subtitle = $faker->sentence($nbWords = 4, $variableNbWords = true);
             $archivePost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
-            $newsPost->date = $faker->dateTimeThisMonth($max = 'now', $timezone = 'Europe/Paris');
+            $archivePost->date = $faker->dateTimeThisMonth($max = 'now', $timezone = 'Europe/Paris');
             $archivePost->category_id = 2;
+            $archivePost->image_url = $faker->imageUrl(640, 480, 'city');
             $archivePost->save();
 
         }
