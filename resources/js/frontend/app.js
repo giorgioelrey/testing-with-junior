@@ -17,7 +17,6 @@ if (window.location.pathname === '/'){
 
 }
 
-
 if (window.location.pathname === '/eventi'){
 
 require('./events/events.js')

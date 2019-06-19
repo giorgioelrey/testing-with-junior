@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
-import EventCard from './EventCard';
 import EventsList from './EventsList';
 import EventsShow from './EventsShow';
 import EventCreateEdit from './EventCreateEdit';

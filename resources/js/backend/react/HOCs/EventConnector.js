@@ -11,11 +11,11 @@ const EventConnector = ((WrappedComponent) => {
           super(props);
 
 
-          this.state = { isLoading: true, events: [], apiErrors: [] }
+          this.state = { isLoading: true, events: [], event:{}, apiErrors: [] }
 
           this.getAllEvents = this.getAllEvents.bind(this);
-          this.getEvent = this.getEvent.bind(this);
-          this.getEventByMonth = this.getEventByMonth.bind(this);
+          this.getEventById = this.getEventById.bind(this);
+          this.getEventsByMonth = this.getEventsByMonth.bind(this);
           this.deleteEvent = this.deleteEvent.bind(this);
           this.submitEvent = this.submitEvent.bind(this);
           this.updateEvent = this.updateEvent.bind(this);
@@ -24,7 +24,7 @@ const EventConnector = ((WrappedComponent) => {
 
         async componentDidMount(){
 
-          console.log('hoc props', this.props)
+          console.log('hoc props componentnDidMount Event Connector', this.props)
 
           let apiResponse;
 
@@ -36,8 +36,8 @@ const EventConnector = ((WrappedComponent) => {
                           console.log(apiResponse)
                            this.setState({ events: apiResponse.data.events, isLoading: false })
                            ; break;
-              case 'show': case 'edit': apiResponse = await this.getEvent(this.props.eventId)
-                          this.setState({ events: apiResponse.data.event, isLoading: false })
+              case 'show': case 'edit': apiResponse = await this.getEventById(this.props.eventId)
+                          this.setState({ event: apiResponse.data.event, isLoading: false })
                           ; break;
               case 'show-by-month': apiResponse = await this.getEventsByMonth(this.props.month)
                           this.setState({ events: apiResponse.data.events, isLoading: false })
@@ -55,7 +55,7 @@ const EventConnector = ((WrappedComponent) => {
 
         getAllEvents(){
 
-          console.log('sto per fare la chiamata dal hoc')
+          console.log('sto per fare la chiamata dal hoc, getAllEvents')
 
          return axios({
            url: `/api/admin/events/all`,
@@ -69,10 +69,10 @@ const EventConnector = ((WrappedComponent) => {
 
        }
 
-        getEvent(eventId){
+        getEventById(eventId){
 
          return axios({
-           url: `/api/admin/event/${eventId}`,
+           url: `/api/admin/event/show/id/${eventId}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -85,7 +85,7 @@ const EventConnector = ((WrappedComponent) => {
         getEventsByMonth(month){
 
          return axios({
-           url: `/api/admin/events/by-month/${month}`,
+           url: `/api/admin/events/show/by-month/${month}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',
@@ -100,7 +100,7 @@ const EventConnector = ((WrappedComponent) => {
           return axios({
             url: '/api/admin/event/store',
             data: newEvent,
-            method: 'events',
+            method: 'post',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
               'Authorization' : 'Bearer ' + this.props.user.token},
@@ -114,7 +114,7 @@ const EventConnector = ((WrappedComponent) => {
           return axios({
             url: '/api/admin/event/update',
             data: updatedEvent,
-            method: 'events',
+            method: 'post',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
               'Authorization' : 'Bearer ' + this.props.user.token},
@@ -130,7 +130,7 @@ const EventConnector = ((WrappedComponent) => {
             method: 'delete',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',
-              'Authorization' : 'Bearer ' + token},
+              'Authorization' : 'Bearer ' + this.props.user.token},
             responseType: 'json',
           })
 
@@ -138,6 +138,8 @@ const EventConnector = ((WrappedComponent) => {
 
 
         render(){
+
+          console.log('eventsConnector', this.props)
 
           if (this.state.apiErrors.length > 0)  return (<ErrorsAlert errors={this.state.apiErrors} />)
 
