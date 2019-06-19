@@ -26,10 +26,8 @@ class EventsTableSeeder extends Seeder
           $event->address = $faker->address;
           $event->description = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
           $event->date = $faker->dateTimeThisMonth($max = 'now', $timezone = 'Europe/Paris');
-
+          $event->image_url = $faker->imageUrl(640, 480, 'city');
           $event->save();
-
-
 
       }
     }

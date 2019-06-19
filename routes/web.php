@@ -15,38 +15,84 @@
 
 Route::view('/admin/{path?}', 'backend.layouts.app');
 
-
 //FRONTEND
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
+Route::name('frontend.pages.')->group(function () {
+
+   //CHI-SIAMO
+
+  Route::get('/{lang?}/chi-siamo', 'PageController@show')->name('chi-siamo');
+
+  Route::get('/chi-siamo', function () {
+    return redirect()->route('frontend.pages.chi-siamo', ['lang' => 'it']);
+  });
+
+  //SOCI
+
+  Route::get('/{lang?}/soci', 'PageController@show')->name('soci');
+
+  Route::get('/soci', function () {
+    return redirect()->route('frontend.pages.soci', ['lang' => 'it']);
+  });
+
+  //EVENTI
+
+  Route::get('/{lang?}/eventi', 'PageController@show')->name('eventi');
+
+  Route::get('/eventi', function () {
+    return redirect()->route('frontend.pages.eventi', ['lang' => 'it']);
+  });
+
+  //MNLOUNGE
+
+  Route::get('/{lang?}/servizi-mnlounge', 'PageController@show')->name('servizi-mnlounge');
+
+  Route::get('/servizi-mnlounge', function () {
+    return redirect()->route('frontend.pages.servizi-mnlounge', ['lang' => 'it']);
+  });
+
+  //PRESS
+
+  Route::get('/{lang?}/press', 'PageController@show')->name('press');
+
+  Route::get('/press', function () {
+    return redirect()->route('frontend.pages.press', ['lang' => 'it']);
+  });
+
+  //ARCHIVIO STORICO
+
+  Route::get('/{lang?}/archivio-storico','PageController@show')->name('archivio-storico');
+
+  Route::get('/archivio-storico', function () {
+    return redirect()->route('frontend.pages.archivio-storico', ['lang' => 'it']);
+  });
+
+  //CONTATTI
+
+  Route::get('/{lang?}/contatti', 'PageController@show')->name('contatti');
+
+  Route::get('/contatti','PageController@show' );
+
+
+    //HOME
+
+    Route::get('/', function () {
+        return view('frontend.pages.home', ['lang' => 'it']);
+      })->name('home');
+
+    Route::get('/{lang}', function ($lang) {
+
+      if($lang === 'it' || $lang === 'en') {
+        return view('frontend.pages.home', ['lang' => $lang]);
+        } else {
+          abort(404);
+        }
+     })->name('home');
+
 });
-Route::get('/chi-siamo', function () {
-    return view('frontend.pages.chi-siamo');
-})->name('fe.chi-siamo');
 
-Route::get('/soci', function () {
-    return view('frontend.pages.soci');
-})->name('fe.soci');
 
-Route::get('/eventi', function () {
-    return view('frontend.pages.eventi');
-})->name('fe.eventi');
 
-Route::get('/servizi-mnlounge', function () {
-    return view('frontend.pages.servizi-mnlounge');
-})->name('fe.servizi-mnlounge');
 
-Route::get('/press', function () {
-    return view('frontend.pages.press');
-})->name('fe.press');
-
-Route::get('/archivio-storico', function () {
-    return view('frontend.pages.archivio-storico');
-})->name('fe.archivio-storico');
-
-Route::get('/contatti', function () {
-    return view('frontend.pages.contatti');
-})->name('fe.contatti');
 
 Auth::routes();

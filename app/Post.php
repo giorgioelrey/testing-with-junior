@@ -8,9 +8,9 @@ class Post extends Model
 {
   protected $table = 'posts';
 
-  public $timestamps = true;
+  //public $timestamps = true;
 
-  protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body','slug'];
+  //protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body','slug'];
 
   //******** RELATIONSHIPS *****************//
 
@@ -22,6 +22,15 @@ class Post extends Model
       return $this->belongsTo('App\User');
   }
 
-  
+  //RELATIONSHIP CATEGORY(ONE) <-> POSTS(MANY)
+  //One CATEGORY has many POSTS
+  //One POST belongs to one CATEGORY
+  public function category()
+  {
+      return $this->belongsTo('App\Category');
+  }
+
+
+
 
 }

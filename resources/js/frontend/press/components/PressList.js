@@ -11,17 +11,14 @@ class PressList extends React.Component{
 
     //definisci lo state
 
-    this.state = {
-      press: [],
-      apiErrors: []
-    }
+    this.state = { press: [], apiErrors: [] };
 
   }
 
   componentDidMount(){
 
     axios({
-      url: `/api/press`,
+      url: `/api/posts/press`,
       method: 'get',
       headers: { 'X-Requested-With': 'XMLHttpRequest'},
       responseType: 'json',
@@ -45,18 +42,25 @@ class PressList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.press.length > 0 && this.state.press.map((press, idx) =>(
+        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>(
 
-<div key={idx} className='col-md-4'>
+          <div key={idx} className='col-md-4'>
 
-<h1>{press.title} </h1>
-  <p>{press.address}</p>
+            <img className="img-fluid" src={pressPost.image_url} alt="no image" />
 
-</div>
+            <h1>Titolo: <br/>{pressPost.title} </h1>
+
+            <h3>Sottotitolo: <br/>{pressPost.subtitle}</h3>
+
+            <p>Data: <br/>{pressPost.title}</p>
+
+            <p>Post Body: <br/>{pressPost.post_body}</p>
+
+          </div>
 
 
 
-)) || (<div>no post.</div>)}
+)) || (<div>No press posts available</div>)}
 
       </React.Fragment>
     )
@@ -68,4 +72,4 @@ class PressList extends React.Component{
 
 }
 
-export default PressList
+export default PressList;
