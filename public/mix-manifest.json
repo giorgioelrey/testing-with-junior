@@ -1,6 +1,9 @@
 {
     "/js/backend.js": "/js/backend.js",
-    "/js/frontend/frontend.js": "/js/frontend/frontend.js",
     "/css/frontend.css": "/css/frontend.css",
-    "/css/backend.css": "/css/backend.css"
+    "/css/backend.css": "/css/backend.css",
+    "/js/frontend/archivio-storico.js": "/js/frontend/archivio-storico.js",
+    "/js/frontend/events.js": "/js/frontend/events.js",
+    "/js/frontend/homeCalendar.js": "/js/frontend/homeCalendar.js",
+    "/js/frontend/press.js": "/js/frontend/press.js"
 }

@@ -2,11 +2,7 @@
 
 @section('scripts')
 
-  <script type="text/javascript">
-
-
-  </script>
-
+  <script src="{{asset('/js/frontend/homeCalendar.js')}}" charset="utf-8"></script>
 
 @endsection
 

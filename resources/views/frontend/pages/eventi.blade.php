@@ -1,4 +1,12 @@
 @extends('frontend.layout.app')
+
+@section('scripts')
+
+  <script src="{{asset('/js/frontend/events.js')}}" charset="utf-8"></script>
+
+@endsection
+
+
 @section('content')
 
 
