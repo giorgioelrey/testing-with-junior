@@ -3,29 +3,21 @@
 
 
 <div class='container ' id='eventi'>
-  <div  class='title'>Press
 
-  <div class='sotto_title'>
+  <div  class='title'>Eventi
+
+    <div class='sotto_title'>
+
+    </div>
+  </div>
+
+  <div class='row mt-5' id='events-list'>
+
+
+
+
 
   </div>
-  </div>
-  <div class='row mt-5'>
-
-
-
-<div class='col-md-4'>
-  ytest
-</div>
-
-<div class='col-md-4'>
-    ytest
-</div>
-
-<div class='col-md-4'>
-    ytest
-</div>
-
-</div>
 </div>
 
 

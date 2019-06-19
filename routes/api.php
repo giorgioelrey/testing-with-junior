@@ -54,9 +54,9 @@ Route::middleware(['auth:api','json.response'])->namespace('backendApi')->name('
 
   Route::get('/admin/event/{id}', 'EventController@show')->name('events.show');
 
-  Route::events('/admin/event/store', 'EventController@store')->name('events.store');
+  Route::post('/admin/event/store', 'EventController@store')->name('events.store');
 
-  Route::events('/admin/event/update', 'EventController@update')->name('events.all');
+  Route::post('/admin/event/update', 'EventController@update')->name('events.all');
 
   Route::delete('/admin/event/destroy/{id}', 'EventController@destroy')->name('events.all');
 

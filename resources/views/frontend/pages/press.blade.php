@@ -9,21 +9,11 @@
 
   </div>
   </div>
-  <div class='row mt-5'>
+<div class='row mt-5' id='press-list'>
 
 
 
-<div class='col-md-4'>
-  ytest
-</div>
 
-<div class='col-md-4'>
-    ytest
-</div>
-
-<div class='col-md-4'>
-    ytest
-</div>
 
 </div>
 </div>
