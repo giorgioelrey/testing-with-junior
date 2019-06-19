@@ -11,17 +11,14 @@ class PressList extends React.Component{
 
     //definisci lo state
 
-    this.state = {
-      press: [],
-      apiErrors: []
-    }
+    this.state = { press: [], apiErrors: [] };
 
   }
 
   componentDidMount(){
 
     axios({
-      url: `/api/press`,
+      url: `/api/posts/press`,
       method: 'get',
       headers: { 'X-Requested-With': 'XMLHttpRequest'},
       responseType: 'json',
@@ -45,14 +42,15 @@ class PressList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.press.length > 0 && this.state.press.map((press, idx) =>(
+        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>(
 
-<div key={idx} className='col-md-4'>
+          <div key={idx} className='col-md-4'>
 
-<h1>{press.title} </h1>
-  <p>{press.address}</p>
+            <h1>{pressPost.title} </h1>
 
-</div>
+            <p>{pressPost.address}</p>
+
+          </div>
 
 
 
@@ -68,4 +66,4 @@ class PressList extends React.Component{
 
 }
 
-export default PressList
+export default PressList;

@@ -11,26 +11,23 @@ class ArchivioStoricoList extends React.Component{
 
     //definisci lo state
 
-    this.state = {
-      press: [],
-      apiErrors: []
-    }
+    this.state = { archive: [], apiErrors: [] };
 
   }
 
   componentDidMount(){
 
     axios({
-      url: `/api/archivio-storico`,
+      url: `/api/posts/archive`,
       method: 'get',
       headers: { 'X-Requested-With': 'XMLHttpRequest'},
       responseType: 'json',
     })
     .then(({data}) => {
 
-      console.log('press found', data.archivio);
+      console.log('archive found', data.archive);
 
-      this.setState({archivio: data.archivio});
+      this.setState({archive: data.archive});
 
     })
     .catch(error => {
@@ -45,18 +42,17 @@ class ArchivioStoricoList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.press.length > 0 && this.state.press.map((archivio, idx) =>(
+        {this.state.archive.length > 0 && this.state.archive.map((archivePost, idx) =>(
 
-<div key={idx} className='col-md-4'>
+            <div key={idx} className='col-md-4'>
 
-<h1>{archivio.title} </h1>
-  <p>{archivio.address}</p>
+                <h1>{archivePost.title} </h1>
 
-</div>
+                <p>{archivePost.address}</p>
 
+            </div>
 
-
-)) || (<div>no post.</div>)}
+          )) || (<div>{userLanguage === 'it' ? 'Nessun post per Press' : 'No press posts'}</div>)}
 
       </React.Fragment>
     )
@@ -68,4 +64,4 @@ class ArchivioStoricoList extends React.Component{
 
 }
 
-export default ArchivioStoricoList
+export default ArchivioStoricoList;

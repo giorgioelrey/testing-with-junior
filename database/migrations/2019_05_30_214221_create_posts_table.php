@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             //TODO: slug to manage with library
             $table->string('slug')->nullable();
             $table->text('post_body');
+            $table->date('date')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();
         });

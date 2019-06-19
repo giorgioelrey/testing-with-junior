@@ -104,6 +104,14 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/events/month/{month}', 'EventController@showByMonth')->name('event.month');
 
+    //****** POSTS -> PRESS ****//
+
+    Route::get('/posts/press', 'PostController@press')->name('posts.press');
+
+    //****** POSTS -> ARCHIVE ****//
+
+    Route::get('/posts/archive', 'PostController@archive')->name('posts.archive');
+
     //****** PAGES ****//
 
     Route::get('/admin/page/{id}/{lang}', 'PageController@id')->name('pages.all');
