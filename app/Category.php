@@ -8,8 +8,18 @@ class Category extends Model
 {
   protected $table = 'categories';
 
-  protected $timestamps = true;
+  //protected $timestamps = true;
 
-  protected $fillable = ['name'];
+  //protected $fillable = ['name'];
+
+  //******** RELATIONSHIPS *****************//
+
+  //RELATIONSHIP CATEGORY(ONE) <-> POSTS(MANY)
+  //One CATEGORY has many POSTS
+  //One POST belongs to one CATEGORY
+  public function posts()
+  {
+      return $this->hasMany('App\Post');
+  }
 
 }

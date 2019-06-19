@@ -22,6 +22,15 @@ class Post extends Model
       return $this->belongsTo('App\User');
   }
 
-  
+  //RELATIONSHIP CATEGORY(ONE) <-> POSTS(MANY)
+  //One CATEGORY has many POSTS
+  //One POST belongs to one CATEGORY
+  public function category()
+  {
+      return $this->belongsTo('App\Category');
+  }
+
+
+
 
 }
