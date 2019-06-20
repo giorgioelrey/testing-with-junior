@@ -1,3 +1,32 @@
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 19px;
+    color: #212529;
+    text-align: left;
+    background-color: #ffffff;
+}
+
+.corpo-post{
+    h1{
+      font-size: 34px;
+      font-family: "Playfair Display", serif;
+        text-align: right;
+
+    }
+
+    margin-left: 51px;
+    position: relative;
+    z-index: 9999;
+    width: 300px;
+    margin-top: -36px;
+    background-color: white;
+
+}
+
+
 .bg-gold{
 background-color: #caa660;
 height: 100vh;

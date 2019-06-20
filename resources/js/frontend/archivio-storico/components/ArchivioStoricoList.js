@@ -47,15 +47,13 @@ class ArchivioStoricoList extends React.Component{
             <div key={idx} className='col-md-4'>
 
                 <img className="img-fluid" src={archivePost.image_url} alt="no image" />
+                <div className='corpo-post'>
+                <h1>{archivePost.title} </h1>
 
-                <h1>Titolo: <br/>{archivePost.title} </h1>
 
-                <h3>Sottotitolo: <br/>{archivePost.subtitle}</h3>
 
-                <p>Data: <br/>{archivePost.date} </p>
-
-                <p>Post Body: <br/>{archivePost.post_body}</p>
-
+                <p>{archivePost.post_body}</p>
+              </div>
             </div>
 
           )) || (<div>{userLanguage === 'it' ? 'Nessun post per Press' : 'No press posts'}</div>)}

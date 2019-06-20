@@ -49,12 +49,12 @@ class EventsList extends React.Component{
 
             <div key={idx} className='col-md-4'>
               <img className="img-fluid" src={event.image_url} alt="no image" />
-              <h1>Titolo: <br/>{event.title} </h1>
-              <h3>Sottotitolo: <br/>{event.subtitle}</h3>
-              <h3>Data: <br/>{event.date}</h3>
-              <p>Indirizzo: <br/>{event.address}</p>
-              <p>Descrizione: <br/>{event.description}</p>
+              <div className='corpo-post'>
+              <h1>{event.title} </h1>
 
+              <p>{event.address}</p>
+
+              </div>
             </div>
 
 

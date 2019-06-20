@@ -4,8 +4,8 @@ import Event from './Event';
 const EventsList = ({events, date} ) => {
 
   return (
-    <div>
-      <h1>Hai selezionato {date}</h1>
+    <div className='mostra_evento'>
+      <h1>Data: {date}</h1>
       { events.length > 0 &&
         events.map((event, idx) => (
             <Event key={idx} event={event}/>

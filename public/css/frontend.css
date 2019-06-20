@@ -10662,6 +10662,32 @@ a.text-dark:focus {
   }
 }
 
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #212529;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.corpo-post {
+  margin-left: 51px;
+  position: relative;
+  z-index: 9999;
+  width: 300px;
+  margin-top: -36px;
+  background-color: white;
+}
+
+.corpo-post h1 {
+  font-size: 34px;
+  font-family: "Playfair Display", serif;
+  text-align: right;
+}
+
 .bg-gold {
   background-color: #caa660;
   height: 100vh;
@@ -10741,6 +10767,64 @@ a.text-dark:focus {
 
 #footer a:hover {
   color: #caa660;
+}
+
+#home .mostra_evento {
+  border: 1px solid black;
+  width: 396px;
+  margin: 2rem auto 0;
+}
+
+#home .mostra_evento h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+}
+
+#home #react-calendar {
+  border: 1px solid black;
+}
+
+#home .Day-inner {
+  color: black;
+}
+
+#home .selected .Day-inner {
+  color: white;
+}
+
+#home .Calendar {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 4rem auto 0;
+}
+
+#home .Calendar th,
+#home .Calendar td {
+  padding: 1rem;
+  text-align: center;
+}
+
+#home .Day:hover {
+  background: #eee;
+  color: #000;
+}
+
+#home .Day.today {
+  background: #caa660;
+  color: #fff;
+}
+
+#home .Day.selected {
+  background: #caa660;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+#home .Day.other-month {
+  background: #fafafa;
+  color: #aaa;
 }
 
 #soci .hotel {

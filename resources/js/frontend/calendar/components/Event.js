@@ -4,7 +4,7 @@ const Event = (props) => {
 
   return (
     <div>
-      <h3>{props.event.title}</h3>
+      <h3>Nome evento:{props.event.title}</h3>
     </div>
   )
 
