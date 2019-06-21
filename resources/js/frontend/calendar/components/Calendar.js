@@ -153,7 +153,7 @@ class Calendar extends Component {
         <tr className="month-header">
           <th className="nav previous">
             <button className="nav-inner" onClick={this.previous} type="button">
-              «
+              -
             </button>
           </th>
           <th colSpan="5">
@@ -162,7 +162,7 @@ class Calendar extends Component {
           </th>
           <th className="nav next">
             <button className="nav-inner" onClick={this.next} type="button">
-              »
+              -
             </button>
           </th>
         </tr>
