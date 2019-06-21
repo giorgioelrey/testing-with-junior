@@ -1,12 +1,30 @@
 import React, {Component, Fragment} from 'react';
 
-class PagesManagementPage extends Component {
-  render() {
-    return (
+const PagesManagementPage = (props) => {
 
-          'Pages'
-    );
+  let contentArea;
+
+  switch(props.section) {
+
+    case 'list':
+      contentArea = (<PagesList {...props} />)
+      break;
+    case 'show':
+      contentArea = (<PagesShow {...props} pageId={props.match.params.id}/>)
+      break;
+    case 'edit':
+        contentArea = (<PagesCreateEdit {...props} pageId={props.match.params.id}/>)
+        break;
+  default:
+    contentArea = (<div>not chosen</div>)
   }
+
+    return (
+        <Fragment>
+            {contentArea}
+        </Fragment>
+    );
+
 }
 
-export default PagesManagementPage;
+export default withRouter(PagesManagementPage);
