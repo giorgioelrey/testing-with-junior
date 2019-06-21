@@ -3,7 +3,7 @@ import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const NewsForm = ({ post, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
+const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
 
     const formStartingValues = post && {
@@ -11,7 +11,7 @@ const NewsForm = ({ post, initialValues, yupSchema, pagesAvailable, onSubmit }) 
           subtitle: post.subtitle || '',
           post_body: post.post_body || '',
           publish_status: post.publish_status || '',
-          destination_page: post.destination_page || '',
+          category_id: post.category_id || '',
           slug: post.slug || 'test',
           id: post.id || ''
       } || initialValues;
@@ -68,18 +68,18 @@ const NewsForm = ({ post, initialValues, yupSchema, pagesAvailable, onSubmit }) 
                            <ErrorMessage name="publish_status" component="div" className="invalid-feedback" />
                        </div>
 
-                      {pagesAvailable.length > 0 &&
+                      {categories.length > 0 &&
                        (
                          <div className="form-group form-label-group">
-                          <label htmlFor="destination_page">Where do you want to publish this post at</label>
-                           <Field name="destination_page" component="select" className={'form-control ' + (errors.destination_page && touched.destination_page ? ' is-invalid' : '')}>
+                          <label htmlFor="category_id">Where do you want to publish this post at</label>
+                           <Field name="category_id" component="select" className={'form-control ' + (errors.category_id && touched.category_id ? ' is-invalid' : '')}>
                              <option value="">Select destination page</option>
                               {
-                                pagesAvailable.map((page, idx) =>
-                                ( <option key={idx} value={idx} >{page}</option>))
+                                categories.map((category, idx) =>
+                                ( <option key={idx} value={category.id} >{category.name}</option>))
                               }
                             </Field>
-                             <ErrorMessage name="destination_page" component="div" className="invalid-feedback" />
+                             <ErrorMessage name="category_id" component="div" className="invalid-feedback" />
                          </div>
                        ) || null}
 
@@ -105,7 +105,7 @@ NewsForm.defaultProps = {
       subtitle: '',
       post_body: '',
       publish_status: '',
-      destination_page: '',
+      category_id: '',
       slug: 'test',
       id: ''
   },
@@ -121,8 +121,8 @@ NewsForm.defaultProps = {
           .required('Post body is required'),
       publish_status: Yup.string().
          required('Please select if you want to publish now or later'),
-       destination_page: Yup.string().
-          required('Please select wich page you want to publish this post at')
+       category_id: Yup.string().
+          required('Please select wich category you want to publish this post at')
   },
   pagesAvailable: [],
 }
