@@ -10,8 +10,8 @@ const PageCard = ({ page }) => {
       <div className="card">
         <img src={page && page.main_image_url || placeholder_post_image} className="card-img-top" alt="...where is the image"/>
         <div className="card-body">
-          <h5 className="card-title">{page.name || 'Sample title'}</h5>
-          <h3>{page.updated_at}</h3>
+          <h2 className="card-title">{page.name || 'Sample title'}</h2>
+          <h5>Last update: {page.updated_at}</h5>
             <Link to={`/admin/dashboard/pages/edit/${page.id}`} className="btn btn-warning btn-lg ml-3">Edit this page</Link>
         </div>
       </div>

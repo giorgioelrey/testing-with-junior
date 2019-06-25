@@ -11,6 +11,11 @@ import PageConnector from './../../../HOCs/PageConnector';
 const PageCreateEdit =  ({page, updatePage, history, pageId, section }) => {
 
   console.log('NewsCreateEdit', page);
+
+  //TODO: CONTROLLARE IL JSON PAGE E CREARE UN initialValues per il Form
+  //HOC per creare i field dinamicamente ????
+
+
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
   const pageUpdate = async (fields) => {

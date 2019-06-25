@@ -3,7 +3,8 @@ import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
+const PageForm = ({ page, initialValues, yupSchema, onSubmit }) => {
+
 
 
     const formStartingValues = post && {
@@ -97,9 +98,9 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 }
 
 
-export default NewsForm;
+export default PageForm;
 
-NewsForm.defaultProps = {
+PageForm.defaultProps = {
   initialValues: {
       title: '',
       subtitle: '',
