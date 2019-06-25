@@ -1,4 +1,7 @@
 import React, {Component, Fragment} from 'react';
+import {withRouter} from 'react-router-dom';
+import PagesList from './PagesList';
+import PageCreateEdit from './PageCreateEdit';
 
 const PagesManagementPage = (props) => {
 
@@ -9,11 +12,8 @@ const PagesManagementPage = (props) => {
     case 'list':
       contentArea = (<PagesList {...props} />)
       break;
-    case 'show':
-      contentArea = (<PagesShow {...props} pageId={props.match.params.id}/>)
-      break;
     case 'edit':
-        contentArea = (<PagesCreateEdit {...props} pageId={props.match.params.id}/>)
+        contentArea = (<PageCreateEdit {...props} pageId={props.match.params.id}/>)
         break;
   default:
     contentArea = (<div>not chosen</div>)

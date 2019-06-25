@@ -105,10 +105,6 @@ async logoutClicked(token,successCallback, errorCallback){
           render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="pages" section="list" />)}
           />
           <Route
-          path="/admin/dashboard/pages/show/id/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="pages" section="show" />)}
-          />
-          <Route
            path="/admin/dashboard/pages/edit/:id"
           render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="pages" section="edit" />)}
           />
