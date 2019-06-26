@@ -15,6 +15,7 @@ const PageCard = ({ page }) => {
             <Link to={`/admin/dashboard/pages/edit/${page.id}`} className="btn btn-warning btn-lg ml-3">Edit this page</Link>
         </div>
       </div>
+      
     </div>
   )
 

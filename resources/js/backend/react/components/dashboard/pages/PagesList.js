@@ -11,7 +11,9 @@ const PagesList  = ({pages}) => (
       </div>
 
       <div className="row">
-          {pages.length > 0 && pages.map((page, idx) => (<PageCard key={idx} page={page} />)) ||
+          {pages.length > 0 &&
+            pages.map((page, idx) =>
+            (<PageCard key={idx} page={page} />)) ||
                         (<h2>No pages to show</h2>)}
       </div>
 

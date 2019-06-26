@@ -64,9 +64,9 @@ const PageConnector = ((WrappedComponent) => {
        }
 
         getPageById(pageId){
-
+          
          return axios({
-           url: `/api/admin/pages/show/id/${eventId}`,
+           url: `/api/admin/pages/show/id/${pageId}`,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',

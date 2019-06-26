@@ -78,9 +78,12 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   //****** PAGES ****//
 
+
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 
   Route::get('/admin/pages/name-ids', 'PageController@pagesNamesAndIds')->name('pages.nameIds');
+
+  Route::get('/admin/pages/show/id/{id}', 'PageController@show')->name('pages.showById');
 
   Route::post('admin/pages/update/{id}', 'PageController@update')->name('pages.update');
 

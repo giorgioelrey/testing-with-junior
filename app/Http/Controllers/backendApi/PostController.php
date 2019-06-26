@@ -69,7 +69,7 @@ class PostController extends Controller
       if (is_null($post)) {
           $response = [
               'success' => false,
-              'data' => 'Empty',
+              'data' => [],
               'message' => 'Post not found.'
           ];
           return response()->json($response, 404);

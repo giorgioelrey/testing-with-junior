@@ -3,21 +3,46 @@ import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const PageForm = ({ page, initialValues, yupSchema, onSubmit }) => {
+const PageForm = ({ page, yupSchema, onSubmit }) => {
+
+    var formStartingValues = {}
+    var fieldsData = {}
+
+    var pageContents = JSON.parse(page.contents);
+    console.log('pageContents come oggetto', pageContents)
+
+    for (var key in pageContents) {
 
 
+          //caso 1. non ha una traduzione
+          if (pageContents[key]['translated'] === false){
 
-    const formStartingValues = post && {
-          title: post.title || '',
-          subtitle: post.subtitle || '',
-          post_body: post.post_body || '',
-          publish_status: post.publish_status || '',
-          category_id: post.category_id || '',
-          slug: post.slug || 'test',
-          id: post.id || ''
-      } || initialValues;
+              formStartingValues[key] = pageContents[key]['data'];
 
-      console.log(formStartingValues)
+              fieldsData[key] = {};
+              fieldsData[key]['name'] = key
+              fieldsData[key]['data'] = pageContents[key]['data'];
+              fieldsData[key]['type'] = pageContents[key]['type'];
+
+          } else {
+            //caso 2. ha una traduzione
+            //ciclo nelle traduzioni e creo un dato per fare un singolo
+            //campo per ognuna di esse
+              for (var langKey in pageContents[key]['data']) {
+                  formStartingValues[key + '_' + langKey] = pageContents[key]['data'][langKey];
+
+                  fieldsData[key + '_' + langKey] = {};
+                  fieldsData[key + '_' + langKey]['name'] = key + '_' + langKey
+                  fieldsData[key + '_' + langKey]['data'] = pageContents[key]['data'][langKey];
+                  fieldsData[key + '_' + langKey]['type'] = pageContents[key]['type'];
+
+              }
+          }
+      }
+
+    console.log('valori inizio form',formStartingValues)
+    console.log('valori fields form',fieldsData)
+
 
     return(
 
@@ -26,70 +51,48 @@ const PageForm = ({ page, initialValues, yupSchema, onSubmit }) => {
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
                onSubmit={ (fields) => {onSubmit(fields)} }
-               render={({ errors, status, touched }) => (
-                   <Form className="cms-form login">
+               render={({ errors, status, touched }) => {
+                 const fields = Object.values(fieldsData).map((field, idx) =>{
 
-                      <Field type="hidden" className="form-control" name="id" ></Field>
+                   switch(field.type){
+                     case 'string': return (
+                       <div key={idx} className="form-group form-label-group">
 
-                       <div className="form-group form-label-group">
-
-                          <label htmlFor="title">Title</label>
-                           <Field name="title" type="text" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} placeholder="Type title"/>
-                           <ErrorMessage name="title" component="div" className="invalid-feedback" />
-
+                          <label htmlFor={field.name}>{field.name}</label>
+                           <Field name={field.name} type="text" className={'form-control' + (errors[field.name] && touched[field.name] ? ' is-invalid' : '')} placeholder={'Type ' + field.name}/>
+                           <ErrorMessage name={field.name} component="div" className="invalid-feedback" />
                        </div>
-                       <div className="form-group form-label-group">
-                          <label htmlFor="subtitle">Subtitle</label>
-                           <Field name="subtitle" type="text" className={'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : '')} placeholder="Type subtitle"/>
+                     ); break;
+                     case 'wisiwyg' : return (
+                       <div key={idx} className="form-group form-label-group">
+                          <label htmlFor={field.name}>{field.name}</label>
 
-                           <ErrorMessage name="subtitle" component="div" className="invalid-feedback" />
-                       </div>
-
-                       <div className="form-group form-label-group">
-                          <label htmlFor="post_body">Post Body</label>
-
-                          <Field name="post_body">
+                          <Field name={field.name}>
                           {({ field, errors }) =>
                           {
-                            //console.log(field, errors);
+                            console.log('wisiwyg', field, errors);
                             return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
                           }}
                           </Field>
-                          <div className={'invalid-feedback ' + (errors.post_body ? 'd-block' : '')}>{errors.post_body}</div>
+                          <div className={'invalid-feedback ' + (errors[field.name] ? 'd-block' : '')}>{errors[field.name]}</div>
 
                        </div>
+                     ); break;
+                     default: break;
+                   }
+                 });
 
-                       <div className="form-group form-label-group">
-                          <label htmlFor="publish_status">When do you want to publish</label>
-                           <Field name="publish_status" component="select" className={'form-control ' + (errors.publish_status && touched.publish_status ? ' is-invalid' : '')}>
-                             <option value="">Select now or later</option>
-                             <option value="now">Now</option>
-                             <option value="pending">Later</option>
-                            </Field>
-                           <ErrorMessage name="publish_status" component="div" className="invalid-feedback" />
-                       </div>
+                 return (
+                    <Form className="cms-form login">
+                      {fields}
+                      <div className="form-group">
+                          <button type="submit" className="btn btn-primary mr-2">Update Page</button>                      
+                      </div>
+                    </Form>
+                 )
+               }
 
-                      {categories.length > 0 &&
-                       (
-                         <div className="form-group form-label-group">
-                          <label htmlFor="category_id">Where do you want to publish this post at</label>
-                           <Field name="category_id" component="select" className={'form-control ' + (errors.category_id && touched.category_id ? ' is-invalid' : '')}>
-                             <option value="">Select destination page</option>
-                              {
-                                categories.map((category, idx) =>
-                                ( <option key={idx} value={category.id} >{category.name}</option>))
-                              }
-                            </Field>
-                             <ErrorMessage name="category_id" component="div" className="invalid-feedback" />
-                         </div>
-                       ) || null}
-
-                       <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">Submit new post</button>
-                           <button type="reset" className="btn btn-info text- mr-2">Reset</button>
-                       </div>
-                   </Form>
-               )}
+              }
            />
 
         </Fragment>
