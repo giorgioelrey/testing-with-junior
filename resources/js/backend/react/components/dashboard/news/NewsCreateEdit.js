@@ -8,9 +8,9 @@ import ImageUploader from './ImageUploader';
 //Helpers
 import PostConnector from './../../../helpers/postHelper';
 
-const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
+const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
 
-
+  console.log('NewsCreateEdit', post);
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
   const postSubmit = async (fields) => {
@@ -47,6 +47,7 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
                 onSubmit={postSubmit}
                 pagesAvailable={pagesAvailable}
                 post={post}
+                categories={categories}
                 />
 
       </div>

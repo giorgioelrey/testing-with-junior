@@ -15,7 +15,8 @@ const PostConnector = ((WrappedComponent) => {
             isLoading: true,
             posts: [],
             post: {},
-            apiErrors: []
+            apiErrors: [],
+            categories: []
           }
 
           this.getAllPosts = this.getAllPosts.bind(this);
@@ -23,6 +24,7 @@ const PostConnector = ((WrappedComponent) => {
           this.deletePost = this.deletePost.bind(this);
           this.submitPost = this.submitPost.bind(this);
           this.updatePost = this.updatePost.bind(this);
+          this.getCategories = this.getCategories.bind(this);
 
         }
 
@@ -31,6 +33,7 @@ const PostConnector = ((WrappedComponent) => {
           console.log('hoc props', this.props)
 
           let apiResponse;
+          const categories = await this.getCategories();
 
           try {
 
@@ -41,7 +44,7 @@ const PostConnector = ((WrappedComponent) => {
                            this.setState({ posts: apiResponse.data.posts, isLoading: false })
                            ; break;
               case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
-                          this.setState({ post: apiResponse.data.post, isLoading: false })
+                          this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
                           ; break;
 
               default: this.setState({ isLoading: false });
@@ -52,6 +55,17 @@ const PostConnector = ((WrappedComponent) => {
              console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
           }
 
+        }
+
+        getCategories(){
+          return axios({
+            url: `/api/admin/categories/all`,
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + this.props.user.token},
+            responseType: 'json',
+          })
         }
 
         getAllPosts(){
@@ -66,8 +80,6 @@ const PostConnector = ((WrappedComponent) => {
              'Authorization' : 'Bearer ' + this.props.user.token},
            responseType: 'json',
          })
-
-
        }
 
         getPost(postId){

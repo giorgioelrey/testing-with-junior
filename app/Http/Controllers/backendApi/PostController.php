@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backendApi;
 
 use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -63,13 +64,12 @@ class PostController extends Controller
 
     public function show($id)
     {
-      $post = Post::find($id);
-      $data = $post->toArray();
+      $post = Post::find($id)->toArray();
 
       if (is_null($post)) {
           $response = [
               'success' => false,
-              'data' => 'Empty',
+              'data' => [],
               'message' => 'Post not found.'
           ];
           return response()->json($response, 404);
@@ -78,7 +78,7 @@ class PostController extends Controller
 
       $response = [
           'success' => true,
-          'post' => $data,
+          'post' => $post,
           'message' => 'Post retrieved successfully.'
       ];
 
@@ -87,7 +87,6 @@ class PostController extends Controller
 
     public function update(Request $request)
     {
-
 
       $input = $request->all();
 
@@ -124,6 +123,7 @@ class PostController extends Controller
 
       //UPDATE OPS
       $post->update($input);
+      $post->category_id = $request['category_id'];
       $post->save();
 
        $data = $post->toArray();

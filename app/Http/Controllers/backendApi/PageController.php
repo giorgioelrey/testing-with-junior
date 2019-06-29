@@ -54,4 +54,26 @@ class PageController extends Controller
 
   }
 
+  public function show($id)
+  {
+    $page = Page::find($id)->toArray();
+
+    if (is_null($page)) {
+        $response = [
+            'success' => false,
+            'data' => [],
+            'message' => 'Page not found.'
+        ];
+        return response()->json($response, 404);
+    }
+
+
+    $response = [
+        'success' => true,
+        'page' => $page,
+        'message' => 'Page retrieved successfully.'
+    ];
+
+    return response()->json($response, 200);
+  }
 }

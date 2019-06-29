@@ -31,6 +31,10 @@ Route::middleware('json.response')->namespace('backendApi')->name('be.api.')->gr
     Route::post('/admin/image/store', 'ImageController@store')->name('image.store');
 
 
+      //->register - POST //abilitare solo per la popolazione iniziale dell'userAdmin
+    Route::post('/admin/register', 'AuthController@register')->name('register.api');
+
+
 });
 
 //BACKEND -> AUTHENTICATED
@@ -42,8 +46,6 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
   //->logout - GET
   Route::get('/admin/logout', 'AuthController@logout')->name('logout');
 
-  //->register - POST //abilitare solo per la popolazione iniziale dell'userAdmin
-  //Route::post('/admin/register', 'AuthController@register')->name('register.api');
 
   //****** POSTS ****//
 
@@ -76,11 +78,20 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   //****** PAGES ****//
 
+
   Route::get('/admin/pages/all', 'PageController@index')->name('pages.all');
 
   Route::get('/admin/pages/name-ids', 'PageController@pagesNamesAndIds')->name('pages.nameIds');
 
+  Route::get('/admin/pages/show/id/{id}', 'PageController@show')->name('pages.showById');
+
   Route::post('admin/pages/update/{id}', 'PageController@update')->name('pages.update');
+
+  //****** CATEOGORIES ****//
+
+  Route::get('/admin/categories/all', 'CategoryController@index')->name('categories.all');
+
+  Route::get('/admin/categories/show/{id}', 'CategoryController@show')->name('categories.show');
 
 
 });

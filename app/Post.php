@@ -8,9 +8,11 @@ class Post extends Model
 {
   protected $table = 'posts';
 
+  protected $with = array('user', 'category');//relations gets passed in toArray()
+
   //public $timestamps = true;
 
-  //protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body','slug'];
+  protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body','slug'];
 
   //******** RELATIONSHIPS *****************//
 
