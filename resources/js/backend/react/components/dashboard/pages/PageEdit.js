@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import PageForm from './PageForm';
+import PagesForm from './PagesForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
@@ -17,26 +17,6 @@ const PageEdit =  ({page, updatePage, history, pageId, section }) => {
 
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
-  const pageUpdate = async (fields) => {
-
-    try {
-
-      const {data} = await updatePage(fields);
-
-      console.log('success', data);
-
-      history.push('/admin/dashboard/pages');
-
-    } catch(error){
-
-      console.log('error submit', error);
-
-      setSubmissionErrors([error.response.data.message]);
-
-    }
-
-  }
-
   let submitErrors = submissionErrors.length > 0 && (<ErrorsAlert errors={submissionErrors} />) || null;
 
   return (
@@ -46,9 +26,11 @@ const PageEdit =  ({page, updatePage, history, pageId, section }) => {
               <h1>Edit your page</h1>
               {submitErrors}
 
-                <PageForm
-                onSubmit={pageUpdate}
+              <PagesForm
                 page={page}
+                setSubmissionErrors={setSubmissionErrors}
+                updatePage={updatePage}
+                history={history}
                 />
 
       </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backendApi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Page;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -75,5 +76,55 @@ class PageController extends Controller
     ];
 
     return response()->json($response, 200);
+  }
+
+  public function update($id, Request $request){
+
+    $input = $request->all();
+
+    $page = Page::find($id);
+
+    if (is_null($page)) {
+        $response = [
+            'success' => false,
+            'data' => [],
+            'message' => 'Page not found.'
+        ];
+        return response()->json($response, 404);
+    }
+
+/*
+
+    APPLY VALIDATION
+     $validator = Validator::make($input, [
+         'name' => 'required',
+         'author' => 'required'
+     ]);
+
+     if ($validator->fails()) {
+         $response = [
+             'success' => false,
+             'data' => 'Validation Error.',
+             'message' => $validator->errors()
+         ];
+         return response()->json($response, 404);
+     }
+
+    */
+
+    //UPDATE OPS
+
+    $page->contents = json_encode($input);
+
+    $page->save();
+
+     $response = [
+         'success' => true,
+         'data' => json_encode($input),
+         'message' => 'Page updated successfully.'
+     ];
+
+     return response()->json($response, 200);
+
   }
 }
