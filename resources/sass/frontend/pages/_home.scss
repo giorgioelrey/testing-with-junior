@@ -8,10 +8,26 @@ width: 396px;
       font-family: "Playfair Display", serif;
     font-size: 24px;
 }
+    h3{
+
+      font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: bold;
+
+    }
 }
 
+.data{
+
+    text-align: center;
+    font-size: 16px;
 
 
+}
+.mess_data{
+  text-align: center;
+  font-size: 18px;
+}
 
 
   #react-calendar{
@@ -37,6 +53,8 @@ color:black;
         border-collapse: collapse;
         padding: 0;
         margin: 4rem auto 0;
+
+
     }
 
     .Calendar th,

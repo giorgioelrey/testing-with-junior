@@ -79,7 +79,7 @@ class EventsCalendar extends Component {
     return (
       <div>
 
-        <p>Calendario Ita</p>
+      
 
         <Calendar
           date={this.state.date}

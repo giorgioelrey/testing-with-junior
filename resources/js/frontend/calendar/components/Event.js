@@ -3,8 +3,8 @@ import React from 'react';
 const Event = (props) => {
 
   return (
-    <div>
-      <h3>Nome evento:{props.event.title}</h3>
+    <div className='mostra_evento'>
+      <h3>Nome evento:<br/>{props.event.title}</h3>
     </div>
   )
 

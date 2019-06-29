@@ -5,9 +5,12 @@
 
   <a class="navbar-brand" href="{{route('frontend.pages.home', ['lang' => $lang])}}"><img src='{{ asset('images/logo.jpg')   }}'></a>
 
-
   <div class='d-flex flex-column justify-content-end ml-auto'>
   <ul class='list-inline lingua text-right'>
+  <li class='list-inline-item '>
+    <a class="" href="{{route('frontend.pages.search', ['lang' => $lang])}}">
+  <i class="fas fa-search"></i></a>
+</li>
     <li class='list-inline-item {{$detectedLocaleIsIt ? 'active' : ''}}'>
       <a href="{{route($currentRouteName,['lang' => 'it'])}}">ita/</a>
     <li class='list-inline-item {{$detectedLocaleIsIt ? '' : 'active'}}'>
