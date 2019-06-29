@@ -35,6 +35,15 @@ Route::name('frontend.pages.')->group(function () {
     return redirect()->route('frontend.pages.soci', ['lang' => 'it']);
   });
 
+//search
+
+Route::get('/{lang?}/search', 'PageController@show')->name('search');
+
+Route::get('/search', function () {
+  return redirect()->route('frontend.pages.search', ['lang' => 'it']);
+  });
+
+
   //EVENTI
 
   Route::get('/{lang?}/eventi', 'PageController@show')->name('eventi');

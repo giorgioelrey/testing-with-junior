@@ -10787,6 +10787,22 @@ p {
   font-size: 24px;
 }
 
+#home .mostra_evento h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#home .data {
+  text-align: center;
+  font-size: 16px;
+}
+
+#home .mess_data {
+  text-align: center;
+  font-size: 18px;
+}
+
 #home #react-calendar {
   border: 1px solid black;
   height: 100vh;
@@ -10871,13 +10887,6 @@ p {
   width: 160px;
   height: 3px;
   background-color: #000000;
-}
-
-#servizi-mnlounge p {
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
-  color: black;
-  line-height: 35px;
 }
 
 #servizi-mnlounge .title {
