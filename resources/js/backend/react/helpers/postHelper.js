@@ -35,6 +35,8 @@ const PostConnector = ((WrappedComponent) => {
           let apiResponse;
           const categories = await this.getCategories();
 
+          console.log('categorie', categories)
+
           try {
 
             switch(this.props.section){
@@ -47,7 +49,7 @@ const PostConnector = ((WrappedComponent) => {
                           this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
                           ; break;
 
-              default: this.setState({ isLoading: false });
+              default: this.setState({ categories: categories.data.categories, isLoading: false });
             }
 
           } catch(error){
@@ -59,7 +61,7 @@ const PostConnector = ((WrappedComponent) => {
 
         getCategories(){
           return axios({
-            url: `/api/admin/categories/all`,
+            url: `/api/admin/categories/entity/post`,
             method: 'get',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

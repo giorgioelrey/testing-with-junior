@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->string('image_url')->nullable();
             $table->date('date');
+            $table->dateTime('time');
 
         });
     }

@@ -22,6 +22,32 @@ class CategoryController extends Controller
 
     }
 
+    public function getForPost()
+    {
+
+        $response = [
+             'success' => true,
+             'categories' => Category::whereEntity('post')->get()->toArray(),
+             'message' => 'Categories retrieved successfully.'
+         ];
+
+         return response()->json($response, 200);
+
+    }
+
+    public function getForLocation()
+    {
+
+        $response = [
+             'success' => true,
+             'categories' => whereEntity('location')->get()->toArray(),
+             'message' => 'Categories retrieved successfully.'
+         ];
+
+         return response()->json($response, 200);
+
+    }
+
     public function show($id)
     {
 

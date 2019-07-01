@@ -2,13 +2,15 @@ import React, { Fragment} from 'react';
 import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import DatePicker from 'react-datepicker';
+import { parseISO, format } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css'
 import * as Yup from 'yup';
 import moment from 'moment';
 
 
-const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
+const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
+    console.log('convert new',new Date(event.time));
 
     const formStartingValues = event && event.id && {
           title: event.title || '',
@@ -16,6 +18,7 @@ const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }
           address: event.address || '',
           description: event.description || '',
           date: new Date(event.date) || '',
+          time: new Date(event.time)|| '',
           id: event.id || ''
       } || initialValues;
 
@@ -79,6 +82,34 @@ const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }
 
                        </div>
 
+                       <div className="form-group form-label-group">
+                          <label htmlFor="time">Time</label>
+
+                          <Field name="time">
+                          {(props) => {
+
+                            const handleChange = (time) => {
+                              props.form.setFieldValue(props.field.name, time)
+                            }
+
+                            return (
+                              <DatePicker
+                                selected={props.field.value}
+                                onChange={handleChange}
+                                showTimeSelect
+                                showTimeSelectOnly
+                                timeIntervals={15}
+                                dateFormat="h:mm a"
+                                timeCaption="Time"
+                                isClearable={true}
+                              />
+                            )
+                          }}
+                          </Field>
+                          <div className={'invalid-feedback ' + (errors.time ? 'd-block' : '')}>{errors.time}</div>
+
+                       </div>
+
 
 
 
@@ -100,7 +131,7 @@ const EventForm = ({ event, initialValues, yupSchema, pagesAvailable, onSubmit }
 
 
                        <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">Submit new event</button>
+                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Submit new event' : 'Submit your changes'}</button>
                            <button type="reset" className="btn btn-info text- mr-2">Reset</button>
                        </div>
                    </Form>
@@ -122,6 +153,7 @@ EventForm.defaultProps = {
       description: '',
       address: '',
       date: '',
+      time: '',
       id: ''
   },
   yupSchema: {
@@ -138,6 +170,9 @@ EventForm.defaultProps = {
         .min(new Date(moment()), 'Select a date starting from today')
         .required('Event date is required')
         .typeError("Event date required"),
+      time: Yup.date()
+        .required('Event time is required')
+        .typeError("Event time required"),
   },
   pagesAvailable: [],
 }
