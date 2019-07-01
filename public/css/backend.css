@@ -10662,6 +10662,35 @@ a.text-dark:focus {
   }
 }
 
+#event_list_back {
+  border: 1px solid black;
+}
+
+#event_list_back .titolo_back {
+  font-size: 18px;
+}
+
+#event_list_back .img_back {
+  max-width: 100%;
+}
+
+#event_list_back .sub_back {
+  font-size: 14px;
+}
+
+#event_list_back .corpo_back {
+  font-size: 10px;
+}
+
+#event_list_back .data_back {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+#event_list_back .btn {
+  width: 100%;
+}
+
 #dashboard-page .sidebar {
   width: 200px;
   height: calc(100vh - 60px);
