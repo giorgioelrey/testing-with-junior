@@ -4,8 +4,8 @@
 
     <div class='row'>
 
-      <div  class='title'>Mnlounge
-
+      <div  class='title'>
+          mnlounge
         <div class='sotto_title'>
 
         </div>
@@ -17,7 +17,7 @@
 
       <div class='col-md-6 d-flex align-items-center'>
 
-        <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
+        <div>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</div>
 
       </div>
 

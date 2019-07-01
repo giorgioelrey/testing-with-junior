@@ -7,7 +7,9 @@
     <div class='row d-flex justify-content-center'>
       <div class='col-md-12'>
 
-        <h1 class='title'>Chi siamo</h1>
+        <h1 class='title text-uppercase'>
+          {!! ($lang == 'it') ? 'chi siamo' : 'Who we are' !!}
+        </h1>
 
       </div>
 
@@ -16,7 +18,7 @@
         <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
 
       </div>
-      
+
     </div>
   </div>
 @endsection

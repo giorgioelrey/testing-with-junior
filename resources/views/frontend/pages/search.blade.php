@@ -12,7 +12,8 @@
 
 <div class='container ' id='search'>
 
-  <div  class='title'>search
+  <div  class='title'>
+    {!! ($lang == 'it') ? 'Ricerca' : 'Search' !!}
 
     <div class='sotto_title'>
 

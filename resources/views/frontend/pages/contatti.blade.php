@@ -9,7 +9,8 @@
       </div>
 
       <div class='col-md-6'>
-        <div  class='title'>Contatti
+        <div  class='title'>
+          {!! ($lang == 'it') ? 'Contatti' : 'Contacts' !!}
 
           <div class='sotto_title'>
 
@@ -17,14 +18,14 @@
         </div>
         <div class='pl-5 rif-contatti'>
 
-          <p>Address:<br>
+          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:<br>
             {{$contents->address->data}}</p>
 
             <p>Email:<br>
               <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
             </p>
 
-            <p>Telefono:<br>
+            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:<br>
               {{$contents->phone->data}}
             </p>
           </div>
@@ -34,19 +35,19 @@
         <div class='col-md-6 d-flex align-items-center'>
           <form>
             <div class="form-group">
-              <label for="formGroupExampleInput">Nome</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+              <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
+              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}">
 
             </div>
             <div class="form-group">
-              <label for="formGroupExampleInput2">Cognome</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Cognome">
+              <label for="formGroupExampleInput2">{!! ($lang == 'it') ? 'Cognome' : 'Last Name' !!}</label>
+              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="{!! ($lang == 'it') ? 'Cognome' : 'Last Name' !!}">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Messaggio</label>
+              <label for="exampleFormControlTextarea1">{!! ($lang == 'it') ? 'Messaggio' : 'Message' !!}</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="50"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary invia">Invia</button>
+            <button type="submit" class="btn btn-primary invia">{!! ($lang == 'it') ? 'Invia' : 'Submit' !!}</button>
           </form>
 
 
