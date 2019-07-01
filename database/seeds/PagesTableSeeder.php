@@ -33,7 +33,7 @@ class PagesTableSeeder extends Seeder
       $pageChiSiamo->save();
 
       $pageMNLounge = new Page;
-      $pageMNLounge->name = 'mnlounge';
+      $pageMNLounge->name = 'servizi-mnlounge';
       $pageMNLounge->contents = json_encode([
         'main_image_url' => [
             'type' => 'string',
