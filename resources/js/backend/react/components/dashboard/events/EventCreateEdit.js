@@ -16,7 +16,8 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
     try {
 
       fields.date = moment(fields.date).format('YYYY-MM-DD');
-
+      fields.time = moment(fields.time).format('YYYY-MM-DD HH:mm:ss');
+      
       console.log('campi preSubmit', fields)
 
       const {data} = await (section === 'create' ?   submitEvent(fields) : updateEvent(fields));
@@ -48,6 +49,7 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
                 onSubmit={eventSubmit}
                 pagesAvailable={pagesAvailable}
                 event={event}
+                section={section}
                 />
 
       </div>

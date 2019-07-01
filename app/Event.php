@@ -10,6 +10,7 @@ class Event extends Model
 
   //protected $timestamps = true;
 
-  protected $fillable = ['title', 'subtitle','description','date', 'address'];
+  protected $fillable = ['title', 'subtitle','description','date', 'address','time'];
+
 
 }
