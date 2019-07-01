@@ -14,7 +14,7 @@
 </div>
   <div class='col-md-6 bg-gold d-flex align-items-center'>
     <div class="form-group m-auto w-50">
-       <label for="exampleFormControlSelect1">scegli la via</label>
+       <label for="exampleFormControlSelect1">{!! ($lang == 'it') ? 'Scegli la via' : 'Choose address' !!}</label>
        <select class="form-control" id="exampleFormControlSelect1">
          <option>1</option>
          <option>2</option>

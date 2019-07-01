@@ -4,7 +4,7 @@ import ErrorsAlert from './../components/ErrorsAlert';
 
 const PageConnector = ((WrappedComponent) => {
 
-    return class EventsManager extends Component {
+    return class PagesManager extends Component {
 
         constructor(props){
 
@@ -64,7 +64,7 @@ const PageConnector = ((WrappedComponent) => {
        }
 
         getPageById(pageId){
-          
+
          return axios({
            url: `/api/admin/pages/show/id/${pageId}`,
            method: 'get',
@@ -76,11 +76,11 @@ const PageConnector = ((WrappedComponent) => {
 
        }
 
-        updatePage(updatedPage){
+        updatePage(pageId, updatedPageContent){
 
           return axios({
-            url: '/api/admin/pages/update',
-            data: updatedPage,
+            url: `/api/admin/pages/update/${pageId}`,
+            data: updatedPageContent,
             method: 'post',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

@@ -12,7 +12,8 @@
 
 <div class='container ' id='eventi'>
 
-  <div  class='title'>Eventi
+  <div  class='title'>
+    {!! ($lang == 'it') ? 'Eventi' : 'Events' !!}
 
     <div class='sotto_title'>
 

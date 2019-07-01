@@ -11,12 +11,12 @@
 
 <div class='container ' id='archivio-storico'>
 
-  <div class='title'>Archivio Storico
+  <div class='title'>{!! ($lang == 'it') ? 'Archivio Storico' : 'Archive' !!}
 
     <div class='sotto_title'>
 
     </div>
-    
+
   </div>
 
   <div class='row mt-5'id='archivio-storico-list'>

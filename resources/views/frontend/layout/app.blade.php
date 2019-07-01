@@ -45,9 +45,14 @@
 
   @include('frontend.partials.navbar')
 
-  <main class="">
+  <main>
+    {{--
+
     <p>detectedLocale is {{$detectedLocale}}</p>
     <p>Lang selected by user is {{$lang}}</p>
+
+     --}}
+
 
     @yield('content')
 
