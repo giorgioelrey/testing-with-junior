@@ -25,9 +25,12 @@ class Service extends Model
     public function sluggable()
     {
         return [
-            'slug' => [
-                'source' => 'name'
-            ]
+          'slug_it' => [
+              'source' => 'name_it'
+          ],
+          'slug_en' => [
+              'source' => 'name_en'
+          ],
         ];
     }
 

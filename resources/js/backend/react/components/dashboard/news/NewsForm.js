@@ -7,9 +7,10 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
 
     const formStartingValues = post && {
-          title: post.title || '',
-          post_body: post.post_body || '',
-          publish_status: post.publish_status || '',
+          title_it: post.title_it || '',
+          title_en: post.title_en || '',
+          postbody_it: post.postbody_it || '',
+          postbody_en: post.postbody_en || '',
           category_id: post.category_id || '',
           id: post.id || ''
       } || initialValues;
@@ -30,34 +31,44 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                        <div className="form-group form-label-group">
 
-                          <label htmlFor="title">Title</label>
-                           <Field name="title" type="text" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} placeholder="Type title"/>
-                           <ErrorMessage name="title" component="div" className="invalid-feedback" />
+                          <label htmlFor="title_it">Title IT</label>
+                           <Field name="title_it" type="text" className={'form-control' + (errors.title_it && touched.title_it ? ' is-invalid' : '')} placeholder="Type title_it"/>
+                           <ErrorMessage name="title_it" component="div" className="invalid-feedback" />
+
+                       </div>
+                       <div className="form-group form-label-group">
+
+                          <label htmlFor="title_en">Title</label>
+                           <Field name="title_en" type="text" className={'form-control' + (errors.title_en && touched.title_en ? ' is-invalid' : '')} placeholder="Type title_en"/>
+                           <ErrorMessage name="title_en" component="div" className="invalid-feedback" />
 
                        </div>
 
                        <div className="form-group form-label-group">
-                          <label htmlFor="post_body">Post Body</label>
+                          <label htmlFor="postbody_it">Post Body IT</label>
 
-                          <Field name="post_body">
+                          <Field name="postbody_it">
                           {({ field, errors }) =>
                           {
                             //console.log(field, errors);
                             return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
                           }}
                           </Field>
-                          <div className={'invalid-feedback ' + (errors.post_body ? 'd-block' : '')}>{errors.post_body}</div>
+                          <div className={'invalid-feedback ' + (errors.postbody_it ? 'd-block' : '')}>{errors.postbody_it}</div>
 
                        </div>
-
                        <div className="form-group form-label-group">
-                          <label htmlFor="publish_status">When do you want to publish</label>
-                           <Field name="publish_status" component="select" className={'form-control ' + (errors.publish_status && touched.publish_status ? ' is-invalid' : '')}>
-                             <option value="">Select now or later</option>
-                             <option value="now">Now</option>
-                             <option value="pending">Later</option>
-                            </Field>
-                           <ErrorMessage name="publish_status" component="div" className="invalid-feedback" />
+                          <label htmlFor="postbody_en">Post Body EN</label>
+
+                          <Field name="postbody_en">
+                          {({ field, errors }) =>
+                          {
+                            //console.log(field, errors);
+                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
+                          }}
+                          </Field>
+                          <div className={'invalid-feedback ' + (errors.postbody_en ? 'd-block' : '')}>{errors.postbody_en}</div>
+
                        </div>
 
                       {categories.length > 0 &&
@@ -93,16 +104,24 @@ export default NewsForm;
 
 NewsForm.defaultProps = {
   initialValues: {
-      title: '',
-      post_body: '',
+      title_it: '',
+      title_en: '',
+      postbody_it: '',
+      postbody_en: '',
       category_id: '',
       id: ''
   },
   yupSchema: {
-      title: Yup.string()
+      title_it: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),
-      post_body:  Yup.string()
+      title_en: Yup.string()
+         .min(6, 'Title must be at least 6 characters')
+          .required('Title is required'),
+      postbody_it:  Yup.string()
+         .min(30, 'Post body must be at least 30 characters')
+          .required('Post body is required'),
+      postbody_en:  Yup.string()
          .min(30, 'Post body must be at least 30 characters')
           .required('Post body is required'),
        category_id: Yup.string().

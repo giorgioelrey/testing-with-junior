@@ -45,9 +45,12 @@ class Post extends Model
     public function sluggable()
     {
         return [
-            'slug' => [
-                'source' => 'title'
-            ]
+          'slug_it' => [
+              'source' => 'title_it'
+          ],
+          'slug_en' => [
+              'source' => 'title_en'
+          ],
         ];
     }
 

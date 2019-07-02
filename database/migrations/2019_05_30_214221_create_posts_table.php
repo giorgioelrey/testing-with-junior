@@ -15,10 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug')->nullable();
-            $table->dateTimeTz('expires_at')->nullable(); //dateTime with Timezone
-            $table->text('post_body');
+            $table->string('title_it');
+            $table->string('title_en');
+            $table->string('slug_it')->nullable();
+            $table->string('slug_en')->nullable();
+            $table->text('postbody_it');
+            $table->text('postbody_en');
             $table->date('date')->nullable();
             $table->string('image_url')->nullable();
             $table->timestamps();

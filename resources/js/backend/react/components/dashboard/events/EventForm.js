@@ -13,10 +13,11 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
     console.log('convert new',new Date(event.time));
 
     const formStartingValues = event && event.id && {
-          title: event.title || '',
-          subtitle: event.subtitle || '',
+          title_it: event.title_it || '',
+          title_en: event.title_en || '',
           address: event.address || '',
-          description: event.description || '',
+          description_it: event.description_it || '',
+          description_en: event.description_en || '',
           date: new Date(event.date) || '',
           time: new Date(event.time)|| '',
           id: event.id || ''
@@ -38,17 +39,17 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                        <div className="form-group form-label-group">
 
-                          <label htmlFor="title">Title</label>
-                           <Field name="title" type="text" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} placeholder="Type title"/>
-                           <ErrorMessage name="title" component="div" className="invalid-feedback" />
+                          <label htmlFor="title_it">Title IT</label>
+                           <Field name="title_it" type="text" className={'form-control' + (errors.title_it && touched.title_it ? ' is-invalid' : '')} placeholder="Type title_it"/>
+                           <ErrorMessage name="title_it" component="div" className="invalid-feedback" />
 
                        </div>
-
                        <div className="form-group form-label-group">
-                          <label htmlFor="subtitle">Subtitle</label>
-                           <Field name="subtitle" type="text" className={'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : '')} placeholder="Type subtitle"/>
 
-                           <ErrorMessage name="subtitle" component="div" className="invalid-feedback" />
+                          <label htmlFor="title_en">Title EN</label>
+                           <Field name="title_en" type="text" className={'form-control' + (errors.title_en && touched.title_en ? ' is-invalid' : '')} placeholder="Type title_en"/>
+                           <ErrorMessage name="title_en" component="div" className="invalid-feedback" />
+
                        </div>
 
                        <div className="form-group form-label-group">
@@ -114,16 +115,29 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
 
                        <div className="form-group form-label-group">
-                          <label htmlFor="description">Description</label>
+                          <label htmlFor="description_it">Description IT</label>
 
-                          <Field name="description">
+                          <Field name="description_it">
                           {({ field, errors }) =>
                           {
                             //console.log(field, errors);
                             return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
                           }}
                           </Field>
-                          <div className={'invalid-feedback ' + (errors.description ? 'd-block' : '')}>{errors.description}</div>
+                          <div className={'invalid-feedback ' + (errors.description_it ? 'd-block' : '')}>{errors.description_it}</div>
+
+                       </div>
+                       <div className="form-group form-label-group">
+                          <label htmlFor="description_en">Description EN</label>
+
+                          <Field name="description_en">
+                          {({ field, errors }) =>
+                          {
+                            //console.log(field, errors);
+                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
+                          }}
+                          </Field>
+                          <div className={'invalid-feedback ' + (errors.description_en ? 'd-block' : '')}>{errors.description_en}</div>
 
                        </div>
 
@@ -148,22 +162,26 @@ export default EventForm;
 
 EventForm.defaultProps = {
   initialValues: {
-      title: '',
-      subtitle: '',
-      description: '',
+      title_it: '',
+      title_en: '',
+      description_it: '',
+      description_en: '',
       address: '',
       date: '',
       time: '',
       id: ''
   },
   yupSchema: {
-      title: Yup.string()
+      title_it: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),
-      subtitle: Yup.string()
-          .min(6, 'Subtitle must be at least 6 characters')
-          .required('Subtitle is required'),
-      description:  Yup.string()
+      title_en: Yup.string()
+         .min(6, 'Title must be at least 6 characters')
+          .required('Title is required'),
+      description_it:  Yup.string()
+         .min(30, 'Description must be at least 30 characters')
+          .required('Description is required'),
+      description_en:  Yup.string()
          .min(30, 'Description must be at least 30 characters')
           .required('Description is required'),
       date: Yup.date()
