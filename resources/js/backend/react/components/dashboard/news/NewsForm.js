@@ -8,11 +8,9 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
     const formStartingValues = post && {
           title: post.title || '',
-          subtitle: post.subtitle || '',
           post_body: post.post_body || '',
           publish_status: post.publish_status || '',
           category_id: post.category_id || '',
-          slug: post.slug || 'test',
           id: post.id || ''
       } || initialValues;
 
@@ -36,12 +34,6 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                            <Field name="title" type="text" className={'form-control' + (errors.title && touched.title ? ' is-invalid' : '')} placeholder="Type title"/>
                            <ErrorMessage name="title" component="div" className="invalid-feedback" />
 
-                       </div>
-                       <div className="form-group form-label-group">
-                          <label htmlFor="subtitle">Subtitle</label>
-                           <Field name="subtitle" type="text" className={'form-control' + (errors.subtitle && touched.subtitle ? ' is-invalid' : '')} placeholder="Type subtitle"/>
-
-                           <ErrorMessage name="subtitle" component="div" className="invalid-feedback" />
                        </div>
 
                        <div className="form-group form-label-group">
@@ -102,25 +94,17 @@ export default NewsForm;
 NewsForm.defaultProps = {
   initialValues: {
       title: '',
-      subtitle: '',
       post_body: '',
-      publish_status: '',
       category_id: '',
-      slug: 'test',
       id: ''
   },
   yupSchema: {
       title: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),
-      subtitle: Yup.string()
-          .min(6, 'Subtitle must be at least 6 characters')
-          .required('Subtitle is required'),
       post_body:  Yup.string()
          .min(30, 'Post body must be at least 30 characters')
           .required('Post body is required'),
-      publish_status: Yup.string().
-         required('Please select if you want to publish now or later'),
        category_id: Yup.string().
           required('Please select wich category you want to publish this post at')
   },

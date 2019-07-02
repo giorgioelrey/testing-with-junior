@@ -22,7 +22,6 @@ class PostsTableSeeder extends Seeder
             $newsPost = new Post;
 
             $newsPost->title = $faker->sentence($nbWords = 3, $variableNbWords = true);
-            $newsPost->subtitle = $faker->sentence($nbWords = 4, $variableNbWords = true);
             $newsPost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
             $newsPost->date = $faker->dateTimeInInterval($startDate = 'now', $interval = '+ 90 days', $timezone = 'Europe/Paris');
             $newsPost->category_id = 1;
@@ -36,7 +35,6 @@ class PostsTableSeeder extends Seeder
             $archivePost = new Post;
 
             $archivePost->title = $faker->sentence($nbWords = 3, $variableNbWords = true);
-            $archivePost->subtitle = $faker->sentence($nbWords = 4, $variableNbWords = true);
             $archivePost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
             $archivePost->date = $faker->dateTimeThisMonth($max = 'now', $timezone = 'Europe/Paris');
             $archivePost->category_id = 2;

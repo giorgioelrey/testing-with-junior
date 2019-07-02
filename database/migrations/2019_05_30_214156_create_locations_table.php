@@ -16,6 +16,7 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('slug')->nullable();
             //TODO: Must create a link to a category (could be an enum\)
             $table->string('address');
             $table->string('phone_number');

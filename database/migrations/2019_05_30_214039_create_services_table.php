@@ -17,6 +17,7 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             //TODO: Must create a link to a category
             $table->string('name');
+            $table->string('slug')->nullable();
             $table->string('short_description');
             $table->text('detail');
             $table->smallInteger('starting_price');

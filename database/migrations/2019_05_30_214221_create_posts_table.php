@@ -16,12 +16,8 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('subtitle')->nullable();
-            //TODO: must create a relation to category/more than one category??
-            //TODO: must create a relation to author
-            $table->dateTimeTz('expires_at')->nullable(); //dateTime with Timezone
-            //TODO: slug to manage with library
             $table->string('slug')->nullable();
+            $table->dateTimeTz('expires_at')->nullable(); //dateTime with Timezone
             $table->text('post_body');
             $table->date('date')->nullable();
             $table->string('image_url')->nullable();
