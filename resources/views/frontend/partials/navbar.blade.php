@@ -28,13 +28,13 @@
         <a class="nav-link" href="{{route('frontend.pages.chi-siamo', ['lang' => $lang])}}">chi siamo <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('frontend.pages.soci', ['lang' => $lang])}}">soci</a>
+        <a class="nav-link" href="{{route('frontend.pages.soci', ['lang' => $lang])}}">brand</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('frontend.pages.eventi', ['lang' => $lang])}}">eventi</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('frontend.pages.servizi-mnlounge', ['lang' => $lang])}}">servizi mnlounge</a>
+        <a class="nav-link" href="{{route('frontend.pages.mn-vip-lounge', ['lang' => $lang])}}">mn vip lounge</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('frontend.pages.press', ['lang' => $lang])}}">press</a>

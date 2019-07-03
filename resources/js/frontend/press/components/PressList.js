@@ -48,11 +48,11 @@ class PressList extends React.Component{
 
             <img className="img-fluid" src={pressPost.image_url} alt="no image" />
             <div className='corpo-post'>
-            <h1>{pressPost.title} </h1>
+            <h1>{userLanguage =='it' ? pressPost.title_it : pressPost.title_en} </h1>
 
 
 
-            <p>{pressPost.post_body}</p>
+            <p>{userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}</p>
             </div>
           </div>
 

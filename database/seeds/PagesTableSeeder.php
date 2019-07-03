@@ -41,7 +41,7 @@ class PagesTableSeeder extends Seeder
       $pageChiSiamo->save();
 
       $pageMNLounge = new Page;
-      $pageMNLounge->name = 'servizi-mnlounge';
+      $pageMNLounge->name = 'mn-vip-lounge';
       $pageMNLounge->contents = json_encode([
         'metadescription' => [
             'type' => 'string',

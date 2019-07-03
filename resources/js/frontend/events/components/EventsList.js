@@ -50,7 +50,7 @@ class EventsList extends React.Component{
             <div key={idx} className='col-md-4'>
               <img className="img-fluid" src={event.image_url} alt="no image" />
               <div className='corpo-post'>
-              <h1>{event.title} </h1>
+              <h1>{userLanguage =='it' ? event.title_it : event.title_en} </h1>
 
               <p>{event.address}</p>
 

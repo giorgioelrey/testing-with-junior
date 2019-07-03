@@ -29,9 +29,9 @@ Route::name('frontend.pages.')->group(function () {
 
   //SOCI
 
-  Route::get('/{lang?}/soci', 'PageController@show')->name('soci');
+  Route::get('/{lang?}/brand', 'PageController@show')->name('soci');
 
-  Route::get('/soci', function () {
+  Route::get('/brand', function () {
     return redirect()->route('frontend.pages.soci', ['lang' => 'it']);
   });
 
@@ -54,10 +54,10 @@ Route::get('/search', function () {
 
   //MNLOUNGE
 
-  Route::get('/{lang?}/servizi-mnlounge', 'PageController@show')->name('servizi-mnlounge');
+  Route::get('/{lang?}/mn-vip-lounge', 'PageController@show')->name('mn-vip-lounge');
 
-  Route::get('/servizi-mnlounge', function () {
-    return redirect()->route('frontend.pages.servizi-mnlounge', ['lang' => 'it']);
+  Route::get('/mn-vip-lounge', function () {
+    return redirect()->route('frontend.pages.mn-vip-lounge', ['lang' => 'it']);
   });
 
   //PRESS
@@ -69,7 +69,7 @@ Route::get('/search', function () {
   });
 
   //ARCHIVIO STORICO
-
+  //in eng heritage-archive
   Route::get('/{lang?}/archivio-storico','PageController@show')->name('archivio-storico');
 
   Route::get('/archivio-storico', function () {

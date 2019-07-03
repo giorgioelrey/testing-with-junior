@@ -48,11 +48,11 @@ class ArchivioStoricoList extends React.Component{
 
                 <img className="img-fluid" src={archivePost.image_url} alt="no image" />
                 <div className='corpo-post'>
-                <h1>{archivePost.title} </h1>
+                <h1>{userLanguage =='it' ? archivePost.title_it : archivePost.title_en} </h1>
 
 
 
-                <p>{archivePost.post_body}</p>
+                <p>{userLanguage =='it' ? archivePost.postbodytop_it : archivePost.postbodytop_en}</p>
               </div>
             </div>
 
