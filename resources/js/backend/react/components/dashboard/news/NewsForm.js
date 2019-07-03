@@ -2,20 +2,29 @@ import React, { Fragment} from 'react';
 import ReactQuill from 'react-quill';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import TextInputFormikField from './../forms/TextInputFormikField';
+import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
+import SelectFormikField from './../forms/SelectFormikField';
 
 const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
+    console.log('newform cats', categories)
+    console.log('post', post)
 
     const formStartingValues = post && {
+          metadescription_it: post.metadescription_it || '',
+          metadescription_en: post.metadescription_en || '',
           title_it: post.title_it || '',
           title_en: post.title_en || '',
-          postbody_it: post.postbody_it || '',
-          postbody_en: post.postbody_en || '',
+          postbodytop_it: post.postbodytop_it || '',
+          postbodytop_en: post.postbodytop_en || '',
+          postbodybottom_it: post.postbodybottom_it || '',
+          postbodybottom_en: post.postbodybottom_en || '',
           category_id: post.category_id || '',
           id: post.id || ''
       } || initialValues;
 
-      console.log(formStartingValues)
+      console.log('formStartingValues', formStartingValues)
 
     return(
 
@@ -29,63 +38,36 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
 
-                       <div className="form-group form-label-group">
-
-                          <label htmlFor="title_it">Title IT</label>
-                           <Field name="title_it" type="text" className={'form-control' + (errors.title_it && touched.title_it ? ' is-invalid' : '')} placeholder="Type title_it"/>
-                           <ErrorMessage name="title_it" component="div" className="invalid-feedback" />
-
-                       </div>
-                       <div className="form-group form-label-group">
-
-                          <label htmlFor="title_en">Title</label>
-                           <Field name="title_en" type="text" className={'form-control' + (errors.title_en && touched.title_en ? ' is-invalid' : '')} placeholder="Type title_en"/>
-                           <ErrorMessage name="title_en" component="div" className="invalid-feedback" />
-
-                       </div>
-
-                       <div className="form-group form-label-group">
-                          <label htmlFor="postbody_it">Post Body IT</label>
-
-                          <Field name="postbody_it">
-                          {({ field, errors }) =>
-                          {
-                            //console.log(field, errors);
-                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.postbody_it ? 'd-block' : '')}>{errors.postbody_it}</div>
-
-                       </div>
-                       <div className="form-group form-label-group">
-                          <label htmlFor="postbody_en">Post Body EN</label>
-
-                          <Field name="postbody_en">
-                          {({ field, errors }) =>
-                          {
-                            //console.log(field, errors);
-                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.postbody_en ? 'd-block' : '')}>{errors.postbody_en}</div>
-
-                       </div>
-
                       {categories.length > 0 &&
-                       (
-                         <div className="form-group form-label-group">
-                          <label htmlFor="category_id">Where do you want to publish this post at</label>
-                           <Field name="category_id" component="select" className={'form-control ' + (errors.category_id && touched.category_id ? ' is-invalid' : '')}>
-                             <option value="">Select destination page</option>
-                              {
-                                categories.map((category, idx) =>
-                                ( <option key={idx} value={category.id} >{category.name}</option>))
-                              }
-                            </Field>
-                             <ErrorMessage name="category_id" component="div" className="invalid-feedback" />
-                         </div>
-                       ) || null}
+                       (<SelectFormikField name={"category_id"} label="Where do you want to publish this post at" touched={touched} optionsTitle="Select destination page" errors={errors} selectOptions={categories}
+                          />) || null}
+                      <hr/>
+                      <div className="my-3">
 
+                        <h2 >IT Contents</h2>
+
+                        <TextInputFormikField name={"metadescription_it"} label="Title IT" touched={touched} errors={errors} />
+
+                        <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
+
+                        <WisiwygEditorFormikField name={"postbodytop_it"} label="Post Body Top IT" errors={errors} />
+
+                        <WisiwygEditorFormikField name={"postbodybottom_it"} label="Post Body Bottom IT" errors={errors} />
+
+                      </div>
+                      <hr/>
+                      <div className="my-3">
+                        <h2 className="mt-3">EN Contents</h2>
+
+                          <TextInputFormikField name={"metadescription_en"} label="Title IT" touched={touched} errors={errors} />
+
+                        <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
+
+                        <WisiwygEditorFormikField name={"postbodytop_en"} label="Post Body Top EN" errors={errors} />
+
+                        <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} />
+
+                      </div>
                        <div className="form-group">
                            <button type="submit" className="btn btn-primary mr-2">Submit new post</button>
                            <button type="reset" className="btn btn-info text- mr-2">Reset</button>
@@ -104,24 +86,40 @@ export default NewsForm;
 
 NewsForm.defaultProps = {
   initialValues: {
+      metadescription_it: '',
+      metadescription_en: '',
       title_it: '',
       title_en: '',
-      postbody_it: '',
-      postbody_en: '',
+      postbodytop_it: '',
+      postbodytop_en: '',
+      postbodytop_it: '',
+      postbodytop_en: '',
       category_id: '',
       id: ''
   },
   yupSchema: {
+      metadescription_it: Yup.string()
+         .min(6, 'Meta Description must be at least 6 characters')
+          .required('Meta Description is required'),
+      metadescription_en: Yup.string()
+         .min(6, 'Meta Description must be at least 6 characters')
+          .required('Meta Description is required'),
       title_it: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),
       title_en: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),
-      postbody_it:  Yup.string()
+      postbodytop_it:  Yup.string()
          .min(30, 'Post body must be at least 30 characters')
           .required('Post body is required'),
-      postbody_en:  Yup.string()
+      postbodytop_en:  Yup.string()
+         .min(30, 'Post body must be at least 30 characters')
+          .required('Post body is required'),
+      postbodybottom_it:  Yup.string()
+         .min(30, 'Post body must be at least 30 characters')
+          .required('Post body is required'),
+      postbodybottom_en:  Yup.string()
          .min(30, 'Post body must be at least 30 characters')
           .required('Post body is required'),
        category_id: Yup.string().

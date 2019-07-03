@@ -20,7 +20,8 @@ class EventsTableSeeder extends Seeder
         for ($i=0; $i < 30; $i++) {
 
           $event = new Event;
-
+          $event->metadescription_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
+          $event->metadescription_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
           $event->title_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
           $event->title_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
           $event->address = $faker->address;

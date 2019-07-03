@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="Meta description vuota">{{-- max 160 caratteri --}}
+  @yield('meta-description')
 
   <script src="https://kit.fontawesome.com/71611066a6.js"></script>
 
@@ -26,7 +26,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>Montenapoleone Luxury</title>
+  @yield('title')
 
   <!-- Scripts -->
   <script src="{{ asset('js/frontend/app.js') }}" defer></script>

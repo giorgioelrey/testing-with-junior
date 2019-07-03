@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Navbar from './Navbar';
 import NewsPage from './news/NewsPage';
-import UsersPage from './users/UsersPage';
 import EventsPage from './events/EventsPage';
 import Sidebar from './sidebar/Sidebar';
 import PagesManagementPage from './pages/PagesManagementPage';
@@ -18,9 +17,6 @@ const DashboardPage = (props) => {
     switch(contentPage) {
     case 'main':
       contentArea = (<div>Main Content </div>)
-      break;
-    case 'users':
-      contentArea = (<UsersPage {...props}/>)
       break;
     case 'news':
       contentArea = (<NewsPage {...props} />)

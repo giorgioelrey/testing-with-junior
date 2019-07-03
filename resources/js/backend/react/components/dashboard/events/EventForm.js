@@ -6,6 +6,11 @@ import { parseISO, format } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css'
 import * as Yup from 'yup';
 import moment from 'moment';
+import DatePickerFormikField from './../forms/DatePickerFormikField';
+import TimePickerFormikField from './../forms/TimePickerFormikField';
+import TextInputFormikField from './../forms/TextInputFormikField';
+import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
+import SelectFormikField from './../forms/SelectFormikField';
 
 
 const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
@@ -13,6 +18,8 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
     console.log('convert new',new Date(event.time));
 
     const formStartingValues = event && event.id && {
+          metadescription_it: event.metadescription_it || '',
+          metadescription_en: event.metadescription_en || '',
           title_it: event.title_it || '',
           title_en: event.title_en || '',
           address: event.address || '',
@@ -37,112 +44,47 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
 
-                       <div className="form-group form-label-group">
+                      <hr/>
 
-                          <label htmlFor="title_it">Title IT</label>
-                           <Field name="title_it" type="text" className={'form-control' + (errors.title_it && touched.title_it ? ' is-invalid' : '')} placeholder="Type title_it"/>
-                           <ErrorMessage name="title_it" component="div" className="invalid-feedback" />
+                      <div className="my-5">
 
-                       </div>
-                       <div className="form-group form-label-group">
+                        <h2 >IT Contents</h2>
 
-                          <label htmlFor="title_en">Title EN</label>
-                           <Field name="title_en" type="text" className={'form-control' + (errors.title_en && touched.title_en ? ' is-invalid' : '')} placeholder="Type title_en"/>
-                           <ErrorMessage name="title_en" component="div" className="invalid-feedback" />
+                        <TextInputFormikField name={"metadescription_it"} label="Meta Description IT" touched={touched} errors={errors} />
 
-                       </div>
+                        <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
 
-                       <div className="form-group form-label-group">
-                          <label htmlFor="address">Address</label>
-                           <Field name="address" type="text" className={'form-control' + (errors.address && touched.address ? ' is-invalid' : '')} placeholder="Type address"/>
+                        <WisiwygEditorFormikField name={"description_it"} label="Description IT" errors={errors} />
 
-                           <ErrorMessage name="address" component="div" className="invalid-feedback" />
-                       </div>
+                      </div>
+                      <hr/>
 
-                       <div className="form-group form-label-group">
-                          <label htmlFor="date">Date</label>
+                      <div className="my-5">
 
-                          <Field name="date">
-                          {(props) => {
+                        <h2 >EN Contents</h2>
 
-                            const handleChange = (date) => {
-                              props.form.setFieldValue(props.field.name, date)
-                            }
+                        <TextInputFormikField name={"metadescription_en"} label="Meta Description EN" touched={touched} errors={errors} />
 
-                            return (
-                              <DatePicker
-                                selected={props.field.value}
-                                onChange={handleChange}
-                                minDate={moment()}
-                                isClearable={true}
-                              />
-                            )
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.date ? 'd-block' : '')}>{errors.date}</div>
+                        <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
 
-                       </div>
+                        <WisiwygEditorFormikField name={"description_en"} label="Description EN" errors={errors} />
 
-                       <div className="form-group form-label-group">
-                          <label htmlFor="time">Time</label>
+                      </div>
 
-                          <Field name="time">
-                          {(props) => {
+                      <hr/>
 
-                            const handleChange = (time) => {
-                              props.form.setFieldValue(props.field.name, time)
-                            }
+                      <div>
 
-                            return (
-                              <DatePicker
-                                selected={props.field.value}
-                                onChange={handleChange}
-                                showTimeSelect
-                                showTimeSelectOnly
-                                timeIntervals={15}
-                                dateFormat="h:mm a"
-                                timeCaption="Time"
-                                isClearable={true}
-                              />
-                            )
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.time ? 'd-block' : '')}>{errors.time}</div>
+                        <h2>Campi per entrambe le lingue</h2>
 
-                       </div>
+                        <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
+
+                        <DatePickerFormikField name="date" label="Data" errors={errors} />
+
+                        <TimePickerFormikField name="time" label="Ora" errors={errors}/>
 
 
-
-
-                       <div className="form-group form-label-group">
-                          <label htmlFor="description_it">Description IT</label>
-
-                          <Field name="description_it">
-                          {({ field, errors }) =>
-                          {
-                            //console.log(field, errors);
-                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.description_it ? 'd-block' : '')}>{errors.description_it}</div>
-
-                       </div>
-                       <div className="form-group form-label-group">
-                          <label htmlFor="description_en">Description EN</label>
-
-                          <Field name="description_en">
-                          {({ field, errors }) =>
-                          {
-                            //console.log(field, errors);
-                            return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
-                          }}
-                          </Field>
-                          <div className={'invalid-feedback ' + (errors.description_en ? 'd-block' : '')}>{errors.description_en}</div>
-
-                       </div>
-
-
-
+                      </div>
 
                        <div className="form-group">
                            <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Submit new event' : 'Submit your changes'}</button>
@@ -162,6 +104,8 @@ export default EventForm;
 
 EventForm.defaultProps = {
   initialValues: {
+      metadescription_it: '',
+      metadescription_en: '',
       title_it: '',
       title_en: '',
       description_it: '',
@@ -172,6 +116,12 @@ EventForm.defaultProps = {
       id: ''
   },
   yupSchema: {
+      metadescription_it: Yup.string()
+         .min(6, 'Meta Description must be at least 6 characters')
+          .required('Meta Description is required'),
+      metadescription_en: Yup.string()
+         .min(6, 'Meta Description must be at least 6 characters')
+          .required('Meta Description is required'),
       title_it: Yup.string()
          .min(6, 'Title must be at least 6 characters')
           .required('Title is required'),

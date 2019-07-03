@@ -14,7 +14,17 @@ class Event extends Model
 
   //protected $timestamps = true;
 
-  protected $fillable = ['title', 'subtitle','description','date', 'address','time'];
+  protected $fillable = [
+                          'metadescription_it',
+                          'metadescription_en',
+                          'title_it',
+                          'title_en',
+                          'description_it',
+                          'description_en',
+                          'date',
+                          'address',
+                          'time'
+                        ];
 
   /**
      * Return the sluggable configuration array for this model.

@@ -17,7 +17,16 @@ class Post extends Model
 
   //public $timestamps = true;
 
-  protected $fillable = ['title', 'subtitle', 'expires_at', 'post_body'];
+  protected $fillable = [
+                          'metadescription_it',
+                          'metadescription_en',
+                          'title_it',
+                          'title_en',
+                          'postbodytop_it',
+                          'postbodytop_en',
+                          'postbodybottom_it',
+                          'postbodybottom_en'
+                        ];
 
   //******** RELATIONSHIPS *****************//
 

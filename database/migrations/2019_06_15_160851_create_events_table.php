@@ -15,7 +15,8 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('metadescription_it');
+            $table->string('metadescription_en');
             $table->string('title_it');
             $table->string('title_en');
             $table->string('slug_it')->nullable();
@@ -26,6 +27,7 @@ class CreateEventsTable extends Migration
             $table->string('image_url')->nullable();
             $table->date('date');
             $table->dateTime('time');
+            $table->timestamps();
 
         });
     }

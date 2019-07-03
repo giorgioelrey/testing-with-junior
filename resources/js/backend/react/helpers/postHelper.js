@@ -138,7 +138,6 @@ const PostConnector = ((WrappedComponent) => {
 
        }
 
-
         render(){
 
           if (this.state.apiErrors.length > 0)  return (<ErrorsAlert errors={this.state.apiErrors} />)
