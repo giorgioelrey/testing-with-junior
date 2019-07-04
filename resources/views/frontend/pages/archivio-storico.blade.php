@@ -1,5 +1,14 @@
 @extends('frontend.layout.app')
 
+@section('meta-description')
+  {{$content_it = ''}}
+  {{$content_en = ''}}
+  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+@endsection
+
+@section('title')
+  <title>{{$lang == 'it' ? 'Archivio-Storico' : 'Archive'}}</title>
+@endsection
 
 @section('scripts')
 

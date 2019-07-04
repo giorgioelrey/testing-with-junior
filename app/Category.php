@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Category extends Model
 {
+
+  use Sluggable;
+
   protected $table = 'categories';
 
   //protected $timestamps = true;
@@ -21,5 +25,22 @@ class Category extends Model
   {
       return $this->hasMany('App\Post');
   }
+
+  /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug_it' => [
+                'source' => 'name_it'
+            ],
+            'slug_en' => [
+                'source' => 'name_en'
+            ],
+        ];
+    }
 
 }

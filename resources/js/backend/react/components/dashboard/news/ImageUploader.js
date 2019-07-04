@@ -46,8 +46,11 @@ class ImageUploader extends Component {
   render() {
     return (
       <React.Fragment>
-        <input type="file" name="select_file" onChange={this.fileChangedHandler}/>
-        <button onClick={this.uploadHandler}>Upload!</button>
+      <div className="custom-file my-3">
+        <input className="custom-file-input" type="file" name="select_file" onChange={this.fileChangedHandler}/>
+        <label className="custom-file-label" htmlFor="select_file">Choose and upload an image</label>
+      </div>
+      <button className="btn btn-primary mb-3" onClick={this.uploadHandler}>Upload selected image!</button>
       </React.Fragment>
     );
   }

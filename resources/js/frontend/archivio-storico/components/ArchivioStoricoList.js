@@ -42,21 +42,29 @@ class ArchivioStoricoList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.archive.length > 0 && this.state.archive.map((archivePost, idx) =>(
+        {this.state.archive.length > 0 && this.state.archive.map((archivePost, idx) => {
 
-            <div key={idx} className='col-md-4'>
+          const link = userLanguage == 'it' ? `/it/archivio-storico/${archivePost.slug_it}` : `/en/heritage-archive/${archivePost.slug_en}`;
 
-                <img className="img-fluid" src={archivePost.image_url} alt="no image" />
-                <div className='corpo-post'>
-                <h1>{archivePost.title} </h1>
+            return (
+
+                <div key={idx} className='col-md-4'>
+
+                    <img className="img-fluid" src={archivePost.image_url} alt="no image" />
+                    <div className='corpo-post'>
+
+                    <a href={link}>
+                      <h1>{userLanguage =='it' ? archivePost.title_it : archivePost.title_en} </h1>
+                    </a>
 
 
+                    <p>{userLanguage =='it' ? archivePost.postbodytop_it : archivePost.postbodytop_en}</p>
+                  </div>
+                </div>
 
-                <p>{archivePost.post_body}</p>
-              </div>
-            </div>
-
-          )) || (<div>{userLanguage === 'it' ? 'Nessun post per Press' : 'No press posts'}</div>)}
+              );
+        }
+      ) || (<div>{userLanguage === 'it' ? 'Nessun post per Archivio Storico' : 'No Heritage-Archive Posts'}</div>)}
 
       </React.Fragment>
     )

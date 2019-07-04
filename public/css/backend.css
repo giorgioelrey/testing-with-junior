@@ -10691,6 +10691,10 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.quill .ql-container {
+  height: 300px;
+}
+
 #dashboard-page .sidebar {
   width: 200px;
   height: calc(100vh - 60px);

@@ -15,12 +15,15 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            //TODO: Must create a link to a category (could be an enum\)
+            $table->string('name_it');
+            $table->string('name_en');
+            $table->string('slug_it')->nullable();
+            $table->string('slug_en')->nullable();
             $table->string('address');
-            $table->string('phone_number');
+            $table->string('phonenumber');
             $table->string('email');
-            $table->text('description');
+            $table->text('description_it');
+            $table->text('description_en');
             $table->string('thumbnail');
             $table->timestamps();
         });

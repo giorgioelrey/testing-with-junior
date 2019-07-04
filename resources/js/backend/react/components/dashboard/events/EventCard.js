@@ -14,10 +14,8 @@ const EventCard = ({ event }) => {
     </div>
 
     <div className="col-md-7 align-self-center">
-      <h5 className="titolo_back">{event.title || 'Sample title'}</h5>
+      <h5 className="titolo_back">{event.title_it || 'Sample title'}</h5>
       <h3 className="data_back">{event.date}</h3>
-      <h3 className="sub_back">{event.subtitle || 'Sample subtitle'}</h3>
-
     </div>
 
     <div className="col-md-2 align-self-center">
