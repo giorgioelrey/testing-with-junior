@@ -42,23 +42,26 @@ class PressList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>(
+        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>{
 
-          <div key={idx} className='col-md-4'>
+          const link = userLanguage == 'it' ? `/it/press/${pressPost.slug_it}` : `/en/press/${pressPost.slug_en}`;
 
-            <img className="img-fluid" src={pressPost.image_url} alt="no image" />
-            <div className='corpo-post'>
-            <h1>{userLanguage =='it' ? pressPost.title_it : pressPost.title_en} </h1>
+          return (
+
+            <div key={idx} className='col-md-4'>
+
+              <img className="img-fluid" src={pressPost.image_url} alt="no image" />
+              <div className='corpo-post'>
+              <a href={link}>
+                <h1>{userLanguage =='it' ? pressPost.title_it : pressPost.title_en}</h1>
+              </a>
 
 
-
-            <p>{userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}</p>
+              <p>{userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}</p>
+              </div>
             </div>
-          </div>
 
-
-
-)) || (<div>No press posts available</div>)}
+  )}) || (<div>No press posts available</div>)}
 
       </React.Fragment>
     )

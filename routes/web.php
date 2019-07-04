@@ -11,6 +11,8 @@
 |
 */
 use App\Page;
+use App\Event;
+use App\Post;
 use Illuminate\Http\Request;
 
 //BACKEND
@@ -46,6 +48,14 @@ function() {
 		return View::make('frontend.pages.eventi',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.eventi');
 
+	Route::get(LaravelLocalization::transRoute('routes.eventi-single'), function($slug) {
+
+		$locale = LaravelLocalization::setLocale();
+		$event = ($locale == 'it') ? Event::whereSlugIt($slug)->first() : Event::whereSlugEn($slug)->first();
+
+		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
+	})->name('fe.evento-single');
+
 	Route::get(LaravelLocalization::transRoute('routes.mn-vip-lounge'), function(Request $request) {
 
     $dynamicPage = Page::whereName('mn-vip-lounge')->get();
@@ -59,9 +69,25 @@ function() {
 		return View::make('frontend.pages.archivio-storico',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.archivio-storico');
 
+	Route::get(LaravelLocalization::transRoute('routes.archivio-storico-single'), function($slug) {
+
+		$locale = LaravelLocalization::setLocale();
+		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
+
+		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
+	})->name('fe.archivio-storico-single');
+
 	Route::get(LaravelLocalization::transRoute('routes.press'), function() {
 		return View::make('frontend.pages.press',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.press');
+
+	Route::get(LaravelLocalization::transRoute('routes.press-single'), function($slug) {
+
+		$locale = LaravelLocalization::setLocale();
+		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
+
+		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
+	})->name('fe.post-single');
 
 	Route::get(LaravelLocalization::transRoute('routes.search'), function() {
 		return View::make('frontend.pages.search',['lang' => LaravelLocalization::setLocale()]);
