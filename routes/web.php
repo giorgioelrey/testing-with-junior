@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Page;
+use Illuminate\Http\Request;
 
 //BACKEND
 
@@ -17,91 +19,67 @@ Route::view('/admin/{path?}', 'backend.layouts.app');
 
 //FRONTEND
 
-Route::name('frontend.pages.')->group(function () {
-
-   //CHI-SIAMO
-
-  Route::get('/{lang?}/chi-siamo', 'PageController@show')->name('chi-siamo');
-
-  Route::get('/chi-siamo', function () {
-    return redirect()->route('frontend.pages.chi-siamo', ['lang' => 'it']);
-  });
-
-  //SOCI
-
-  Route::get('/{lang?}/brand', 'PageController@show')->name('soci');
-
-  Route::get('/brand', function () {
-    return redirect()->route('frontend.pages.soci', ['lang' => 'it']);
-  });
-
-//search
-
-Route::get('/{lang?}/search', 'PageController@show')->name('search');
-
-Route::get('/search', function () {
-  return redirect()->route('frontend.pages.search', ['lang' => 'it']);
-  });
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','localize' ]
+],
+function() {
+	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
 
-  //EVENTI
 
-  Route::get('/{lang?}/eventi', 'PageController@show')->name('eventi');
+	Route::get(LaravelLocalization::transRoute('routes.chi-siamo'), function(Request $request) {
 
-  Route::get('/eventi', function () {
-    return redirect()->route('frontend.pages.eventi', ['lang' => 'it']);
-  });
+    $dynamicPage = Page::whereName('chi-siamo')->get();
 
-  //MNLOUNGE
+    $contents = json_decode($dynamicPage->first()->contents);
 
-  Route::get('/{lang?}/mn-vip-lounge', 'PageController@show')->name('mn-vip-lounge');
+		return View::make('frontend.pages.chi-siamo',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
+	})->name('fe.chi-siamo');
 
-  Route::get('/mn-vip-lounge', function () {
-    return redirect()->route('frontend.pages.mn-vip-lounge', ['lang' => 'it']);
-  });
+	Route::get(LaravelLocalization::transRoute('routes.brand'), function() {
+		return View::make('frontend.pages.brand',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.brand');
 
-  //PRESS
+	Route::get(LaravelLocalization::transRoute('routes.eventi'), function() {
+		return View::make('frontend.pages.eventi',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.eventi');
 
-  Route::get('/{lang?}/press', 'PageController@show')->name('press');
+	Route::get(LaravelLocalization::transRoute('routes.mn-vip-lounge'), function(Request $request) {
 
-  Route::get('/press', function () {
-    return redirect()->route('frontend.pages.press', ['lang' => 'it']);
-  });
+    $dynamicPage = Page::whereName('mn-vip-lounge')->get();
 
-  //ARCHIVIO STORICO
-  //in eng heritage-archive
-  Route::get('/{lang?}/archivio-storico','PageController@show')->name('archivio-storico');
+    $contents = json_decode($dynamicPage->first()->contents);
 
-  Route::get('/archivio-storico', function () {
-    return redirect()->route('frontend.pages.archivio-storico', ['lang' => 'it']);
-  });
+		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
+	})->name('fe.mn-vip-lounge');
 
-  //CONTATTI
+	Route::get(LaravelLocalization::transRoute('routes.archivio-storico'), function() {
+		return View::make('frontend.pages.archivio-storico',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.archivio-storico');
 
-  Route::get('/{lang?}/contatti', 'PageController@show')->name('contatti');
+	Route::get(LaravelLocalization::transRoute('routes.press'), function() {
+		return View::make('frontend.pages.press',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.press');
 
-  Route::get('/contatti','PageController@show' );
+	Route::get(LaravelLocalization::transRoute('routes.search'), function() {
+		return View::make('frontend.pages.search',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.search');
 
+	Route::get(LaravelLocalization::transRoute('routes.contatti'),function(Request $request) {
 
-    //HOME
+    $dynamicPage = Page::whereName('contatti')->get();
 
-    Route::get('/', function () {
-        return view('frontend.pages.home', ['lang' => 'it']);
-      })->name('home');
+    $contents = json_decode($dynamicPage->first()->contents);
 
-    Route::get('/{lang}', function ($lang) {
+		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
+	})->name('fe.contatti');
 
-      if($lang === 'it' || $lang === 'en') {
-        return view('frontend.pages.home', ['lang' => $lang]);
-        } else {
-          abort(404);
-        }
-     })->name('home');
+  Route::get(LaravelLocalization::transRoute('routes.home'), function() {
+		return View::make('frontend.pages.home',['lang' => LaravelLocalization::setLocale()]);
+	})->name('fe.home');
 
 });
-
-
-
-
 
 Auth::routes();
