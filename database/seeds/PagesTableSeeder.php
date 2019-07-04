@@ -16,6 +16,14 @@ class PagesTableSeeder extends Seeder
       $pageChiSiamo = new Page;
       $pageChiSiamo->name = 'chi-siamo';
       $pageChiSiamo->contents = json_encode([
+        'metadescription' => [
+            'type' => 'string',
+            'translated' => true,
+            'data' => [
+              'it'=> 'meta pagina chi siamo it',
+              'en' => 'meta pagina chi siamo en'
+            ],
+          ],
         'main_image_url' => [
             'type' => 'string',
             'translated' => false,
@@ -33,8 +41,16 @@ class PagesTableSeeder extends Seeder
       $pageChiSiamo->save();
 
       $pageMNLounge = new Page;
-      $pageMNLounge->name = 'servizi-mnlounge';
+      $pageMNLounge->name = 'mn-vip-lounge';
       $pageMNLounge->contents = json_encode([
+        'metadescription' => [
+            'type' => 'string',
+            'translated' => true,
+            'data' => [
+              'it'=> 'meta pagina mnlounge it',
+              'en' => 'meta pagina mnlounge en'
+            ],
+          ],
         'main_image_url' => [
             'type' => 'string',
             'translated' => false,
@@ -55,6 +71,14 @@ class PagesTableSeeder extends Seeder
       $pageContatti = new Page;
       $pageContatti->name = 'contatti';
       $pageContatti->contents = json_encode([
+        'metadescription' => [
+            'type' => 'string',
+            'translated' => true,
+            'data' => [
+              'it'=> 'meta pagina contatti it',
+              'en' => 'meta pagina contatti en'
+            ],
+          ],
         'image_top_url' => [
             'type' => 'string',
             'translated' => false,

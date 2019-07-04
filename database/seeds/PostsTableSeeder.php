@@ -21,9 +21,14 @@ class PostsTableSeeder extends Seeder
 
             $newsPost = new Post;
 
-            $newsPost->title = $faker->sentence($nbWords = 3, $variableNbWords = true);
-            $newsPost->subtitle = $faker->sentence($nbWords = 4, $variableNbWords = true);
-            $newsPost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $newsPost->metadescription_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $newsPost->metadescription_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $newsPost->title_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $newsPost->title_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $newsPost->postbodytop_it = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $newsPost->postbodytop_en = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $newsPost->postbodybottom_it = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $newsPost->postbodybottom_en = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
             $newsPost->date = $faker->dateTimeInInterval($startDate = 'now', $interval = '+ 90 days', $timezone = 'Europe/Paris');
             $newsPost->category_id = 1;
             $newsPost->image_url = $faker->imageUrl(640, 480, 'city');
@@ -35,9 +40,14 @@ class PostsTableSeeder extends Seeder
 
             $archivePost = new Post;
 
-            $archivePost->title = $faker->sentence($nbWords = 3, $variableNbWords = true);
-            $archivePost->subtitle = $faker->sentence($nbWords = 4, $variableNbWords = true);
-            $archivePost->post_body = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $archivePost->metadescription_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $archivePost->metadescription_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $archivePost->title_it = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $archivePost->title_en = $faker->sentence($nbWords = 3, $variableNbWords = true);
+            $archivePost->postbodytop_it = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $archivePost->postbodytop_en = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $archivePost->postbodybottom_it = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
+            $archivePost->postbodybottom_en = $faker->paragraph($nbSentences = 3, $variableNbSentences = true);
             $archivePost->date = $faker->dateTimeThisMonth($max = 'now', $timezone = 'Europe/Paris');
             $archivePost->category_id = 2;
             $archivePost->image_url = $faker->imageUrl(640, 480, 'city');

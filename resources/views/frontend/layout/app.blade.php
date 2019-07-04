@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  @yield('meta-tags')
+  @yield('meta-description')
 
   <script src="https://kit.fontawesome.com/71611066a6.js"></script>
-
 
   @php
   $currentRouteName =  Route::currentRouteName();
@@ -27,7 +26,7 @@
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'frontend_test') }}</title>
+  @yield('title')
 
   <!-- Scripts -->
   <script src="{{ asset('js/frontend/app.js') }}" defer></script>

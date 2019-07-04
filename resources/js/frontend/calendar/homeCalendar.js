@@ -79,7 +79,7 @@ class EventsCalendar extends Component {
     return (
       <div>
 
-      
+
 
         <Calendar
           date={this.state.date}
@@ -91,7 +91,7 @@ class EventsCalendar extends Component {
           dayClasses={dayClasses}
           />
 
-          <EventsList date={this.state.date.format('DD/MM/YYYY')} events={this.state.events} />
+          <EventsList date={this.state.date.format('DD/MM/YYYY')} events={this.state.events} userLanguage={userLanguage}/>
 
       </div>
     );

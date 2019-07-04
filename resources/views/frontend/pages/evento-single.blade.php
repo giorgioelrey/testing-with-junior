@@ -7,12 +7,10 @@
 @endsection
 
 @section('title')
-  <title>{{$lang == 'it' ? 'Eventi' : 'Events'}}</title>
+  <title>{{$lang == 'it' ? 'Evento' : 'Event'}}</title>
 @endsection
 
 @section('scripts')
-
-  <script src="{{asset('/js/frontend/events.js')}}" charset="utf-8"></script>
 
 @endsection
 
@@ -20,18 +18,17 @@
 @section('content')
 
 
-<div class='container ' id='eventi'>
+<div class='container ' id='evento-single'>
 
   <div  class='title'>
-    {!! ($lang == 'it') ? 'Eventi' : 'Events' !!}
+    {!! ($lang == 'it') ? 'Evento singolo' : 'Single Event' !!}
 
     <div class='sotto_title'>
 
     </div>
   </div>
 
-  <div class='row mt-5' id='events-list'>
-
+  <h1>{{$event['title_'.$lang]}}</h1>
 
 
 

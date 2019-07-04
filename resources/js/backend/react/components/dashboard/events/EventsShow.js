@@ -30,10 +30,10 @@ const EventsShow = ({event, deleteEvent, history}) => {
         <div className="card mb-3">
           <img src={event && event.image || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
           <div className="card-body">
-            <h5 className="card-title">{event.title}</h5>
+            <h5 className="card-title">{event.title_it}</h5>
             <h3>{event.subtitle}</h3>
             <p>{event.date}</p>
-            <p className="card-text">{event.description}</p>
+            <p className="card-text">{event.description_it}</p>
             <p className="card-text"><small className="text-muted">{event.created_at}</small></p>
 
               <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Edit this event</Link>

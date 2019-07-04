@@ -35,7 +35,6 @@ class PageController extends Controller
     //Not existing page
     abort(404);
 
-
   }
 
 }

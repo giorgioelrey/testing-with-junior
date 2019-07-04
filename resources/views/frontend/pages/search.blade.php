@@ -1,5 +1,15 @@
 @extends('frontend.layout.app')
 
+@section('meta-description')
+  {{$content_it = ''}}
+  {{$content_en = ''}}
+  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+@endsection
+
+@section('title')
+  <title>{{$lang == 'it' ? 'Ricerca' : 'Search'}}</title>
+@endsection
+
 @section('scripts')
 
   <script src="{{asset('/js/frontend/events.js')}}" charset="utf-8"></script>
