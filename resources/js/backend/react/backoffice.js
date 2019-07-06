@@ -8,8 +8,8 @@ import App from './components/App';
 
 if (document.getElementById('app')) {
     ReactDOM.render(
-      <Router>
-          <App />
+      <Router >
+          <App localstoragetoken={localStorage.getItem('usertoken')}/>
       </Router>
       , document.getElementById('app'));
 }

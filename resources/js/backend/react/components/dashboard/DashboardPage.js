@@ -10,6 +10,7 @@ const DashboardPage = (props) => {
 
 
   const {user, match, history, location, section, contentPage} = props;
+  
   console.log('dash props',props);
 
     let contentArea;
@@ -50,7 +51,6 @@ const DashboardPage = (props) => {
       </Fragment>
 
     );
-
 }
 
 export default DashboardPage;

@@ -11,6 +11,7 @@ class Navbar extends Component {
 
     this.backToTheHomePage = this.backToTheHomePage.bind(this);
     this.logout = this.logout.bind(this);
+
   }
 
   backToTheHomePage(){ this.props.history.push('/admin') }
@@ -38,7 +39,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-light shadow sticky-top" id="navbar-backoffice" >
 
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/admin/dashboard">
           <img height="30" src={logo_core} alt="ciao" />
         </NavLink>
 
