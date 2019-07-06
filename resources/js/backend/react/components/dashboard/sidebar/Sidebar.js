@@ -28,12 +28,6 @@ export default Sidebar;
 Sidebar.defaultProps = {
   navItemsData: [
     {
-      linkEndpoint: 'main'  ,
-      linkName: 'Control Panel',
-      svgClass : 'feather-home',
-      innerSvg: (<Fragment><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></Fragment>),
-    },
-    {
       linkEndpoint: 'pages',
       linkName: 'Pages',
       svgClass : 'feather-book-open',
@@ -62,6 +56,12 @@ Sidebar.defaultProps = {
 
 //disabled links
 /*
+{
+  linkEndpoint: 'main'  ,
+  linkName: 'Control Panel',
+  svgClass : 'feather-home',
+  innerSvg: (<Fragment><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></Fragment>),
+},
 {
   linkEndpoint: 'users'  ,
   linkName: 'Users',

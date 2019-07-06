@@ -36,7 +36,7 @@ submitLoginForm(fields) {
 
     let errorsContent = this.props.errors.length > 0 && (<ErrorsAlert errors={this.props.errors} />) || null;
 
-    const { from } = this.props.location && this.props.location.state || { from: { pathname: '/admin/dashboard' } }
+    const { from } = this.props.location && this.props.location.state || { from: { pathname: '/admin/dashboard/news' } }
 
      if (this.state.redirectToReferrer === true) {
 
