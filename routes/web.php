@@ -31,8 +31,6 @@ Route::group(
 function() {
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
-
-
 	Route::get(LaravelLocalization::transRoute('routes.chi-siamo'), function(Request $request) {
 
     $dynamicPage = Page::whereName('chi-siamo')->get();
