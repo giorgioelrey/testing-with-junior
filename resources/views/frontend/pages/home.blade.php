@@ -13,6 +13,7 @@
 @section('scripts')
 
   <script src="{{asset('/js/frontend/homeCalendar.js')}}" charset="utf-8"></script>
+  <script src="{{asset('/js/frontend/gmaps.js')}}" charset="utf-8"></script>
 
 @endsection
 
@@ -34,7 +35,7 @@
 
 <div class='col-8'>
 
-  <div id="maps-api-google">
+  <div id="map" style="width: 500px; height:500px;">
 
 
   </div>
