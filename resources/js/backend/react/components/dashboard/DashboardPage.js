@@ -5,7 +5,7 @@ import NewsPage from './news/NewsPage';
 import EventsPage from './events/EventsPage';
 import Sidebar from './sidebar/Sidebar';
 import PagesManagementPage from './pages/PagesManagementPage';
-
+//import AuthConnector from './../../HOCs/AuthConnector.js';
 const DashboardPage = (props) => {
 
 

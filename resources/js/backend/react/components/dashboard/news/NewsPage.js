@@ -33,7 +33,6 @@ const NewsPage = (props) => {
             {contentArea}
         </Fragment>
     );
-
 }
 
 export default withRouter(NewsPage);

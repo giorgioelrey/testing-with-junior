@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom';
 import PostCard from './PostCard';
-import PostConnector from './../../../helpers/postHelper';
+import PostConnector from './../../../HOCs/PostConnector';
 
 const NewsList  = ({posts}) => (
 

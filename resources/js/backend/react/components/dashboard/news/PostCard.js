@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
-import * as postHelper from './../../../helpers/postHelper';
 
 const PostCard = ({ post }) => {
 
   return (
     <div className="col-md-6 col-xl-4 px-2 mb-5">
-
       <div className="card">
         <img src={post && post.image || placeholder_post_image} className="card-img-top" alt="...where is the image"/>
         <div className="card-body">
@@ -17,7 +15,6 @@ const PostCard = ({ post }) => {
             <Link to={`/admin/dashboard/news/edit/${post.id}`} className="btn btn-warning btn-lg ml-3">Edit this post</Link>
         </div>
       </div>
-
     </div>
   )
 

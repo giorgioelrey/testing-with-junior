@@ -10,7 +10,6 @@ const PostConnector = ((WrappedComponent) => {
 
           super(props);
 
-
           this.state = {
             isLoading: true,
             posts: [],

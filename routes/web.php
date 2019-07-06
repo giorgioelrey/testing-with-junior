@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 
 //BACKEND
 
-Route::view('/admin/{path?}', 'backend.layouts.app');
+Route::view('/admin', 'backend.layouts.app');
 
 //FRONTEND
 
