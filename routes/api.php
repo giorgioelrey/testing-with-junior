@@ -59,6 +59,18 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
 
+  //****** LOCATIONS ****//
+
+  Route::get('/admin/locations/all', 'LocationController@index')->name('location.all');
+
+  Route::get('/admin/location/{id}', 'LocationController@show')->name('location.show');
+
+  Route::post('/admin/location/store', 'LocationController@store')->name('location.store');
+
+  Route::post('/admin/location/update', 'LocationController@update')->name('location.update');
+
+  Route::delete('/admin/location/destroy/{id}', 'LocationController@destroy')->name('location.destroy');
+
   //****** EVENTS ****//
 
   Route::get('/admin/events/all', 'EventController@index')->name('event.all');
@@ -87,7 +99,7 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::post('admin/pages/update/{id}', 'PageController@update')->name('pages.update');
 
-  //****** CATEOGORIES ****//
+  //****** CATEGORIES ****//
 
   Route::get('/admin/categories/all', 'CategoryController@index')->name('categories.all');
 
