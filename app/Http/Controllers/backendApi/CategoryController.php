@@ -40,7 +40,7 @@ class CategoryController extends Controller
 
         $response = [
              'success' => true,
-             'categories' => whereEntity('location')->get()->toArray(),
+             'categories' => Category::whereEntity('location')->get()->toArray(),
              'message' => 'Categories retrieved successfully.'
          ];
 

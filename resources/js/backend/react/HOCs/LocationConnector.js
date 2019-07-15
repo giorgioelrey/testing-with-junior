@@ -13,7 +13,7 @@ const LocationConnector = ((WrappedComponent) => {
           this.state = {
             isLoading: true,
             locations: [],
-            post: {},
+            location: {},
             apiErrors: [],
             categories: []
           }

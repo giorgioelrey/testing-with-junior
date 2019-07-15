@@ -106,6 +106,22 @@ async loginClicked(fields,successCallback, errorCallback) {
           component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
           />
           <PrivateRoute
+          exact path="/admin/dashboard/locations"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="list"/>)}
+          />
+          <PrivateRoute
+          exact path="/admin/dashboard/locations/create"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="create" />)}
+          />
+          <PrivateRoute
+          path="/admin/dashboard/location/show/:id"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="show" />)}
+          />
+          <PrivateRoute
+           path="/admin/dashboard/location/edit/:id"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
+          />
+          <PrivateRoute
           exact path="/admin/dashboard/events"
           component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="events" section="list"/>)}
           />
