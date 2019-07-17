@@ -10,11 +10,28 @@ import {
 } from '@googlemap-react/core'
 
 class GmappApp extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      locations: []
+    }
+  }
+
+  componentDidMount(){
+
+    //TODO: axios callToEnpoint for locations->hotels
+
+    //this.setState({locations: apiResponse.data.locations})
+
+  }
+
+
   render() {
     return (
       <GoogleMapProvider>
         <MapBox
-          apiKey="apikey"
+          apiKey={gmapsApiKey}
           opts={{
             center: {lat: 39, lng: 116},
             zoom: 14,
@@ -42,17 +59,7 @@ class GmappApp extends Component {
           }}
           visible
         />
-        <Polygon
-          id="polygon"
-          opts={{
-            path: [
-              {lat: 38.98, lng: 116.01},
-              {lat: 38.98, lng: 116.03},
-              {lat: 38.99, lng: 116.03},
-            ],
-            strokeColor: 'cyan',
-          }}
-        />
+
         <HeatMap
           opts={{
             data: [

@@ -147,8 +147,7 @@ async loginClicked(fields,successCallback, errorCallback) {
            path="/admin/dashboard/pages/edit/:id"
           component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="pages" section="edit" />)}
           />
-          <PrivateRoute to="/admin/dashboard/{*}" render={() => <Redirect to="/admin" />} />
-          <Route render={() => <Redirect to="/admin" />} />
+          <PrivateRoute render={() => <Redirect to="/admin/dashboard" />} />
         </Switch>
         </main>
       </Fragment>

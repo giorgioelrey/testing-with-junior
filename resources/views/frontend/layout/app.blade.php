@@ -23,6 +23,11 @@
     const userLanguage = "{{$lang}}";
   </script>
 
+  {{-- Passing to js gmapsApiKey--}}
+  <script type="text/javascript">
+    const gmapsApiKey = "{{config('app.gmaps_api_key')}}";
+  </script>
+
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
