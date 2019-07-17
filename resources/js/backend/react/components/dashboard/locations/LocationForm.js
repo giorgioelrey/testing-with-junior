@@ -4,8 +4,10 @@ import * as Yup from 'yup';
 import TextInputFormikField from './../forms/TextInputFormikField';
 import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
+import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
 
-const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit }) => {
+
+const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
 
     console.log('newform cats', categories)
     console.log('location', location)
@@ -68,15 +70,23 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                       <div className="my-3">
                         <h2 className="mt-3">Other Fields</h2>
 
-                        <TextInputFormikField name={"address"} label="Address" touched={touched} errors={errors} />
+                        <Field
+                            name="address"
+                            label="Address"
+                            value={ location.address || ''}
+                            component={GmapsPlacesAutocompleteFormikField}
+                            options={{}}
+                          />
 
                         <TextInputFormikField name={"phonenumber"} label="Phone Number" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"email"} label="Email" touched={touched} errors={errors} />
 
+
+
                       </div>
                        <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">Submit new location</button>
+                           <button type="submit" className="btn btn-primary mr-2">{section === 'create' ? 'Create' : 'Edit'} location</button>
                            <button type="reset" className="btn btn-info text- mr-2">Reset</button>
                        </div>
                    </Form>

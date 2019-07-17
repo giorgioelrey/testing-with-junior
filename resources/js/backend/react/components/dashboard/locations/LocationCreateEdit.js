@@ -6,13 +6,23 @@ import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
 import LocationConnector from './../../../HOCs/LocationConnector';
 
-const LocationCreateEdit =  ({location, categories, updateLocation, submitLocation, history, locationId, section }) => {
+const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocation, submitLocation, history, locationId, section }) => {
 
-  console.log('LocationCreateEdit', location);
+  console.log('LocationCreateEdit', mnLocation);
   console.log('LocationCreateEdit categories', categories);
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
   const locationSubmit = async (fields) => {
+
+      console.log('data from location form', fields)
+      console.log('mnLocation location form', mnLocation)
+
+    if (fields.address.address && fields.address.address !== mnLocation.address){
+      console.log('address is different',fields.address.address !== mnLocation.address)
+      fields.latitude = fields.address.coordinates.lat;
+      fields.longitude = fields.address.coordinates.lng;
+      fields.address = fields.address.address;
+    }
 
     try {
 
@@ -20,7 +30,7 @@ const LocationCreateEdit =  ({location, categories, updateLocation, submitLocati
 
       console.log('success', data);
 
-      history.push('/admin/dashboard/locations/all');
+      history.push('/admin/dashboard/locations');
 
     } catch(error){
 
@@ -44,7 +54,8 @@ const LocationCreateEdit =  ({location, categories, updateLocation, submitLocati
                 <ImageUploader />
                 <LocationForm
                 onSubmit={locationSubmit}
-                location={location}
+                location={mnLocation}
+                section={section}
                 categories={categories}
                 />
 

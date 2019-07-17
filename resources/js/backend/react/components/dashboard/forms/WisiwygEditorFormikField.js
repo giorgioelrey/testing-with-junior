@@ -9,7 +9,7 @@ const WisiwygEditorFormikField = ({ errors, name, label}) => (
      <Field name={name}>
      {({ field, errors }) =>
      {
-       console.log('wisiwyg field', field,  'errors', errors);
+       //console.log('wisiwyg field', field,  'errors', errors);
        return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
      }}
      </Field>

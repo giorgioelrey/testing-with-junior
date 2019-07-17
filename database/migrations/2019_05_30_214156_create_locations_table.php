@@ -20,11 +20,13 @@ class CreateLocationsTable extends Migration
             $table->string('slug_it')->nullable();
             $table->string('slug_en')->nullable();
             $table->string('address');
+            $table->decimal('latitude', 10,8);
+            $table->decimal('longitude', 11, 8);
             $table->string('phonenumber');
             $table->string('email');
             $table->text('description_it');
             $table->text('description_en');
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
     }

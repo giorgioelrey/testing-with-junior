@@ -25,46 +25,46 @@ class LocationController extends Controller
   }
 
 
-      public function store(Request $request)
-      {
-        $input = $request->all();
+    public function store(Request $request)
+    {
+      $input = $request->all();
 
-          /*
-          APPLY VALIDATOR
-         $validator = Validator::make($input, [
+        /*
+        APPLY VALIDATOR
+       $validator = Validator::make($input, [
 
-         ]);
+       ]);
 
-         if ($validator->fails()) {
-             $response = [
-                 'success' => false,
-                 'data' => 'Validation Error.',
-                 'message' => $validator->errors()
-             ];
-             return response()->json($response, 404);
-         }
-
-         */
-
-          $location = new Location;
-          $location->fill($input);
-          $location->save();
-          $data = $location->toArray();
-
+       if ($validator->fails()) {
            $response = [
-               'success' => true,
-               'location' => $data,
-               'message' => 'Location stored successfully.'
+               'success' => false,
+               'data' => 'Validation Error.',
+               'message' => $validator->errors()
            ];
+           return response()->json($response, 404);
+       }
 
-           return response()->json($response, 200);
+       */
+
+        $location = new Location;
+        $location->fill($input);
+        $location->save();
+        $data = $location->toArray();
+
+         $response = [
+             'success' => true,
+             'location' => $data,
+             'message' => 'Location stored successfully.'
+         ];
+
+         return response()->json($response, 200);
 
       }
 
 
       public function show($id)
       {
-        $location = Location::find($id)->toArray();
+        $location = Location::find($id);
 
         if (is_null($location)) {
             $response = [
@@ -141,7 +141,7 @@ class LocationController extends Controller
       public function destroy($id)
       {
 
-        $location = Post::find($id);
+        $location = Location::find($id);
         $data = $location->toArray();
 
         if (is_null($location)) {

@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 Route::view('/admin/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}/{path2?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}', 'backend.layouts.app');
 
 //FRONTEND
 

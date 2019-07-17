@@ -16,7 +16,7 @@ class AddCategoryToLocation extends Migration
         Schema::table('locations', function (Blueprint $table) {
           $table->unsignedInteger('category_id')->after('id')->nullable();//must change nullable, just for location testing
 
-          $table->foreign('category_id')->references('id')->on('locations');
+          $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

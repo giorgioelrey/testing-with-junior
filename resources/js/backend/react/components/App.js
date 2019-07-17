@@ -72,6 +72,8 @@ async loginClicked(fields,successCallback, errorCallback) {
 
     const { user } = this.state;
 
+    console.log('gmapsApiKey', gmapsApiKey);
+
     console.log('localStorage token', this.props.localstoragetoken)
 
     return (
@@ -119,7 +121,7 @@ async loginClicked(fields,successCallback, errorCallback) {
           />
           <PrivateRoute
            path="/admin/dashboard/location/edit/:id"
-          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="edit" />)}
           />
           <PrivateRoute
           exact path="/admin/dashboard/events"

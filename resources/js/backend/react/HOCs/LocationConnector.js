@@ -13,7 +13,7 @@ const LocationConnector = ((WrappedComponent) => {
           this.state = {
             isLoading: true,
             locations: [],
-            location: {},
+            mnLocation: {},
             apiErrors: [],
             categories: []
           }
@@ -44,8 +44,10 @@ const LocationConnector = ((WrappedComponent) => {
                             console.log(apiResponse)
                              this.setState({ locations: apiResponse.data.locations, isLoading: false })
                              ; break;
-                case 'show': case 'edit': apiResponse = await this.getLocation(this.props.postId)
-                            this.setState({ location: apiResponse.data.location, isLoading: false, categories: categories.data.categories })
+                case 'show': case 'edit': apiResponse = await this.getLocation(this.props.locationId)
+
+                            console.log('location get', apiResponse.data);
+                            this.setState({ mnLocation: apiResponse.data.location, isLoading: false, categories: categories.data.categories })
                             ; break;
 
                 default: this.setState({ categories: categories.data.categories, isLoading: false });
@@ -139,6 +141,8 @@ const LocationConnector = ((WrappedComponent) => {
        }
 
         render(){
+
+
 
           if (this.state.apiErrors.length > 0)  return (<ErrorsAlert errors={this.state.apiErrors} />)
 

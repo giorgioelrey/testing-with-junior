@@ -13,9 +13,7 @@ class Location extends Model
 
   protected $table = 'locations';
 
-  protected $timestamps = true;
-
-  protected $fillable = ['name_it','name_en', 'slug_it', 'slug_en', 'address', 'phonenumber', 'email','description_it', 'description_en','thumbnail'];
+  protected $fillable = ['name_it','name_en', 'slug_it', 'slug_en','address', 'latitude', 'longitude', 'phonenumber', 'email','description_it', 'description_en','thumbnail'];
 
   /**
      * Return the sluggable configuration array for this model.
