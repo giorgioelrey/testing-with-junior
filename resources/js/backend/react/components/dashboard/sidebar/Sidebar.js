@@ -28,12 +28,6 @@ export default Sidebar;
 Sidebar.defaultProps = {
   navItemsData: [
     {
-      linkEndpoint: 'main'  ,
-      linkName: 'Control Panel',
-      svgClass : 'feather-home',
-      innerSvg: (<Fragment><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></Fragment>),
-    },
-    {
       linkEndpoint: 'pages',
       linkName: 'Pages',
       svgClass : 'feather-book-open',
@@ -57,11 +51,26 @@ Sidebar.defaultProps = {
         { linkName: 'Create New', linkEndpoint: 'create' },
       ],
     },
+    {
+      linkEndpoint: 'locations',
+      linkName: 'Locations',
+      svgClass : 'feather-map-pin',
+      innerSvg: (<Fragment><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></Fragment>),
+      options: [
+        { linkName: 'Create New', linkEndpoint: 'create' },
+      ],
+    },
   ]
 }
 
 //disabled links
 /*
+{
+  linkEndpoint: 'main'  ,
+  linkName: 'Control Panel',
+  svgClass : 'feather-home',
+  innerSvg: (<Fragment><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></Fragment>),
+},
 {
   linkEndpoint: 'users'  ,
   linkName: 'Users',

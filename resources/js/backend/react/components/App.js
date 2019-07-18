@@ -3,6 +3,7 @@ import {Switch, Route, Link,Redirect} from 'react-router-dom';
 import LoginPage from './auth/LoginPage';
 import Navbar from './dashboard/Navbar';
 import DashboardPage from './dashboard/DashboardPage';
+import PrivateRoute from './auth/PrivateRoute';
 
 //Helpers
 import * as axiosHelper from './../helpers/axiosHelper';
@@ -10,20 +11,13 @@ import * as axiosHelper from './../helpers/axiosHelper';
 class App extends Component {
 
 constructor(props){
+
   super(props);
 
+  this.state = { user: {token: this.props.localstoragetoken}, authErrors: [] };
 
-  this.state = {
-    user: {}
-  }
-
-  this.addUserDataAndtoken = this.addUserDataAndtoken.bind(this);
   this.logoutClicked = this.logoutClicked.bind(this);
-}
-
-addUserDataAndtoken(data){
-
-  this.setState({ user: {...data.user, token: data.token} });
+  this.loginClicked = this.loginClicked.bind(this);
 
 }
 
@@ -33,16 +27,44 @@ async logoutClicked(token,successCallback, errorCallback){
   try {
 
     const {data} = await axios(axiosHelper.getLogoutConfig(token));
-
+    localStorage.removeItem('usertoken');
     this.setState({ user: {} });
 
   } catch(error){
 
     console.log(error.response.data);
 
-    this.setState({ errors: [error.response.data.message]});
+    this.setState({ authErrors: [error.response.data.message]});
 
   }
+
+}
+
+async loginClicked(fields,successCallback, errorCallback) {
+
+    try {
+         console.log('fields', fields);
+
+         const { data } = await axios(axiosHelper.getLoginConfig(fields));
+
+         console.log('login response.data ', data.token);
+         localStorage.setItem('usertoken', data.token);
+         this.setState({user: {...data.user, token: data.token}}, () => {
+           successCallback()
+
+         })
+
+
+       } catch(error) {
+
+         console.log('login issues', error.response.data);
+
+         this.setState({authErrors: [error.response.data.errors]}, () => {
+           errorCallback()
+         }
+       )
+
+    }
 
 }
 
@@ -50,66 +72,82 @@ async logoutClicked(token,successCallback, errorCallback){
 
     const { user } = this.state;
 
+    console.log('gmapsApiKey', gmapsApiKey);
+
+    console.log('localStorage token', this.props.localstoragetoken)
+
     return (
       <Fragment>
         <main>
         <Switch>
-          <Route
-          exact path="/admin/"
-          render={(props) => (<LoginPage {...props} setUserData={this.addUserDataAndtoken} />)}
-          />
+          <Route exact path="/admin/" render={(props) => (<LoginPage {...this.props} {...props} user={user} submitForm={this.loginClicked} errors={this.state.authErrors} />)} />
           {/* DashboardPage receives props to manage routing + the currentUser from the state */}
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="main"/>)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="main"/>)}
           />
           {/* DashboardPages receive props to manage routing + the currentUser from the state */}
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard/users"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="list"/>)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="list"/>)}
           />
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard/news"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="list"/>)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="list"/>)}
           />
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard/news/create"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="create" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="create" />)}
           />
-          <Route
+          <PrivateRoute
           path="/admin/dashboard/news/show/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="show" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="show" />)}
           />
-          <Route
+          <PrivateRoute
            path="/admin/dashboard/news/edit/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="news" section="edit" />)}
           />
-          <Route
+          <PrivateRoute
+          exact path="/admin/dashboard/locations"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="list"/>)}
+          />
+          <PrivateRoute
+          exact path="/admin/dashboard/locations/create"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="create" />)}
+          />
+          <PrivateRoute
+          path="/admin/dashboard/location/show/:id"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="show" />)}
+          />
+          <PrivateRoute
+           path="/admin/dashboard/location/edit/:id"
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="locations" section="edit" />)}
+          />
+          <PrivateRoute
           exact path="/admin/dashboard/events"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="list"/>)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="events" section="list"/>)}
           />
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard/events/create"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="create" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="events" section="create" />)}
           />
-          <Route
+          <PrivateRoute
           path="/admin/dashboard/event/show/id/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="show" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="events" section="show" />)}
           />
-          <Route
+          <PrivateRoute
            path="/admin/dashboard/event/edit/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="events" section="edit" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="events" section="edit" />)}
           />
-          <Route
+          <PrivateRoute
           exact path="/admin/dashboard/pages"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="pages" section="list" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="pages" section="list" />)}
           />
-          <Route
+          <PrivateRoute
            path="/admin/dashboard/pages/edit/:id"
-          render={(props) => (<DashboardPage {...props} user={this.state.user} logoutAction={this.logoutClicked} contentPage="pages" section="edit" />)}
+          component={DashboardPage} {...this.props} {...this.state} logoutAction={this.logoutClicked} contentPage="pages" section="edit" />)}
           />
-          <Route to="/admin/dashboard/{*}" render={() => <Redirect to="/admin" />} />
-          <Route render={() => <Redirect to="/admin" />} />
+          <PrivateRoute render={() => <Redirect to="/admin/dashboard" />} />
         </Switch>
         </main>
       </Fragment>

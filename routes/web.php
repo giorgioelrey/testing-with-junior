@@ -13,11 +13,15 @@
 use App\Page;
 use App\Event;
 use App\Post;
+use App\Location;
 use Illuminate\Http\Request;
 
 //BACKEND
 
 Route::view('/admin/{path?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}', 'backend.layouts.app');
 
 //FRONTEND
 
@@ -28,8 +32,6 @@ Route::group(
 ],
 function() {
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-
-
 
 	Route::get(LaravelLocalization::transRoute('routes.chi-siamo'), function(Request $request) {
 
@@ -102,8 +104,12 @@ function() {
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
 
+
   Route::get(LaravelLocalization::transRoute('routes.home'), function() {
-		return View::make('frontend.pages.home',['lang' => LaravelLocalization::setLocale()]);
+		return View::make('frontend.pages.home',[
+			'lang' => LaravelLocalization::setLocale(),
+			'locations' => Location::all()->toArray(),
+	]);
 	})->name('fe.home');
 
 });

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import PostConnector from './../../../helpers/postHelper';
+import PostConnector from './../../../HOCs/PostConnector';
 import placeholder_post_image from './../../../assets/placeholder_post_image.png';
 
 

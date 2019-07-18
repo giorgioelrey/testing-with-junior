@@ -4,9 +4,7 @@ import NewsForm from './NewsForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
-
-//Helpers
-import PostConnector from './../../../helpers/postHelper';
+import PostConnector from './../../../HOCs/PostConnector';
 
 const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
 

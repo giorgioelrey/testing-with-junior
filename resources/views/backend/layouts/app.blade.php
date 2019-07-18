@@ -16,6 +16,13 @@
     <!-- Styles -->
     <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css">
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{config('app.gmaps_api_key')}}&libraries=places"></script>
+
+    {{-- Passing to js userLanguage--}}
+    <script type="text/javascript">
+      const gmapsApiKey = "{{config('app.gmaps_api_key')}}";
+    </script>
 </head>
 <body>
 

@@ -10,7 +10,6 @@ const PostConnector = ((WrappedComponent) => {
 
           super(props);
 
-
           this.state = {
             isLoading: true,
             posts: [],
@@ -32,30 +31,31 @@ const PostConnector = ((WrappedComponent) => {
 
           console.log('hoc props', this.props)
 
-          let apiResponse;
-          const categories = await this.getCategories();
+            let apiResponse;
+            const categories = await this.getCategories();
 
-          console.log('categorie', categories)
+            console.log('categorie', categories)
 
-          try {
+            try {
 
-            switch(this.props.section){
+              switch(this.props.section){
 
-              case 'list': apiResponse = await this.getAllPosts();
-                          console.log(apiResponse)
-                           this.setState({ posts: apiResponse.data.posts, isLoading: false })
-                           ; break;
-              case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
-                          this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
-                          ; break;
+                case 'list': apiResponse = await this.getAllPosts();
+                            console.log(apiResponse)
+                             this.setState({ posts: apiResponse.data.posts, isLoading: false })
+                             ; break;
+                case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
+                            this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
+                            ; break;
 
-              default: this.setState({ categories: categories.data.categories, isLoading: false });
+                default: this.setState({ categories: categories.data.categories, isLoading: false });
+              }
+
+            } catch(error){
+
+               console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
             }
 
-          } catch(error){
-
-             console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
-          }
 
         }
 

@@ -1,7 +1,7 @@
 
 <?php
 return [
-  'home' => 'home',
+  'home' => '/',
   'brand' => 'brand',
   'eventi' => 'eventi',
   'eventi-single' => 'eventi/{slug}',

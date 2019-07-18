@@ -46,7 +46,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                         <h2 >IT Contents</h2>
 
-                        <TextInputFormikField name={"metadescription_it"} label="Title IT" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"metadescription_it"} label="MetaDescription IT" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
 
@@ -59,7 +59,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                       <div className="my-3">
                         <h2 className="mt-3">EN Contents</h2>
 
-                          <TextInputFormikField name={"metadescription_en"} label="Title IT" touched={touched} errors={errors} />
+                          <TextInputFormikField name={"metadescription_en"} label="MetaDescription EN" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
 

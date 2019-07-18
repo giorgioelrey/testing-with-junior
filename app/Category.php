@@ -26,6 +26,14 @@ class Category extends Model
       return $this->hasMany('App\Post');
   }
 
+  //RELATIONSHIP CATEGORY(ONE) <-> LOCATIONS(MANY)
+  //One CATEGORY has many LOCATIONS
+  //One LOCATION belongs to one CATEGORY
+  public function locations()
+  {
+      return $this->hasMany('App\Location');
+  }
+
   /**
      * Return the sluggable configuration array for this model.
      *

@@ -107,5 +107,44 @@ class PagesTableSeeder extends Seeder
       ]);
       $pageContatti->save();
 
+      $pageHome = new Page;
+      $pageHome->name = 'home';
+      $pageHome->contents = json_encode([
+        'carousel_image_1' => [
+            'type' => 'string',
+            'translated' => false,
+            'data' => '',
+          ],
+          'carousel_image_1_text' => [
+              'type' => 'string',
+              'translated' => false,
+              'data' => '',
+            ],
+        'carousel_image_2' => [
+            'type' => 'string',
+            'translated' => false,
+            'data' => '',
+          ],
+          'carousel_image_2_text' => [
+              'type' => 'string',
+              'translated' => false,
+              'data' => '',
+            ],
+        'carousel_image_3' => [
+            'type' => 'string',
+            'translated' => false,
+            'data' => '',
+          ],
+        'carousel_image_3_text' => [
+            'type' => 'string',
+            'translated' => false,
+            'data' => '',
+          ],
+
+      ]);
+      $pageHome->save();
+
     }
+
+
 }
