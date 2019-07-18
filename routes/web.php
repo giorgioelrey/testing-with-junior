@@ -13,6 +13,7 @@
 use App\Page;
 use App\Event;
 use App\Post;
+use App\Location;
 use Illuminate\Http\Request;
 
 //BACKEND
@@ -103,8 +104,12 @@ function() {
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
 
+
   Route::get(LaravelLocalization::transRoute('routes.home'), function() {
-		return View::make('frontend.pages.home',['lang' => LaravelLocalization::setLocale()]);
+		return View::make('frontend.pages.home',[
+			'lang' => LaravelLocalization::setLocale(),
+			'locations' => Location::all()->toArray(),
+	]);
 	})->name('fe.home');
 
 });

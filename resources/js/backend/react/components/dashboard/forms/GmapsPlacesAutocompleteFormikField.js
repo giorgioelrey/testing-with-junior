@@ -35,6 +35,8 @@ class GmapsPlacesAutocompleteFormikField extends Component {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
+
+        console.log('latLng', latLng)
         this.setState(() => {
           this.props.form.setFieldValue(this.state.name, {
             value: address,

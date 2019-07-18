@@ -13,28 +13,31 @@ class GmappApp extends Component {
 
   constructor(props){
     super(props);
+
     this.state = {
-      locations: []
+      infoWindowId: null,
+      clickedLocation: {},
     }
   }
 
-  componentDidMount(){
-
-    //TODO: axios callToEnpoint for locations->hotels
-
-    //this.setState({locations: apiResponse.data.locations})
-
-  }
-
-
   render() {
+
+    const infoWindow = this.state.infoWindowId !== null && (
+            <InfoWindow
+      anchorId={"marker-" + this.state.infoWindowId}
+      opts={{
+      content: this.state.clickedLocation.name_it,
+      }}
+      visible
+      />
+    )
     return (
       <GoogleMapProvider>
         <MapBox
           apiKey={gmapsApiKey}
           opts={{
-            center: {lat: 39, lng: 116},
-            zoom: 14,
+            center: {lat: 45.4682, lng: 9.195269999999937},
+            zoom: 13,
           }}
           useDrawing
           useGeometry
@@ -44,35 +47,21 @@ class GmappApp extends Component {
             console.log('The center of the map has changed.')
           }}
         />
-        <Marker
-          id="marker"
-          opts={{
-            draggable: true,
-            label: 'hello',
-            position: {lat: 39, lng: 116},
-          }}
-        />
-        <InfoWindow
-          opts={{
-            content: 'This is an info window',
-            position: {lat: 39.01, lng: 115.99},
-          }}
-          visible
-        />
-
-        <HeatMap
-          opts={{
-            data: [
-              {lat: 38.982, lng: 116.037},
-              {lat: 38.982, lng: 116.035},
-              {lat: 38.985, lng: 116.047},
-              {lat: 38.985, lng: 116.045},
-            ],
-          }}
-        />
-        <OverlayView position={{lat: 39, lng: 116}}>
-          <h2>⚑ This is a custom overlay 🙌</h2>
-        </OverlayView>
+        {this.props.locations.length > 0 &&
+          this.props.locations.map((location, key) => (
+            <React.Fragment>
+            <Marker
+            key={key}
+              id={"marker-" + key}
+              opts={{
+                draggable: false,
+                position: {lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)},
+                }}
+              onClick={(event) => {this.setState({clickedLocation: location, infoWindowId: key})}}
+            />
+            {infoWindow}
+  </React.Fragment>
+          ))|| null}
       </GoogleMapProvider>
     )
   }
