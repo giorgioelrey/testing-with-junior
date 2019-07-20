@@ -10695,15 +10695,27 @@ a.text-dark:focus {
   height: 300px;
 }
 
+#dashboard-page {
+  height: calc(100vh - 60px);
+}
+
 #dashboard-page .sidebar {
   width: 200px;
-  height: calc(100vh - 60px);
+  height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+  background: yellow;
 }
 
 #dashboard-page .sidebar a.nav-link {
   color: #24EAB6;
+}
+
+#dashboard-page .content-area {
+  width: calc(100vw - 200px);
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #navbar-backoffice {

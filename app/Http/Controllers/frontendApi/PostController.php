@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB ;
+use Illuminate\Support\Facades\Storage;
 
 
 class PostController extends Controller
@@ -14,10 +15,11 @@ class PostController extends Controller
 
   public function archive(){
 
-    $post = DB::table('posts')->where('category_id', '=', 2)->get();
-    $data = $post->toArray();
+    $posts = DB::table('posts')->where('category_id', '=', 2)->get()->each(function ($item, $key) {
+       $item->image_url = Storage::url($item->image_url);
+     })->toArray();
 
-    if (is_null($post)) {
+    if (is_null($posts)) {
         $response = [
             'success' => false,
             'archive' => [],
@@ -29,7 +31,7 @@ class PostController extends Controller
 
     $response = [
         'success' => true,
-        'archive' => $data,
+        'archive' => $posts,
         'message' => 'Archive Posts retrieved successfully.'
     ];
 
@@ -39,10 +41,11 @@ class PostController extends Controller
 
   public function press(){
 
-    $post = DB::table('posts')->where('category_id', '=', 1)->get();
-    $data = $post->toArray();
+    $posts = DB::table('posts')->where('category_id', '=', 1)->get()->each(function ($item, $key) {
+       $item->image_url = Storage::url($item->image_url);
+     })->toArray();
 
-    if (is_null($post)) {
+    if (is_null($posts)) {
         $response = [
             'success' => false,
             'press' => [],
@@ -54,7 +57,7 @@ class PostController extends Controller
 
     $response = [
         'success' => true,
-        'press' => $data,
+        'press' => $posts,
         'message' => 'Press Posts retrieved successfully.'
     ];
 

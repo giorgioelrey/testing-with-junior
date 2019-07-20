@@ -25,7 +25,7 @@ class ArchivioStoricoList extends React.Component{
     })
     .then(({data}) => {
 
-      console.log('archive found', data.archive);
+      console.log('archive found', data);
 
       this.setState({archive: data.archive});
 
