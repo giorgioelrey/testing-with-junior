@@ -179,13 +179,16 @@ class Calendar extends Component {
     }
 
     return (
-      <table className={classes}>
+      <div class="table-responsive">
+      <table className={classes + 'table'}>
         <thead>{nav}</thead>
         <thead>
           <tr className="days-header">{daysOfWeek}</tr>
         </thead>
         <tbody>{elements}</tbody>
       </table>
+    </div>
+
     );
   }
 }

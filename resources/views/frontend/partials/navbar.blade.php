@@ -1,7 +1,7 @@
 <div class='container-fluid' id='nav'>
 
 
-<nav class="navbar navbar-expand-xl navbar-light  bg-light">
+<nav class="navbar navbar-expand-xl navbar-light fixed-top  bg-light">
 
   <a class="navbar-brand" href="{{route('fe.home')}}"><img src='{{ asset('images/logo.jpg')   }}'></a>
 

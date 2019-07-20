@@ -10673,6 +10673,10 @@ body {
   background-color: #ffffff;
 }
 
+main {
+  margin-top: 190px;
+}
+
 p {
   font-size: 24px;
   font-family: "Playfair Display", serif;
@@ -10683,7 +10687,7 @@ p {
 .corpo-post {
   margin-left: 51px;
   position: relative;
-  z-index: 9999;
+  z-index: 1000;
   width: 300px;
   margin-top: -36px;
   background-color: white;
@@ -10718,6 +10722,65 @@ p {
   width: 160px;
   height: 3px;
   background-color: #000000;
+}
+
+.carousel-control-prev-icon {
+  margin-top: 300px;
+  height: 60px;
+  width: 60px;
+  background-image: none;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.carousel-control-next-icon {
+  margin-top: 300px;
+  height: 60px;
+  width: 60px;
+  background-image: none;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  color: white;
+}
+
+#top {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  right: 30px;
+  top: 540px;
+  position: fixed;
+  z-index: 1030;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+#top :hover {
+  right: 30px;
+  top: 540px;
+  position: fixed;
+  z-index: 1030;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  border: solid #caa660;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
 }
 
 #nav .bg-light {
@@ -10872,7 +10935,7 @@ p {
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
-  z-index: 999999;
+  z-index: 1000;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
@@ -10896,7 +10959,7 @@ p {
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
-  z-index: 999999;
+  z-index: 1000;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }

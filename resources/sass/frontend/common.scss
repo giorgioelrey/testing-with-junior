@@ -8,10 +8,15 @@ body {
     text-align: left;
     background-color: #ffffff;
 }
+main{
+    margin-top: 190px;
+
+
+}
 p{
   font-size: 24px;
-    font-family: "Playfair Display", serif;
-    color: black;
+  font-family: "Playfair Display", serif;
+  color: black;
   line-height: 35px;
 
 
@@ -27,7 +32,7 @@ p{
 
     margin-left: 51px;
     position: relative;
-    z-index: 9999;
+    z-index: 1000;
     width: 300px;
     margin-top: -36px;
     background-color: white;
@@ -44,12 +49,9 @@ background-color:#799f6f;
 height: 100vh;
 }
 .title{
-  text-align: center;
+    text-align: center;
     font-family: "Playfair Display", serif;
-
     font-size: 50px;
-
-
     margin-top: 70px;
 
 
@@ -57,10 +59,75 @@ height: 100vh;
 }
 
 .sotto_title {
-  margin: 0 auto;
+    margin: 0 auto;
     margin-top: 30px;
-
     width: 160px;
     height: 3px;
     background-color: #000000;
+}
+
+
+.carousel-control-prev-icon
+{
+  margin-top: 300px;
+  height: 60px;
+  width: 60px;
+  background-image: none;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.carousel-control-next-icon {
+    margin-top: 300px;
+    height: 60px;
+    width: 60px;
+    background-image: none;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    color: white;
+}
+
+
+#top {
+
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  right: 30px;
+  top: 540px;
+  position: fixed;
+      z-index: 1030;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  border: solid  black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+
+  :hover{
+    right: 30px;
+    top: 540px;
+    position: fixed;
+        z-index: 1030;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    border:solid #caa660;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+
+  }
+
+
 }
