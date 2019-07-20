@@ -93,7 +93,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TimePickerFormikField name="time" label="Ora" errors={errors}/>
 
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
                       </div>
 

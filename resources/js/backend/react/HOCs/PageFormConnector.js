@@ -64,21 +64,31 @@ const PageFormConnector = ((WrappedComponent) => {
       for (var key in pageContents) {
 
             const fieldTranslated = pageContents[key]['translated'];
-            const validationMinChars = pageContents[key]['type'] == 'wisiwyg' ? 30 : 6;
+            const isNotImageField = (pageContents[key]['type'] !== 'image');
+            //console.log('field', pageContents[key])
+
+
+            if (isNotImageField){
+                var validationMinChars = pageContents[key]['type'] == 'wisiwyg' ? 30 : 6;
+            }
 
             //caso 1. non ha una traduzione
             if (!fieldTranslated){
 
-                formStartingValues[key] = pageContents[key]['data'];
+                formStartingValues[key] =  isNotImageField ? pageContents[key]['data'] : null;
 
                 fieldsData[key] = {};
                 fieldsData[key]['name'] = key
-                fieldsData[key]['data'] = pageContents[key]['data'];
+
+                fieldsData[key]['data'] = isNotImageField ? pageContents[key]['data'] : null;
+
                 fieldsData[key]['type'] = pageContents[key]['type'];
 
+                if (isNotImageField){
                 yupValSchema[key] = Yup.string()
                                 .min(validationMinChars, `${key} must be at least ${validationMinChars} characters`)
                                 .required(`${key} is required`);
+                }
 
             } else {
               //caso 2. ha una traduzione
@@ -88,20 +98,24 @@ const PageFormConnector = ((WrappedComponent) => {
 
                     const objKeyLocalized = key + '__' + langKey;
 
-                    formStartingValues[objKeyLocalized] = pageContents[key]['data'][langKey];
+                    formStartingValues[objKeyLocalized] = (isNotImageField) ? pageContents[key]['data'][langKey] : null;
 
                     fieldsData[objKeyLocalized] = {};
                     fieldsData[objKeyLocalized]['name'] = objKeyLocalized
                     fieldsData[objKeyLocalized]['data'] = pageContents[key]['data'][langKey];
                     fieldsData[objKeyLocalized]['type'] = pageContents[key]['type'];
 
+                    if (isNotImageField){
                     yupValSchema[objKeyLocalized] = Yup.string()
                                     .min(validationMinChars, `${objKeyLocalized} must be at least ${validationMinChars} characters`)
                                     .required(`${objKeyLocalized} is required`);
+                    }
 
                 }
             }
         }
+
+        //console.log(formStartingValues, fieldsData, yupValSchema)
 
     return  { formStartingValues, fieldsData, yupValSchema};
 

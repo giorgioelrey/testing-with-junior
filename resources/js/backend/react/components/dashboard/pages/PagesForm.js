@@ -15,11 +15,12 @@ const PagesForm = ({ page, pageFormData, onSubmit }) => {
                initialValues={pageFormData.formStartingValues}
                validationSchema={Yup.object().shape(pageFormData.yupValSchema)}
                onSubmit={ (fields) => {onSubmit(page.id, fields)} }
-               render={({ errors, status, touched }) => {
+               render={({ errors, status, touched, setFieldValue, values }) => {
 
                  return (
                     <Form className="cms-form login">
-                      <PageFields errors={errors} status={status} touched={touched} fieldsData={pageFormData.fieldsData}/>
+                      <PageFields errors={errors} status={status} touched={touched} fieldsData={pageFormData.fieldsData}
+                      setFieldValue={setFieldValue} values={values}/>
                       <div className="form-group">
                           <button type="submit" className="btn btn-primary mr-2">Update Page</button>
                       </div>

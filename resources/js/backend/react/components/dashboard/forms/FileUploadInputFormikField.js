@@ -53,11 +53,11 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
               <div className="form-group mb-5">
                 <div className="custom-file">
                    <label className="custom-file-label" htmlFor={name}>File upload</label>
-                   <input name="image_url" type="file" onChange={(event) => {
-                     setFieldValue('image_url', event.currentTarget.files[0]);
+                   <input name={name} type="file" onChange={(event) => {
+                     setFieldValue(name, event.currentTarget.files[0]);
                    }} className={'custom-file-input'} />
                 </div>
-                <Thumb file={values.image_url} />
+                <Thumb file={values[name]} />
               </div>
 
 )
