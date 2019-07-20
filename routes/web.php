@@ -61,6 +61,8 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$event = ($locale == 'it') ? Event::whereSlugIt($slug)->first() : Event::whereSlugEn($slug)->first();
 
+		$event->image_url = Storage::url($event->image_url);
+
 		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
 	})->name('fe.evento-single');
 
