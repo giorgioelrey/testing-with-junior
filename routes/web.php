@@ -22,6 +22,8 @@ Route::view('/admin/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}/{path2?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}/{path4?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}/{path4?}/{path5?}', 'backend.layouts.app');
 
 //FRONTEND
 

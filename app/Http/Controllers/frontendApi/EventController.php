@@ -5,6 +5,8 @@ namespace App\Http\Controllers\frontendApi;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
@@ -14,18 +16,18 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+     public function index()
+     {
+       $response = [
+            'success' => true,
+            'events' => Event::all()->each(function ($item, $key) {
+               $item['image_url'] = Storage::url($item['image_url']);
+             })->toArray(),
+            'message' => 'All Events retrieved successfully.'
+        ];
 
-      $response = [
-           'success' => true,
-           'events' => Event::all()->toArray(),
-           'message' => 'All Events retrieved successfully.'
-       ];
-
-       return response()->json($response, 200);
-
-    }
+        return response()->json($response, 200);
+     }
 
     public function showByDate($date)
     {

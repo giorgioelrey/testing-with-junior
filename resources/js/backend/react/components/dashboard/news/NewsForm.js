@@ -48,19 +48,6 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
 
-                      {/*<Field
-                         name="image_url"
-                         component={FileUploadInputFormikField}
-                         label={'Post Image'}
-                         setFieldValue={setFieldValue}
-                         values={values}
-                         errors={errors}
-                         touched={touched}
-                       />*/}
-                      <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
-
-
-
                       {categories.length > 0 &&
                        (<SelectFormikField name={"category_id"} label="Where do you want to publish this post at" touched={touched} optionsTitle="Select destination page" errors={errors} selectOptions={categories}
                           />) || null}
@@ -89,6 +76,17 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                         <WisiwygEditorFormikField name={"postbodytop_en"} label="Post Body Top EN" errors={errors} />
 
                         <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} />
+
+                        {/*<Field
+                           name="image_url"
+                           component={FileUploadInputFormikField}
+                           label={'Post Image'}
+                           setFieldValue={setFieldValue}
+                           values={values}
+                           errors={errors}
+                           touched={touched}
+                         />*/}
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
                       </div>
                        <div className="form-group">

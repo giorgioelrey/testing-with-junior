@@ -11,13 +11,23 @@ import TimePickerFormikField from './../forms/TimePickerFormikField';
 import TextInputFormikField from './../forms/TextInputFormikField';
 import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
+import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 
 const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
     console.log('convert new',new Date(event.time));
 
+    const FILE_SIZE = 160 * 2000;
+    const SUPPORTED_FORMATS = [
+     "image/jpg",
+     "image/jpeg",
+     "image/gif",
+     "image/png"
+   ];
+
     const formStartingValues = event && event.id && {
+          image_url: null,
           metadescription_it: event.metadescription_it || '',
           metadescription_en: event.metadescription_en || '',
           title_it: event.title_it || '',
@@ -39,7 +49,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
                onSubmit={ (fields) => {console.log('submit event'); onSubmit(fields)} }
-               render={({ errors, status, touched }) => (
+               render={({ errors, status, touched , values, setFieldValue}) => (
                    <Form className="cms-form login">
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
@@ -83,6 +93,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TimePickerFormikField name="time" label="Ora" errors={errors}/>
 
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
                       </div>
 
@@ -104,6 +115,7 @@ export default EventForm;
 
 EventForm.defaultProps = {
   initialValues: {
+      image_url: null,
       metadescription_it: '',
       metadescription_en: '',
       title_it: '',
