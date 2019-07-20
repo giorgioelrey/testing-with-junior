@@ -28,6 +28,10 @@
     </div>
   </div>
 
+  <div class="image text-center">
+      <img class="img-fluid" src="{{$event['image_url']}}" alt="no image">
+  </div>
+
   <h1>{{$event['title_'.$lang]}}</h1>
 
 
