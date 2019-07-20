@@ -22,6 +22,8 @@ Route::view('/admin/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}/{path2?}', 'backend.layouts.app');
 Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}/{path4?}', 'backend.layouts.app');
+Route::view('/admin/dashboard/{path?}/{path2?}/{path3?}/{path4?}/{path5?}', 'backend.layouts.app');
 
 //FRONTEND
 
@@ -32,6 +34,8 @@ Route::group(
 ],
 function() {
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+
+	//CHI SIAMO
 
 	Route::get(LaravelLocalization::transRoute('routes.chi-siamo'), function(Request $request) {
 
@@ -46,6 +50,8 @@ function() {
 		return View::make('frontend.pages.brand',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.brand');
 
+	//EVENTI
+
 	Route::get(LaravelLocalization::transRoute('routes.eventi'), function() {
 		return View::make('frontend.pages.eventi',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.eventi');
@@ -55,8 +61,12 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$event = ($locale == 'it') ? Event::whereSlugIt($slug)->first() : Event::whereSlugEn($slug)->first();
 
+		$event->image_url = Storage::url($event->image_url);
+
 		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
 	})->name('fe.evento-single');
+
+	//MN-VIP-LOUNGE
 
 	Route::get(LaravelLocalization::transRoute('routes.mn-vip-lounge'), function(Request $request) {
 
@@ -67,6 +77,8 @@ function() {
 		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.mn-vip-lounge');
 
+	//ARCHIVIO STORICO
+
 	Route::get(LaravelLocalization::transRoute('routes.archivio-storico'), function() {
 		return View::make('frontend.pages.archivio-storico',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.archivio-storico');
@@ -76,8 +88,12 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
 
+		$post->image_url = Storage::url($post->image_url);
+
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.archivio-storico-single');
+
+	//PRESS
 
 	Route::get(LaravelLocalization::transRoute('routes.press'), function() {
 		return View::make('frontend.pages.press',['lang' => LaravelLocalization::setLocale()]);
@@ -88,12 +104,18 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
 
+		$post->image_url = Storage::url($post->image_url);
+
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.post-single');
+
+	//SEARCH
 
 	Route::get(LaravelLocalization::transRoute('routes.search'), function() {
 		return View::make('frontend.pages.search',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.search');
+
+	//CONTATTI
 
 	Route::get(LaravelLocalization::transRoute('routes.contatti'),function(Request $request) {
 
@@ -104,6 +126,7 @@ function() {
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
 
+	//HOME
 
   Route::get(LaravelLocalization::transRoute('routes.home'), function() {
 		return View::make('frontend.pages.home',[

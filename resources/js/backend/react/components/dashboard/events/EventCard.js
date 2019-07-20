@@ -8,7 +8,7 @@ const EventCard = ({ event }) => {
     <React.Fragment>
       <div className="row mb-3 p-4" id="event_list_back">
     <div className="col-md-3">
-        <img src={event && event.image || placeholder_post_image} className="img_back" alt="...where is the image"/>
+        <img src={event && event.image_url || placeholder_post_image} className="img_back" alt="...where is the image"/>
 
 
     </div>

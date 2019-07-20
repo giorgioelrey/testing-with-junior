@@ -5,13 +5,23 @@ import * as Yup from 'yup';
 import TextInputFormikField from './../forms/TextInputFormikField';
 import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
+import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
     console.log('newform cats', categories)
     console.log('post', post)
 
+    const FILE_SIZE = 160 * 2000;
+    const SUPPORTED_FORMATS = [
+     "image/jpg",
+     "image/jpeg",
+     "image/gif",
+     "image/png"
+   ];
+
     const formStartingValues = post && {
+          image_url: null,
           metadescription_it: post.metadescription_it || '',
           metadescription_en: post.metadescription_en || '',
           title_it: post.title_it || '',
@@ -33,7 +43,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
                onSubmit={ (fields) => {onSubmit(fields)} }
-               render={({ errors, status, touched }) => (
+               render={({ errors, status, touched, values, setFieldValue }) => (
                    <Form className="cms-form login">
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
@@ -67,6 +77,17 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                         <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} />
 
+                        {/*<Field
+                           name="image_url"
+                           component={FileUploadInputFormikField}
+                           label={'Post Image'}
+                           setFieldValue={setFieldValue}
+                           values={values}
+                           errors={errors}
+                           touched={touched}
+                         />*/}
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+
                       </div>
                        <div className="form-group">
                            <button type="submit" className="btn btn-primary mr-2">Submit new post</button>
@@ -86,6 +107,7 @@ export default NewsForm;
 
 NewsForm.defaultProps = {
   initialValues: {
+      image_url: null,
       metadescription_it: '',
       metadescription_en: '',
       title_it: '',
@@ -98,6 +120,19 @@ NewsForm.defaultProps = {
       id: ''
   },
   yupSchema: {
+      /*image_url:Yup
+        .mixed()
+        .required("A file is required")
+        .test(
+          "fileSize",
+          "File too large",
+          value => value && value.size <= FILE_SIZE
+        )
+        .test(
+          "fileFormat",
+          "Unsupported Format",
+          value => value && SUPPORTED_FORMATS.includes(value.type)
+        ),*/
       metadescription_it: Yup.string()
          .min(6, 'Meta Description must be at least 6 characters')
           .required('Meta Description is required'),

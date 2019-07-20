@@ -25,7 +25,7 @@ class PagesTableSeeder extends Seeder
             ],
           ],
         'main_image_url' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],
@@ -52,7 +52,7 @@ class PagesTableSeeder extends Seeder
             ],
           ],
         'main_image_url' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],
@@ -80,12 +80,12 @@ class PagesTableSeeder extends Seeder
             ],
           ],
         'image_top_url' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],
           'image_bottom_url' => [
-              'type' => 'string',
+              'type' => 'image',
               'translated' => false,
               'data' => '',
             ],
@@ -111,7 +111,7 @@ class PagesTableSeeder extends Seeder
       $pageHome->name = 'home';
       $pageHome->contents = json_encode([
         'carousel_image_1' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],
@@ -121,7 +121,7 @@ class PagesTableSeeder extends Seeder
               'data' => '',
             ],
         'carousel_image_2' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],
@@ -131,7 +131,7 @@ class PagesTableSeeder extends Seeder
               'data' => '',
             ],
         'carousel_image_3' => [
-            'type' => 'string',
+            'type' => 'image',
             'translated' => false,
             'data' => '',
           ],

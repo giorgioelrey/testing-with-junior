@@ -14,6 +14,10 @@
 
 
 <div class='container ' id='post-single'>
+  <div class="image text-center">
+      <img class="img-fluid" src="{{$post['image_url']}}" alt="no image">
+  </div>
+
 
   <div  class='title'>
     {!! ($lang == 'it') ? 'Post singolo' : 'Single Post' !!}

@@ -27,8 +27,8 @@ const EventsShow = ({event, deleteEvent, history}) => {
 
     return (
       <Fragment>
-        <div className="card mb-3">
-          <img src={event && event.image || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
+        <div className="card mb-3 flex-row border-dark">
+          <img src={event && event.image_url || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '30%', border: '1px solid #343a40'}}/>
           <div className="card-body">
             <h5 className="card-title">{event.title_it}</h5>
             <h3>{event.subtitle}</h3>

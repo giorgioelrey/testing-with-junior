@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backendApi;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,7 +17,9 @@ class PostController extends Controller
 
       $response = [
            'success' => true,
-           'posts' => Post::all()->toArray(),
+           'posts' => Post::all()->each(function ($item, $key) {
+              $item['image_url'] = Storage::url($item['image_url']);
+            })->toArray(),
            'message' => 'Posts retrieved successfully.'
        ];
 
@@ -28,11 +31,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
       $input = $request->all();
-
-        /*
-        APPLY VALIDATOR
        $validator = Validator::make($input, [
-
+          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
 
        if ($validator->fails()) {
@@ -44,10 +44,19 @@ class PostController extends Controller
            return response()->json($response, 404);
        }
 
-       */
-
         $post = new Post;
-        $post->fill($input);
+        $post->metadescription_it = $request->metadescription_it;
+        $post->metadescription_en = $request->metadescription_en;
+        $post->title_it = $request->title_it;
+        $post->title_en = $request->title_en;
+        $post->slug_it = $request->slug_it;
+        $post->slug_en = $request->slug_en;
+        $post->postbodytop_it = $request->postbodytop_it;
+        $post->postbodytop_en = $request->postbodytop_en;
+        $post->postbodybottom_it = $request->postbodybottom_it;
+        $post->postbodybottom_en = $request->postbodybottom_en;
+        $post->image_url = $request->file('image_url')->store('public');
+        $post->category_id = $request->category_id;
         $post->save();
         $data = $post->toArray();
 
@@ -64,7 +73,11 @@ class PostController extends Controller
 
     public function show($id)
     {
-      $post = Post::find($id)->toArray();
+      $post = Post::find($id);
+
+      $post['image_url'] = Storage::url($post['image_url']);
+
+      $postResponse = $post->toArray();
 
       if (is_null($post)) {
           $response = [
@@ -78,7 +91,7 @@ class PostController extends Controller
 
       $response = [
           'success' => true,
-          'post' => $post,
+          'post' => $postResponse,
           'message' => 'Post retrieved successfully.'
       ];
 
@@ -91,9 +104,8 @@ class PostController extends Controller
       $input = $request->all();
 
       $post = Post::find($input['id']);
-      $data = $post->toArray();
 
-      if (is_null($post)) {
+      if (is_null($post->toArray())) {
           $response = [
               'success' => false,
               'data' => 'Empty',
@@ -102,35 +114,35 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
-/*
-
-      APPLY VALIDATION
+      $input = $request->all();
        $validator = Validator::make($input, [
-           'name' => 'required',
-           'author' => 'required'
+          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
+      Storage::delete($post->image_url);
+       $post->metadescription_it = $request->metadescription_it;
+       $post->metadescription_en = $request->metadescription_en;
+       $post->title_it = $request->title_it;
+       $post->title_en = $request->title_en;
+       $post->slug_it = $request->slug_it;
+       $post->slug_en = $request->slug_en;
+       $post->postbodytop_it = $request->postbodytop_it;
+       $post->postbodytop_en = $request->postbodytop_en;
+       $post->postbodybottom_it = $request->postbodybottom_it;
+       $post->postbodybottom_en = $request->postbodybottom_en;
+       $post->image_url = $request->file('image_url')->store('public');
+       $post->category_id = $request->category_id;
 
-       if ($validator->fails()) {
-           $response = [
-               'success' => false,
-               'data' => 'Validation Error.',
-               'message' => $validator->errors()
-           ];
-           return response()->json($response, 404);
-       }
 
-      */
 
       //UPDATE OPS
-      $post->update($input);
-      $post->category_id = $request['category_id'];
+
       $post->save();
 
-       $data = $post->toArray();
+       $responseData = $post->toArray();
 
        $response = [
            'success' => true,
-           'data' => $data,
+           'data' => $responseData,
            'message' => 'Post updated successfully.'
        ];
 
@@ -153,8 +165,11 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
-      $post->delete();
       $data = $post->toArray();
+
+      Storage::delete($post->image_url);
+
+      $post->delete();
 
        $response = [
            'success' => true,

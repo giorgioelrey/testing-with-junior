@@ -39,22 +39,20 @@ class ImageController extends Controller
 
     }
 
-
-    public function show($id)
+    public function update(Request $request)
     {
-        //
-    }
+        //prendi da request
+        //-url precedente
+        //-nome pagina
+        //-field con il file
+
+        //salva nuova Immagine
+
+        //cancella quella al vecchio url
+
+        //ritorna success
 
 
-    public function edit($id)
-    {
-        //
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        //
     }
 
     public function destroy($id)
