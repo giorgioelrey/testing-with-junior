@@ -32,7 +32,7 @@ const PageFormConnector = ((WrappedComponent) => {
 
         //console.log('about to update props', JSON.parse(this.props.page.contents))
 
-        const updatedPageData = this.prepareFormDataForSubmission(fields);
+        const updatedPageData = this.prepareFormDataForSubmission(fields, pageId);
 
       try {
 
@@ -121,15 +121,31 @@ const PageFormConnector = ((WrappedComponent) => {
 
     }
 
-    prepareFormDataForSubmission(fields){
+    prepareFormDataForSubmission(fields, pageId){
 
       const previousContents = JSON.parse(this.props.page.contents);
 
+      console.log('previousContents', previousContents)
+      console.log('fields', fields)
+      debugger
+
+
+
       for (var fieldName in previousContents) {
+
+        var isNotImageField = previousContents[fieldName].type == 'image';
 
         if(previousContents[fieldName]['translated'] == false ){
 
-          previousContents[fieldName]['data'] = fields[fieldName];
+          if (isNotImageField){
+
+            previousContents[fieldName]['data'] = fields[fieldName];
+
+          } else {//image
+
+            previousContents[fieldName]['data'] =  updateImageAndReturnUrl(previuosUrl, pageId, fields[fieldName])
+
+          }
 
         } else {
 
@@ -162,6 +178,13 @@ const PageFormConnector = ((WrappedComponent) => {
 
       return previousContents
 
+    }
+
+    updateImageAndReturnUrl(previuosUrl, pageId, newImageData){
+
+      let formData = new FormData();
+      //crea endpoint per ImageController per fare update singola immagine
+      //ritorna Url nuova Immagine da mettere nel campo
     }
 
     render() {
