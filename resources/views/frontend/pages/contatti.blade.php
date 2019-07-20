@@ -20,7 +20,7 @@
 
       </div>
 
-      <div class='col-md-6'>
+      <div class='col-md-6 '>
         <div  class='title'>
           {!! ($lang == 'it') ? 'Contatti' : 'Contacts' !!}
 
@@ -44,7 +44,7 @@
 
         </div>
 
-        <div class='col-md-6 d-flex align-items-center'>
+        <div class='col-md-6 d-flex align-items-center px-5'>
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>

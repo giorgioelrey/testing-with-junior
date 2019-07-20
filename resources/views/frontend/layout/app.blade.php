@@ -61,10 +61,10 @@
     @yield('content')
 
   </main>
-
+  @yield('scripts')
   @include('frontend.partials.footer')
 
-  @yield('scripts')
+
 
 </body>
 </html>
