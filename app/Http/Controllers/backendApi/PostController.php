@@ -118,7 +118,7 @@ class PostController extends Controller
        $validator = Validator::make($input, [
           'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
-      Storage::delete($post->image_url);
+       Storage::delete($post->image_url);
        $post->metadescription_it = $request->metadescription_it;
        $post->metadescription_en = $request->metadescription_en;
        $post->title_it = $request->title_it;

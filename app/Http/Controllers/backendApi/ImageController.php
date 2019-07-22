@@ -39,18 +39,42 @@ class ImageController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function updateImageAndReturnPath(Request $request)
     {
-        //prendi da request
-        //-url precedente
-        //-nome pagina
-        //-field con il file
 
-        //salva nuova Immagine
+      $input = $request->all();
 
-        //cancella quella al vecchio url
+      $page = Page::findOrFail($input['pageid']);
 
-        //ritorna success
+      $validator = Validator::make($input, [
+          $input['file'] => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      ]);
+
+      if ($validator->fails()) {
+           $response = [
+               'success' => false,
+               'data' => 'Validation Error.',
+               'message' => $validator->errors()
+           ];
+           return response()->json($response, 404);
+       }
+
+      Storage::delete($input['image_url']);
+
+      $path = $request->file($input['fieldname'])->store('public');
+
+
+
+      //prendi da request
+      //-url precedente
+      //-nome pagina
+      //-field con il file
+
+      //salva nuova Immagine
+
+      //cancella quella al vecchio url
+
+      //ritorna success
 
 
     }

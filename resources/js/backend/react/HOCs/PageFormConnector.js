@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import * as Yup from 'yup';
 import ErrorsAlert from './../components/ErrorsAlert';
 
@@ -121,15 +122,13 @@ const PageFormConnector = ((WrappedComponent) => {
 
     }
 
-    prepareFormDataForSubmission(fields, pageId){
+  async prepareFormDataForSubmission(fields, pageId){
 
       const previousContents = JSON.parse(this.props.page.contents);
 
       console.log('previousContents', previousContents)
       console.log('fields', fields)
       debugger
-
-
 
       for (var fieldName in previousContents) {
 
@@ -143,7 +142,9 @@ const PageFormConnector = ((WrappedComponent) => {
 
           } else {//image
 
-            previousContents[fieldName]['data'] =  updateImageAndReturnUrl(previuosUrl, pageId, fields[fieldName])
+            let imageFieldData = {name: fieldName, data: fields[fieldName], previuosUrl, pageId };
+
+            previousContents[fieldName]['data'] =  await updateImageAndReturnUrl(imageFieldData);
 
           }
 
@@ -169,9 +170,8 @@ const PageFormConnector = ((WrappedComponent) => {
 
           }
 
-
-
         }
+
       }
 
       console.log('done ready for submission',previousContents);
@@ -180,11 +180,42 @@ const PageFormConnector = ((WrappedComponent) => {
 
     }
 
-    updateImageAndReturnUrl(previuosUrl, pageId, newImageData){
+    async updateImageAndReturnUrl(imageFieldData){
 
-      let formData = new FormData();
-      //crea endpoint per ImageController per fare update singola immagine
-      //ritorna Url nuova Immagine da mettere nel campo
+        let formData = new FormData();
+        //crea endpoint per ImageController per fare update singola immagine
+        //ritorna Url nuova Immagine da mettere nel campo
+        formData.append('file', imageFieldData.data);
+        formData.append('fieldname', imageFieldData.name);
+        formData.append('pageid',imageFieldData.pageId);
+        formData.append('previousurl', imageFieldData.previousurl);
+
+        console.log('sto per fare la chiamata di update delle immagini');
+
+      try {
+
+        const updateImagePath = await axios({
+           url: `/api/admin/image/update-and-get-path`,
+           data: formData ,
+           method: 'post',
+           headers: {
+             'X-Requested-With': 'XMLHttpRequest',
+             'Authorization' : 'Bearer ' + this.props.user.token},
+           responseType: 'json',
+         });
+
+         return updateImagePath;
+
+      } catch(error){
+
+        console.log('error submit', error);
+
+        this.props.setSubmissionErrors([error.response.data.message]);
+
+        return '';
+
+      }
+
     }
 
     render() {
