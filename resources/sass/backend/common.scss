@@ -1,1 +1,30 @@
 
+#event_list_back{
+border:1px solid black;
+
+  .titolo_back{
+  font-size: 18px;
+  }
+  .img_back{
+  max-width: 100%;
+
+  }
+  .sub_back{
+  font-size: 14px;
+  }
+  .corpo_back{
+  font-size: 10px;
+  }
+  .data_back{
+  font-weight: bold;
+  font-size: 12px;
+  }
+  .btn{
+    width: 100%
+  }
+
+}
+
+.quill .ql-container {
+  height: 300px;
+}

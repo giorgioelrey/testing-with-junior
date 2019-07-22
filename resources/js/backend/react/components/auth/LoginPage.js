@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {Link} from 'react-router-dom';
+import {Link,Redirect, withRouter} from 'react-router-dom';
 import logo_core from './../../assets/logo_core.png';
 import ErrorsAlert from './../ErrorsAlert';
 //Helpers
@@ -9,18 +9,40 @@ import * as axiosHelper from './../../helpers/axiosHelper';
 
 class LoginPage extends Component {
 
-
 constructor(props){
   super(props);
 
   this.state = {
-    errors: []
+    redirectToReferrer: false
   }
+
+  this.submitLoginForm = this.submitLoginForm.bind(this);
+
+}
+
+submitLoginForm(fields) {
+
+  this.props.submitForm(fields,
+  () => {
+    this.setState({ redirectToReferrer: true }, () => {
+      console.log('user logged')
+    });
+  });
+
 }
 
   render() {
 
-    let errorsContent = this.state.errors.length > 0 && (<ErrorsAlert errors={this.state.errors} />) || null;
+
+    let errorsContent = this.props.errors.length > 0 && (<ErrorsAlert errors={this.props.errors} />) || null;
+
+    const { from } = this.props.location && this.props.location.state || { from: { pathname: '/admin/dashboard/news' } }
+
+     if (this.state.redirectToReferrer === true) {
+
+      console.log('redirecting to', from)
+       return <Redirect to={from} />
+     }
 
     return (
       <Fragment>
@@ -40,7 +62,6 @@ constructor(props){
                        initialValues={{
                            email: '',
                            password: '',
-                           password_confirmation: ''
                        }}
                        validationSchema={Yup.object().shape({
                            email: Yup.string()
@@ -50,28 +71,7 @@ constructor(props){
                                .min(6, 'Password must be at least 6 characters')
                                .required('Password is required'),
                        })}
-                       onSubmit={async fields => {
-
-                           try {
-                                console.log('fields', fields);
-
-                                const { data } = await axios(axiosHelper.getLoginConfig(fields));
-
-                                console.log('login response.data ', data);
-
-                                this.props.setUserData(data);
-
-                                this.props.history.push({pathname:'/admin/dashboard/'});
-
-                              } catch(error) {
-
-                                console.log('login issues', error.response.data);
-
-                                this.setState({errors: [error.response.data.errors]})
-
-                              }
-
-                       }}
+                       onSubmit={this.submitLoginForm}
                        render={({ errors, status, touched }) => (
                            <Form className="cms-form login">
                                <div className="form-group form-label-group">

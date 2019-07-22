@@ -4,22 +4,29 @@ import NewsForm from './NewsForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
+import PostConnector from './../../../HOCs/PostConnector';
 
-//Helpers
-import PostConnector from './../../../helpers/postHelper';
+const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
 
-const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable, postId, section }) => {
-
-
+  console.log('NewsCreateEdit', post);
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
   const postSubmit = async (fields) => {
 
+    console.log('submit post fields',  fields);
+    let formData = new FormData();
+    for (var key in fields) {
+      console.log(key,fields[key])
+      formData.append( key, fields[key] )
+    }
+
+    console.log('fullForm Data file', formData.get('image_url'))
+
     try {
 
-      const {data} = await (section === 'create' ?   submitPost(fields) : updatePost(fields));
+      const {data} = await (section === 'create' ?   submitPost(formData) : updatePost(formData));
 
-      console.log('success', data);
+      console.log('success form post', data);
 
       history.push('/admin/dashboard/news');
 
@@ -42,11 +49,11 @@ const NewsCreateEdit =  ({post, updatePost, submitPost, history, pagesAvailable,
               <h1>{section === 'create' ? 'Create' : 'Edit'} your post</h1>
               {submitErrors}
 
-                <ImageUploader />
                 <NewsForm
                 onSubmit={postSubmit}
                 pagesAvailable={pagesAvailable}
                 post={post}
+                categories={categories}
                 />
 
       </div>

@@ -2,15 +2,16 @@ import React, { Fragment } from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Navbar from './Navbar';
 import NewsPage from './news/NewsPage';
-import UsersPage from './users/UsersPage';
+import LocationsPage from './locations/LocationsPage';
 import EventsPage from './events/EventsPage';
 import Sidebar from './sidebar/Sidebar';
 import PagesManagementPage from './pages/PagesManagementPage';
-
+//import AuthConnector from './../../HOCs/AuthConnector.js';
 const DashboardPage = (props) => {
 
 
   const {user, match, history, location, section, contentPage} = props;
+
   console.log('dash props',props);
 
     let contentArea;
@@ -18,9 +19,6 @@ const DashboardPage = (props) => {
     switch(contentPage) {
     case 'main':
       contentArea = (<div>Main Content </div>)
-      break;
-    case 'users':
-      contentArea = (<UsersPage {...props}/>)
       break;
     case 'news':
       contentArea = (<NewsPage {...props} />)
@@ -31,6 +29,9 @@ const DashboardPage = (props) => {
     case 'events':
       contentArea = (<EventsPage {...props}/>)
       break;
+    case 'locations':
+      contentArea = (<LocationsPage {...props}/>)
+      break;
     default:
       contentArea = (<div>not chosen</div>)
     }
@@ -39,11 +40,11 @@ const DashboardPage = (props) => {
       <Fragment>
 
         <Navbar {...props} />
-        <div className="container-fluid d-flex" id="dashboard-page">
+        <div className="d-flex" id="dashboard-page">
 
               <Sidebar {...props} />
 
-              <div className="container px-4 pt-5">
+              <div className="content-area p-5">
 
                   {contentArea}
 
@@ -54,7 +55,6 @@ const DashboardPage = (props) => {
       </Fragment>
 
     );
-
 }
 
 export default DashboardPage;

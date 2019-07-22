@@ -1,5 +1,89 @@
 #home {
 
+.mostra_evento{
+border: 1px solid black;
+width: 396px;
+    margin: 2rem auto 0;
+     h1 {
+      font-family: "Playfair Display", serif;
+    font-size: 24px;
+}
+    h3{
+
+      font-family: "Playfair Display", serif;
+    font-size: 20px;
+    font-weight: bold;
+
+    }
+}
+
+.data{
+
+    text-align: center;
+    font-size: 16px;
+
+
+}
+.mess_data{
+  text-align: center;
+  font-size: 18px;
+}
+
+
+  #react-calendar{
+border: 1px solid black;
+    height: 100vh;
+  }
+
+.Day-inner{
+color:black;
+
+
+}
+.selected{
+  .Day-inner{
+  color:white;
+
+
+  }
+
+}
+  .Calendar {
+    border: 1px solid black;
+        border-collapse: collapse;
+        padding: 0;
+        margin: 4rem auto 0;
+
+
+    }
+
+    .Calendar th,
+    .Calendar td {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .Day:hover {
+        background: #eee;
+        color: #000;
+    }
+
+    .Day.today {
+        background: #caa660;
+        color: #fff;
+    }
+
+    .Day.selected{
+background: #caa660;
+     width:30px;
+	height:30px;
+	border-radius:50px;
+  }
+
+    .Day.other-month {
+        background: #fafafa;
+        color: #aaa;
+    }
 
 
 

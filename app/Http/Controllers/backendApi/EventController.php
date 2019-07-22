@@ -6,6 +6,8 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -14,7 +16,9 @@ class EventController extends Controller
     {
       $response = [
            'success' => true,
-           'events' => Event::all()->toArray(),
+           'events' => Event::all()->each(function ($item, $key) {
+              $item['image_url'] = Storage::url($item['image_url']);
+            })->toArray(),
            'message' => 'All Events retrieved successfully.'
        ];
 
@@ -24,11 +28,8 @@ class EventController extends Controller
     public function store(Request $request)
     {
       $input = $request->all();
-
-        /*
-        APPLY VALIDATOR
        $validator = Validator::make($input, [
-
+          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
 
        if ($validator->fails()) {
@@ -40,10 +41,21 @@ class EventController extends Controller
            return response()->json($response, 404);
        }
 
-       */
-
         $event = new Event;
-        $event->fill($input);
+
+        $event->metadescription_it = $request->metadescription_it;
+        $event->metadescription_en = $request->metadescription_en;
+        $event->title_it = $request->title_it;
+        $event->title_en = $request->title_en;
+        $event->slug_it = $request->slug_it;
+        $event->slug_en = $request->slug_en;
+        $event->address = $request->address;
+        $event->date = $request->date;
+        $event->time = $request->time;
+        $event->description_it = $request->description_it;
+        $event->description_en = $request->description_en;
+        $event->image_url = $request->file('image_url')->store('public');
+
         $event->save();
         $data = $event->toArray();
 
@@ -59,7 +71,10 @@ class EventController extends Controller
     public function showById($id)
     {
       $event = Event::find($id);
-      $data = $event->toArray();
+
+      $event['image_url'] = Storage::url($event['image_url']);
+
+      $eventResponse = $event->toArray();
 
       if (is_null($event)) {
           $response = [
@@ -73,7 +88,7 @@ class EventController extends Controller
 
       $response = [
           'success' => true,
-          'event' => $data,
+          'event' => $eventResponse,
           'message' => 'Event retrieved successfully.'
       ];
 
@@ -137,45 +152,45 @@ class EventController extends Controller
       $input = $request->all();
 
       $event = Event::find($input['id']);
-      $data = $event->toArray();
 
-      if (is_null($event)) {
+      if (is_null($event->toArray())) {
           $response = [
               'success' => false,
-              'event' => [],
-              'message' => 'Event not found.'
+              'data' => [],
+              'message' => 'Post not found.'
           ];
           return response()->json($response, 404);
       }
 
-/*
+       $input = $request->all();
 
-      APPLY VALIDATION
        $validator = Validator::make($input, [
-           'name' => 'required',
-           'author' => 'required'
+          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
 
-       if ($validator->fails()) {
-           $response = [
-               'success' => false,
-               'data' => 'Validation Error.',
-               'message' => $validator->errors()
-           ];
-           return response()->json($response, 404);
-       }
-
-      */
+      Storage::delete($event->image_url);
+       $event->metadescription_it = $request->metadescription_it;
+       $event->metadescription_en = $request->metadescription_en;
+       $event->title_it = $request->title_it;
+       $event->title_en = $request->title_en;
+       $event->slug_it = $request->slug_it;
+       $event->slug_en = $request->slug_en;
+       $event->address = $request->address;
+       $event->date = $request->date;
+       $event->time = $request->time;
+       $event->description_it = $request->description_it;
+       $event->description_en = $request->description_en;
+       $event->image_url = $request->file('image_url')->store('public');
 
       //UPDATE OPS
-      $event->update($input);
+
       $event->save();
 
-       $data = $event->toArray();
+       $responseData = $event->toArray();
 
        $response = [
            'success' => true,
-           'event' => $data,
+           'event' => $responseData,
            'message' => 'Event updated successfully.'
        ];
 
@@ -196,8 +211,11 @@ class EventController extends Controller
           return response()->json($response, 404);
       }
 
-      $event->delete();
       $data = $event->toArray();
+
+      Storage::delete($event->image_url);
+
+      $event->delete();
 
        $response = [
            'success' => true,

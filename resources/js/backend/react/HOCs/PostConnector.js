@@ -10,12 +10,12 @@ const PostConnector = ((WrappedComponent) => {
 
           super(props);
 
-
           this.state = {
             isLoading: true,
             posts: [],
             post: {},
-            apiErrors: []
+            apiErrors: [],
+            categories: []
           }
 
           this.getAllPosts = this.getAllPosts.bind(this);
@@ -23,6 +23,7 @@ const PostConnector = ((WrappedComponent) => {
           this.deletePost = this.deletePost.bind(this);
           this.submitPost = this.submitPost.bind(this);
           this.updatePost = this.updatePost.bind(this);
+          this.getCategories = this.getCategories.bind(this);
 
         }
 
@@ -30,28 +31,43 @@ const PostConnector = ((WrappedComponent) => {
 
           console.log('hoc props', this.props)
 
-          let apiResponse;
+            let apiResponse;
+            const categories = await this.getCategories();
 
-          try {
+            console.log('categorie', categories)
 
-            switch(this.props.section){
+            try {
 
-              case 'list': apiResponse = await this.getAllPosts();
-                          console.log(apiResponse)
-                           this.setState({ posts: apiResponse.data.posts, isLoading: false })
-                           ; break;
-              case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
-                          this.setState({ post: apiResponse.data.post, isLoading: false })
-                          ; break;
+              switch(this.props.section){
 
-              default: this.setState({ isLoading: false });
+                case 'list': apiResponse = await this.getAllPosts();
+                            console.log(apiResponse)
+                             this.setState({ posts: apiResponse.data.posts, isLoading: false })
+                             ; break;
+                case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
+                            this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
+                            ; break;
+
+                default: this.setState({ categories: categories.data.categories, isLoading: false });
+              }
+
+            } catch(error){
+
+               console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
             }
 
-          } catch(error){
 
-             console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
-          }
+        }
 
+        getCategories(){
+          return axios({
+            url: `/api/admin/categories/entity/post`,
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + this.props.user.token},
+            responseType: 'json',
+          })
         }
 
         getAllPosts(){
@@ -66,8 +82,6 @@ const PostConnector = ((WrappedComponent) => {
              'Authorization' : 'Bearer ' + this.props.user.token},
            responseType: 'json',
          })
-
-
        }
 
         getPost(postId){
@@ -123,7 +137,6 @@ const PostConnector = ((WrappedComponent) => {
           })
 
        }
-
 
         render(){
 

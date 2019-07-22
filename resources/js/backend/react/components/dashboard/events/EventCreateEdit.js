@@ -16,10 +16,21 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
     try {
 
       fields.date = moment(fields.date).format('YYYY-MM-DD');
+      fields.time = moment(fields.time).format('YYYY-MM-DD HH:mm:ss');
 
       console.log('campi preSubmit', fields)
 
-      const {data} = await (section === 'create' ?   submitEvent(fields) : updateEvent(fields));
+      console.log('submit events fields',  fields);
+      let formData = new FormData();
+
+      for (var key in fields) {
+
+        formData.append( key, fields[key] )
+      }
+
+      console.log('fullForm Data file', formData.get('image_url'))
+
+      const {data} = await (section === 'create' ?   submitEvent(formData) : updateEvent(formData));
 
       console.log('success', data);
 
@@ -48,6 +59,7 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
                 onSubmit={eventSubmit}
                 pagesAvailable={pagesAvailable}
                 event={event}
+                section={section}
                 />
 
       </div>

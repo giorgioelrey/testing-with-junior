@@ -79,19 +79,19 @@ class EventsCalendar extends Component {
     return (
       <div>
 
-        <p>Calendario Ita</p>
+
 
         <Calendar
           date={this.state.date}
           onSelect={this.onSelect}
-          locale="it"
+          locale={userLanguage /* userlanguage received by views.frontend.layout.app */}
           dayRenderer={CustomDayRenderer}
           startOfWeekIndex={1}
           showEventsOnChange={this.getEventsPerDay}
           dayClasses={dayClasses}
           />
 
-          <EventsList date={this.state.date.format('DD/MM/YYYY')} events={this.state.events} />
+          <EventsList date={this.state.date.format('DD/MM/YYYY')} events={this.state.events} userLanguage={userLanguage}/>
 
       </div>
     );

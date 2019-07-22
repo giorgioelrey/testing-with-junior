@@ -1,30 +1,35 @@
 @extends('frontend.layout.app')
+
+@section('meta-description')
+  {{$content_it = ''}}
+  {{$content_en = ''}}
+  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+@endsection
+
+@section('title')
+  <title>{{$lang == 'it' ? 'Chi-siamo' : 'Who-we-are'}}</title>
+@endsection
+
 @section('content')
 
 
-<div class='container-fluid'>
+  <div class='container-fluid' id='chi-siamo'>
 
-<div class='row d-flex justify-content-center'>
-<div class='col-md-12'>
-<h1 class='title'>Chi siamo</h1>
+    <div class='row d-flex justify-content-center'>
+      <div class='col-md-12'>
 
+        <h1 class='title text-uppercase'>
+          {!! ($lang == 'it') ? 'chi siamo' : 'Who we are' !!}
+        </h1>
 
+      </div>
 
+      <div class='col-md-8'>
 
-</div>
+        <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
 
-<div class='col-md-8'>
-<p>  Il debutto della collezione Uomo di Givenchy nella cornice di Pitti Immagine Uomo 96 non è stata l'unica novità della maison. Il direttore creativo Clare Waight Keller, guest designer della grande manifestazione dedicata alla moda maschile, ha annunciato anche una nuova collaborazione, svelando la liaison con Onitsuka Tiger: MEXICO 66 GDX.
-  Protagoniste due varianti del modello NIPPONMADEMEXICO 66, una total white e l'altra declinata in nero con dettagli rossi e bianchi.
-  “Per noi è un grande onore ospitare l’esordio in passerella della collezione uomo di Givenchy con la direzione.
-</p>
+      </div>
 
-
-
-</div>
-
-
-
-</div>
-</div>
+    </div>
+  </div>
 @endsection
