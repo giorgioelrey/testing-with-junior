@@ -93,25 +93,6 @@ class PageController extends Controller
         return response()->json($response, 404);
     }
 
-/*
-
-    APPLY VALIDATION
-     $validator = Validator::make($input, [
-         'name' => 'required',
-         'author' => 'required'
-     ]);
-
-     if ($validator->fails()) {
-         $response = [
-             'success' => false,
-             'data' => 'Validation Error.',
-             'message' => $validator->errors()
-         ];
-         return response()->json($response, 404);
-     }
-
-    */
-
     //UPDATE OPS
 
     $page->contents = json_encode($input);

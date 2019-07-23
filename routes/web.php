@@ -14,6 +14,7 @@ use App\Page;
 use App\Event;
 use App\Post;
 use App\Location;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 //BACKEND
@@ -129,9 +130,20 @@ function() {
 	//HOME
 
   Route::get(LaravelLocalization::transRoute('routes.home'), function() {
+
+		$dynamicPage = Page::whereName('home')->get();
+
+		$contents = json_decode($dynamicPage->first()->contents);
+
+		foreach ($contents as &$content) {
+			if($content->type == 'image'){
+				$content->data = Storage::url($content->data);
+			}
+		}
 		return View::make('frontend.pages.home',[
 			'lang' => LaravelLocalization::setLocale(),
 			'locations' => Location::all()->toArray(),
+			'contents' => $contents,
 	]);
 	})->name('fe.home');
 

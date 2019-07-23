@@ -18,7 +18,7 @@ const PageFields = ({ errors, status, touched, fieldsData, setFieldValue, values
 
             case 'wisiwyg': return (<WisiwygEditorPageField key={idx} errors={errors} field={field} />); break;
 
-            case 'image': console.log('field image ', field.name); return (<FileUploadInputFormikField key={idx} setFieldValue={setFieldValue} label={'Event Image'} name={field.name} values={values} errors={errors} touched={touched}/>); break;
+            case 'image': /*console.log('field image ', field.name);*/ return (<FileUploadInputFormikField key={idx} setFieldValue={setFieldValue} label={field.name} name={field.name} values={values} errors={errors} touched={touched}/>); break;
 
             default: break;
           }
