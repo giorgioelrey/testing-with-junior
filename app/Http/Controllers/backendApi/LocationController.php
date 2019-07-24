@@ -29,23 +29,6 @@ class LocationController extends Controller
     {
       $input = $request->all();
 
-        /*
-        APPLY VALIDATOR
-       $validator = Validator::make($input, [
-
-       ]);
-
-       if ($validator->fails()) {
-           $response = [
-               'success' => false,
-               'data' => 'Validation Error.',
-               'message' => $validator->errors()
-           ];
-           return response()->json($response, 404);
-       }
-
-       */
-
         $location = new Location;
         $location->fill($input);
         $location->save();
@@ -101,25 +84,6 @@ class LocationController extends Controller
             ];
             return response()->json($response, 404);
         }
-
-  /*
-
-        APPLY VALIDATION
-         $validator = Validator::make($input, [
-             'name' => 'required',
-             'author' => 'required'
-         ]);
-
-         if ($validator->fails()) {
-             $response = [
-                 'success' => false,
-                 'data' => 'Validation Error.',
-                 'message' => $validator->errors()
-             ];
-             return response()->json($response, 404);
-         }
-
-        */
 
         //UPDATE OPS
         $location->update($input);

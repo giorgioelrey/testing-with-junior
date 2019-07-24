@@ -105,9 +105,13 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::get('/admin/categories/entity/post', 'CategoryController@getForPost')->name('categories.post');
 
-    Route::get('/admin/categories/entity/location', 'CategoryController@getForLocation')->name('categories.location');
+  Route::get('/admin/categories/entity/location', 'CategoryController@getForLocation')->name('categories.location');
 
   Route::get('/admin/categories/show/{id}', 'CategoryController@show')->name('categories.show');
+
+  //******* IMAGES ******//
+
+  Route::post('/admin/image/update-and-get-path','ImageController@updateImageAndReturnPath')->name('image.update');
 
 
 });

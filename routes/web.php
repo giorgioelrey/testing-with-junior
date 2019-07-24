@@ -14,6 +14,7 @@ use App\Page;
 use App\Event;
 use App\Post;
 use App\Location;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 //BACKEND
@@ -33,6 +34,7 @@ Route::group(
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','localize' ]
 ],
 function() {
+
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
 	//CHI SIAMO
@@ -43,12 +45,23 @@ function() {
 
     $contents = json_decode($dynamicPage->first()->contents);
 
+		foreach ($contents as &$content) {
+			if($content->type == 'image' && !empty($content->data)){
+				$content->data = Storage::url($content->data);
+			}
+		}
+
 		return View::make('frontend.pages.chi-siamo',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.chi-siamo');
 
+
+	//BRAND
 	Route::get(LaravelLocalization::transRoute('routes.brand'), function() {
 		return View::make('frontend.pages.brand',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.brand');
+
+
+
 
 	//EVENTI
 
@@ -61,10 +74,17 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$event = ($locale == 'it') ? Event::whereSlugIt($slug)->first() : Event::whereSlugEn($slug)->first();
 
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$event->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$event->image_url = Storage::url($event->image_url);
+		}
 
 		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
 	})->name('fe.evento-single');
+
+
+
 
 	//MN-VIP-LOUNGE
 
@@ -77,6 +97,9 @@ function() {
 		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.mn-vip-lounge');
 
+
+
+
 	//ARCHIVIO STORICO
 
 	Route::get(LaravelLocalization::transRoute('routes.archivio-storico'), function() {
@@ -88,10 +111,15 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
 
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$post->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$post->image_url = Storage::url($post->image_url);
-
+		}
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.archivio-storico-single');
+
+
 
 	//PRESS
 
@@ -103,11 +131,16 @@ function() {
 
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
-
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$post->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$post->image_url = Storage::url($post->image_url);
+		}
 
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.post-single');
+
+
 
 	//SEARCH
 
@@ -115,26 +148,49 @@ function() {
 		return View::make('frontend.pages.search',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.search');
 
+
+
 	//CONTATTI
 
 	Route::get(LaravelLocalization::transRoute('routes.contatti'),function(Request $request) {
 
     $dynamicPage = Page::whereName('contatti')->get();
 
-    $contents = json_decode($dynamicPage->first()->contents);
+		$contents = json_decode($dynamicPage->first()->contents);
+
+		foreach ($contents as &$content) {
+			if($content->type == 'image' && !empty($content->data)){
+
+				$content->data = Storage::url($content->data);
+
+			}
+		}
 
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
 
+
 	//HOME
 
   Route::get(LaravelLocalization::transRoute('routes.home'), function() {
+
+		$dynamicPage = Page::whereName('home')->get();
+
+		$contents = json_decode($dynamicPage->first()->contents);
+
+		foreach ($contents as &$content) {
+			if($content->type == 'image' && !empty($content->data)){
+				$content->data = Storage::url($content->data);
+			}
+		}
 		return View::make('frontend.pages.home',[
 			'lang' => LaravelLocalization::setLocale(),
 			'locations' => Location::all()->toArray(),
+			'contents' => $contents,
 	]);
 	})->name('fe.home');
 
 });
+
 
 Auth::routes();

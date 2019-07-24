@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+import axios from 'axios';
 import * as Yup from 'yup';
 import ErrorsAlert from './../components/ErrorsAlert';
 
@@ -15,6 +17,7 @@ const PageFormConnector = ((WrappedComponent) => {
       this.prepareFormDataForEdit = this.prepareFormDataForEdit.bind(this);
       this.prepareFormDataForSubmission = this.prepareFormDataForSubmission.bind(this);
       this.pageUpdate = this.pageUpdate.bind(this);
+      this.updateImageAndReturnUrl = this.updateImageAndReturnUrl.bind(this);
 
     }
 
@@ -32,7 +35,7 @@ const PageFormConnector = ((WrappedComponent) => {
 
         //console.log('about to update props', JSON.parse(this.props.page.contents))
 
-        const updatedPageData = this.prepareFormDataForSubmission(fields, pageId);
+        const updatedPageData = await this.prepareFormDataForSubmission(fields, pageId);
 
       try {
 
@@ -121,19 +124,16 @@ const PageFormConnector = ((WrappedComponent) => {
 
     }
 
-    prepareFormDataForSubmission(fields, pageId){
+  async prepareFormDataForSubmission(fields, pageId){
 
       const previousContents = JSON.parse(this.props.page.contents);
 
       console.log('previousContents', previousContents)
-      console.log('fields', fields)
-      debugger
-
-
+      console.log('fields', fields);
 
       for (var fieldName in previousContents) {
 
-        var isNotImageField = previousContents[fieldName].type == 'image';
+        var isNotImageField = previousContents[fieldName].type != 'image';
 
         if(previousContents[fieldName]['translated'] == false ){
 
@@ -143,7 +143,26 @@ const PageFormConnector = ((WrappedComponent) => {
 
           } else {//image
 
-            previousContents[fieldName]['data'] =  updateImageAndReturnUrl(previuosUrl, pageId, fields[fieldName])
+            let imageFieldData = {
+              name: fieldName,
+              data: fields[fieldName],
+              previousurl: previousContents[fieldName]['data'],
+             pageid: pageId
+           };
+           console.log('imageFieldData', imageFieldData)
+
+              try {
+
+                const {data} =  await this.updateImageAndReturnUrl(imageFieldData);
+
+                console.log('storing image data', data);
+
+                previousContents[fieldName]['data'] = data.path;
+
+              } catch(error){
+
+                console.log('errore immagine',error, error.response.data.message)
+              }
 
           }
 
@@ -153,7 +172,7 @@ const PageFormConnector = ((WrappedComponent) => {
 
             var updatedContentData = Object.keys(fields).reduce((acc, fieldKey) => {
 
-                const fieldNameAndLocale = fieldKey.split('__');
+               const fieldNameAndLocale = fieldKey.split('__');
 
                if (fieldNameAndLocale[0] == fieldName){
 
@@ -169,22 +188,50 @@ const PageFormConnector = ((WrappedComponent) => {
 
           }
 
-
-
         }
+
       }
 
       console.log('done ready for submission',previousContents);
-
+      debugger
       return previousContents
 
     }
 
-    updateImageAndReturnUrl(previuosUrl, pageId, newImageData){
+    async updateImageAndReturnUrl(imageFieldData){
 
-      let formData = new FormData();
-      //crea endpoint per ImageController per fare update singola immagine
-      //ritorna Url nuova Immagine da mettere nel campo
+        let formData = new FormData();
+        //crea endpoint per ImageController per fare update singola immagine
+        //ritorna Url nuova Immagine da mettere nel campo
+        formData.append('file', imageFieldData.data);
+        formData.append('fieldname', imageFieldData.name);
+        formData.append('pageid',imageFieldData.pageid);
+        formData.append('previousurl', imageFieldData.previousurl);
+
+        console.log('sto per fare la chiamata di update delle immagini');
+
+      try {
+
+        return  await axios({
+           url: `/api/admin/image/update-and-get-path`,
+           data: formData ,
+           method: 'post',
+           headers: {
+             'X-Requested-With': 'XMLHttpRequest',
+             'Authorization' : 'Bearer ' + this.props.user.token},
+           responseType: 'json',
+         });
+
+      } catch(error){
+
+        console.log('error submit', error);
+
+        this.props.setSubmissionErrors([error.response.data.message]);
+
+        return '';
+
+      }
+
     }
 
     render() {

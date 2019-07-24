@@ -8,7 +8,7 @@ const PostCard = ({ post }) => {
     <div className="col-md-6 col-xl-4 px-2 mb-5">
       <div className="card">
         <div className="card-img-top text-center">
-        <img src={post && post.image_url || placeholder_post_image}  alt="...where is the image" style={{maxHeight: '250px', maxWidth: '100%'}}/>
+        <img src={post.image_url || placeholder_post_image}  alt="...where is the image" style={{maxHeight: '250px', maxWidth: '100%'}}/>
         </div>
         <div className="card-body">
           <h5 className="card-title">{post.title_it || 'Sample title'}</h5>

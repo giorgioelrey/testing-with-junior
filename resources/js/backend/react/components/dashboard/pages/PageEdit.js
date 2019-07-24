@@ -8,12 +8,9 @@ import ImageUploader from './ImageUploader';
 //Helpers
 import PageConnector from './../../../HOCs/PageConnector';
 
-const PageEdit =  ({page, updatePage, history, pageId, section }) => {
+const PageEdit =  ({page, updatePage, history, pageId, section, user }) => {
 
   console.log('PageEdit', page);
-
-  //TODO: CONTROLLARE IL JSON PAGE E CREARE UN initialValues per il Form
-  //HOC per creare i field dinamicamente ????
 
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
@@ -24,6 +21,7 @@ const PageEdit =  ({page, updatePage, history, pageId, section }) => {
       <div className="container" id="create-edit-news-page">
 
               <h1>Edit your page</h1>
+              <h2>Editing Page: {page.name}</h2>
               {submitErrors}
 
               <PagesForm
@@ -31,6 +29,7 @@ const PageEdit =  ({page, updatePage, history, pageId, section }) => {
                 setSubmissionErrors={setSubmissionErrors}
                 updatePage={updatePage}
                 history={history}
+                user={user}
                 />
 
       </div>

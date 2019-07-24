@@ -62,6 +62,7 @@
 
   </main>
   @yield('scripts')
+
   @include('frontend.partials.footer')
 
 
