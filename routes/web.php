@@ -74,7 +74,11 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$event = ($locale == 'it') ? Event::whereSlugIt($slug)->first() : Event::whereSlugEn($slug)->first();
 
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$event->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$event->image_url = Storage::url($event->image_url);
+		}
 
 		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
 	})->name('fe.evento-single');
@@ -107,8 +111,11 @@ function() {
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
 
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$post->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$post->image_url = Storage::url($post->image_url);
-
+		}
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.archivio-storico-single');
 
@@ -124,8 +131,11 @@ function() {
 
 		$locale = LaravelLocalization::setLocale();
 		$post = ($locale == 'it') ? Post::whereSlugIt($slug)->first() : Post::whereSlugEn($slug)->first();
-
+		//Check if is a loremPixel url otherwise get url for img tag
+		 $urlSplit = explode("/",$post->image_url);
+		 if (!in_array('lorempixel.com', $urlSplit)){
 		$post->image_url = Storage::url($post->image_url);
+		}
 
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.post-single');
