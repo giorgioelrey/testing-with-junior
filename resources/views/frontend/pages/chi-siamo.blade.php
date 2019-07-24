@@ -26,6 +26,8 @@
 
       <div class='col-md-8'>
 
+        <img class="img-fluid" src="{{$contents->main_image_url->data}}"/>
+
         <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
 
       </div>

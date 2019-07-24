@@ -16,7 +16,7 @@
   <div class='container-fluid' id='contatti'>
     <div class='row'>
 
-      <div class='col-md-6 bg-dark vh-100'>
+      <div class='col-md-6 bg-dark vh-100' style="">
 
       </div>
 
@@ -65,7 +65,7 @@
 
         </div>
 
-        <div class='col-md-6 bg-dark vh-100'>
+        <div class='col-md-6 bg-dark vh-100' style="">
 
         </div>
 

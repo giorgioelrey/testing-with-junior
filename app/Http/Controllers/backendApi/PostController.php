@@ -18,7 +18,13 @@ class PostController extends Controller
       $response = [
            'success' => true,
            'posts' => Post::all()->each(function ($item, $key) {
+
+            //Check if is a loremPixel url otherwise get url for img tag
+             $urlSplit = explode("/",$item['image_url']);
+             if (!in_array('lorempixel.com', $urlSplit)){
               $item['image_url'] = Storage::url($item['image_url']);
+            }
+            
             })->toArray(),
            'message' => 'Posts retrieved successfully.'
        ];
@@ -75,7 +81,15 @@ class PostController extends Controller
     {
       $post = Post::find($id);
 
-      $post['image_url'] = Storage::url($post['image_url']);
+
+      //Check if is a loremPixel url otherwise get url for img tag
+      $urlSplit = explode("/",$post['image_url']);
+
+      if (!in_array('lorempixel.com', $urlSplit)){
+
+        $post['image_url'] = Storage::url($post['image_url']);
+
+      }
 
       $postResponse = $post->toArray();
 

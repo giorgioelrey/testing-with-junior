@@ -34,6 +34,7 @@ Route::group(
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','localize' ]
 ],
 function() {
+
 	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
 
 	//CHI SIAMO
@@ -44,12 +45,23 @@ function() {
 
     $contents = json_decode($dynamicPage->first()->contents);
 
+		foreach ($contents as &$content) {
+			if($content->type == 'image'){
+				$content->data = Storage::url($content->data);
+			}
+		}
+
 		return View::make('frontend.pages.chi-siamo',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.chi-siamo');
 
+
+	//BRAND
 	Route::get(LaravelLocalization::transRoute('routes.brand'), function() {
 		return View::make('frontend.pages.brand',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.brand');
+
+
+
 
 	//EVENTI
 
@@ -67,6 +79,9 @@ function() {
 		return View::make('frontend.pages.evento-single',['lang' => $locale, 'slug' => $slug, 'event' => $event->toArray()]);
 	})->name('fe.evento-single');
 
+
+
+
 	//MN-VIP-LOUNGE
 
 	Route::get(LaravelLocalization::transRoute('routes.mn-vip-lounge'), function(Request $request) {
@@ -77,6 +92,9 @@ function() {
 
 		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.mn-vip-lounge');
+
+
+
 
 	//ARCHIVIO STORICO
 
@@ -94,6 +112,8 @@ function() {
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.archivio-storico-single');
 
+
+
 	//PRESS
 
 	Route::get(LaravelLocalization::transRoute('routes.press'), function() {
@@ -110,11 +130,15 @@ function() {
 		return View::make('frontend.pages.post-single',['lang' => $locale, 'slug' => $slug, 'post' => $post->toArray()]);
 	})->name('fe.post-single');
 
+
+
 	//SEARCH
 
 	Route::get(LaravelLocalization::transRoute('routes.search'), function() {
 		return View::make('frontend.pages.search',['lang' => LaravelLocalization::setLocale()]);
 	})->name('fe.search');
+
+
 
 	//CONTATTI
 
@@ -122,10 +146,17 @@ function() {
 
     $dynamicPage = Page::whereName('contatti')->get();
 
-    $contents = json_decode($dynamicPage->first()->contents);
+		$contents = json_decode($dynamicPage->first()->contents);
+
+		foreach ($contents as &$content) {
+			if($content->type == 'image'){
+				$content->data = Storage::url($content->data);
+			}
+		}
 
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
+
 
 	//HOME
 
@@ -148,5 +179,6 @@ function() {
 	})->name('fe.home');
 
 });
+
 
 Auth::routes();

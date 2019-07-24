@@ -21,6 +21,7 @@ const PageEdit =  ({page, updatePage, history, pageId, section, user }) => {
       <div className="container" id="create-edit-news-page">
 
               <h1>Edit your page</h1>
+              <h2>Editing Page: {page.name}</h2>
               {submitErrors}
 
               <PagesForm
