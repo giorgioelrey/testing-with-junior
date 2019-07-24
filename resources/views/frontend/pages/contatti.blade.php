@@ -16,7 +16,7 @@
   <div class='container-fluid' id='contatti'>
     <div class='row'>
 
-      <div class='col-md-6 bg-dark vh-100' style="">
+      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
 
       </div>
 
@@ -65,7 +65,7 @@
 
         </div>
 
-        <div class='col-md-6 bg-dark vh-100' style="">
+        <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
         </div>
 

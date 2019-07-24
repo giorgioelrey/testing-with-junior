@@ -16,8 +16,14 @@ class PostController extends Controller
   public function archive(){
 
     $posts = DB::table('posts')->where('category_id', '=', 2)->get()->each(function ($item, $key) {
-       $item->image_url = Storage::url($item->image_url);
-     })->toArray();
+
+     //Check if is a loremPixel url otherwise get url for img tag
+      $urlSplit = explode("/",$item['image_url']);
+      if (!in_array('lorempixel.com', $urlSplit)){
+       $item['image_url'] = Storage::url($item['image_url']);
+     }
+
+   })->toArray();
 
     if (is_null($posts)) {
         $response = [
@@ -42,7 +48,13 @@ class PostController extends Controller
   public function press(){
 
     $posts = DB::table('posts')->where('category_id', '=', 1)->get()->each(function ($item, $key) {
-       $item->image_url = Storage::url($item->image_url);
+
+     //Check if is a loremPixel url otherwise get url for img tag
+      $urlSplit = explode("/",$item['image_url']);
+      if (!in_array('lorempixel.com', $urlSplit)){
+       $item['image_url'] = Storage::url($item['image_url']);
+     }
+
      })->toArray();
 
     if (is_null($posts)) {

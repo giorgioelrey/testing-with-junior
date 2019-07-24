@@ -46,7 +46,7 @@ function() {
     $contents = json_decode($dynamicPage->first()->contents);
 
 		foreach ($contents as &$content) {
-			if($content->type == 'image'){
+			if($content->type == 'image' && !empty($content->data)){
 				$content->data = Storage::url($content->data);
 			}
 		}
@@ -149,8 +149,10 @@ function() {
 		$contents = json_decode($dynamicPage->first()->contents);
 
 		foreach ($contents as &$content) {
-			if($content->type == 'image'){
+			if($content->type == 'image' && !empty($content->data)){
+
 				$content->data = Storage::url($content->data);
+
 			}
 		}
 
@@ -167,7 +169,7 @@ function() {
 		$contents = json_decode($dynamicPage->first()->contents);
 
 		foreach ($contents as &$content) {
-			if($content->type == 'image'){
+			if($content->type == 'image' && !empty($content->data)){
 				$content->data = Storage::url($content->data);
 			}
 		}
