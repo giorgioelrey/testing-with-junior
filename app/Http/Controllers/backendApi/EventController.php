@@ -51,8 +51,6 @@ class EventController extends Controller
         $event->metadescription_en = $request->metadescription_en;
         $event->title_it = $request->title_it;
         $event->title_en = $request->title_en;
-        $event->slug_it = $request->slug_it;
-        $event->slug_en = $request->slug_en;
         $event->address = $request->address;
         $event->date = $request->date;
         $event->time = $request->time;
@@ -185,8 +183,6 @@ class EventController extends Controller
        $event->metadescription_en = $request->metadescription_en;
        $event->title_it = $request->title_it;
        $event->title_en = $request->title_en;
-       $event->slug_it = $request->slug_it;
-       $event->slug_en = $request->slug_en;
        $event->address = $request->address;
        $event->date = $request->date;
        $event->time = $request->time;

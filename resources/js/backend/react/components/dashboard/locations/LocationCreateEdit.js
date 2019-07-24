@@ -24,9 +24,18 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
       fields.address = fields.address.address;
     }
 
+    console.log('preparing field in formData',  fields);
+    let formData = new FormData();
+    for (var key in fields) {
+      console.log(key,fields[key])
+      formData.append( key, fields[key] )
+    }
+
+    console.log('fullForm Data file', formData.get('image_url'))
+
     try {
 
-      const {data} = await (section === 'create' ?  submitLocation(fields) : updateLocation(fields));
+      const {data} = await (section === 'create' ?  submitLocation(formData) : updateLocation(formData));
 
       console.log('success', data);
 
@@ -51,7 +60,6 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
               <h1>{section === 'create' ? 'Create' : 'Edit'} your location</h1>
               {submitErrors}
 
-                <ImageUploader />
                 <LocationForm
                 onSubmit={locationSubmit}
                 location={mnLocation}

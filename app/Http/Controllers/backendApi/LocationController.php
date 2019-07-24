@@ -16,7 +16,15 @@ class LocationController extends Controller
 
     $response = [
          'success' => true,
-         'locations' => Location::all()->toArray(),
+         'locations' => Location::all()->each(function ($item, $key) {
+
+          //Check if is a loremPixel url otherwise get url for img tag
+           $urlSplit = explode("/",$item['image_url']);
+           if (!in_array('lorempixel.com', $urlSplit)){
+            $item['image_url'] = Storage::url($item['image_url']);
+          }
+
+          })->toArray(),
          'message' => 'Locations retrieved successfully.'
      ];
 
@@ -29,18 +37,45 @@ class LocationController extends Controller
     {
       $input = $request->all();
 
-        $location = new Location;
-        $location->fill($input);
-        $location->save();
-        $data = $location->toArray();
+      $input = $request->all();
+       $validator = Validator::make($input, [
+          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+       ]);
 
-         $response = [
-             'success' => true,
-             'location' => $data,
-             'message' => 'Location stored successfully.'
-         ];
 
-         return response()->json($response, 200);
+      if ($validator->fails()) {
+          $response = [
+              'success' => false,
+              'data' => 'Validation Error.',
+              'message' => $validator->errors()
+          ];
+          return response()->json($response, 404);
+      }
+
+
+      $location = new Location;
+      $location->name_it = $request->name_it;
+      $location->name_en = $request->name_en;
+      $location->address = $request->address;
+      $location->latitude = $request->latitude;
+      $location->longitude = $request->longitude;
+      $location->phonenumber = $request->phonenumber;
+      $location->email = $request->email;
+      $location->description_it = $request->description_it;
+      $location->description_en = $request->description_en;
+      $location->image_url = $request->file('image_url')->store('public');
+      $location->category_id = $request->category_id;
+
+      $location->save();
+      $data = $location->toArray();
+
+       $response = [
+           'success' => true,
+           'location' => $data,
+           'message' => 'Location stored successfully.'
+       ];
+
+       return response()->json($response, 200);
 
       }
 
@@ -58,10 +93,21 @@ class LocationController extends Controller
             return response()->json($response, 404);
         }
 
+        //Check if is a loremPixel url otherwise get url for img tag
+        $urlSplit = explode("/",$post['image_url']);
+
+        if (!in_array('lorempixel.com', $urlSplit)){
+
+          $location['image_url'] = Storage::url($location['image_url']);
+
+        }
+
+        $locationResponse = $post->toArray();
+
 
         $response = [
             'success' => true,
-            'location' => $location,
+            'location' => $locationResponse,
             'message' => 'Location retrieved successfully.'
         ];
 
@@ -85,12 +131,39 @@ class LocationController extends Controller
             return response()->json($response, 404);
         }
 
-        //UPDATE OPS
-        $location->update($input);
-        $location->category_id = $request['category_id'];
-        $location->save();
+        $input = $request->all();
+         $validator = Validator::make($input, [
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+         ]);
 
-         $data = $location->toArray();
+         if ($validator->fails()) {
+             $response = [
+                 'success' => false,
+                 'data' => 'Validation Error.',
+                 'message' => $validator->errors()
+             ];
+             return response()->json($response, 404);
+         }
+
+       Storage::delete($location->image_url);
+
+        //UPDATE OPS
+        $location->name_it = $request->name_it;
+        $location->name_en = $request->name_en;
+        $location->slug_it = $request->slug_it;
+        $location->slug_en = $request->slug_en;
+        $location->address = $request->address;
+        $location->latitude = $request->latitude;
+        $location->longitude = $request->longitude;
+        $location->phonenumber = $request->phonenumber;
+        $location->email = $request->email;
+        $location->description_it = $request->description_it;
+        $location->description_en = $request->description_en;
+        $location->image_url = $request->file('image_url')->store('public');
+        $location->category_id = $request->category_id;
+
+        $location->save();
+        $data = $location->toArray();
 
          $response = [
              'success' => true,
@@ -117,14 +190,17 @@ class LocationController extends Controller
             return response()->json($response, 404);
         }
 
-        $location->delete();
         $data = $location->toArray();
 
-         $response = [
-             'success' => true,
-             'data' => $data,
-             'message' => 'Location deleted successfully.'
-         ];
+        Storage::delete($location->image_url);
+
+        $location->delete();
+
+       $response = [
+           'success' => true,
+           'data' => $data,
+           'message' => 'Location deleted successfully.'
+       ];
 
        return response()->json($response, 200);
       }
