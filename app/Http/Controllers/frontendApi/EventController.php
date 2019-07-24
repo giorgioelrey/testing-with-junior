@@ -23,9 +23,9 @@ class EventController extends Controller
             'events' => Event::all()->each(function ($item, $key) {
 
              //Check if is a loremPixel url otherwise get url for img tag
-              $urlSplit = explode("/",$item['image_url']);
+              $urlSplit = explode("/",$item->image_url);
               if (!in_array('lorempixel.com', $urlSplit)){
-               $item['image_url'] = Storage::url($item['image_url']);
+               $item->image_url = Storage::url($item->image_url);
              }
 
              })->toArray(),
