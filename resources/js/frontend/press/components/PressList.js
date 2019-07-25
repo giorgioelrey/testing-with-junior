@@ -49,8 +49,9 @@ class PressList extends React.Component{
           return (
 
             <div key={idx} className='col-md-4'>
-
-              <img className="img-fluid" src={pressPost.image_url} alt="no image" />
+                <div className='box'>
+              <img className="img-box" src={pressPost.image_url} alt="no image" />
+              </div>
               <div className='corpo-post'>
               <a href={link}>
                 <h1>{userLanguage =='it' ? pressPost.title_it : pressPost.title_en}</h1>

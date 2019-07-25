@@ -1,3 +1,12 @@
+@font-face {
+    font-family: GothamMedium;
+    src: url('/fonts/GothamMedium.tff');
+}
+
+
+
+
+
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -14,8 +23,8 @@ main{
 
 }
 p{
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-family: "GothamBook", serif;
   color: black;
   line-height: 35px;
 
@@ -23,10 +32,11 @@ p{
 
 }
 .corpo-post{
-    h1{
-      font-size: 34px;
-      font-family: "Playfair Display", serif;
+    h1 {
+      font-size: 24px;
+      font-family: "GothamBook", serif;
         text-align: right;
+        color:black;
 
     }
 
@@ -34,7 +44,7 @@ p{
     position: relative;
     z-index: 1000;
     width: 300px;
-    margin-top: -36px;
+    margin-top: -115px;
     background-color: white;
 
 }
@@ -49,9 +59,10 @@ background-color:#799f6f;
 height: 100vh;
 }
 .title{
+  text-transform: uppercase;
     text-align: center;
-    font-family: "Playfair Display", serif;
-    font-size: 50px;
+    font-family: "GothamMedium", serif;
+    font-size: 32px;
     margin-top: 70px;
 
 
@@ -94,7 +105,31 @@ height: 100vh;
     -webkit-transform: rotate(-45deg);
     color: white;
 }
+.carousel-item{
 
+
+}
+
+
+
+
+
+.carousel-caption {
+width: 500px;
+margin:0 auto;
+word-wrap: break-word;
+
+        h5{
+
+
+  text-transform: uppercase;
+    text-align: center;
+    font-family: "GothamMedium", serif;
+    font-size: 42px;
+
+
+}
+}
 
 #top {
 
@@ -129,5 +164,21 @@ height: 100vh;
 
   }
 
+
+}
+
+.box{
+  max-width: 400px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      height: 550px;
+
+    .img-box{
+      left: 50%;
+      margin-left: -200px;
+      position: absolute;
+
+    }
 
 }
