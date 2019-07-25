@@ -26,7 +26,7 @@ class CreateLocationsTable extends Migration
             $table->string('email');
             $table->text('description_it');
             $table->text('description_en');
-            $table->string('thumbnail')->nullable();
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

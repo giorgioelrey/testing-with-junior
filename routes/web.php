@@ -183,6 +183,17 @@ function() {
 				$content->data = Storage::url($content->data);
 			}
 		}
+
+		$locations = Location::all()->each(function ($item, $key) {
+
+		 //Check if is a loremPixel url otherwise get url for img tag
+			$urlSplit = explode("/",$item->image_url);
+			if (!in_array('www.montenapoleone.luxury', $urlSplit)){
+			 $item->image_url = Storage::url($item->image_url);
+		 }
+
+	 })->toArray();
+	 
 		return View::make('frontend.pages.home',[
 			'lang' => LaravelLocalization::setLocale(),
 			'locations' => Location::all()->toArray(),

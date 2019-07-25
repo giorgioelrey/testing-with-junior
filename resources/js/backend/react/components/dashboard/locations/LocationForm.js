@@ -5,6 +5,7 @@ import TextInputFormikField from './../forms/TextInputFormikField';
 import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
 import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
+import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 
 const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
@@ -12,9 +13,19 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
     console.log('newform cats', categories)
     console.log('location', location)
 
+    const FILE_SIZE = 160 * 2000;
+    const SUPPORTED_FORMATS = [
+     "image/jpg",
+     "image/jpeg",
+     "image/gif",
+     "image/png"
+   ];
+
     const formStartingValues = location && {
+
           //metadescription_it: location.metadescription_it || '',
           //metadescription_en: location.metadescription_en || '',
+          image_url: null,
           name_it: location.name_it || '',
           name_en: location.name_en || '',
           phonenumber: location.phonenumber || '',
@@ -35,7 +46,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
                onSubmit={ (fields) => {onSubmit(fields)} }
-               render={({ errors, status, touched }) => (
+               render={({  errors, status, touched, values, setFieldValue }) => (
                    <Form className="cms-form login">
 
                       <Field type="hidden" className="form-control" name="id" ></Field>
@@ -82,6 +93,8 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
                         <TextInputFormikField name={"email"} label="Email" touched={touched} errors={errors} />
 
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+
 
 
                       </div>
@@ -105,6 +118,7 @@ LocationForm.defaultProps = {
   initialValues: {
       // metadescription_it: '',
       // metadescription_en: '',
+      image_url: null,
       name_it: '',
       name_en: '',
       address: '',
