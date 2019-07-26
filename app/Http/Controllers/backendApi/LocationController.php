@@ -21,7 +21,7 @@ class LocationController extends Controller
 
           //Check if is a loremPixel url otherwise get url for img tag
            $urlSplit = explode("/",$item['image_url']);
-           if (!in_array('lorempixel.com', $urlSplit)){
+           if (!in_array('montenapoleone', $urlSplit)){
             $item['image_url'] = Storage::url($item['image_url']);
           }
 
@@ -97,7 +97,7 @@ class LocationController extends Controller
         //Check if is a loremPixel url otherwise get url for img tag
         $urlSplit = explode("/",$post['image_url']);
 
-        if (!in_array('lorempixel.com', $urlSplit)){
+        if (!in_array('montenapoleone', $urlSplit)){
 
           $location['image_url'] = Storage::url($location['image_url']);
 

@@ -90,9 +90,8 @@ class GmappApp extends Component {
         />
         {this.props.locations.length > 0 &&
           this.props.locations.map((location, key) => (
-            <React.Fragment>
+            <React.Fragment key={key}>
             <Marker
-            key={key}
               id={"marker-" + key}
               opts={{
                 draggable: false,
