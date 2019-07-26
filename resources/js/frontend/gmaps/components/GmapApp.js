@@ -50,7 +50,7 @@ class GmappApp extends Component {
       visible={this.state.modalOpen}
       onClickBackdrop={this.modalBackdropClicked}
       dialogClassName={'modal-xl'}
-      disableButtons={false}
+      disablebuttons={"false"}
       >
        <div className="modal-header">
          <h5 className="modal-title">{this.state.clickedLocation.name_it}</h5>
