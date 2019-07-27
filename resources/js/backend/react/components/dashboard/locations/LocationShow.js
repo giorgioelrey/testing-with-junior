@@ -27,7 +27,7 @@ const LocationShow = ({mnLocation, deleteLocation, history}) => {
     return (
       <Fragment>
         <div className="card mb-3">
-          <img src={mnLocation && mnLocation.image || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
+          <img src={mnLocation && mnLocation.image_url || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
           <div className="card-body">
             <h5 className="card-title">{mnLocation.name_it}</h5>
             <p className="card-text">{mnLocation.description_it}</p>

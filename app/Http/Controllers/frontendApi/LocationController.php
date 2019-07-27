@@ -20,11 +20,11 @@ class LocationController extends Controller
    {
      $response = [
           'success' => true,
-          'events' => Location::all()->each(function ($item, $key) {
+          'locations' => Location::all()->each(function ($item, $key) {
 
-           //Check if is a loremPixel url otherwise get url for img tag
+           //Check if is a seed url otherwise get url for img tag
             $urlSplit = explode("/",$item->image_url);
-            if (!in_array('lorempixel.com', $urlSplit)){
+            if (!in_array('montenapoleone', $urlSplit)){
              $item->image_url = Storage::url($item->image_url);
            }
 

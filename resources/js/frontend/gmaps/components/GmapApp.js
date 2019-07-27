@@ -70,7 +70,7 @@ class GmappApp extends Component {
             </div>
           </div>
          </div>
-         <p>{this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}</p>
+         <p dangerouslySetInnerHTML={{ __html: this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}}/>
        </div>
      </Modal>
       <GoogleMapProvider>

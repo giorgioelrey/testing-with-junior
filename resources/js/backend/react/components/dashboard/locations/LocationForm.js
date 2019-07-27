@@ -93,7 +93,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
                         <TextInputFormikField name={"email"} label="Email" touched={touched} errors={errors} />
 
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Location Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
 
 
