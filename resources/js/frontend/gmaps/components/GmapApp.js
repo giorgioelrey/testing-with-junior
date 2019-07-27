@@ -53,25 +53,36 @@ class GmappApp extends Component {
       disablebuttons={"false"}
       >
        <div className="modal-header">
-         <h5 className="modal-title">{this.state.clickedLocation.name_it}</h5>
-       </div>
+         <div class="title">
+            {this.state.clickedLocation.name_it}
+
+         <div class="sotto_title">
+
+         </div>
+        </div>
+      </div>
+
        <div className="modal-body">
-        <div className="container-fluid mt-3 mb-5">
-          <div className="row">
-            <div className="col-md-6">
-              <img className="img-fluid" src={this.state.clickedLocation.image_url} alt="no location image..."/>
-            </div>
-            <div className="col-md-6 ">
-              <div className="details d-flex flex-column align-items-center justify-content-center h-100">
+
+         <div className="row justify-content-md-center">
+            <div className="col-md-4">
+              <div className="dettaglio-modale ">
                  <p>{this.state.clickedLocation.address}</p>
                  <p>{this.state.clickedLocation.phonenumber}</p>
                  <p>{this.state.clickedLocation.email}</p>
               </div>
             </div>
-          </div>
-         </div>
-         <p dangerouslySetInnerHTML={{ __html: this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}}/>
-       </div>
+            <div className="paragrafo-modale col-md-7">
+               <p dangerouslySetInnerHTML={{ __html: this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}}/>
+            </div>
+
+        </div>
+
+
+        <div className="immagine-modale ">
+           <img className="img-fluid" src={this.state.clickedLocation.image_url} alt="no location image..."/>
+        </div>
+      </div>
      </Modal>
       <GoogleMapProvider>
         <MapBox

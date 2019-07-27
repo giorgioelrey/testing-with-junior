@@ -1,15 +1,18 @@
 @font-face {
-    font-family: GothamMedium;
-    src: url('/fonts/GothamMedium.tff');
+    font-family: GothamBook;
+    src: url('/fonts/GothamBook.ttf');
 }
-
+@font-face {
+    font-family: GothamBold;
+    src: url('/fonts/GothamBold.ttf');
+}
 
 
 
 
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", Helvetica;
     font-size: 19px;
     font-weight: 400;
     line-height: 19px;
@@ -61,7 +64,7 @@ height: 100vh;
 .title{
   text-transform: uppercase;
     text-align: center;
-    font-family: "GothamMedium", serif;
+    font-family: "GothamBook", serif;
     font-size: 32px;
     margin-top: 70px;
 
@@ -124,7 +127,7 @@ word-wrap: break-word;
 
   text-transform: uppercase;
     text-align: center;
-    font-family: "GothamMedium", serif;
+    font-family: "GothamBold", serif;
     font-size: 42px;
 
 
@@ -181,4 +184,33 @@ word-wrap: break-word;
 
     }
 
+}
+
+.modal-header {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem;
+    border-bottom: 0px solid #dee2e6;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.dettaglio-modale{
+      p{
+
+            font-size: 21px;
+            font-family: "GothamBook", serif;
+            color: black;
+            line-height: 33px;
+            margin-bottom: 0px;
+
+
+
+      }
+
+    margin: 0 auto;
+    width: 243px;
+    text-align: center;
 }
