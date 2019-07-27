@@ -16,7 +16,7 @@ const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pag
     console.log('submit post fields',  fields);
     let formData = new FormData();
     for (var key in fields) {
-      console.log(key,fields[key])
+      //console.log(key,fields[key])
       formData.append( key, fields[key] )
     }
 

@@ -51,6 +51,7 @@ class Thumb extends React.Component {
 const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , values, errors}) => (
 
               <div className="form-group mb-5">
+              <label className="text-uppercase">MAX Image File 2MB</label>
                 <div className="custom-file">
                    <label className="custom-file-label" htmlFor={name}>{label}</label>
                    <input name={name} type="file" onChange={(event) => {

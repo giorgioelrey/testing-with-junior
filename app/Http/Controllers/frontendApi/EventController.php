@@ -20,7 +20,7 @@ class EventController extends Controller
      {
        $response = [
             'success' => true,
-            'events' => Event::all()->each(function ($item, $key) {
+            'events' => array_reverse(Event::all()->each(function ($item, $key) {
 
              //Check if is a loremPixel url otherwise get url for img tag
               $urlSplit = explode("/",$item->image_url);
@@ -28,7 +28,7 @@ class EventController extends Controller
                $item->image_url = Storage::url($item->image_url);
              }
 
-             })->toArray(),
+             })->toArray()),
             'message' => 'All Events retrieved successfully.'
         ];
 

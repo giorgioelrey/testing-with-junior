@@ -1,11 +1,5 @@
 @extends('frontend.layout.app')
 
-@section('meta-description')
-  {{$content_it = ''}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
-@endsection
-
 @section('title')
   <title>{{$lang == 'it' ? 'Ricerca' : 'Search'}}</title>
 @endsection
@@ -31,10 +25,6 @@
   </div>
 
   <div class='row mt-5' id='events-list'>
-
-
-
-
 
   </div>
 </div>

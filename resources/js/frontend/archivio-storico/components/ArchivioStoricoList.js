@@ -59,7 +59,7 @@ class ArchivioStoricoList extends React.Component{
                     </a>
 
 
-                    <p>{userLanguage =='it' ? archivePost.postbodytop_it : archivePost.postbodytop_en}</p>
+                    <p dangerouslySetInnerHTML={{__html: userLanguage =='it' ? archivePost.postbodytop_it : archivePost.postbodytop_en}}/>
                   </div>
                 </div>
 

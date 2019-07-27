@@ -58,7 +58,7 @@ class PressList extends React.Component{
               </a>
 
 
-              <p>{userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}</p>
+            <p dangerouslySetInnerHTML={{__html: userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}}/>
               </div>
             </div>
 

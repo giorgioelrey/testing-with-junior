@@ -193,7 +193,7 @@ const PageFormConnector = ((WrappedComponent) => {
       }
 
       console.log('done ready for submission',previousContents);
-      debugger
+      
       return previousContents
 
     }
