@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
          EventsTableSeeder::class,
          PagesTableSeeder::class,
          PostsTableSeeder::class,
+         LocationsTableSeeder::class
        ]);
     }
 }

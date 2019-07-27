@@ -7,7 +7,6 @@ import SelectFormikField from './../forms/SelectFormikField';
 import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
-
 const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
 
     console.log('newform cats', categories)
@@ -23,8 +22,8 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
     const formStartingValues = location && {
 
-          //metadescription_it: location.metadescription_it || '',
-          //metadescription_en: location.metadescription_en || '',
+          metadescription_it: location.metadescription_it || '',
+          metadescription_en: location.metadescription_en || '',
           image_url: null,
           name_it: location.name_it || '',
           name_en: location.name_en || '',
@@ -37,7 +36,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
           id: location.id || ''
       } || initialValues;
 
-      console.log('formStartingValues', formStartingValues)
+    console.log('formStartingValues', formStartingValues)
 
     return(
 
@@ -59,7 +58,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
                         <h2 >IT Contents</h2>
 
-                        {/*<TextInputFormikField name={"metadescription_it"} label="MetaDescription IT" touched={touched} errors={errors} />*/}
+                        <TextInputFormikField name={"metadescription_it"} label="MetaDescription IT" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"name_it"} label="Name IT" touched={touched} errors={errors} />
 
@@ -70,7 +69,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                       <div className="my-3">
                         <h2 className="mt-3">EN Contents</h2>
 
-                        {/* <TextInputFormikField name={"metadescription_en"} label="MetaDescription EN" touched={touched} errors={errors} /> */}
+                        <TextInputFormikField name={"metadescription_en"} label="MetaDescription EN" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"name_en"} label="Name EN" touched={touched} errors={errors} />
 
@@ -95,8 +94,6 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
                         <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Location Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
-
-
                       </div>
                        <div className="form-group">
                            <button type="submit" className="btn btn-primary mr-2">{section === 'create' ? 'Create' : 'Edit'} location</button>
@@ -116,8 +113,8 @@ export default LocationForm;
 
 LocationForm.defaultProps = {
   initialValues: {
-      // metadescription_it: '',
-      // metadescription_en: '',
+      metadescription_it: '',
+      metadescription_en: '',
       image_url: null,
       name_it: '',
       name_en: '',
@@ -130,12 +127,12 @@ LocationForm.defaultProps = {
       id: ''
   },
   yupSchema: {
-      // metadescription_it: Yup.string()
-      //    .min(6, 'Meta Description must be at least 6 characters')
-      //     .required('Meta Description is required'),
-      // metadescription_en: Yup.string()
-      //    .min(6, 'Meta Description must be at least 6 characters')
-      //     .required('Meta Description is required'),
+      metadescription_it: Yup.string()
+        .min(6, 'Meta Description must be at least 6 characters')
+         .required('Meta Description is required'),
+      metadescription_en: Yup.string()
+        .min(6, 'Meta Description must be at least 6 characters')
+         .required('Meta Description is required'),
       name_it: Yup.string()
          .min(6, 'Name IT must be at least 6 characters')
           .required('Name IT is required'),

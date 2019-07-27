@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = 'MonteNapoleone District oggi rappresenta oltre 150 associati tra Global Luxury Brands e proprietari immobiliari, situati nel Quadrilatero della Moda di Milano.'}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$lang == 'it' ? $contents->metadescription->data->it : $contents->metadescription->data->en }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -54,7 +52,7 @@
         <img src="{{$contents->carousel_image_3->data}}" class="d-block w-100" alt="...">
         <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
           <h5>{{$contents->carousel_image_3_text->data}}</h5>
-          
+
         </div>
       </div>
     </div>
