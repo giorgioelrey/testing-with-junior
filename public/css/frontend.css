@@ -10663,13 +10663,18 @@ a.text-dark:focus {
 }
 
 @font-face {
-  font-family: GothamMedium;
-  src: url("/fonts/GothamMedium.tff");
+  font-family: GothamBook;
+  src: url("/fonts/GothamBook.ttf");
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url("/fonts/GothamBold.ttf");
 }
 
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Helvetica;
   font-size: 19px;
   font-weight: 400;
   line-height: 19px;
@@ -10718,7 +10723,7 @@ p {
 .title {
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamMedium", serif;
+  font-family: "GothamBook", serif;
   font-size: 32px;
   margin-top: 70px;
 }
@@ -10767,7 +10772,7 @@ p {
 .carousel-caption h5 {
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamMedium", serif;
+  font-family: "GothamBold", serif;
   font-size: 42px;
 }
 
@@ -10815,6 +10820,30 @@ p {
   left: 50%;
   margin-left: -200px;
   position: absolute;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  border-bottom: 0px solid #dee2e6;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.dettaglio-modale {
+  margin: 0 auto;
+  width: 243px;
+  text-align: center;
+}
+
+.dettaglio-modale p {
+  font-size: 21px;
+  font-family: "GothamBook", serif;
+  color: black;
+  line-height: 33px;
+  margin-bottom: 0px;
 }
 
 #nav .bg-light {
@@ -10880,12 +10909,12 @@ p {
 }
 
 #home .mostra_evento h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-size: 24px;
 }
 
 #home .mostra_evento h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-size: 20px;
   font-weight: bold;
 }
@@ -10951,7 +10980,7 @@ p {
 #soci .hotel {
   color: #000000;
   font-size: 18px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-weight: 700;
   list-style: none;
 }
@@ -10963,9 +10992,9 @@ p {
 }
 
 #soci .title {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   left: 50%;
-  font-size: 50px;
+  font-size: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
@@ -10987,9 +11016,9 @@ p {
 }
 
 #servizi-mnlounge .title {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   left: 50%;
-  font-size: 50px;
+  font-size: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
@@ -11014,7 +11043,7 @@ p {
   margin-top: 20%;
   line-height: 49px;
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   color: black;
 }
 
@@ -11028,7 +11057,7 @@ p {
 
 #contatti .invia {
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   color: black;
   padding: 8px 41px;
 }
@@ -11039,7 +11068,7 @@ p {
 
 #contatti form label {
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   color: black;
 }
 
