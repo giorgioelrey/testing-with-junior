@@ -13,7 +13,7 @@ const ItemCard = ({type, item, userLanguage }) => {
     },
     eventi: {
       it: 'eventi',
-      en: 'event'
+      en: 'events'
     }
 
   };

@@ -30,11 +30,11 @@ class SearchController extends Controller
 
        });
 
-      $mergedColl = $foundEvents->merge($foundPress)->merge($foundArchive)->sortByDesc('created_at');
+      $mergedColl = $foundEvents->merge($foundPress)->merge($foundArchive)->sortByDesc('created_at')->toArray();
 
       $response = [
            'success' => true,
-           'results' => $mergedColl->toArray(),
+           'results' => $mergedColl,
            'message' => 'response retrieved successfully.'
        ];
 

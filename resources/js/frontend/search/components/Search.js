@@ -35,6 +35,11 @@ export default class Search extends Component {
 
       console.log('risultati', data);
 
+      //prevents failing from results being an object
+      if (!Array.isArray(data.results)){
+        data.results =  Object.values(data.results)
+      }
+
       this.setState({queryResults: data.results, searchDone: true},
         //check state after update
         () => {
@@ -73,25 +78,28 @@ export default class Search extends Component {
             <form className="form-inline my-5" onSubmit={this.handleSubmit}>
 
               <div className="input-group mb-3">
-                <input type="text" className="form-control" name="query" value={this.state.query} placeholder="Digita la tua ricerca" aria-label="Digita la tua ricerca" aria-describedby="basic-addon2" onChange={this.handleChange}/>
+                <input type="text" className="form-control" name="query" value={this.state.query} placeholder={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-label={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-describedby="basic-addon2" onChange={this.handleChange}/>
 
                 <div className="input-group-append">
-                  <button type="submit" className="btn btn-outline-secondary">Search</button>
+                  <button type="submit" className="btn btn-outline-secondary">
+                  {userLanguage == 'it' ? 'Cerca' : 'Search'}
+                  </button>
                 </div>
               </div>
 
             </form>
             </div>
 </div>
-            <h1>Risultati query: {query}</h1>
+            <h1>{userLanguage == 'it' ? 'Risultati per query' : 'Query results for'}: {query}</h1>
             <div className="container">
               <div className="row">
-              { queryResults.map((item, index) => <ItemCard
+              { queryResults.length > 0 && queryResults.map((item, index) => <ItemCard
                 key={index}
                 type={item.type}
                 item={item}
                 userLanguage={userLanguage}
-               />) || null}
+               />) ||
+               <p>{userLanguage == 'it' ? 'Nessun risultato per la tua ricerca' : 'No results for your query'}</p>}
                </div>
             </div>
 
