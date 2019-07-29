@@ -145,9 +145,11 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     //****** PAGES ****//
 
-    Route::get('/admin/page/{id}/{lang}', 'PageController@id')->name('pages.all');
+    Route::get('/admin/page/{id}/{lang}', 'PageController@id')->name('pages.byId');
 
+    //****** SEARCH ****//
 
+    Route::get('/search/{querystring}', 'SearchController@index')->name('search.query');
 
 
 });

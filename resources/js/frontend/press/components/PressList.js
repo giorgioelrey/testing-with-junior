@@ -1,15 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-
+import ItemCard from './../../common/ItemCard';
 
 class PressList extends React.Component{
 
 
   constructor(props){
 
-    super(props); //carica le props
-
-    //definisci lo state
+    super(props);
 
     this.state = { press: [], apiErrors: [] };
 
@@ -42,27 +40,15 @@ class PressList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>{
-
-          const link = userLanguage == 'it' ? `/it/press/${pressPost.slug_it}` : `/en/press/${pressPost.slug_en}`;
-
-          return (
-
-            <div key={idx} className='col-md-4'>
-                <div className='box'>
-              <img className="img-box" src={pressPost.image_url} alt="no image" />
-              </div>
-              <div className='corpo-post'>
-              <a href={link}>
-                <h1>{userLanguage =='it' ? pressPost.title_it : pressPost.title_en}</h1>
-              </a>
-
-
-            <p dangerouslySetInnerHTML={{__html: userLanguage =='it' ? pressPost.postbodytop_it : pressPost.postbodytop_en}}/>
-              </div>
-            </div>
-
-  )}) || (<div>No press posts available</div>)}
+        {this.state.press.length > 0 && this.state.press.map((pressPost, idx) =>(
+          <ItemCard
+            key={idx}
+            type="press"
+            item={pressPost}
+            userLanguage={userLanguage}
+           />
+          )
+      ) || (<div>No press posts available</div>)}
 
       </React.Fragment>
     )

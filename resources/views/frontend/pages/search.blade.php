@@ -6,7 +6,7 @@
 
 @section('scripts')
 
-  <script src="{{asset('/js/frontend/events.js')}}" charset="utf-8"></script>
+  <script src="{{asset('/js/frontend/search.js')}}" charset="utf-8"></script>
 
 @endsection
 
@@ -24,7 +24,8 @@
     </div>
   </div>
 
-  <div class='row mt-5' id='events-list'>
+  <div class='row mt-5' id='search'>
+    
 
   </div>
 </div>

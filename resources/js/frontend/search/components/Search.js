@@ -1,0 +1,101 @@
+import React, { Component, Fragment } from 'react';
+import axios from 'axios';
+import ItemCard from './../../common/ItemCard';
+
+export default class Search extends Component {
+
+  constructor(props){
+    super(props);
+
+
+    this.state = {
+      query: '',
+      queryResults: [],
+      searchDone: false,
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  async getResults(query){
+
+    console.log('INIZIO LA RICERCA', query)
+
+    try {
+
+      const {data} = await axios({
+        url: `/api/search/${query}`,
+        method: 'get',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        responseType: 'json',
+      });
+
+      console.log('risultati', data);
+
+      this.setState({queryResults: data.results, searchDone: true},
+        //check state after update
+        () => {
+          console.log('state now has following results', this.state.queryResults);
+        });
+
+      } catch (error) {
+        console.log('SEARCH ERROR')
+          console.log(error)
+      }
+
+    }
+
+    handleSubmit(e){
+      e.preventDefault();
+
+      this.getResults(this.state.query);
+
+      e.target.reset();
+
+    }
+
+    handleChange(e) {
+
+      this.setState({ [e.target.name]: e.target.value, searchDone:false })
+    }
+
+    render(){
+
+      const {queryResults, query, searchDone} = this.state;
+
+      return (
+        <Fragment>
+          <div className="container py-5">
+
+            <form className="form-inline my-5" onSubmit={this.handleSubmit}>
+
+              <div className="input-group mb-3">
+                <input type="text" className="form-control" name="query" value={this.state.query} placeholder="Digita la tua ricerca" aria-label="Digita la tua ricerca" aria-describedby="basic-addon2" onChange={this.handleChange}/>
+
+                <div className="input-group-append">
+                  <button type="submit" className="btn btn-outline-secondary">Button</button>
+                </div>
+              </div>
+
+            </form>
+
+            <h1>Risultati query: {query}</h1>
+            <div className="container">
+              <div className="row">
+              { queryResults.map((item, index) => <ItemCard
+                key={index}
+                type={item.type}
+                item={item}
+                userLanguage={userLanguage}
+               />) || null}
+               </div>
+            </div>
+          </div>
+        </Fragment>
+      )
+    }
+
+  }
