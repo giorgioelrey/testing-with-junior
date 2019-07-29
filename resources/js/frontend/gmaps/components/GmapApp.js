@@ -24,6 +24,7 @@ class GmappApp extends Component {
     this.modalBackdropClicked = this.modalBackdropClicked.bind(this);
 
   }
+
   //user click outside the modal
   modalBackdropClicked(){
     this.setState({modalOpen:false})
@@ -54,10 +55,10 @@ class GmappApp extends Component {
       >
       <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>X</div>
        <div className="modal-header">
-         <div class="title">
+         <div className="title">
             {this.state.clickedLocation.name_it}
 
-         <div class="sotto_title">
+         <div className="sotto_title">
 
          </div>
         </div>

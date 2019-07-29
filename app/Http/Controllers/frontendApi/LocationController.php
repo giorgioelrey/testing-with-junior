@@ -20,7 +20,7 @@ class LocationController extends Controller
    {
      $response = [
           'success' => true,
-          'locations' => Location::all()->each(function ($item, $key) {
+          'locations' => array_reverse(Location::all()->each(function ($item, $key) {
 
            //Check if is a seed url otherwise get url for img tag
             $urlSplit = explode("/",$item->image_url);
@@ -28,7 +28,7 @@ class LocationController extends Controller
              $item->image_url = Storage::url($item->image_url);
            }
 
-           })->toArray(),
+           })->toArray()),
           'message' => 'All Locations retrieved successfully.'
       ];
 

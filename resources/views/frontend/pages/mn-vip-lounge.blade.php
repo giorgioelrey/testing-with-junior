@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class='col-md-6 bg-gold '>
+      <div class='col-md-6  vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->main_image_url->data}}')" '>
 
       </div>
 

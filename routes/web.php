@@ -94,6 +94,11 @@ function() {
 
     $contents = json_decode($dynamicPage->first()->contents);
 
+		$urlSplit = explode("/",$contents->main_image_url->data);
+		if (!in_array('lorempixel.com', $urlSplit)){
+	 $contents->main_image_url->data = Storage::url($contents->main_image_url->data);
+	 }
+
 		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.mn-vip-lounge');
 

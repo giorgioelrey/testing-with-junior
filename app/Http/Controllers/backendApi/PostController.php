@@ -17,7 +17,7 @@ class PostController extends Controller
 
       $response = [
            'success' => true,
-           'posts' => Post::all()->each(function ($item, $key) {
+           'posts' => array_reverse(Post::all()->each(function ($item, $key) {
 
             //Check if is a loremPixel url otherwise get url for img tag
              $urlSplit = explode("/",$item['image_url']);
@@ -25,7 +25,7 @@ class PostController extends Controller
               $item['image_url'] = Storage::url($item['image_url']);
             }
 
-            })->toArray(),
+            })->toArray()),
            'message' => 'Posts retrieved successfully.'
        ];
 

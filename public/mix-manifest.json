@@ -7,5 +7,6 @@
     "/js/frontend/events.js": "/js/frontend/events.js",
     "/js/frontend/gmaps.js": "/js/frontend/gmaps.js",
     "/js/frontend/homeCalendar.js": "/js/frontend/homeCalendar.js",
-    "/js/frontend/press.js": "/js/frontend/press.js"
+    "/js/frontend/press.js": "/js/frontend/press.js",
+    "/js/frontend/search.js": "/js/frontend/search.js"
 }
