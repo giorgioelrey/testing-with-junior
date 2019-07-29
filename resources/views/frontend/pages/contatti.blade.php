@@ -28,21 +28,21 @@
         </div>
         <div class='pl-5 rif-contatti'>
 
-          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:<br>
-            {{$contents->address->data}}</p>
+          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:</p>
+          <p class='sotto'>  {{$contents->address->data}}</p>
 
-            <p>Email:<br>
-              <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
+            <p>Email:</p>
+            <p class='sotto'>  <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
             </p>
 
-            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:<br>
-              {{$contents->phone->data}}
-            </p>
+            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:</p>
+            <p class='sotto'>  {{$contents->phone->data}}  </p>
+
           </div>
 
         </div>
 
-        <div class='col-md-6 d-flex align-items-center px-5'>
+        <div class='col-md-6 d-flex align-items-center aria'>
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>

@@ -53,6 +53,7 @@ class GmappApp extends Component {
       dialogClassName={'modal-xl'}
       disablebuttons={"false"}
       >
+      <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>X</div>
        <div className="modal-header">
          <div className="title">
             {this.state.clickedLocation.name_it}
@@ -89,6 +90,7 @@ class GmappApp extends Component {
         <MapBox
           apiKey={gmapsApiKey}
           opts={{
+          
             center: {lat: 45.4682, lng: 9.195269999999937},
             zoom: 13,
           }}

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Lato:700&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10687,20 +10687,26 @@ main {
   margin-top: 190px;
 }
 
+.carta {
+  max-width: 333px;
+  margin: 0 auto;
+}
+
 p {
   font-size: 21px;
   font-family: "GothamBook", serif;
   color: black;
-  line-height: 35px;
+  line-height: 26px;
 }
 
 .corpo-post {
-  margin-left: 51px;
+  margin-left: 42px;
   position: relative;
   z-index: 1000;
-  width: 300px;
+  max-width: 263px;
   margin-top: -115px;
   background-color: white;
+  padding: 20px;
 }
 
 .corpo-post h1 {
@@ -10708,6 +10714,29 @@ p {
   font-family: "GothamBook", serif;
   text-align: right;
   color: black;
+}
+
+.lingua {
+  margin-right: 15px;
+}
+
+#search .form-control {
+  display: block;
+  height: calc(1.6em + 0.75rem + 25px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #594f3e;
+  border-radius: 0rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#search .input-group {
+  width: 100% !important;
 }
 
 .bg-gold {
@@ -10725,14 +10754,14 @@ p {
   text-align: center;
   font-family: "GothamBook", serif;
   font-size: 32px;
-  margin-top: 70px;
+  margin-top: 236px;
 }
 
 .sotto_title {
   margin: 0 auto;
   margin-top: 30px;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
@@ -10835,7 +10864,7 @@ p {
 .dettaglio-modale {
   margin: 0 auto;
   width: 243px;
-  text-align: center;
+  text-align: left;
 }
 
 .dettaglio-modale p {
@@ -10846,7 +10875,19 @@ p {
   margin-bottom: 0px;
 }
 
+.close_modal {
+  color: #797878;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: GothamBook;
+  font-size: 100px;
+  line-height: 100px;
+  cursor: pointer;
+}
+
 #nav .bg-light {
+  border-bottom: 1px solid black;
   background-color: #ffffff !important;
 }
 
@@ -10875,9 +10916,9 @@ p {
   text-transform: uppercase;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  font-size: 21px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
 }
 
 #nav .navbar-brand img {
@@ -10929,8 +10970,14 @@ p {
   font-size: 18px;
 }
 
-#home #react-calendar {
+#home .bordo {
   border: 1px solid black;
+}
+
+#home #react-calendar {
+  padding-right: 29px;
+  padding-left: 22px;
+  max-width: 453px;
   height: 100vh;
 }
 
@@ -11011,7 +11058,7 @@ p {
   z-index: 999999;
   position: absolute;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
@@ -11035,24 +11082,35 @@ p {
   z-index: 999999;
   position: absolute;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
+#contatti {
+  margin-top: -36px;
+}
+
+#contatti .title {
+  margin-top: 100px;
+}
+
 #contatti .rif-contatti {
-  margin-top: 20%;
-  line-height: 49px;
+  margin-top: 50px;
   font-size: 24px;
   font-family: "GothamBook", serif;
   color: black;
 }
 
 #contatti .rif-contatti p {
-  margin-bottom: 50px;
+  line-height: 32px;
 }
 
 #contatti .rif-contatti p a {
   color: black;
+}
+
+#contatti .sotto {
+  margin-bottom: 93px;
 }
 
 #contatti .invia {
@@ -11067,9 +11125,16 @@ p {
 }
 
 #contatti form label {
-  font-size: 24px;
+  margin-top: 20px;
+  margin-bottom: 19px;
+  font-size: 21px;
   font-family: "GothamBook", serif;
   color: black;
+}
+
+#contatti .aria {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
 }
 
 #contatti .form-control {
@@ -11094,9 +11159,18 @@ p {
 }
 
 #contatti .btn-primary {
+  margin-top: 24px;
   border-radius: 0rem;
-  color: black;
-  background-color: #ffffff;
-  border-color: #594f3e;
+  color: white;
+  background-color: #000;
+  border-color: #000;
+}
+
+#contatti .btn-primary:hover {
+  margin-top: 24px;
+  border-radius: 0rem;
+  color: white;
+  background-color: #caa660;
+  border-color: #caa660;
 }
 

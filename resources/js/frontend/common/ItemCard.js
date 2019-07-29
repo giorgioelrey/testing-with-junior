@@ -28,7 +28,7 @@ const ItemCard = ({type, item, userLanguage }) => {
 
     return (
 
-        <div className='col-md-4'>
+        <div className='col-md-4 carta'>
               <div className='box'>
             <img className="img-box" src={item.image_url} alt="no image" />
             </div>
