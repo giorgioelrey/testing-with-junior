@@ -10,6 +10,8 @@ import {
 } from '@googlemap-react/core'
 import Modal from 'react-bootstrap4-modal';
 
+
+
 class GmappApp extends Component {
 
   constructor(props){
@@ -90,7 +92,7 @@ class GmappApp extends Component {
         <MapBox
           apiKey={gmapsApiKey}
           opts={{
-          
+            styles: this.props.mapStyle,
             center: {lat: 45.4682, lng: 9.195269999999937},
             zoom: 13,
           }}
