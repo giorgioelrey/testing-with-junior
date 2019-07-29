@@ -21,7 +21,7 @@
 
 
 
-<div class='container-fluid ' id='evento-single'>
+<div class='container-fluid' id='evento-single'>
 <div class='row'>
   <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$event['image_url']}}')">
 

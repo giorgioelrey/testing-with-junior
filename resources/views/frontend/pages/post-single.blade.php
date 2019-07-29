@@ -13,7 +13,7 @@
 
 
 <div class='container ' id='post-single'>
-  <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$event['image_url']}}')">
+  <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$post['image_url']}}')">
 
   </div>
 
