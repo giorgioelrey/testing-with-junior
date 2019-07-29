@@ -50,18 +50,18 @@ class GmappApp extends Component {
       visible={this.state.modalOpen}
       onClickBackdrop={this.modalBackdropClicked}
       dialogClassName={'modal-xl'}
-      disableButtons={false}
+      disablebuttons={"false"}
       >
       <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>X</div>
        <div className="modal-header">
          <div class="title">
-    {this.state.clickedLocation.name_it}
+            {this.state.clickedLocation.name_it}
 
-    <div class="sotto_title">
+         <div class="sotto_title">
 
-    </div>
-  </div>
-</div>
+         </div>
+        </div>
+      </div>
 
        <div className="modal-body">
 
@@ -72,21 +72,18 @@ class GmappApp extends Component {
                  <p>{this.state.clickedLocation.phonenumber}</p>
                  <p>{this.state.clickedLocation.email}</p>
               </div>
-              </div>
-              <div className="paragrafo-modale col-md-7">
-               <p>{this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}</p>
-              </div>
+            </div>
+            <div className="paragrafo-modale col-md-7">
+               <p dangerouslySetInnerHTML={{ __html: this.state.clickedLocation['description_' + (userLanguage == 'it' ? 'it': 'en')]}}/>
+            </div>
 
-              </div>
-
-
-              <div className="immagine-modale ">
-               <img className="img-fluid" src={this.state.clickedLocation.image_url} alt="no location image..."/>
-              </div>
-          </div>
+        </div>
 
 
-
+        <div className="immagine-modale ">
+           <img className="img-fluid" src={this.state.clickedLocation.image_url} alt="no location image..."/>
+        </div>
+      </div>
      </Modal>
       <GoogleMapProvider>
         <MapBox
@@ -105,9 +102,8 @@ class GmappApp extends Component {
         />
         {this.props.locations.length > 0 &&
           this.props.locations.map((location, key) => (
-            <React.Fragment>
+            <React.Fragment key={key}>
             <Marker
-            key={key}
               id={"marker-" + key}
               opts={{
                 draggable: false,
