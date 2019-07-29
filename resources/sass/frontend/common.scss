@@ -6,7 +6,7 @@
     font-family: GothamBold;
     src: url('/fonts/GothamBold.ttf');
 }
-
+@import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
 
 
 
@@ -25,11 +25,20 @@ main{
 
 
 }
+.carta{
+  max-width: 333px;
+      margin: 0 auto;
+
+
+
+}
+
+
 p{
   font-size: 21px;
   font-family: "GothamBook", serif;
   color: black;
-  line-height: 35px;
+  line-height: 26px;
 
 
 
@@ -43,15 +52,44 @@ p{
 
     }
 
-    margin-left: 51px;
-    position: relative;
-    z-index: 1000;
-    width: 300px;
-    margin-top: -115px;
-    background-color: white;
+
+
+   margin-left: 42px;
+   position: relative;
+   z-index: 1000;
+   max-width: 263px;
+   margin-top: -115px;
+   background-color: white;
+   padding: 20px;
+
 
 }
+.lingua {
+   margin-right: 15px;
+}
+#search{
+.form-control {
+    display: block;
 
+    height: calc(1.6em + 0.75rem + 25px);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #594f3e;
+    border-radius: 0rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+
+}
+.input-group{
+  width: 100%!important;
+
+}
+}
 
 .bg-gold{
 background-color: #caa660;
@@ -66,7 +104,7 @@ height: 100vh;
     text-align: center;
     font-family: "GothamBook", serif;
     font-size: 32px;
-    margin-top: 70px;
+  margin-top: 236px;
 
 
 
@@ -76,7 +114,7 @@ height: 100vh;
     margin: 0 auto;
     margin-top: 30px;
     width: 160px;
-    height: 3px;
+    height: 1px;
     background-color: #000000;
 }
 
@@ -212,7 +250,7 @@ word-wrap: break-word;
 
     margin: 0 auto;
     width: 243px;
-    text-align: center;
+    text-align: left;
 }
 
 .close_modal {

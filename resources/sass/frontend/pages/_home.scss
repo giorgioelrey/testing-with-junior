@@ -28,12 +28,21 @@ width: 396px;
   text-align: center;
   font-size: 18px;
 }
+.bordo{
+border: 1px solid black;
 
+
+
+}
 
   #react-calendar{
-border: 1px solid black;
+    padding-right: 29px;
+    padding-left: 22px;
+    max-width: 453px;
+
     height: 100vh;
-  }
+
+}
 
 .Day-inner{
 color:black;

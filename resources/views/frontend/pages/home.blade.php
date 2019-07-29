@@ -67,21 +67,21 @@
   </div>
 </div>
 </div>
-<div class='col-md-5'>
-
+<div class='col-md-6'>
+<div class='bordo'>
   <div id="react-calendar">
 
-
+  </div>
   </div>
 
 </div>
 
-<div class='col-md-7'>
+<div class='col-md-6'>
 
   <div id="map" style="width: 100%; height:800px;">
 
+</div>
 
-  </div>
 
 </div>
 

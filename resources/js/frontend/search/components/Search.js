@@ -68,20 +68,21 @@ export default class Search extends Component {
 
       return (
         <Fragment>
-          <div className="container py-5">
-
+<div className="row d-flex justify-content-center">
+          <div className="col-md-5">
             <form className="form-inline my-5" onSubmit={this.handleSubmit}>
 
               <div className="input-group mb-3">
                 <input type="text" className="form-control" name="query" value={this.state.query} placeholder="Digita la tua ricerca" aria-label="Digita la tua ricerca" aria-describedby="basic-addon2" onChange={this.handleChange}/>
 
                 <div className="input-group-append">
-                  <button type="submit" className="btn btn-outline-secondary">Button</button>
+                  <button type="submit" className="btn btn-outline-secondary">Search</button>
                 </div>
               </div>
 
             </form>
-
+            </div>
+</div>
             <h1>Risultati query: {query}</h1>
             <div className="container">
               <div className="row">
@@ -93,7 +94,7 @@ export default class Search extends Component {
                />) || null}
                </div>
             </div>
-          </div>
+
         </Fragment>
       )
     }

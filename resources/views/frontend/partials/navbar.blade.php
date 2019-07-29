@@ -1,6 +1,6 @@
-<div class='container-fluid' id='nav'>
 
 
+<div class='container-fluid mx-5' id='nav'>
 <nav class="navbar navbar-expand-xl navbar-light fixed-top  bg-light">
 
   <a class="navbar-brand" href="{{route('fe.home')}}"><img src='{{ asset('images/logo.jpg')   }}'></a>
@@ -56,7 +56,6 @@
   </div>
 
 </div>
+
 </nav>
-
-
 </div>
