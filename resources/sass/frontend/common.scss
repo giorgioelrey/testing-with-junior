@@ -214,3 +214,14 @@ word-wrap: break-word;
     width: 243px;
     text-align: center;
 }
+
+.close_modal {
+    color: #797878;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-family: GothamBook;
+    font-size: 100px;
+    line-height: 100px;
+    cursor: pointer;
+}

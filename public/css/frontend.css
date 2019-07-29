@@ -10846,6 +10846,17 @@ p {
   margin-bottom: 0px;
 }
 
+.close_modal {
+  color: #797878;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: GothamBook;
+  font-size: 100px;
+  line-height: 100px;
+  cursor: pointer;
+}
+
 #nav .bg-light {
   background-color: #ffffff !important;
 }
@@ -11095,8 +11106,15 @@ p {
 
 #contatti .btn-primary {
   border-radius: 0rem;
-  color: black;
-  background-color: #ffffff;
-  border-color: #594f3e;
+  color: white;
+  background-color: #000;
+  border-color: #000;
+}
+
+#contatti .btn-primary:hover {
+  border-radius: 0rem;
+  color: white;
+  background-color: #caa660;
+  border-color: #caa660;
 }
 
