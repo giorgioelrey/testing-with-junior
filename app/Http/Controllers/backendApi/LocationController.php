@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Location;
 use App\Category;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class LocationController extends Controller
@@ -15,155 +16,194 @@ class LocationController extends Controller
   {
 
     $response = [
-         'success' => true,
-         'locations' => Location::all()->toArray(),
-         'message' => 'Locations retrieved successfully.'
-     ];
+      'success' => true,
+      'locations' => array_reverse(Location::all()->each(function ($item, $key) {
 
-     return response()->json($response, 200);
+        //Check if is a loremPixel url otherwise get url for img tag
+        $urlSplit = explode("/",$item['image_url']);
+        if (!in_array('montenapoleone', $urlSplit)){
+          $item['image_url'] = Storage::url($item['image_url']);
+        }
+
+      })->toArray()),
+      'message' => 'Locations retrieved successfully.'
+    ];
+
+    return response()->json($response, 200);
+
+  }
+
+  public function store(Request $request)
+  {
+    $input = $request->all();
+
+    $input = $request->all();
+    $validator = Validator::make($input, [
+      'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+    ]);
+
+
+    if ($validator->fails()) {
+      $response = [
+        'success' => false,
+        'data' => 'Validation Error.',
+        'message' => $validator->errors()
+      ];
+      return response()->json($response, 404);
+    }
+
+
+    $location = new Location;
+    $location->name_it = $request->name_it;
+    $location->name_en = $request->name_en;
+    $location->address = $request->address;
+    $location->latitude = $request->latitude;
+    $location->longitude = $request->longitude;
+    $location->phonenumber = $request->phonenumber;
+    $location->email = $request->email;
+    $location->description_it = $request->description_it;
+    $location->description_en = $request->description_en;
+    $location->image_url = $request->file('image_url')->store('public');
+    $location->category_id = $request->category_id;
+
+    $location->save();
+    $data = $location->toArray();
+
+    $response = [
+      'success' => true,
+      'location' => $data,
+      'message' => 'Location stored successfully.'
+    ];
+
+    return response()->json($response, 200);
 
   }
 
 
-    public function store(Request $request)
-    {
-      $input = $request->all();
+  public function show($id)
+  {
+    $location = Location::find($id);
 
-        /*
-        APPLY VALIDATOR
-       $validator = Validator::make($input, [
+    if (is_null($location)) {
+      $response = [
+        'success' => false,
+        'data' => [],
+        'message' => 'Location not found.'
+      ];
+      return response()->json($response, 404);
+    }
 
-       ]);
+    //Check if is a loremPixel url otherwise get url for img tag
+    $urlSplit = explode("/",$location['image_url']);
 
-       if ($validator->fails()) {
-           $response = [
-               'success' => false,
-               'data' => 'Validation Error.',
-               'message' => $validator->errors()
-           ];
-           return response()->json($response, 404);
-       }
+    if (!in_array('montenapoleone', $urlSplit)){
 
-       */
+      $location['image_url'] = Storage::url($location['image_url']);
 
-        $location = new Location;
-        $location->fill($input);
-        $location->save();
-        $data = $location->toArray();
+    }
 
-         $response = [
-             'success' => true,
-             'location' => $data,
-             'message' => 'Location stored successfully.'
-         ];
-
-         return response()->json($response, 200);
-
-      }
+    $locationResponse = $location->toArray();
 
 
-      public function show($id)
-      {
-        $location = Location::find($id);
+    $response = [
+      'success' => true,
+      'location' => $locationResponse,
+      'message' => 'Location retrieved successfully.'
+    ];
 
-        if (is_null($location)) {
-            $response = [
-                'success' => false,
-                'data' => [],
-                'message' => 'Location not found.'
-            ];
-            return response()->json($response, 404);
-        }
+    return response()->json($response, 200);
+  }
 
+  public function update(Request $request)
+  {
 
-        $response = [
-            'success' => true,
-            'location' => $location,
-            'message' => 'Location retrieved successfully.'
-        ];
+    $input = $request->all();
 
-        return response()->json($response, 200);
-      }
+    $location = Location::find($input['id']);
+    $data = $location->toArray();
 
-      public function update(Request $request)
-      {
+    if (is_null($location)) {
+      $response = [
+        'success' => false,
+        'data' => [],
+        'message' => 'Location not found.'
+      ];
+      return response()->json($response, 404);
+    }
 
-        $input = $request->all();
+    $input = $request->all();
+    $validator = Validator::make($input, [
+      'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+    ]);
 
-        $location = Location::find($input['id']);
-        $data = $location->toArray();
+    if ($validator->fails()) {
+      $response = [
+        'success' => false,
+        'data' => 'Validation Error.',
+        'message' => $validator->errors()
+      ];
+      return response()->json($response, 404);
+    }
 
-        if (is_null($location)) {
-            $response = [
-                'success' => false,
-                'data' => [],
-                'message' => 'Location not found.'
-            ];
-            return response()->json($response, 404);
-        }
+    Storage::delete($location->image_url);
 
-  /*
+    //UPDATE OPS
+    $location->name_it = $request->name_it;
+    $location->name_en = $request->name_en;
+    $location->slug_it = $request->slug_it;
+    $location->slug_en = $request->slug_en;
+    $location->address = $request->address;
+    $location->latitude = $request->latitude;
+    $location->longitude = $request->longitude;
+    $location->phonenumber = $request->phonenumber;
+    $location->email = $request->email;
+    $location->description_it = $request->description_it;
+    $location->description_en = $request->description_en;
+    $location->image_url = $request->file('image_url')->store('public');
+    $location->category_id = $request->category_id;
 
-        APPLY VALIDATION
-         $validator = Validator::make($input, [
-             'name' => 'required',
-             'author' => 'required'
-         ]);
+    $location->save();
+    $data = $location->toArray();
 
-         if ($validator->fails()) {
-             $response = [
-                 'success' => false,
-                 'data' => 'Validation Error.',
-                 'message' => $validator->errors()
-             ];
-             return response()->json($response, 404);
-         }
+    $response = [
+      'success' => true,
+      'data' => $data,
+      'message' => 'Location updated successfully.'
+    ];
 
-        */
+    return response()->json($response, 200);
 
-        //UPDATE OPS
-        $location->update($input);
-        $location->category_id = $request['category_id'];
-        $location->save();
+  }
 
-         $data = $location->toArray();
+  public function destroy($id)
+  {
 
-         $response = [
-             'success' => true,
-             'data' => $data,
-             'message' => 'Location updated successfully.'
-         ];
+    $location = Location::find($id);
+    $data = $location->toArray();
 
-         return response()->json($response, 200);
+    if (is_null($location)) {
+      $response = [
+        'success' => false,
+        'data' => [],
+        'message' => 'Location not found.'
+      ];
+      return response()->json($response, 404);
+    }
 
-      }
+    $data = $location->toArray();
 
-      public function destroy($id)
-      {
+    Storage::delete($location->image_url);
 
-        $location = Location::find($id);
-        $data = $location->toArray();
+    $location->delete();
 
-        if (is_null($location)) {
-            $response = [
-                'success' => false,
-                'data' => [],
-                'message' => 'Location not found.'
-            ];
-            return response()->json($response, 404);
-        }
+    $response = [
+      'success' => true,
+      'data' => $data,
+      'message' => 'Location deleted successfully.'
+    ];
 
-        $location->delete();
-        $data = $location->toArray();
-
-         $response = [
-             'success' => true,
-             'data' => $data,
-             'message' => 'Location deleted successfully.'
-         ];
-
-       return response()->json($response, 200);
-      }
+    return response()->json($response, 200);
+  }
 
 
 

@@ -16,9 +16,13 @@ class EventController extends Controller
     {
       $response = [
            'success' => true,
-           'events' => Event::all()->each(function ($item, $key) {
-              $item['image_url'] = Storage::url($item['image_url']);
-            })->toArray(),
+           'events' => array_reverse(Event::all()->reverse()->each(function ($item, $key) {
+             //Check if is a loremPixel url otherwise get url for img tag
+              $urlSplit = explode("/",$item['image_url']);
+              if (!in_array('lorempixel.com', $urlSplit)){
+               $item['image_url'] = Storage::url($item['image_url']);
+             }
+            })->toArray()),
            'message' => 'All Events retrieved successfully.'
        ];
 
@@ -47,8 +51,6 @@ class EventController extends Controller
         $event->metadescription_en = $request->metadescription_en;
         $event->title_it = $request->title_it;
         $event->title_en = $request->title_en;
-        $event->slug_it = $request->slug_it;
-        $event->slug_en = $request->slug_en;
         $event->address = $request->address;
         $event->date = $request->date;
         $event->time = $request->time;
@@ -72,7 +74,15 @@ class EventController extends Controller
     {
       $event = Event::find($id);
 
-      $event['image_url'] = Storage::url($event['image_url']);
+      //Check if is a loremPixel url otherwise get url for img tag
+      $urlSplit = explode("/",$event['image_url']);
+
+      if (!in_array('lorempixel.com', $urlSplit)){
+
+        $event['image_url'] = Storage::url($event['image_url']);
+
+      }
+
 
       $eventResponse = $event->toArray();
 
@@ -173,8 +183,6 @@ class EventController extends Controller
        $event->metadescription_en = $request->metadescription_en;
        $event->title_it = $request->title_it;
        $event->title_en = $request->title_en;
-       $event->slug_it = $request->slug_it;
-       $event->slug_en = $request->slug_en;
        $event->address = $request->address;
        $event->date = $request->date;
        $event->time = $request->time;

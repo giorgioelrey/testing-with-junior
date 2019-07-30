@@ -17,16 +17,42 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
       console.log('data from location form', fields)
       console.log('mnLocation location form', mnLocation)
 
-    if (fields.address.address && fields.address.address !== mnLocation.address){
-      console.log('address is different',fields.address.address !== mnLocation.address)
-      fields.latitude = fields.address.coordinates.lat;
-      fields.longitude = fields.address.coordinates.lng;
-      fields.address = fields.address.address;
+      if (section == 'create'){
+        fields.latitude = fields.address.coordinates.lat;
+        fields.longitude = fields.address.coordinates.lng;
+        fields.address = fields.address.address;
+      }
+
+      if (section == 'update'){
+        const updateWithDifferentAddress = (fields.address.address && fields.address.coordinates && fields.address.address !== mnLocation.address)
+
+        if (updateWithDifferentAddress){
+          console.log('address is different',fields.address.address !== mnLocation.address)
+          fields.latitude = fields.address.coordinates.lat;
+          fields.longitude = fields.address.coordinates.lng;
+          fields.address = fields.address.address;
+        } else {
+          console.log('updating location with same address');
+          fields.latitude = mnLocation.latitude;
+          fields.longitude = mnLocation.longitude;
+          fields.address = mnLocation.address ;
+        }
+      }
+
+
+
+    console.log('preparing field in formData',  fields);
+    let formData = new FormData();
+    for (var key in fields) {
+      console.log(key,fields[key])
+      formData.append( key, fields[key] )
     }
+
+    console.log('fullForm Data file', formData.get('image_url'))
 
     try {
 
-      const {data} = await (section === 'create' ?  submitLocation(fields) : updateLocation(fields));
+      const {data} = await (section === 'create' ?  submitLocation(formData) : updateLocation(formData));
 
       console.log('success', data);
 
@@ -51,7 +77,6 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
               <h1>{section === 'create' ? 'Create' : 'Edit'} your location</h1>
               {submitErrors}
 
-                <ImageUploader />
                 <LocationForm
                 onSubmit={locationSubmit}
                 location={mnLocation}

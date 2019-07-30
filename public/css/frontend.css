@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Lato:700&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10662,9 +10662,19 @@ a.text-dark:focus {
   }
 }
 
+@font-face {
+  font-family: GothamBook;
+  src: url("/fonts/GothamBook.ttf");
+}
+
+@font-face {
+  font-family: GothamBold;
+  src: url("/fonts/GothamBold.ttf");
+}
+
 body {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Helvetica;
   font-size: 19px;
   font-weight: 400;
   line-height: 19px;
@@ -10677,26 +10687,56 @@ main {
   margin-top: 190px;
 }
 
+.carta {
+  max-width: 333px;
+  margin: 0 auto;
+}
+
 p {
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-size: 21px;
+  font-family: "GothamBook", serif;
   color: black;
-  line-height: 35px;
+  line-height: 26px;
 }
 
 .corpo-post {
-  margin-left: 51px;
+  margin-left: 42px;
   position: relative;
   z-index: 1000;
-  width: 300px;
-  margin-top: -36px;
+  max-width: 263px;
+  margin-top: -115px;
   background-color: white;
+  padding: 20px;
 }
 
 .corpo-post h1 {
-  font-size: 34px;
-  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-family: "GothamBook", serif;
   text-align: right;
+  color: black;
+}
+
+.lingua {
+  margin-right: 15px;
+}
+
+#search .form-control {
+  display: block;
+  height: calc(1.6em + 0.75rem + 25px);
+  padding: 0.375rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #594f3e;
+  border-radius: 0rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#search .input-group {
+  width: 100% !important;
 }
 
 .bg-gold {
@@ -10710,17 +10750,18 @@ p {
 }
 
 .title {
+  text-transform: uppercase;
   text-align: center;
-  font-family: "Playfair Display", serif;
-  font-size: 50px;
-  margin-top: 70px;
+  font-family: "GothamBook", serif;
+  font-size: 32px;
+  margin-top: 236px;
 }
 
 .sotto_title {
   margin: 0 auto;
   margin-top: 30px;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
@@ -10749,6 +10790,19 @@ p {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   color: white;
+}
+
+.carousel-caption {
+  width: 500px;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+
+.carousel-caption h5 {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "GothamBold", serif;
+  font-size: 42px;
 }
 
 #top {
@@ -10783,7 +10837,57 @@ p {
   -webkit-transform: rotate(-135deg);
 }
 
+.box {
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  height: 550px;
+}
+
+.box .img-box {
+  left: 50%;
+  margin-left: -200px;
+  position: absolute;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  border-bottom: 0px solid #dee2e6;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+.dettaglio-modale {
+  margin: 0 auto;
+  width: 243px;
+  text-align: left;
+}
+
+.dettaglio-modale p {
+  font-size: 21px;
+  font-family: "GothamBook", serif;
+  color: black;
+  line-height: 33px;
+  margin-bottom: 0px;
+}
+
+.close_modal {
+  color: #797878;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-family: GothamBook;
+  font-size: 100px;
+  line-height: 100px;
+  cursor: pointer;
+}
+
 #nav .bg-light {
+  border-bottom: 1px solid black;
   background-color: #ffffff !important;
 }
 
@@ -10812,9 +10916,19 @@ p {
   text-transform: uppercase;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  font-size: 21px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  position: relative;
+}
+
+#nav .nav-item.active .underline {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #caa660;
+  left: 0;
+  bottom: 0;
 }
 
 #nav .navbar-brand img {
@@ -10846,12 +10960,12 @@ p {
 }
 
 #home .mostra_evento h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-size: 24px;
 }
 
 #home .mostra_evento h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-size: 20px;
   font-weight: bold;
 }
@@ -10866,8 +10980,14 @@ p {
   font-size: 18px;
 }
 
-#home #react-calendar {
+#home .bordo {
   border: 1px solid black;
+}
+
+#home #react-calendar {
+  padding-right: 29px;
+  padding-left: 22px;
+  max-width: 453px;
   height: 100vh;
 }
 
@@ -10917,7 +11037,7 @@ p {
 #soci .hotel {
   color: #000000;
   font-size: 18px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   font-weight: 700;
   list-style: none;
 }
@@ -10929,9 +11049,9 @@ p {
 }
 
 #soci .title {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   left: 50%;
-  font-size: 50px;
+  font-size: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
@@ -10948,14 +11068,14 @@ p {
   z-index: 999999;
   position: absolute;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
 #servizi-mnlounge .title {
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   left: 50%;
-  font-size: 50px;
+  font-size: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 70px;
@@ -10972,29 +11092,40 @@ p {
   z-index: 999999;
   position: absolute;
   width: 160px;
-  height: 3px;
+  height: 1px;
   background-color: #000000;
 }
 
+#contatti {
+  margin-top: -36px;
+}
+
+#contatti .title {
+  margin-top: 100px;
+}
+
 #contatti .rif-contatti {
-  margin-top: 20%;
-  line-height: 49px;
+  margin-top: 50px;
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   color: black;
 }
 
 #contatti .rif-contatti p {
-  margin-bottom: 50px;
+  line-height: 32px;
 }
 
 #contatti .rif-contatti p a {
   color: black;
 }
 
+#contatti .sotto {
+  margin-bottom: 93px;
+}
+
 #contatti .invia {
   font-size: 24px;
-  font-family: "Playfair Display", serif;
+  font-family: "GothamBook", serif;
   color: black;
   padding: 8px 41px;
 }
@@ -11004,9 +11135,16 @@ p {
 }
 
 #contatti form label {
-  font-size: 24px;
-  font-family: "Playfair Display", serif;
+  margin-top: 20px;
+  margin-bottom: 19px;
+  font-size: 21px;
+  font-family: "GothamBook", serif;
   color: black;
+}
+
+#contatti .aria {
+  padding-left: 5rem !important;
+  padding-right: 5rem !important;
 }
 
 #contatti .form-control {
@@ -11031,9 +11169,18 @@ p {
 }
 
 #contatti .btn-primary {
+  margin-top: 24px;
   border-radius: 0rem;
-  color: black;
-  background-color: #ffffff;
-  border-color: #594f3e;
+  color: white;
+  background-color: #000;
+  border-color: #000;
+}
+
+#contatti .btn-primary:hover {
+  margin-top: 24px;
+  border-radius: 0rem;
+  color: white;
+  background-color: #caa660;
+  border-color: #caa660;
 }
 

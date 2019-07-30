@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = ''}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$event['metadescription_'.$lang] }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -18,21 +16,39 @@
 @section('content')
 
 
-<div class='container ' id='evento-single'>
+
+
+
+
+
+<div class='container-fluid' id='evento-single'>
+<div class='row'>
+  <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$event['image_url']}}')">
+
+  </div>
+
+
+
+
+  <div class='col-md-6'>
 
   <div  class='title'>
-    {!! ($lang == 'it') ? 'Evento singolo' : 'Single Event' !!}
+    {{$event['title_'.$lang]}}
 
     <div class='sotto_title'>
 
     </div>
   </div>
 
-  <div class="image text-center">
-      <img class="img-fluid" src="{{$event['image_url']}}" alt="no image">
+<p>{{$event['description_'.$lang]}}</p>
+
+
+
+
+
   </div>
 
-  <h1>{{$event['title_'.$lang]}}</h1>
+
 
 
 

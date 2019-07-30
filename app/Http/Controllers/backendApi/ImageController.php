@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\backendApi;
 
 use App\Image;
+use App\Page;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Validator,Response,File;
 
@@ -44,10 +46,10 @@ class ImageController extends Controller
 
       $input = $request->all();
 
-      $page = Page::findOrFail($input['pageid']);
+      $page = Page::findOrFail($request->pageid);
 
       $validator = Validator::make($input, [
-          $input['file'] => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       ]);
 
       if ($validator->fails()) {
@@ -59,22 +61,19 @@ class ImageController extends Controller
            return response()->json($response, 404);
        }
 
-      Storage::delete($input['image_url']);
+      if($request->previousurl != ''){
+        Storage::delete($request->previousurl);
+      }
 
-      $path = $request->file($input['fieldname'])->store('public');
+      $path = $request->file('file')->store('public');
 
+      $response = [
+          'success' => true,
+          'path' => $path,
+          'message' => 'Page updated successfully.'
+      ];
 
-
-      //prendi da request
-      //-url precedente
-      //-nome pagina
-      //-field con il file
-
-      //salva nuova Immagine
-
-      //cancella quella al vecchio url
-
-      //ritorna success
+       return response()->json($response, 200);
 
 
     }

@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = ''}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$lang == 'it' ? $contents->metadescription->data->it : $contents->metadescription->data->en }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -22,7 +20,7 @@
         </div>
       </div>
 
-      <div class='col-md-6 bg-gold '>
+      <div class='col-md-6  vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->main_image_url->data}}')" '>
 
       </div>
 

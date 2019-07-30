@@ -110,6 +110,14 @@ class PagesTableSeeder extends Seeder
       $pageHome = new Page;
       $pageHome->name = 'home';
       $pageHome->contents = json_encode([
+        'metadescription' => [
+            'type' => 'string',
+            'translated' => true,
+            'data' => [
+              'it'=> 'meta pagina chi siamo it',
+              'en' => 'meta pagina chi siamo en'
+            ],
+          ],
         'carousel_image_1' => [
             'type' => 'image',
             'translated' => false,

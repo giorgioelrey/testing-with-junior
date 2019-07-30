@@ -44,27 +44,21 @@
   <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
 
   @yield('css')
+  
 </head>
+
 <body>
 
   @include('frontend.partials.navbar')
 
   <main>
-    {{--
-
-    <p>detectedLocale is {{$detectedLocale}}</p>
-    <p>Lang selected by user is {{$lang}}</p>
-
-     --}}
-
 
     @yield('content')
 
   </main>
   @yield('scripts')
+
   @include('frontend.partials.footer')
-
-
 
 </body>
 </html>

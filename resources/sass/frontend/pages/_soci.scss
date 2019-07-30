@@ -3,7 +3,7 @@
 .hotel{
   color:#000000;
   font-size:18px;
-  font-family: 'Playfair Display', serif;
+ font-family: "GothamBook", serif;
   font-weight: 700;
   list-style: none;
 
@@ -21,9 +21,9 @@ a{
 }
 
 .title{
-    font-family: "Playfair Display", serif;
+    font-family: "GothamBook", serif;
     left: 50%;
-    font-size: 50px;
+        font-size: 32px;
 
     position: absolute;
     text-transform: uppercase;
@@ -42,7 +42,7 @@ a{
     z-index: 999999;
     position: absolute;
     width: 160px;
-    height: 3px;
+    height: 1px;
     background-color: #000000;
 }
 

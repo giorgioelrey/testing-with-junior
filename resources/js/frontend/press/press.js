@@ -2,4 +2,4 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PressList from './components/PressList';
 
-ReactDOM.render(<PressList/>, document.getElementById('press-list'));
+ReactDOM.render(<PressList userLanguage={userLanguage}/>, document.getElementById('press-list'));

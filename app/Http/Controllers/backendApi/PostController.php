@@ -17,9 +17,15 @@ class PostController extends Controller
 
       $response = [
            'success' => true,
-           'posts' => Post::all()->each(function ($item, $key) {
+           'posts' => array_reverse(Post::all()->each(function ($item, $key) {
+
+            //Check if is a loremPixel url otherwise get url for img tag
+             $urlSplit = explode("/",$item['image_url']);
+             if (!in_array('lorempixel.com', $urlSplit)){
               $item['image_url'] = Storage::url($item['image_url']);
-            })->toArray(),
+            }
+
+            })->toArray()),
            'message' => 'Posts retrieved successfully.'
        ];
 
@@ -49,8 +55,6 @@ class PostController extends Controller
         $post->metadescription_en = $request->metadescription_en;
         $post->title_it = $request->title_it;
         $post->title_en = $request->title_en;
-        $post->slug_it = $request->slug_it;
-        $post->slug_en = $request->slug_en;
         $post->postbodytop_it = $request->postbodytop_it;
         $post->postbodytop_en = $request->postbodytop_en;
         $post->postbodybottom_it = $request->postbodybottom_it;
@@ -75,10 +79,6 @@ class PostController extends Controller
     {
       $post = Post::find($id);
 
-      $post['image_url'] = Storage::url($post['image_url']);
-
-      $postResponse = $post->toArray();
-
       if (is_null($post)) {
           $response = [
               'success' => false,
@@ -88,6 +88,17 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
+
+      //Check if is a loremPixel url otherwise get url for img tag
+      $urlSplit = explode("/",$post['image_url']);
+
+      if (!in_array('lorempixel.com', $urlSplit)){
+
+        $post['image_url'] = Storage::url($post['image_url']);
+
+      }
+
+      $postResponse = $post->toArray();
 
       $response = [
           'success' => true,
@@ -114,17 +125,25 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
-      $input = $request->all();
+        $input = $request->all();
        $validator = Validator::make($input, [
           'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
        ]);
+
+       if ($validator->fails()) {
+           $response = [
+               'success' => false,
+               'data' => 'Validation Error.',
+               'message' => $validator->errors()
+           ];
+           return response()->json($response, 404);
+       }
+
        Storage::delete($post->image_url);
        $post->metadescription_it = $request->metadescription_it;
        $post->metadescription_en = $request->metadescription_en;
        $post->title_it = $request->title_it;
        $post->title_en = $request->title_en;
-       $post->slug_it = $request->slug_it;
-       $post->slug_en = $request->slug_en;
        $post->postbodytop_it = $request->postbodytop_it;
        $post->postbodytop_en = $request->postbodytop_en;
        $post->postbodybottom_it = $request->postbodybottom_it;

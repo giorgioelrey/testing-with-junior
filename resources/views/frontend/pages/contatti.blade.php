@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = ''}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$lang == 'it' ? $contents->metadescription->data->it : $contents->metadescription->data->en }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -16,7 +14,7 @@
   <div class='container-fluid' id='contatti'>
     <div class='row'>
 
-      <div class='col-md-6 bg-dark vh-100'>
+      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
 
       </div>
 
@@ -30,21 +28,21 @@
         </div>
         <div class='pl-5 rif-contatti'>
 
-          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:<br>
-            {{$contents->address->data}}</p>
+          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:</p>
+          <p class='sotto'>  {{$contents->address->data}}</p>
 
-            <p>Email:<br>
-              <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
+            <p>Email:</p>
+            <p class='sotto'>  <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
             </p>
 
-            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:<br>
-              {{$contents->phone->data}}
-            </p>
+            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:</p>
+            <p class='sotto'>  {{$contents->phone->data}}  </p>
+
           </div>
 
         </div>
 
-        <div class='col-md-6 d-flex align-items-center px-5'>
+        <div class='col-md-6 d-flex align-items-center aria'>
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
@@ -65,7 +63,7 @@
 
         </div>
 
-        <div class='col-md-6 bg-dark vh-100'>
+        <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
         </div>
 

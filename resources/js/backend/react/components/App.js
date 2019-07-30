@@ -72,9 +72,9 @@ async loginClicked(fields,successCallback, errorCallback) {
 
     const { user } = this.state;
 
-    console.log('gmapsApiKey', gmapsApiKey);
+    //console.log('gmapsApiKey', gmapsApiKey);
 
-    console.log('localStorage token', this.props.localstoragetoken)
+    //console.log('localStorage token', this.props.localstoragetoken)
 
     return (
       <Fragment>

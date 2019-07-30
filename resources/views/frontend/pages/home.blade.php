@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = 'MonteNapoleone District oggi rappresenta oltre 150 associati tra Global Luxury Brands e proprietari immobiliari, situati nel Quadrilatero della Moda di Milano.'}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$lang == 'it' ? $contents->metadescription->data->it : $contents->metadescription->data->en }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -11,11 +9,6 @@
 @endsection
 
 @section('scripts')
-
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
   <script type="text/javascript">
 
   const locations = @json($locations);
@@ -42,30 +35,30 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="http://lorempixel.com/400/200/sports/1/Dummy-Text/" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <img src="{{$contents->carousel_image_1->data}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
+          <h5>{{$contents->carousel_image_1_text->data}}</h5>
+
         </div>
       </div>
       <div class="carousel-item">
-        <img src="http://lorempixel.com/400/200/sports/1/Dummy-Text/" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <img src="{{$contents->carousel_image_2->data}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
+          <h5>{{$contents->carousel_image_2_text->data}}</h5>
+
         </div>
       </div>
       <div class="carousel-item">
-        <img src="http://lorempixel.com/400/200/sports/1/Dummy-Text/" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <img src="{{$contents->carousel_image_3->data}}" class="d-block w-100" alt="...">
+        <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
+          <h5>{{$contents->carousel_image_3_text->data}}</h5>
+
         </div>
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      
+
     </a>
     <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -74,21 +67,21 @@
   </div>
 </div>
 </div>
-<div class='col-md-5'>
-
+<div class='col-md-6'>
+<div class='bordo'>
   <div id="react-calendar">
 
-
+  </div>
   </div>
 
 </div>
 
-<div class='col-md-7'>
+<div class='col-md-6'>
 
   <div id="map" style="width: 100%; height:800px;">
 
+</div>
 
-  </div>
 
 </div>
 

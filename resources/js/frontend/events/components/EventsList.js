@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ItemCard from './../../common/ItemCard';
 
 class EventsList extends React.Component{
 
@@ -44,27 +45,15 @@ class EventsList extends React.Component{
     return(
       <React.Fragment>
 
-        {this.state.events.length > 0 && this.state.events.map((event, idx) =>{
-
-            const link = userLanguage == 'it' ? `/it/eventi/${event.slug_it}` : `/en/events/${event.slug_en}`;
-            
-            return(
-            <div key={idx} className='col-md-4'>
-              <img className="img-fluid" src={event.image_url} alt="no image" />
-              <div className='corpo-post'>
-              <a href={link}>
-                <h1>{userLanguage =='it' ? event.title_it : event.title_en} </h1>
-              </a>
-
-              <p>{event.address}</p>
-
-              </div>
-            </div>
+        {this.state.events.length > 0 && this.state.events.map((event, idx) =>(
+          <ItemCard
+            key={idx}
+            type="eventi"
+            item={event}
+            userLanguage={userLanguage}
+           />
           )
-
-        }
-
-) || (<div>no post.</div>)}
+) || (<div>Nessun Evento </div>)}
 
       </React.Fragment>
     )

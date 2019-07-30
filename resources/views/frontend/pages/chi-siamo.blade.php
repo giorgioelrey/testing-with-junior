@@ -1,9 +1,7 @@
 @extends('frontend.layout.app')
 
 @section('meta-description')
-  {{$content_it = ''}}
-  {{$content_en = ''}}
-  <meta name="description" content="{{$lang == 'it' ? $content_it : $content_en }}">{{-- max 160 caratteri --}}
+  <meta name="description" content="{{$lang == 'it' ? $contents->metadescription->data->it : $contents->metadescription->data->en }}">{{-- max 160 caratteri --}}
 @endsection
 
 @section('title')
@@ -25,6 +23,8 @@
       </div>
 
       <div class='col-md-8'>
+
+        <img class="img-fluid" src="{{$contents->main_image_url->data}}"/>
 
         <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
 
