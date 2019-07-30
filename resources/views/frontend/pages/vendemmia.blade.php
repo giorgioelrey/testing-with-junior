@@ -5,25 +5,8 @@
 @endsection
 
 @section('title')
-  <title>{{$lang == 'it' ? 'Home' : 'Home'}}</title>
+  <title>{{$lang == 'it' ? 'Vendemmia' : 'Vendemmia'}}</title>
 @endsection
-
-@section('scripts')
-  <script type="text/javascript">
-
-  const locations = @json($locations);
-  console.log('locations from db', locations);
-
-  //$('#carouselExampleCaptions').carousel({ interval: 500 });
-
-  </script>
-  <script src="{{asset('/js/frontend/homeCalendar.js')}}" charset="utf-8"></script>
-  <script src="{{asset('/js/frontend/gmaps.js')}}" charset="utf-8"></script>
-
-@endsection
-
-
-
 
 @section('content')
 
@@ -31,6 +14,7 @@
     <div class='row'>
       <div class="col-12">
         <div class="bd-example">
+
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner">
@@ -67,39 +51,56 @@
           </div>
         </div>
       </div>
-      <div class='col-lg-6'>
-        <div class='bordo'>
-          <div id="react-calendar">
+    </div>
+  </div>
+  <div class='container-fluid' id='contatti'>
+    <div class='row'>
+
+      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
+
+      </div>
+
+      <div class='col-md-6 '>
+        <div  class='title'>
+          {{$lang == 'it' ? $contents->title_top->data->it : $contents->title_top->data->en }}
+
+          <div class='sotto_title'>
 
           </div>
         </div>
+        <div class='pl-5 rif-contatti'>
+
+          <p>{!!$lang == 'it' ? $contents->content_top->data->it : $contents->content_top->data->en !!}
+
+        </div>
 
       </div>
 
-      <div class='col-lg-6'>
+      <div class='col-md-6 aria'>
+        <div  class='title'>
+          {{$lang == 'it' ? $contents->title_bottom->data->it : $contents->title_bottom->data->en }}
 
-        <div id="map" style="width: 100%; height:800px;">
+          <div class='sotto_title'>
+
+          </div>
+        </div>
+        <div class='pl-5 rif-contatti'>
+
+          <p>{!!$lang == 'it' ? $contents->content_bottom->data->it : $contents->content_bottom->data->en !!}
 
         </div>
 
 
       </div>
 
+      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
-
+      </div>
 
     </div>
   </div>
+</div>
 
 
-
-@endsection
-
-
-@section('css')
-  <style>
-
-
-  </style>
 
 @endsection
