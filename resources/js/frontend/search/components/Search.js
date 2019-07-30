@@ -74,14 +74,14 @@ export default class Search extends Component {
       return (
         <Fragment>
 <div className="row d-flex justify-content-center">
-          <div className="col-md-5">
+          <div className="col-md-10 mt-5">
             <form className="form-inline my-5" onSubmit={this.handleSubmit}>
 
               <div className="input-group mb-3">
-                <input type="text" className="form-control" name="query" value={this.state.query} placeholder={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-label={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-describedby="basic-addon2" onChange={this.handleChange}/>
+                <input type="text" className="form-control" name="query" value={this.state.query} placeholder={userLanguage == 'it' ? 'Cerca' : 'Search'} aria-label={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-describedby="basic-addon2" onChange={this.handleChange}/>
 
                 <div className="input-group-append">
-                  <button type="submit" className="btn btn-outline-secondary">
+                  <button type="submit" className="btn btn-outline-secondary cerca_botton">
                   {userLanguage == 'it' ? 'Cerca' : 'Search'}
                   </button>
                 </div>
@@ -90,7 +90,7 @@ export default class Search extends Component {
             </form>
             </div>
 </div>
-            <h1>{userLanguage == 'it' ? 'Risultati per query' : 'Query results for'}: {query}</h1>
+            <h1>{userLanguage == 'it' ? 'Cerca' : 'Find'}: {query}</h1>
             <div className="container">
               <div className="row">
               { queryResults.length > 0 && queryResults.map((item, index) => <ItemCard
