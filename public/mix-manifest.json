@@ -1,6 +1,5 @@
 {
     "/js/backend.js": "/js/backend.js",
-    "/css/frontend.css": "/css/frontend.css",
     "/css/backend.css": "/css/backend.css",
     "/js/frontend/app.js": "/js/frontend/app.js",
     "/js/frontend/archivio-storico.js": "/js/frontend/archivio-storico.js",
@@ -8,5 +7,6 @@
     "/js/frontend/gmaps.js": "/js/frontend/gmaps.js",
     "/js/frontend/homeCalendar.js": "/js/frontend/homeCalendar.js",
     "/js/frontend/press.js": "/js/frontend/press.js",
-    "/js/frontend/search.js": "/js/frontend/search.js"
+    "/js/frontend/search.js": "/js/frontend/search.js",
+    "/css/frontend.css": "/css/frontend.css"
 }

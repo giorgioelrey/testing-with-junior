@@ -94,10 +94,13 @@ function() {
 
     $contents = json_decode($dynamicPage->first()->contents);
 
-		$urlSplit = explode("/",$contents->main_image_url->data);
-		if (!in_array('lorempixel.com', $urlSplit)){
-	 $contents->main_image_url->data = Storage::url($contents->main_image_url->data);
-	 }
+		foreach ($contents as &$content) {
+			if($content->type == 'image' && !empty($content->data)){
+
+				$content->data = Storage::url($content->data);
+
+			}
+		}
 
 		return View::make('frontend.pages.mn-vip-lounge',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.mn-vip-lounge');
@@ -178,6 +181,26 @@ function() {
 
 		return View::make('frontend.pages.contatti',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.contatti');
+
+
+	//VENDEMMIA
+
+	Route::get(LaravelLocalization::transRoute('routes.vendemmia'),function(Request $request) {
+
+    $dynamicPage = Page::whereName('vendemmia')->get();
+
+		$contents = json_decode($dynamicPage->first()->contents);
+
+		foreach ($contents as &$content) {
+			if($content->type == 'image' && !empty($content->data)){
+
+				$content->data = Storage::url($content->data);
+
+			}
+		}
+
+		return View::make('frontend.pages.vendemmia',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
+	})->name('fe.vendemmia');
 
 
 	//HOME

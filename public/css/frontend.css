@@ -10978,37 +10978,12 @@ p {
   bottom: 0;
 }
 
-#nav .navbar-brand img {
-  width: 180px;
+#nav .nav-item.active.active.vendemmia .underline {
+  background-color: #90294E;
 }
 
-@media only screen and (max-width: 768px) {
-  #nav .collapsing {
-    position: relative;
-    height: inherit;
-    overflow: visible;
-    transition: height 0.35s ease;
-  }
-
-  #nav .show {
-    padding-left: 20px;
-    left: 0px;
-    width: 700px;
-    background-color: white;
-    top: 104px;
-    position: absolute;
-    /* width: 500px; */
-    text-align: left;
-  }
-
-  #nav .mobile-tap {
-    margin-bottom: 25px;
-  }
-
-  #nav .navbar-brand img {
-    margin-bottom: 4px;
-    width: 143px;
-  }
+#nav .navbar-brand img {
+  width: 180px;
 }
 
 #footer {

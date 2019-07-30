@@ -13,4 +13,5 @@ return [
   'archivio-storico-single' => 'heritage-archive/{slug}',
   'chi-siamo' =>'who-we-are',
   'search' => 'search',
+  'vendemmia' => 'vendemmia'
 ];

@@ -5,7 +5,7 @@
 
     <a class="navbar-brand" href="{{route('fe.home')}}"><img src='{{ asset('images/logo.jpg')   }}'></a>
 
-    <div class='d-flex flex-column justify-content-end ml-auto mobile-tap'>
+    {{-- <div class='d-flex flex-column justify-content-end ml-auto mobile-tap'> --}}
       <ul class='list-inline lingua text-right'>
         <li class='list-inline-item '>
           <a class="" href="{{route('fe.search')}}">
@@ -44,6 +44,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto mt-2">
+            <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
+              <a class="nav-link" href="{{route('fe.vendemmia')}}">vendemmia<span class="sr-only">(current)</span></a>
+              <div class="underline"></div>
+            </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.chi-siamo' ? 'active' : '' }} ">
               <a class="nav-link" href="{{route('fe.chi-siamo')}}">chi siamo <span class="sr-only">(current)</span></a>
               <div class="underline"></div>
@@ -77,7 +81,7 @@
 
         </div>
 
-      </div>
+      {{-- </div> --}}
 
     </nav>
   </div>
