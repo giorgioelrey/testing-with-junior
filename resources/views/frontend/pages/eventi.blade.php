@@ -23,7 +23,7 @@
 @section('content')
 
 
-<div class='container ' id='eventi'>
+<div class='container-fluid card-resp' id='eventi'>
 
   <div  class='title'>
     {!! ($lang == 'it') ? 'Eventi' : 'Events' !!}

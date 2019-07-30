@@ -21,7 +21,7 @@
 
 @section('content')
 
-<div class='container ' id='archivio-storico'>
+<div class='container-fluid card-resp' id='archivio-storico'>
 
   <div class='title'>{!! ($lang == 'it') ? 'Archivio Storico' : 'Archive' !!}
 

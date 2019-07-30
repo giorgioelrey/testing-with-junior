@@ -5,7 +5,7 @@
 
     <a class="navbar-brand" href="{{route('fe.home')}}"><img src='{{ asset('images/logo.jpg')   }}'></a>
 
-    <div class='d-flex flex-column justify-content-end ml-auto'>
+    <div class='d-flex flex-column justify-content-end ml-auto mobile-tap'>
       <ul class='list-inline lingua text-right'>
         <li class='list-inline-item '>
           <a class="" href="{{route('fe.search')}}">

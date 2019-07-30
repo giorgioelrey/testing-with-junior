@@ -35,21 +35,21 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{$contents->carousel_image_1->data}}" class="d-block w-100" alt="...">
+        <img src="{{$contents->carousel_image_1->data}}" class="d-block " alt="...">
         <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
           <h5>{{$contents->carousel_image_1_text->data}}</h5>
 
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{$contents->carousel_image_2->data}}" class="d-block w-100" alt="...">
+        <img src="{{$contents->carousel_image_2->data}}" class="d-block " alt="...">
         <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
           <h5>{{$contents->carousel_image_2_text->data}}</h5>
 
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{$contents->carousel_image_3->data}}" class="d-block w-100" alt="...">
+        <img src="{{$contents->carousel_image_3->data}}" class="d-block " alt="...">
         <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
           <h5>{{$contents->carousel_image_3_text->data}}</h5>
 
@@ -67,7 +67,7 @@
   </div>
 </div>
 </div>
-<div class='col-md-6'>
+<div class='col-lg-6'>
 <div class='bordo'>
   <div id="react-calendar">
 
@@ -76,7 +76,7 @@
 
 </div>
 
-<div class='col-md-6'>
+<div class='col-lg-6'>
 
   <div id="map" style="width: 100%; height:800px;">
 

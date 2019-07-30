@@ -20,7 +20,44 @@
         </div>
       </div>
 
-      <div class='col-md-6  vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->main_image_url->data}}')" '>
+      <div class='col-md-6' >
+
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://lorempixel.com/640/480/city/?11540" alt="Los Angeles" max-width="100" height="auto">
+            </div>
+            <div class="carousel-item">
+              <img src="https://lorempixel.com/640/480/city/?11540" alt="Chicago" max-width="100" height="auto">
+            </div>
+            <div class="carousel-item">
+              <img src="https://lorempixel.com/640/480/city/?11540" alt="New York" max-width="100" height="auto">
+            </div>
+          </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
 
       </div>
 
