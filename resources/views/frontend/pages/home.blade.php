@@ -14,6 +14,9 @@
   const locations = @json($locations);
   console.log('locations from db', locations);
 
+  const closeModalImg = "{{asset('/images/X.png')}}"
+  const reactMarkerImg = "{{asset('/images/MARKER.png')}}"
+
   //$('#carouselExampleCaptions').carousel({ interval: 500 });
 
   </script>

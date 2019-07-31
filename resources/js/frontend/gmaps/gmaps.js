@@ -189,4 +189,12 @@ const mapStyle = [
 }
 ];
 
-ReactDOM.render(<GmapApp locations={locations} mapStyle={mapStyle} userLanguage={userLanguage}/>, document.getElementById('map'));
+ReactDOM.render(<GmapApp
+                  locations={locations}
+                  mapStyle={mapStyle}
+                  closeModalImg={closeModalImg}
+                  userLanguage={userLanguage}
+                  reactMarkerImg={reactMarkerImg}
+                  />,
+                 document.getElementById('map')
+               );

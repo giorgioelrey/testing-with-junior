@@ -39,8 +39,8 @@ class GmappApp extends Component {
       anchorId={"marker-" + this.state.infoWindowId}
       visible
       >
-        <p
-          style={{cursor: 'pointer'}}
+        <p className="m-0"
+          style={{cursor: 'pointer', fontSize: '14px'}}
           onClick={()=>{this.setState({modalOpen: true})}}
         >
           {this.state.clickedLocation.name_it}
@@ -56,8 +56,10 @@ class GmappApp extends Component {
       disablebuttons={"false"}
       >
 
-      
-      <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>x</div>
+
+      <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}} style={{padding: '15px'}}>
+          <img src={this.props.closeModalImg} alt="x image" />
+        </div>
        <div className="modal-header">
          <div className="title">
             {this.state.clickedLocation.name_it}
@@ -112,6 +114,7 @@ class GmappApp extends Component {
             <Marker
               id={"marker-" + key}
               opts={{
+                icon:reactMarkerImg,
                 draggable: false,
                 position: {lat: parseFloat(location.latitude), lng: parseFloat(location.longitude)},
                 }}
