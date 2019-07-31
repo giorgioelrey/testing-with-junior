@@ -23,7 +23,7 @@
 @section('content')
 
 
-<div class='container ' id='news'>
+<div class='container-fluid card-resp' id='news'>
   <div  class='title'>Press
 
   <div class='sotto_title'>

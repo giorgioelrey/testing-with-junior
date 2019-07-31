@@ -23,8 +23,10 @@
 
 <div class='container-fluid' id='evento-single'>
 <div class='row'>
-  <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$event['image_url']}}')">
+  <div class='col-md-6  box-img-single' >
+<div class='single-img' style="overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$event['image_url']}}')">
 
+</div>
   </div>
 
 
@@ -32,7 +34,7 @@
 
   <div class='col-md-6'>
 
-  <div  class='title'>
+  <div  class='title single-title'>
     {{$event['title_'.$lang]}}
 
     <div class='sotto_title'>
@@ -40,7 +42,7 @@
     </div>
   </div>
 
-<p>{{$event['description_'.$lang]}}</p>
+<p class='paragrafo-single'>{{$event['description_'.$lang]}}</p>
 
 
 

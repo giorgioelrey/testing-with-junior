@@ -10674,7 +10674,7 @@ a.text-dark:focus {
 
 body {
   margin: 0;
-  font-family: "Roboto", Helvetica;
+  font-family: "Lato", Helvetica;
   font-size: 19px;
   font-weight: 400;
   line-height: 19px;
@@ -10684,12 +10684,36 @@ body {
 }
 
 main {
-  margin-top: 190px;
+  margin-top: 146px;
 }
 
 .carta {
-  max-width: 333px;
   margin: 0 auto;
+}
+
+.box-img-single {
+  padding: 89px;
+}
+
+.single-img {
+  margin: 0 auto;
+  max-width: 411px;
+  height: 555px;
+}
+
+.single-title {
+  margin-top: 100px !important;
+}
+
+.paragrafo-single {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.divider {
+  background-color: black;
+  height: 1px;
+  width: 100%;
 }
 
 p {
@@ -10697,14 +10721,15 @@ p {
   font-family: "GothamBook", serif;
   color: black;
   line-height: 26px;
+  word-break: break-word;
 }
 
 .corpo-post {
-  margin-left: 42px;
+  margin-left: 73px;
   position: relative;
   z-index: 1000;
-  max-width: 263px;
-  margin-top: -115px;
+  max-width: 335px;
+  margin-top: -67px;
   background-color: white;
   padding: 20px;
 }
@@ -10712,31 +10737,55 @@ p {
 .corpo-post h1 {
   font-size: 24px;
   font-family: "GothamBook", serif;
-  text-align: right;
+  text-align: left;
   color: black;
 }
 
 .lingua {
-  margin-right: 15px;
+  position: absolute;
+  right: 63px;
+  top: 40px;
+}
+
+.cerca_botton {
+  margin-left: 30px;
 }
 
 #search .form-control {
+  border-top: none;
+  border-right: none;
+  border-left: none;
   display: block;
   height: calc(1.6em + 0.75rem + 25px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 24px;
+  font-family: "GothamBook", serif;
   line-height: 1.6;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #594f3e;
+  border-bottom: 1px solid #121212;
   border-radius: 0rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 #search .input-group {
   width: 100% !important;
+}
+
+#search .cerca {
+  border-radius: 0px;
+  background-color: black;
+  font-size: 24px;
+  font-family: "GothamBook", serif;
+  color: white;
+  padding: 8px 41px;
+}
+
+#search .cerca:hover {
+  color: white;
+  background-color: #caa660;
+  border-color: #caa660;
 }
 
 .bg-gold {
@@ -10750,6 +10799,7 @@ p {
 }
 
 .title {
+  line-height: 32px;
   text-transform: uppercase;
   text-align: center;
   font-family: "GothamBook", serif;
@@ -10790,6 +10840,31 @@ p {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   color: white;
+}
+
+#vendemmia .title {
+  line-height: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "GothamBook", serif;
+  font-size: 32px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+#vendemmia p {
+  text-align: center;
+}
+
+.contatti-underline {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.loghi img {
+  max-width: 100%;
 }
 
 .carousel-caption {
@@ -10838,11 +10913,11 @@ p {
 }
 
 .box {
-  max-width: 400px;
+  max-width: 350px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  height: 550px;
+  height: 485px;
 }
 
 .box .img-box {
@@ -10875,6 +10950,15 @@ p {
   margin-bottom: 0px;
 }
 
+.modal-header .title {
+  line-height: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "GothamBook", serif;
+  font-size: 32px;
+  margin-top: 100px;
+}
+
 .close_modal {
   color: #797878;
   position: absolute;
@@ -10884,6 +10968,14 @@ p {
   font-size: 100px;
   line-height: 100px;
   cursor: pointer;
+}
+
+.card-resp {
+  width: 90% !important;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #nav .bg-light {
@@ -10908,7 +11000,7 @@ p {
 }
 
 #nav .lingua li a {
-  font-family: "Playfair Display", serif;
+  font-family: "Lato", sans-serif;
   color: black;
 }
 
@@ -10925,20 +11017,36 @@ p {
 #nav .nav-item.active .underline {
   position: absolute;
   width: 100%;
-  height: 5px;
+  height: 7px;
   background-color: #caa660;
   left: 0;
   bottom: 0;
+}
+
+#nav .nav-item.active.active.vendemmia .underline {
+  background-color: #90294E;
 }
 
 #nav .navbar-brand img {
   width: 180px;
 }
 
+@media only screen and (max-width: 768px) {
+  #nav .lingua {
+    position: absolute;
+    right: 52px;
+    top: 40px;
+  }
+
+  #nav .navbar-toggler {
+    margin-bottom: 23px;
+  }
+}
+
 #footer {
   bottom: 0;
   width: 100%;
-  height: 60px;
+  border-top: 1px solid black;
   line-height: 60px;
   background-color: #ffffff;
 }
@@ -10951,6 +11059,19 @@ p {
 
 #footer a:hover {
   color: #caa660;
+}
+
+#footer .footer-copyright {
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
+#home .carousel {
+  overflow: hidden;
+}
+
+#home .carousel img {
+  height: 800px;
 }
 
 #home .mostra_evento {
@@ -10981,6 +11102,7 @@ p {
 }
 
 #home .bordo {
+  margin: 37px 10px 20px 28px;
   border: 1px solid black;
 }
 
@@ -11008,7 +11130,7 @@ p {
 
 #home .Calendar th,
 #home .Calendar td {
-  padding: 1rem;
+  padding: 22px 16px;
   text-align: center;
 }
 
@@ -11024,14 +11146,32 @@ p {
 
 #home .Day.selected {
   background: #caa660;
-  width: 30px;
-  height: 30px;
+  padding: 21px;
   border-radius: 50px;
 }
 
 #home .Day.other-month {
   background: #fafafa;
   color: #aaa;
+}
+
+#home .table thead th {
+  vertical-align: bottom;
+  border-bottom: 0px solid #dee2e6;
+}
+
+#home .table th,
+#home .table td {
+  vertical-align: top;
+  border-top: 0px solid #dee2e6;
+}
+
+#news .container-fluid {
+  width: 90%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #soci .hotel {
@@ -11052,9 +11192,10 @@ p {
   font-family: "GothamBook", serif;
   left: 50%;
   font-size: 32px;
+  line-height: 32px;
   position: absolute;
   text-transform: uppercase;
-  margin-top: 70px;
+  margin-top: 87px;
   z-index: 1000;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -11076,9 +11217,10 @@ p {
   font-family: "GothamBook", serif;
   left: 50%;
   font-size: 32px;
+  line-height: 32px;
   position: absolute;
   text-transform: uppercase;
-  margin-top: 70px;
+  margin-top: 87px;
   z-index: 1000;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -11120,7 +11262,7 @@ p {
 }
 
 #contatti .sotto {
-  margin-bottom: 93px;
+  margin-bottom: 45px;
 }
 
 #contatti .invia {

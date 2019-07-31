@@ -4,51 +4,72 @@
   .bg-light {
     border-bottom: 1px solid black;
     background-color: #ffffff !important;
-}
-.nav-link{
-color:#000000;
-}
-.nav-link:hover{
-  color:#caa660;
-}
-.nav-link:focus{
-  color:#caa660;
-}
-.lingua {
+  }
+  .nav-link{
+    color:#000000;
+  }
+  .nav-link:hover{
+    color:#caa660;
+  }
+  .nav-link:focus{
+    color:#caa660;
+  }
+  .lingua {
     font-size: 18px;
 
 
     li a{
-      font-family: 'Playfair Display', serif;
-    color: black;
+      font-family: "Lato", sans-serif;
+      color: black;
     }
-}
-.nav-item{
-  text-transform: uppercase;
-  padding-right: 0.5rem;
+  }
+  .nav-item{
+    text-transform: uppercase;
+    padding-right: 0.5rem;
     padding-left: 0.5rem;
-  font-size: 14px;
-  font-weight: 700;
-font-family: 'Lato', sans-serif;
-  position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    position: relative;
 
-  &.active .underline {
-    position: absolute;
-    width: 100%;
-    height: 5px;
-    background-color: #caa660;
-    left: 0;
-    bottom: 0;
+    &.active {
+
+      .underline {
+      position: absolute;
+      width: 100%;
+      height: 7px;
+      background-color: #caa660;
+      left: 0;
+      bottom: 0;
+
+    }
+
+    &.active.vendemmia .underline {
+      background-color: #90294E;
+    }
+
   }
 
+  }
+
+
+
+
+  .navbar-brand img{
+    width: 180px;
+  }
+
+   @media only screen and (max-width: 768px) {
+     .lingua {
+    position: absolute;
+    right: 52px;
+    top: 40px;
 }
+  .navbar-toggler{
 
+    margin-bottom: 23px;
 
-
-
-.navbar-brand img{
-  width: 180px;
-}
-
+  }
+  }
 
 }

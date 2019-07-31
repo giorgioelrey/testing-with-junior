@@ -12,13 +12,25 @@
 @section('content')
 
 
-<div class='container ' id='post-single'>
-  <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$post['image_url']}}')">
 
+
+
+
+
+<div class='container-fluid' id='evento-single'>
+<div class='row'>
+  <div class='col-md-6  box-img-single' >
+<div class='single-img' style="overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image:  url('{{$post['image_url']}}')">
+
+</div>
   </div>
 
 
-  <div  class='title'>
+
+
+  <div class='col-md-6'>
+
+  <div  class='title single-title'>
   {{$post['title_'.$lang]}}
 
     <div class='sotto_title'>
@@ -26,13 +38,71 @@
     </div>
   </div>
 
-  <h1></h1>
+<p class='paragrafo-single'>{{$post['postbodytop_'.$lang]}}</p>
+
 
 
 
 
   </div>
+
+
+
+
+
+
+  </div>
+<div class='divider'></div>
+<div class='row d-flex justify-content-center'>
+<div class='col-md-10'>
+
+
+<p class='paragrafo-single'>{{$post['postbodybottom_'.$lang]}}</p>
+
+
+
 </div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -12,7 +12,7 @@
 
 body {
     margin: 0;
-    font-family: "Roboto", Helvetica;
+    font-family: "Lato", Helvetica;
     font-size: 19px;
     font-weight: 400;
     line-height: 19px;
@@ -20,18 +20,44 @@ body {
     text-align: left;
     background-color: #ffffff;
 }
-main{
-    margin-top: 190px;
-
-
+main {
+    margin-top: 146px;
 }
 .carta{
-  max-width: 333px;
+
       margin: 0 auto;
 
 
 
 }
+
+.box-img-single{
+  padding: 89px;
+
+}
+.single-img {
+    margin: 0 auto;
+    max-width: 411px;
+    height: 555px;
+}
+.single-title{
+    margin-top: 100px!important;
+
+}
+.paragrafo-single{
+  text-align: center;
+    margin-top: 50px;
+
+}
+.divider{
+
+    background-color: black;
+    height: 1px;
+    width: 100%;
+
+}
+
+
 
 
 p{
@@ -39,6 +65,7 @@ p{
   font-family: "GothamBook", serif;
   color: black;
   line-height: 26px;
+      word-break: break-word;
 
 
 
@@ -47,46 +74,76 @@ p{
     h1 {
       font-size: 24px;
       font-family: "GothamBook", serif;
-        text-align: right;
+        text-align: left;
         color:black;
 
     }
 
 
 
-   margin-left: 42px;
-   position: relative;
-   z-index: 1000;
-   max-width: 263px;
-   margin-top: -115px;
-   background-color: white;
-   padding: 20px;
+
+      margin-left: 73px;
+      position: relative;
+      z-index: 1000;
+      max-width: 335px;
+      margin-top: -67px;
+      background-color: white;
+      padding: 20px;
+
 
 
 }
 .lingua {
-   margin-right: 15px;
+    position: absolute;
+    right: 63px;
+    top: 40px;
 }
+
+.cerca_botton{
+
+margin-left: 30px;
+
+
+}
+
+
 #search{
-.form-control {
-    display: block;
-
-    height: calc(1.6em + 0.75rem + 25px);
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.6;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #594f3e;
-    border-radius: 0rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-
-}
+  .form-control {
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      display: block;
+      height: calc(1.6em + 0.75rem + 25px);
+      padding: 0.375rem 0.75rem;
+      font-size: 24px;
+      font-family: "GothamBook", serif;
+      line-height: 1.6;
+      color: #495057;
+      background-color: #fff;
+      background-clip: padding-box;
+      border-bottom: 1px solid #121212;
+      border-radius: 0rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 .input-group{
   width: 100%!important;
+
+}
+.cerca{
+
+
+    border-radius: 0px;
+    background-color: black;
+    font-size: 24px;
+    font-family: "GothamBook", serif;
+    color: white;
+    padding: 8px 41px;
+}
+.cerca:hover{
+color: white;
+    background-color: #caa660;
+    border-color: #caa660;
+
 
 }
 }
@@ -100,6 +157,7 @@ background-color:#799f6f;
 height: 100vh;
 }
 .title{
+      line-height: 32px;
   text-transform: uppercase;
     text-align: center;
     font-family: "GothamBook", serif;
@@ -151,9 +209,39 @@ height: 100vh;
 
 }
 
+#vendemmia{
+
+  .title {
+        line-height: 32px;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: "GothamBook", serif;
+      font-size: 32px;
+      margin-top: 100px;
+      margin-bottom: 50px;
+  }
+
+p{
+
+  text-align: center;
+}
 
 
 
+
+
+}
+.contatti-underline {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+
+.loghi img{
+  max-width: 100%;
+}
 
 .carousel-caption {
 width: 500px;
@@ -209,11 +297,11 @@ word-wrap: break-word;
 }
 
 .box{
-  max-width: 400px;
+  max-width: 350px;
       margin: 0 auto;
       overflow: hidden;
       position: relative;
-      height: 550px;
+      height: 485px;
 
     .img-box{
       left: 50%;
@@ -252,7 +340,20 @@ word-wrap: break-word;
     width: 243px;
     text-align: left;
 }
+.modal-header{
+  .title {
+        line-height: 32px;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: "GothamBook", serif;
+      font-size: 32px;
+      margin-top: 100px;
+  }
 
+
+
+
+}
 .close_modal {
     color: #797878;
     position: absolute;
@@ -262,4 +363,16 @@ word-wrap: break-word;
     font-size: 100px;
     line-height: 100px;
     cursor: pointer;
+}
+.card-resp{
+  width: 90%!important;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+
+
+
+
+
 }
