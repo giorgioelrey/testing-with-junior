@@ -81,7 +81,7 @@ export default class Search extends Component {
                 <input type="text" className="form-control" name="query" value={this.state.query} placeholder={userLanguage == 'it' ? 'Cerca' : 'Search'} aria-label={userLanguage == 'it' ? 'Digita la tua ricerca' : 'Type your search'} aria-describedby="basic-addon2" onChange={this.handleChange}/>
 
                 <div className="input-group-append">
-                  <button type="submit" className="btn btn-outline-secondary cerca_botton">
+                  <button type="submit" className="cerca btn btn-outline-secondary cerca_botton">
                   {userLanguage == 'it' ? 'Cerca' : 'Search'}
                   </button>
                 </div>

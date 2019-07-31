@@ -10721,6 +10721,7 @@ p {
   font-family: "GothamBook", serif;
   color: black;
   line-height: 26px;
+  word-break: break-word;
 }
 
 .corpo-post {
@@ -10741,7 +10742,9 @@ p {
 }
 
 .lingua {
-  margin-right: 15px;
+  position: absolute;
+  right: 63px;
+  top: 40px;
 }
 
 .cerca_botton {
@@ -10755,8 +10758,8 @@ p {
   display: block;
   height: calc(1.6em + 0.75rem + 25px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
+  font-size: 24px;
+  font-family: "GothamBook", serif;
   line-height: 1.6;
   color: #495057;
   background-color: #fff;
@@ -10770,6 +10773,21 @@ p {
   width: 100% !important;
 }
 
+#search .cerca {
+  border-radius: 0px;
+  background-color: black;
+  font-size: 24px;
+  font-family: "GothamBook", serif;
+  color: white;
+  padding: 8px 41px;
+}
+
+#search .cerca:hover {
+  color: white;
+  background-color: #caa660;
+  border-color: #caa660;
+}
+
 .bg-gold {
   background-color: #caa660;
   height: 100vh;
@@ -10781,6 +10799,7 @@ p {
 }
 
 .title {
+  line-height: 32px;
   text-transform: uppercase;
   text-align: center;
   font-family: "GothamBook", serif;
@@ -10821,6 +10840,31 @@ p {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   color: white;
+}
+
+#vendemmia .title {
+  line-height: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: "GothamBook", serif;
+  font-size: 32px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+#vendemmia p {
+  text-align: center;
+}
+
+.contatti-underline {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  width: 100px;
+  border: 1px solid black;
+}
+
+.loghi img {
+  max-width: 100%;
 }
 
 .carousel-caption {
@@ -10907,6 +10951,7 @@ p {
 }
 
 .modal-header .title {
+  line-height: 32px;
   text-transform: uppercase;
   text-align: center;
   font-family: "GothamBook", serif;
@@ -10984,6 +11029,18 @@ p {
 
 #nav .navbar-brand img {
   width: 180px;
+}
+
+@media only screen and (max-width: 768px) {
+  #nav .lingua {
+    position: absolute;
+    right: 52px;
+    top: 40px;
+  }
+
+  #nav .navbar-toggler {
+    margin-bottom: 23px;
+  }
 }
 
 #footer {
@@ -11135,6 +11192,7 @@ p {
   font-family: "GothamBook", serif;
   left: 50%;
   font-size: 32px;
+  line-height: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 87px;
@@ -11159,6 +11217,7 @@ p {
   font-family: "GothamBook", serif;
   left: 50%;
   font-size: 32px;
+  line-height: 32px;
   position: absolute;
   text-transform: uppercase;
   margin-top: 87px;
