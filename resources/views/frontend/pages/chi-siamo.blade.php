@@ -11,20 +11,17 @@
 @section('content')
 
 
-  <div class='container-fluid' id='chi-siamo'>
+  <div class='container-fluid p-0 m-0 ' id='chi-siamo'>
 
-    <div class='row d-flex justify-content-center'>
-      <div class='col-md-12'>
+    <div class='row m-0 d-flex justify-content-center'>
+      <div class='col-md-12 p-0'>
 
-        <h1 class='title text-uppercase'>
-          {!! ($lang == 'it') ? 'chi siamo' : 'Who we are' !!}
-        </h1>
-
+  <img class="img-fluid" src="{{$contents->main_image_url->data}}"/>
       </div>
 
       <div class='col-md-8'>
 
-        <img class="img-fluid" src="{{$contents->main_image_url->data}}"/>
+
 
         <p>{!! ($lang == 'it') ? $contents->content->data->it : $contents->content->data->en !!}</p>
 

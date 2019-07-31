@@ -14,11 +14,11 @@
   <div class='container-fluid' id='contatti'>
     <div class='row'>
 
-      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
+      <div class='col-md-6 order-1  bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
 
       </div>
 
-      <div class='col-md-6 '>
+      <div class='col-md-6 order-2'>
         <div  class='title'>
           {!! ($lang == 'it') ? 'Contatti' : 'Contacts' !!}
 
@@ -28,21 +28,24 @@
         </div>
         <div class='pl-5 rif-contatti'>
 
-          <p>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:</p>
+          <p class='m-0'>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:</p>
+          <div class='contatti-underline'></div>
           <p class='sotto'>  {{$contents->address->data}}</p>
 
-            <p>Email:</p>
+            <p class='m-0'>Email:</p>
+            <div class='contatti-underline'></div>
             <p class='sotto'>  <a href='mailto:{{$contents->address->data}}'>{{$contents->email->data}}</a>
             </p>
 
-            <p>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:</p>
+            <p class='m-0'>{!! ($lang == 'it') ? 'Telefono' : 'Phone' !!}:</p>
+            <div class='contatti-underline'></div>
             <p class='sotto'>  {{$contents->phone->data}}  </p>
 
           </div>
 
         </div>
 
-        <div class='col-md-6 d-flex align-items-center aria'>
+        <div class='col-md-6 order-4  d-flex align-items-center aria'>
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
@@ -63,7 +66,7 @@
 
         </div>
 
-        <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
+        <div class='col-md-6 order-3     order-md-4   bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
         </div>
 

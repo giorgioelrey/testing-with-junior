@@ -55,7 +55,9 @@ class GmappApp extends Component {
       dialogClassName={'modal-xl'}
       disablebuttons={"false"}
       >
-      <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>X</div>
+
+      
+      <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}}>x</div>
        <div className="modal-header">
          <div className="title">
             {this.state.clickedLocation.name_it}

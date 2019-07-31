@@ -10,9 +10,9 @@
 
 @section('content')
 
-  <div class='container-fluid' id='home'>
-    <div class='row'>
-      <div class="col-12">
+  <div class='container-fluid p-0 m-0' id='home'>
+    <div class='row m-0'>
+      <div class="col-12 p-0">
         <div class="bd-example">
 
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -53,22 +53,22 @@
       </div>
     </div>
   </div>
-  <div class='container-fluid' id='contatti'>
+  <div class='container-fluid'>
     <div class='row'>
 
-      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
+      <div class='col-md-6 bg-dark vh-100 order-2' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
 
       </div>
 
-      <div class='col-md-6 '>
-        <div  class='title'>
+      <div class='col-md-6 order-1  order-md-2'id='vendemmia'>
+        <div  class='title '>
           {{$lang == 'it' ? $contents->title_top->data->it : $contents->title_top->data->en }}
 
           <div class='sotto_title'>
 
           </div>
         </div>
-        <div class='pl-5 rif-contatti'>
+        <div class='px-5 rif-contatti'>
 
           <p>{!!$lang == 'it' ? $contents->content_top->data->it : $contents->content_top->data->en !!}
 
@@ -76,7 +76,7 @@
 
       </div>
 
-      <div class='col-md-6 aria'>
+      <div class='col-md-6 order-3 aria 'id='vendemmia'>
         <div  class='title'>
           {{$lang == 'it' ? $contents->title_bottom->data->it : $contents->title_bottom->data->en }}
 
@@ -84,7 +84,7 @@
 
           </div>
         </div>
-        <div class='pl-5 rif-contatti'>
+        <div class='px-5 rif-contatti'>
 
           <p>{!!$lang == 'it' ? $contents->content_bottom->data->it : $contents->content_bottom->data->en !!}
 
@@ -93,14 +93,16 @@
 
       </div>
 
-      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
+      <div class='col-md-6 order-4 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
       </div>
 
     </div>
   </div>
 </div>
+<div class='loghi'>
 
-
+  <img src='{{ asset('images/vendemmia-loghi.png')   }}'>
+</div>
 
 @endsection

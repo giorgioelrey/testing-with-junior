@@ -65,6 +65,7 @@ p{
   font-family: "GothamBook", serif;
   color: black;
   line-height: 26px;
+      word-break: break-word;
 
 
 
@@ -93,7 +94,9 @@ p{
 
 }
 .lingua {
-   margin-right: 15px;
+    position: absolute;
+    right: 63px;
+    top: 40px;
 }
 
 .cerca_botton{
@@ -112,8 +115,8 @@ margin-left: 30px;
       display: block;
       height: calc(1.6em + 0.75rem + 25px);
       padding: 0.375rem 0.75rem;
-      font-size: 0.9rem;
-      font-weight: 400;
+      font-size: 24px;
+      font-family: "GothamBook", serif;
       line-height: 1.6;
       color: #495057;
       background-color: #fff;
@@ -124,6 +127,23 @@ margin-left: 30px;
   }
 .input-group{
   width: 100%!important;
+
+}
+.cerca{
+
+
+    border-radius: 0px;
+    background-color: black;
+    font-size: 24px;
+    font-family: "GothamBook", serif;
+    color: white;
+    padding: 8px 41px;
+}
+.cerca:hover{
+color: white;
+    background-color: #caa660;
+    border-color: #caa660;
+
 
 }
 }
@@ -137,6 +157,7 @@ background-color:#799f6f;
 height: 100vh;
 }
 .title{
+      line-height: 32px;
   text-transform: uppercase;
     text-align: center;
     font-family: "GothamBook", serif;
@@ -188,9 +209,39 @@ height: 100vh;
 
 }
 
+#vendemmia{
+
+  .title {
+        line-height: 32px;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: "GothamBook", serif;
+      font-size: 32px;
+      margin-top: 100px;
+      margin-bottom: 50px;
+  }
+
+p{
+
+  text-align: center;
+}
 
 
 
+
+
+}
+.contatti-underline {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100px;
+    border: 1px solid black;
+}
+
+
+.loghi img{
+  max-width: 100%;
+}
 
 .carousel-caption {
 width: 500px;
@@ -291,6 +342,7 @@ word-wrap: break-word;
 }
 .modal-header{
   .title {
+        line-height: 32px;
       text-transform: uppercase;
       text-align: center;
       font-family: "GothamBook", serif;

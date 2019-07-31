@@ -27,9 +27,9 @@
 
 @section('content')
 
-  <div class='container-fluid' id='home'>
-    <div class='row'>
-      <div class="col-12">
+  <div class='container-fluid m-0 p-0' id='home'>
+    <div class='row m-0'>
+      <div class="col-12 p-0">
         <div class="bd-example">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 

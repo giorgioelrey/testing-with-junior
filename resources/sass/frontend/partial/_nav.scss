@@ -59,43 +59,17 @@
     width: 180px;
   }
 
-  // @media only screen and (max-width: 768px) {
-  //   .collapsing {
-  //     position: relative;
-  //     height:inherit;
-  //     overflow:visible;
-  //     transition: height 0.35s ease;
-  //   }
-  //   .show{
-  //
-  //
-  //     padding-left: 20px;
-  //     left: 0px;
-  //     width: 700px;
-  //     background-color: white;
-  //     top: 104px;
-  //     position: absolute;
-  //     /* width: 500px;*/
-  //     text-align: left;
-  //
-  //   }
-  //
-  //
-  //   .mobile-tap{
-  //
-  //     margin-bottom: 25px;
-  //
-  //   }
-  //   .navbar-brand{
-  //     img{
-  //       margin-bottom: 4px;
-  //       width: 143px;
-  //     }
-  //
-  //   }
-  //
-  //
-  //
-  // }
+   @media only screen and (max-width: 768px) {
+     .lingua {
+    position: absolute;
+    right: 52px;
+    top: 40px;
+}
+  .navbar-toggler{
+
+    margin-bottom: 23px;
+
+  }
+  }
 
 }

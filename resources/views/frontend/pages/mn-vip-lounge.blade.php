@@ -11,7 +11,7 @@
 @section('content')
   <div class='container-fluid' id='servizi-mnlounge'>
 
-    <div class='row'>
+    <div class='row 'id='contatti'>
 
       <div  class='title'>
           mnlounge
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class='col-md-6' >
+      <div class='col-md-6 order-1' >
 
         <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -52,18 +52,15 @@
 
       </div>
 
-      <div class='col-md-6 d-flex align-items-center'>
+      <div class='col-md-6 order-2 d-flex align-items-center'>
 
         <div>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
       </div>
 
-    </div>
-  </div>
-  <div class='container-fluid' id='contatti'>
-    <div class='row'>
 
-      <div class='col-md-6 aria'>
+
+      <div class='col-md-6 order-4  d-flex align-items-center aria'>
 
         <form>
           <div class="form-group">
@@ -84,7 +81,7 @@
 
       </div>
 
-      <div class='col-md-6 bg-dark vh-100' style="height: 100vh;overflow: hidden">
+      <div class='col-md-6 order-3     order-md-4'>
 
                 <div id="demo2" class="carousel slide" data-ride="carousel">
 
@@ -113,12 +110,11 @@
 
 
 
-                </div>
-      </div>
 
     </div>
   </div>
-
+</div>
+</div>
 
 
 
