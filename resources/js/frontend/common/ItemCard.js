@@ -23,7 +23,12 @@ const ItemCard = ({type, item, userLanguage }) => {
   const bodyElement = type == 'eventi' ?
       (<p>{item.address}</p>)
       :
-      (<p dangerouslySetInnerHTML={{__html: item['postbodytop_' +  userLanguage]}}/>);
+      (<p dangerouslySetInnerHTML={{__html: (() => {
+        const full = [...item['postbodytop_' +  userLanguage]];
+        full.length = 70;
+        return full.join('') + '...'
+      })()}}
+      />);
 
 
     return (

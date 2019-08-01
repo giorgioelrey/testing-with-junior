@@ -14,11 +14,13 @@
   <div class='container-fluid' id='contatti'>
     <div class='row'>
 
-      <div class='col-md-6 order-1  bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
+      <div class='quadrato contatti col-lg-6 order-1  bg-dark p-0' style="overflow:hidden;">
+
+        <img class="" src="{{$contents->image_top_url->data}}" alt="">
 
       </div>
 
-      <div class='col-md-6 order-2'>
+      <div class='col-lg-6 quadrato contatti content order-2'>
         <div  class='title'>
           {!! ($lang == 'it') ? 'Contatti' : 'Contacts' !!}
 
@@ -45,7 +47,7 @@
 
         </div>
 
-        <div class='col-md-6 order-4  d-flex align-items-center aria'>
+        <div class='col-lg-6 quadrato contatti content order-4  d-flex align-items-center aria pb-3 pb-lg-0'>
           <form>
             <div class="form-group">
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
@@ -66,7 +68,9 @@
 
         </div>
 
-        <div class='col-md-6 order-3     order-md-4   bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
+        <div class='quadrato contatti col-lg-6 order-3     order-md-4   bg-dark p-0' style="overflow:hidden;">
+
+                  <img class="" src="{{$contents->image_bottom_url->data}}" alt="">
 
         </div>
 
