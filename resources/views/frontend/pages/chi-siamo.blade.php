@@ -19,7 +19,7 @@
   <img class="img-fluid" src="{{$contents->main_image_url->data}}"/>
       </div>
 
-      <div class='col-md-8'>
+      <div class='col-md-8 mt-4'>
 
 
 
