@@ -38,7 +38,7 @@
     </div>
   </div>
 
-<p class='paragrafo-single'>{{$post['postbodytop_'.$lang]}}</p>
+<p class='paragrafo-single'>{!!$post['postbodytop_'.$lang]!!}</p>
 
 
 

@@ -10895,7 +10895,7 @@ p {
 }
 
 .carousel-caption {
-  width: 500px;
+  max-width: 500px;
   margin: 0 auto;
   word-wrap: break-word;
 }
@@ -10904,6 +10904,12 @@ p {
   text-align: center;
   font-family: "Playfair Display", serif;
   font-size: 42px;
+}
+
+@media all and (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 33px;
+  }
 }
 
 #top {
@@ -11002,6 +11008,84 @@ p {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+#contatti .quadrato,
+#servizi-mnlounge .quadrato {
+  height: 100vh;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#contatti .quadrato.lounge,
+#contatti .quadrato.contatti,
+#servizi-mnlounge .quadrato.lounge,
+#servizi-mnlounge .quadrato.contatti {
+  height: auto;
+}
+
+@media all and (max-width: 1024px) {
+  #contatti .quadrato,
+  #servizi-mnlounge .quadrato {
+    height: 100vw;
+  }
+
+  #contatti .quadrato.contatti img,
+  #servizi-mnlounge .quadrato.contatti img {
+    width: 130%;
+    -webkit-transform: translateX(-10%);
+            transform: translateX(-10%);
+  }
+}
+
+@media all and (max-width: 992px) {
+  #contatti .quadrato.lounge,
+  #contatti .quadrato.contatti,
+  #servizi-mnlounge .quadrato.lounge,
+  #servizi-mnlounge .quadrato.contatti {
+    height: 100vw;
+  }
+
+  #contatti .quadrato.lounge.content,
+  #contatti .quadrato.contatti.content,
+  #servizi-mnlounge .quadrato.lounge.content,
+  #servizi-mnlounge .quadrato.contatti.content {
+    height: auto;
+  }
+
+  #contatti .quadrato.lounge .carousel-item img,
+  #contatti .quadrato.contatti .carousel-item img,
+  #servizi-mnlounge .quadrato.lounge .carousel-item img,
+  #servizi-mnlounge .quadrato.contatti .carousel-item img {
+    width: 150%;
+    bottom: 50%;
+  }
+
+  #contatti .quadrato.contatti img,
+  #servizi-mnlounge .quadrato.contatti img {
+    width: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@media all and (min-width: 1200px) {
+  #contatti .quadrato.contatti,
+  #servizi-mnlounge .quadrato.contatti {
+    height: auto;
+  }
+
+  #contatti .quadrato.contatti img,
+  #servizi-mnlounge .quadrato.contatti img {
+    width: 100%;
+  }
+
+  #contatti .quadrato .carousel-item img,
+  #servizi-mnlounge .quadrato .carousel-item img {
+    width: 100%;
+  }
 }
 
 #nav .navbar-light .navbar-toggler-icon {
@@ -11288,10 +11372,6 @@ p {
   width: 160px;
   height: 1px;
   background-color: #000000;
-}
-
-#contatti {
-  margin-top: -36px;
 }
 
 #contatti .title {

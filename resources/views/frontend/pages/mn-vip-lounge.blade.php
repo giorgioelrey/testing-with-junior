@@ -21,9 +21,9 @@
         </div>
       </div>
 
-      <div class='col-md-6 order-1 p-0' >
+      <div class='quadrato lounge col-lg-6 order-1 p-0' >
 
-        <div id="demo" class="carousel slide" data-ride="carousel">
+        <div id="demo" class="carousel slide w-100 h-100" data-ride="carousel">
 
 
           <ul class="carousel-indicators">
@@ -36,16 +36,16 @@
 
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{{$contents->carousel_top_image_1->data}}" alt="Los Angeles" max-width="100" height="auto">
+              <img src="{{$contents->carousel_top_image_1->data}}" alt="Los Angeles" height="100%" height="auto">
             </div>
             <div class="carousel-item">
-              <img src="{{$contents->carousel_top_image_2->data}}" alt="Chicago" max-width="100" height="auto">
+              <img src="{{$contents->carousel_top_image_2->data}}" alt="Chicago" height="100%" height="auto">
             </div>
             <div class="carousel-item">
-              <img src="{{$contents->carousel_top_image_3->data}}" alt="New York" max-width="100" height="auto">
+              <img src="{{$contents->carousel_top_image_3->data}}" alt="New York" height="100%" height="auto">
             </div>
             <div class="carousel-item">
-              <img src="{{$contents->carousel_top_image_4->data}}" alt="image4" max-width="100" height="auto">
+              <img src="{{$contents->carousel_top_image_4->data}}" alt="image4" height="100%" height="auto">
             </div>
           </div>
 
@@ -53,7 +53,7 @@
 
       </div>
 
-      <div class='col-md-6 order-2 d-flex align-items-center text-center p-0'>
+      <div class='quadrato lounge content col-lg-6 order-2 d-flex align-items-center text-center py-5 p-lg-0'>
 
         <div class='px-5'>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
@@ -61,7 +61,7 @@
 
 
 
-      <div class='col-md-6 order-4 p-0 d-flex align-items-center aria'>
+      <div class='quadrato lounge content col-lg-6 order-4 p-0 d-flex align-items-center aria pb-3 pb-lg-0'>
 
         <form>
           <div class="form-group">
@@ -82,9 +82,9 @@
 
       </div>
 
-      <div class='col-md-6 order-3 order-md-4 p-0'>
+      <div class='quadrato lounge col-lg-6 order-3 order-lg-4 p-0'>
 
-                <div id="demo2" class="carousel slide" data-ride="carousel">
+                <div id="demo2" class="carousel slide w-100 h-100" data-ride="carousel">
 
                   <ul class="carousel-indicators">
                     <li data-target="#demo2" data-slide-to="0" class="active"></li>
@@ -96,16 +96,16 @@
 
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="{{$contents->carousel_bottom_image_1->data}}" alt="Los Angeles" max-width="100" height="auto">
+                      <img src="{{$contents->carousel_bottom_image_1->data}}" alt="Los Angeles" height="100%" height="auto">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{$contents->carousel_bottom_image_2->data}}" alt="Chicago" max-width="100" height="auto">
+                      <img src="{{$contents->carousel_bottom_image_2->data}}" alt="Chicago" height="100%" height="auto">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{$contents->carousel_bottom_image_3->data}}" alt="New York" max-width="100" height="auto">
+                      <img src="{{$contents->carousel_bottom_image_3->data}}" alt="New York" height="100%" height="auto">
                     </div>
                     <div class="carousel-item">
-                      <img src="{{$contents->carousel_bottom_image_4->data}}" alt="image4" max-width="100" height="auto">
+                      <img src="{{$contents->carousel_bottom_image_4->data}}" alt="image4" height="100%" height="auto">
                     </div>
                   </div>
 
