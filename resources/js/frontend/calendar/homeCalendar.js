@@ -79,8 +79,6 @@ class EventsCalendar extends Component {
     return (
       <div>
 
-
-
         <Calendar
           date={this.state.date}
           onSelect={this.onSelect}

@@ -119,6 +119,8 @@ class Calendar extends Component {
       if (!current.isSame(month, 'month')) {
         dayClasses = dayClasses.concat(['other-month']);
       }
+
+      ///has Events
       let props = {
         date: current.clone(),
         selected: date,
