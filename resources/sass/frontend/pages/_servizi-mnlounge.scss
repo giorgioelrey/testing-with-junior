@@ -1,5 +1,8 @@
 #servizi-mnlounge{
-
+  .carousel-item img {
+    max-width:100%;
+    object-fit: cover;
+  }
   .title{
       font-family: 'Playfair Display', serif;
       left: 50%;
