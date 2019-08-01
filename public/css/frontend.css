@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Lato:700&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap);@import url(https://fonts.googleapis.com/css?family=Lato:700&display=swap);@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10674,13 +10674,18 @@ a.text-dark:focus {
 
 body {
   margin: 0;
-  font-family: "Lato", Helvetica;
+  font-family: "Playfair Display", serif;
   font-size: 19px;
   font-weight: 400;
   line-height: 19px;
   color: #212529;
   text-align: left;
   background-color: #ffffff;
+}
+
+a:hover {
+  color: #caa660;
+  text-decoration: none !important;
 }
 
 main {
@@ -10718,7 +10723,7 @@ main {
 
 p {
   font-size: 21px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: black;
   line-height: 26px;
   word-break: break-word;
@@ -10736,7 +10741,7 @@ p {
 
 .corpo-post h1 {
   font-size: 24px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   text-align: left;
   color: black;
 }
@@ -10759,7 +10764,7 @@ p {
   height: calc(1.6em + 0.75rem + 25px);
   padding: 0.375rem 0.75rem;
   font-size: 24px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   line-height: 1.6;
   color: #495057;
   background-color: #fff;
@@ -10777,7 +10782,7 @@ p {
   border-radius: 0px;
   background-color: black;
   font-size: 24px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: white;
   padding: 8px 41px;
 }
@@ -10802,7 +10807,7 @@ p {
   line-height: 32px;
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-size: 32px;
   margin-top: 236px;
 }
@@ -10846,10 +10851,27 @@ p {
   line-height: 32px;
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-size: 32px;
   margin-top: 100px;
   margin-bottom: 50px;
+  color: #90294E;
+}
+
+#vendemmia .title .sotto_title {
+  background-color: #90294E;
+}
+
+#vendemmia .colore_1 {
+  background-color: #efb6cb;
+}
+
+#vendemmia .colore_2 {
+  background-color: #bd6484;
+}
+
+#vendemmia h5 {
+  color: #90294E;
 }
 
 #vendemmia p {
@@ -10876,7 +10898,7 @@ p {
 .carousel-caption h5 {
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamBold", serif;
+  font-family: "Playfair Display", serif;
   font-size: 42px;
 }
 
@@ -10944,7 +10966,7 @@ p {
 
 .dettaglio-modale p {
   font-size: 21px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: black;
   line-height: 33px;
   margin-bottom: 0px;
@@ -10954,7 +10976,7 @@ p {
   line-height: 32px;
   text-transform: uppercase;
   text-align: center;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-size: 32px;
   margin-top: 100px;
 }
@@ -11000,7 +11022,7 @@ p {
 }
 
 #nav .lingua li a {
-  font-family: "Lato", sans-serif;
+  font-family: "Playfair Display", serif;
   color: black;
 }
 
@@ -11081,12 +11103,12 @@ p {
 }
 
 #home .mostra_evento h1 {
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-size: 24px;
 }
 
 #home .mostra_evento h3 {
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-size: 20px;
   font-weight: bold;
 }
@@ -11145,6 +11167,7 @@ p {
 }
 
 #home .Day.selected {
+  width: 100px;
   background: #caa660;
   padding: 21px;
   border-radius: 50px;
@@ -11177,7 +11200,7 @@ p {
 #soci .hotel {
   color: #000000;
   font-size: 18px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   list-style: none;
 }
@@ -11189,7 +11212,7 @@ p {
 }
 
 #soci .title {
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   left: 50%;
   font-size: 32px;
   line-height: 32px;
@@ -11214,7 +11237,7 @@ p {
 }
 
 #servizi-mnlounge .title {
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   left: 50%;
   font-size: 32px;
   line-height: 32px;
@@ -11249,7 +11272,7 @@ p {
 #contatti .rif-contatti {
   margin-top: 50px;
   font-size: 24px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: black;
 }
 
@@ -11267,7 +11290,7 @@ p {
 
 #contatti .invia {
   font-size: 24px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: black;
   padding: 8px 41px;
 }
@@ -11280,7 +11303,7 @@ p {
   margin-top: 20px;
   margin-bottom: 19px;
   font-size: 21px;
-  font-family: "GothamBook", serif;
+  font-family: "Playfair Display", serif;
   color: black;
 }
 
