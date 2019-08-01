@@ -24,8 +24,9 @@
               </a>
             </li>
           @endforeach
-        </ul>
+        
       @else
+
         <li class='list-inline-item {{LaravelLocalization::getCurrentLocale() == 'it' ? 'active' : ''}}'>
           <a rel="alternate" hreflang="it" href="{{LaravelLocalization::getCurrentLocale() == 'it' ? \Request::fullUrl() : $otherLangUrl}}">
             it
@@ -36,8 +37,10 @@
             en
           </a>
         </li>
-      @endif
 
+      @endif
+        </ul>
+{{-- </div> --}}
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -81,7 +84,7 @@
 
         </div>
 
-      {{-- </div> --}}
+
 
     </nav>
   </div>

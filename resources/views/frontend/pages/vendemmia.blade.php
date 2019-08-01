@@ -11,7 +11,7 @@
 @section('content')
 
   <div class='container-fluid p-0 m-0' id='home'>
-    <div class='row m-0'>
+    <div class='row m-0'id='vendemmia'>
       <div class="col-12 p-0">
         <div class="bd-example">
 
@@ -53,14 +53,14 @@
       </div>
     </div>
   </div>
-  <div class='container-fluid'>
-    <div class='row'>
+  <div class='container-fluid m-0 p-0'>
+    <div class='row m-0'id='vendemmia'>
 
-      <div class='col-md-6 bg-dark vh-100 order-2' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
+      <div class='col-md-6 p-0 bg-dark vh-100 order-2' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_top_url->data}}')">
 
       </div>
 
-      <div class='col-md-6 order-1  order-md-2'id='vendemmia'>
+      <div class='col-md-6 order-1 p-0 order-md-2 colore_1'>
         <div  class='title '>
           {{$lang == 'it' ? $contents->title_top->data->it : $contents->title_top->data->en }}
 
@@ -76,7 +76,7 @@
 
       </div>
 
-      <div class='col-md-6 order-3 aria 'id='vendemmia'>
+      <div class='col-md-6 p-0 order-3 aria colore_2'>
         <div  class='title'>
           {{$lang == 'it' ? $contents->title_bottom->data->it : $contents->title_bottom->data->en }}
 
@@ -93,7 +93,7 @@
 
       </div>
 
-      <div class='col-md-6 order-4 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
+      <div class='col-md-6 p-0 order-4 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_bottom_url->data}}')">
 
       </div>
 
