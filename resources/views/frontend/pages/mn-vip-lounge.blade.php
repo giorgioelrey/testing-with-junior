@@ -9,9 +9,10 @@
 @endsection
 
 @section('content')
-  <div id='servizi-mnlounge'>
 
-    <div class='row 'id='contatti'>
+    <div class='container-fluid p-0 m-0 'id='servizi-mnlounge' >
+
+    <div class='row m-0' id='contatti'>
 
       <div  class='title'>
           mnlounge
@@ -52,15 +53,15 @@
 
       </div>
 
-      <div class='col-md-6 order-2 d-flex align-items-center text-center px-5'>
+      <div class='col-md-6 order-2 d-flex align-items-center text-center p-0'>
 
-        <div>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
+        <div class='px-5'>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
       </div>
 
 
 
-      <div class='col-md-6 order-4  d-flex align-items-center aria'>
+      <div class='col-md-6 order-4 p-0 d-flex align-items-center aria'>
 
         <form>
           <div class="form-group">
@@ -115,7 +116,6 @@
   </div>
 </div>
 </div>
-
 
 
 
