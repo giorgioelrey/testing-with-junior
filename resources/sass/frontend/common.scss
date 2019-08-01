@@ -7,12 +7,12 @@
     src: url('/fonts/GothamBold.ttf');
 }
 @import url('https://fonts.googleapis.com/css?family=Lato:700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,900&display=swap');
 
 
 body {
     margin: 0;
-    font-family: "Lato", Helvetica;
+    font-family: 'Playfair Display', serif;
     font-size: 19px;
     font-weight: 400;
     line-height: 19px;
@@ -20,6 +20,12 @@ body {
     text-align: left;
     background-color: #ffffff;
 }
+a:hover {
+    color:#caa660;
+    text-decoration: none!important;
+}
+
+
 main {
     margin-top: 146px;
 }
@@ -62,7 +68,7 @@ main {
 
 p{
   font-size: 21px;
-  font-family: "GothamBook", serif;
+font-family: 'Playfair Display', serif;
   color: black;
   line-height: 26px;
       word-break: break-word;
@@ -73,7 +79,7 @@ p{
 .corpo-post{
     h1 {
       font-size: 24px;
-      font-family: "GothamBook", serif;
+      font-family: 'Playfair Display', serif;
         text-align: left;
         color:black;
 
@@ -116,7 +122,7 @@ margin-left: 30px;
       height: calc(1.6em + 0.75rem + 25px);
       padding: 0.375rem 0.75rem;
       font-size: 24px;
-      font-family: "GothamBook", serif;
+    font-family: 'Playfair Display', serif;
       line-height: 1.6;
       color: #495057;
       background-color: #fff;
@@ -135,7 +141,7 @@ margin-left: 30px;
     border-radius: 0px;
     background-color: black;
     font-size: 24px;
-    font-family: "GothamBook", serif;
+    font-family: 'Playfair Display', serif;
     color: white;
     padding: 8px 41px;
 }
@@ -160,7 +166,7 @@ height: 100vh;
       line-height: 32px;
   text-transform: uppercase;
     text-align: center;
-    font-family: "GothamBook", serif;
+    font-family: 'Playfair Display', serif;
     font-size: 32px;
   margin-top: 236px;
 
@@ -215,11 +221,36 @@ height: 100vh;
         line-height: 32px;
       text-transform: uppercase;
       text-align: center;
-      font-family: "GothamBook", serif;
+      font-family: 'Playfair Display', serif;
       font-size: 32px;
       margin-top: 100px;
       margin-bottom: 50px;
+      color:#90294E;
+
+      .sotto_title{
+
+        background-color: #90294E;
+      }
   }
+
+.colore_1{
+background-color: #efb6cb;
+
+}
+.colore_2{
+background-color:#bd6484;
+
+}
+
+h5{
+  color:#90294E;
+
+}
+
+
+
+
+
 
 p{
 
@@ -253,12 +284,19 @@ word-wrap: break-word;
 
   text-transform: uppercase;
     text-align: center;
-    font-family: "GothamBold", serif;
+    font-family: 'Playfair Display', serif;
     font-size: 42px;
 
 
 }
 }
+
+
+
+
+
+
+
 
 #top {
 
@@ -327,7 +365,7 @@ word-wrap: break-word;
       p{
 
             font-size: 21px;
-            font-family: "GothamBook", serif;
+          font-family: 'Playfair Display', serif;
             color: black;
             line-height: 33px;
             margin-bottom: 0px;
@@ -345,7 +383,7 @@ word-wrap: break-word;
         line-height: 32px;
       text-transform: uppercase;
       text-align: center;
-      font-family: "GothamBook", serif;
+      font-family: 'Playfair Display', serif;
       font-size: 32px;
       margin-top: 100px;
   }
