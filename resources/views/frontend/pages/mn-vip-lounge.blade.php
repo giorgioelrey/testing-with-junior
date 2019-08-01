@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <div class='container-fluid' id='servizi-mnlounge'>
+  <div id='servizi-mnlounge'>
 
     <div class='row 'id='contatti'>
 
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class='col-md-6 order-1' >
+      <div class='col-md-6 order-1 p-0' >
 
         <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -52,7 +52,7 @@
 
       </div>
 
-      <div class='col-md-6 order-2 d-flex align-items-center'>
+      <div class='col-md-6 order-2 d-flex align-items-center text-center px-5'>
 
         <div>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
@@ -81,7 +81,7 @@
 
       </div>
 
-      <div class='col-md-6 order-3     order-md-4'>
+      <div class='col-md-6 order-3 order-md-4 p-0'>
 
                 <div id="demo2" class="carousel slide" data-ride="carousel">
 
