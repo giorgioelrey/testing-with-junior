@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Sunra\PhpSimple\HtmlDomParser;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PostController extends Controller
 {
@@ -55,6 +57,26 @@ class PostController extends Controller
         $post->metadescription_en = $request->metadescription_en;
         $post->title_it = $request->title_it;
         $post->title_en = $request->title_en;
+
+        $html = HtmlDomParser::str_get_html($request->postbodytop_it);
+
+        foreach ($html->find('img') as $element) {
+
+          $image = str_replace('data:image/png;base64,', '', $element->src);
+          $image = str_replace(' ', '+', $image);
+
+          $png_url = "base64-".time();
+
+          $savePath =  storage_path().'/app/public/' . $png_url . '.png';
+
+          $srcPath = Storage::url($png_url . '.png');
+
+          Image::make($image)->save($savePath, 80, 'png');
+
+          $request->postbodytop_it = str_replace($element->src, $srcPath, $request->postbodytop_it);
+
+        }
+
         $post->postbodytop_it = $request->postbodytop_it;
         $post->postbodytop_en = $request->postbodytop_en;
         $post->postbodybottom_it = $request->postbodybottom_it;
