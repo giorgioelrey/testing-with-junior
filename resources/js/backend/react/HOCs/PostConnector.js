@@ -44,7 +44,8 @@ const PostConnector = ((WrappedComponent) => {
                             console.log(apiResponse)
                              this.setState({ posts: apiResponse.data.posts, isLoading: false })
                              ; break;
-                case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId)
+                case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId, this.props.section);
+                            console.log('hoc post edit',apiResponse);
                             this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
                             ; break;
 
@@ -84,10 +85,12 @@ const PostConnector = ((WrappedComponent) => {
          })
        }
 
-        getPost(postId){
+        getPost(postId, section){
+
+          const apiUrl = section == 'edit' ? `/api/admin/post/get-for-update/${postId}`:`/api/admin/post/${postId}`;
 
          return axios({
-           url: `/api/admin/post/${postId}`,
+           url: apiUrl,
            method: 'get',
            headers: {
              'X-Requested-With': 'XMLHttpRequest',

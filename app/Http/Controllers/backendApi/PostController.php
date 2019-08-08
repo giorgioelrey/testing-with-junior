@@ -77,6 +77,7 @@ class PostController extends Controller
 
         }
 
+
         $post->postbodytop_it = $request->postbodytop_it;
         $post->postbodytop_en = $request->postbodytop_en;
         $post->postbodybottom_it = $request->postbodybottom_it;
@@ -129,6 +130,51 @@ class PostController extends Controller
       ];
 
       return response()->json($response, 200);
+    }
+
+    public function prepareForUpdate($id){
+
+      $post = Post::find($id);
+
+      if (is_null($post)) {
+          $response = [
+              'success' => false,
+              'data' => [],
+              'message' => 'Post not found.'
+          ];
+          return response()->json($response, 404);
+      }
+
+
+      //per riportare allo stato in modifica
+      //prendere la stringa
+      //loop su tutte le image
+      //encode_base64 dell'immagine
+      //creazione della stringa con'data:image/png;base64,'
+      //str_replace nella stringa originale
+      $html = HtmlDomParser::str_get_html($post->postbodytop_it);
+
+      foreach ($html->find('img') as $element) {
+
+        $image = Storage::get('public/'.str_replace("/storage/",'',$element->src));
+
+        $imageBase64 = base64_encode($image);
+
+        $post->postbodytop_it = str_replace($element->src, 'data:image/png;base64,  '.$imageBase64, $post->postbodytop_it);
+
+      }
+
+
+      $postResponse = $post->toArray();
+
+      $response = [
+          'success' => true,
+          'post' => $postResponse,
+          'message' => 'Post retrieved successfully.'
+      ];
+
+      return response()->json($response, 200);
+
     }
 
     public function update(Request $request)
