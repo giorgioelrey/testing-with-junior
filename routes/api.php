@@ -55,6 +55,8 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::post('/admin/post/store', 'PostController@store')->name('post.store');
 
+  Route::get('/admin/post/get-for-update/{id}', 'PostController@prepareForUpdate')->name('post.prepareupdate');
+
   Route::post('/admin/post/update', 'PostController@update')->name('post.update');
 
   Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
