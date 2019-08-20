@@ -57,31 +57,10 @@ class PostController extends Controller
         $post->metadescription_en = $request->metadescription_en;
         $post->title_it = $request->title_it;
         $post->title_en = $request->title_en;
-
-        $html = HtmlDomParser::str_get_html($request->postbodytop_it);
-
-        foreach ($html->find('img') as $element) {
-
-          $image = str_replace('data:image/png;base64,', '', $element->src);
-          $image = str_replace(' ', '+', $image);
-
-          $png_url = "base64-".time();
-
-          $savePath =  storage_path().'/app/public/' . $png_url . '.png';
-
-          $srcPath = Storage::url($png_url . '.png');
-
-          Image::make($image)->save($savePath, 80, 'png');
-
-          $request->postbodytop_it = str_replace($element->src, $srcPath, $request->postbodytop_it);
-
-        }
-
-
-        $post->postbodytop_it = $request->postbodytop_it;
-        $post->postbodytop_en = $request->postbodytop_en;
-        $post->postbodybottom_it = $request->postbodybottom_it;
-        $post->postbodybottom_en = $request->postbodybottom_en;
+        $post->postbodytop_it = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodytop_it);
+        $post->postbodytop_en = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodytop_en);
+        $post->postbodybottom_it = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodybottom_it);
+        $post->postbodybottom_en = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodybottom_en);
         $post->image_url = $request->file('image_url')->store('public');
         $post->category_id = $request->category_id;
         $post->save();
@@ -145,13 +124,6 @@ class PostController extends Controller
           return response()->json($response, 404);
       }
 
-
-      //per riportare allo stato in modifica
-      //prendere la stringa
-      //loop su tutte le image
-      //encode_base64 dell'immagine
-      //creazione della stringa con'data:image/png;base64,'
-      //str_replace nella stringa originale
       $html = HtmlDomParser::str_get_html($post->postbodytop_it);
 
       foreach ($html->find('img') as $element) {
@@ -212,10 +184,10 @@ class PostController extends Controller
        $post->metadescription_en = $request->metadescription_en;
        $post->title_it = $request->title_it;
        $post->title_en = $request->title_en;
-       $post->postbodytop_it = $request->postbodytop_it;
-       $post->postbodytop_en = $request->postbodytop_en;
-       $post->postbodybottom_it = $request->postbodybottom_it;
-       $post->postbodybottom_en = $request->postbodybottom_en;
+       $post->postbodytop_it = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodytop_it,true);
+       $post->postbodytop_en = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodytop_en,true);
+       $post->postbodybottom_it = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodybottom_it, true);
+       $post->postbodybottom_en = $this->convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->postbodybottom_en,true);
        $post->image_url = $request->file('image_url')->store('public');
        $post->category_id = $request->category_id;
 
@@ -241,30 +213,92 @@ class PostController extends Controller
     {
 
       $post = Post::find($id);
-      $data = $post->toArray();
 
       if (is_null($post)) {
           $response = [
               'success' => false,
-              'data' => 'Empty',
+              'data' => [],
               'message' => 'Post not found.'
           ];
           return response()->json($response, 404);
       }
 
-      $data = $post->toArray();
+      $deletedPost = $post->toArray();
 
       Storage::delete($post->image_url);
+      $this->deleteAllImagesForField($post->postbodytop_it);
+      $this->deleteAllImagesForField($post->postbodytop_en);
+      $this->deleteAllImagesForField($post->postbodybottom_it);
+      $this->deleteAllImagesForField($post->postbodybottom_en);
 
       $post->delete();
 
        $response = [
            'success' => true,
-           'data' => $data,
+           'data' => $deletedPost,
            'message' => 'Post deleted successfully.'
        ];
 
      return response()->json($response, 200);
+    }
+
+    public function convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($field, $isUpdate=false){
+
+        $html = HtmlDomParser::str_get_html($field);
+
+        foreach ($html->find('img') as $element) {
+
+            if ($isUpdate){
+
+
+
+            } else {
+
+                $image = extractDataFromBase64Src($element->src);
+
+                $savedImageSrcPath = saveBase64ImageAndReturnStoredPath($image);
+
+                $field = str_replace($element->src, $savedImageSrcPath, $field);
+
+            }
+
+
+        }
+
+        return field;
+    }
+
+   public function extractDataFromBase64Src($src){
+
+       $image = str_replace('data:image/png;base64,', '', $src);
+       $image = str_replace(' ', '+', $image);
+
+        return $image;
+   }
+
+   public function deleteAllImagesForField($field){
+
+       $html = HtmlDomParser::str_get_html($field);
+
+       foreach ($html->find('img') as $element) {
+
+           Storage::delete($element->src);
+       }
+
+   }
+
+    public function saveBase64ImageAndReturnStoredPath($base64Image){
+
+        $png_url = "base64-".time();
+
+        $savePath =  storage_path().'/app/public/' . $png_url . '.png';
+
+        $srcPath = Storage::url($png_url . '.png');
+
+        Image::make($base64Image)->save($savePath, 80, 'png');
+
+        return $srcPath;
+
     }
 
 }
