@@ -9,8 +9,8 @@ import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
 
-    console.log('newform cats', categories)
-    console.log('location', location)
+    console.log('newform cats', categories);
+    console.log('location', location);
 
     const FILE_SIZE = 160 * 2000;
     const SUPPORTED_FORMATS = [
@@ -92,7 +92,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
 
                         <TextInputFormikField name={"email"} label="Email" touched={touched} errors={errors} />
 
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Location Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Location Image'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={location.image_url} />
 
                       </div>
                        <div className="form-group">

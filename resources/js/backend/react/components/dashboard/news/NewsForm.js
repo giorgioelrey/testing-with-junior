@@ -60,9 +60,9 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                         <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"postbodytop_it"} label="Post Body Top IT" errors={errors} />
+                        <WisiwygEditorFormikField name={"postbodytop_it"} label="Post Body Top IT" errors={errors} withPhoto={false} />
 
-                        <WisiwygEditorFormikField name={"postbodybottom_it"} label="Post Body Bottom IT" errors={errors} />
+                        <WisiwygEditorFormikField name={"postbodybottom_it"} label="Post Body Bottom IT" errors={errors} withPhoto={true}/>
 
                       </div>
                       <hr/>
@@ -73,9 +73,9 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                         <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"postbodytop_en"} label="Post Body Top EN" errors={errors} />
+                        <WisiwygEditorFormikField name={"postbodytop_en"} label="Post Body Top EN" errors={errors} withPhoto={false}/>
 
-                        <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} />
+                        <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} withPhoto={true} />
 
                         {/*<Field
                            name="image_url"
@@ -86,7 +86,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                            errors={errors}
                            touched={touched}
                          />*/}
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={post.image_url}/>
 
                       </div>
                        <div className="form-group">

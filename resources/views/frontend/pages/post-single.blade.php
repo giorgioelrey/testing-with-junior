@@ -57,7 +57,9 @@
 <div class='col-md-10'>
 
 
-<p class='paragrafo-single'>{{$post['postbodybottom_'.$lang]}}</p>
+<div class='paragrafo-single'>
+    {!! $post['postbodybottom_'.$lang] !!}
+</div>
 
 
 
