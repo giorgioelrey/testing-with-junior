@@ -189,6 +189,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\QuillEditorHelperServiceProvider::class
 
     ],
 
@@ -242,8 +243,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Goutte' => Weidner\Goutte\GoutteFacade::class,
-        'Image' => Intervention\Image\Facades\Image::class
-
+        'Image' => Intervention\Image\Facades\Image::class,
+        'QuillEditorHelper' => App\QuillEditorHelper\QuillEditorHelperFacade::class
 
     ],
 
