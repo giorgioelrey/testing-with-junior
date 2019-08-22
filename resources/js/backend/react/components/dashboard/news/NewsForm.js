@@ -86,7 +86,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                            errors={errors}
                            touched={touched}
                          />*/}
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={post.image_url}/>
 
                       </div>
                        <div className="form-group">

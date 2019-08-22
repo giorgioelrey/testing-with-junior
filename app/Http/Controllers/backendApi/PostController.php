@@ -124,6 +124,15 @@
               return response()->json($response, 404);
           }
 
+            //Check if is a loremPixel url otherwise get url for img tag
+            $urlSplit = explode("/",$post['image_url']);
+
+            if (!in_array('lorempixel.com', $urlSplit)){
+
+                $post['image_url'] = Storage::url($post['image_url']);
+
+            }
+
           $postResponse = $post->toArray();
 
           $response = [
