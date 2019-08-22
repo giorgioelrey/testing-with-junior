@@ -64,7 +64,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_it"} label="Description IT" errors={errors} />
+                        <WisiwygEditorFormikField name={"description_it"} label="Description IT" errors={errors} withPhoto={true} />
 
                       </div>
                       <hr/>
@@ -77,7 +77,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_en"} label="Description EN" errors={errors} />
+                        <WisiwygEditorFormikField name={"description_en"} label="Description EN" errors={errors} withPhoto={true} />
 
                       </div>
 
