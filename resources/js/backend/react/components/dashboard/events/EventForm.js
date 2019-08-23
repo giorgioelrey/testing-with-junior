@@ -89,6 +89,8 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <h2>Campi per entrambe le lingue</h2>
 
+                          <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+
                         <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
 
                           <p>Inserire data di inizio e data di fine identiche per evento di durata di un solo giorno</p>
@@ -102,7 +104,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TimePickerFormikField name="end_time" label="Ora di fine" errors={errors}/>
 
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+
 
                       </div>
 

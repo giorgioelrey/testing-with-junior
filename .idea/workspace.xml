@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/DatePickerFormikField.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/DatePickerFormikField.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/EventsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EventsTableSeeder.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +40,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="236">
+              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/EventsTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="386">
+              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -76,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="313">
               <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
               <folding>
                 <element signature="e#51#65#0#PHP" expanded="true" />
@@ -136,11 +142,12 @@
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_15_160851_create_events_table.php" />
         <option value="$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/DatePickerFormikField.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/EventsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php" />
       </list>
     </option>
   </component>
@@ -429,18 +436,18 @@
       <workItem from="1566294907860" duration="2937000" />
       <workItem from="1566420610064" duration="8754000" />
       <workItem from="1566465314712" duration="12948000" />
-      <workItem from="1566565407910" duration="2812000" />
+      <workItem from="1566565407910" duration="3604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27497000" />
+    <option name="totallyTimeSpent" value="28289000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20756234" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20756234" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -453,7 +460,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.35949942" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.35949942" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -685,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/TimePickerFormikField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-245">
@@ -750,11 +750,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="313">
           <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <folding>
             <element signature="e#51#65#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/EventsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>

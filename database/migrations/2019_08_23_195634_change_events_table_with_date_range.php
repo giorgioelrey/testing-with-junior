@@ -17,6 +17,12 @@ class ChangeEventsTableWithDateRange extends Migration
 
             $table->renameColumn('date', 'start_date');
             $table->renameColumn('time', 'start_time');
+
+
+        });
+
+        Schema::table('events', function (Blueprint $table) {
+
             $table->date('end_date')->after('start_time');
             $table->dateTime('end_time')->after('end_date');
 
