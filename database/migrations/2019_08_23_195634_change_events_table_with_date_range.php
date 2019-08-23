@@ -20,7 +20,6 @@ class ChangeEventsTableWithDateRange extends Migration
             $table->date('end_date')->after('start_time');
             $table->dateTime('end_time')->after('end_date');
 
-
         });
     }
 

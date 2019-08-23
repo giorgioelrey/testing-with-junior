@@ -35,8 +35,10 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
           address: event.address || '',
           description_it: event.description_it || '',
           description_en: event.description_en || '',
-          date: new Date(event.date) || '',
-          time: new Date(event.time)|| '',
+          start_date: new Date(event.start_date) || '',
+          start_time: new Date(event.start_time)|| '',
+          end_date: new Date(event.end_date) || '',
+          end_time: new Date(event.end_time)|| '',
           id: event.id || ''
       } || initialValues;
 
@@ -89,9 +91,16 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
 
-                        <DatePickerFormikField name="date" label="Data" errors={errors} />
+                          <p>Inserire data di inizio e data di fine identiche per evento di durata di un solo giorno</p>
+                          <p>Specificare adeguati orari di inizio e di fine</p>
 
-                        <TimePickerFormikField name="time" label="Ora" errors={errors}/>
+                        <DatePickerFormikField name="start_date" label="Data inizio" errors={errors} />
+
+                        <TimePickerFormikField name="start_time" label="Ora di inizio" errors={errors}/>
+
+                        <DatePickerFormikField name="end_date" label="Data fine evento" errors={errors} />
+
+                        <TimePickerFormikField name="end_time" label="Ora di fine" errors={errors}/>
 
                         <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
 
@@ -123,8 +132,10 @@ EventForm.defaultProps = {
       description_it: '',
       description_en: '',
       address: '',
-      date: '',
-      time: '',
+      start_date: '',
+      start_time: '',
+      end_date: '',
+      end_time: '',
       id: ''
   },
   yupSchema: {
@@ -146,11 +157,16 @@ EventForm.defaultProps = {
       description_en:  Yup.string()
          .min(30, 'Description must be at least 30 characters')
           .required('Description is required'),
-      date: Yup.date()
-        .min(new Date(moment()), 'Select a date starting from today')
+      start_date: Yup.date()
         .required('Event date is required')
         .typeError("Event date required"),
-      time: Yup.date()
+      start_time: Yup.date()
+        .required('Event time is required')
+        .typeError("Event time required"),
+      end_date: Yup.date()
+        .required('Event date is required')
+        .typeError("Event date required"),
+      end_time: Yup.date()
         .required('Event time is required')
         .typeError("Event time required"),
   },
