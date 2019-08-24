@@ -14,51 +14,53 @@ class StreetsTableSeeder extends Seeder
     {
 
         $montenapoleone = new Street();
-        $montenapoleone->name = 'Via Monte Napoleone';
+        $montenapoleone->name_it = 'Via Monte Napoleone';
         $montenapoleone->save();
 
         $verri = new Street();
-        $verri->name = 'Via Verri';
+        $verri->name_it = 'Via Verri';
         $verri->save();
 
         $santandrea = new Street();
-        $santandrea->name = "Via Sant'Andrea";
+        $santandrea->name_it = "Via Sant'Andrea";
         $santandrea->save();
 
         $gesu = new Street();
-        $gesu->name = "Via del Gesù";
+        $gesu->name_it = "Via del Gesù";
         $gesu->save();
 
         $bagutta = new Street();
-        $bagutta->name = "Via Bagutta";
+        $bagutta->name_it = "Via Bagutta";
         $bagutta->save();
 
         $santospirito = new Street();
-        $santospirito->name = "Via Santo Spirito";
+        $santospirito->name_it = "Via Santo Spirito";
         $santospirito->save();
 
         $borgospesso = new Street();
-        $borgospesso->name = "Via Borgospesso";
+        $borgospesso->name_it = "Via Borgospesso";
         $borgospesso->save();
 
         $bigli = new Street();
-        $bigli->name = "Via Bigli";
+        $bigli->name_it = "Via Bigli";
         $bigli->save();
 
-
         /*
+
         $alessandroManzoni = new Street();
-        $alessandroManzoni->name = "Via Alessandro Manzoni";
+        $alessandroManzoni->name_it = "Via Alessandro Manzoni";
         $alessandroManzoni->save();
 
         $senato = new Street();
-        $senato->name = "Via Senato";
+        $senato->name_it = "Via Senato";
         $senato->save();
 
         $fratelliGabba = new Street();
-        $fratelliGabba->name = "Via Fratelli Gabba";
+        $fratelliGabba->name_it = "Via Fratelli Gabba";
         $fratelliGabba->save();
-        */
+
+
+      */
 
 
     }
