@@ -137,6 +137,8 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/events/month/{month}', 'EventController@showByMonth')->name('event.month');
 
+    Route::get('/events/days-for/year/{year}/month/{month}', 'EventController@daysForMonthInYear')->name('event.daysForMonthInYear');
+
     //****** POSTS -> PRESS ****//
 
     Route::get('/posts/press', 'PostController@press')->name('posts.press');

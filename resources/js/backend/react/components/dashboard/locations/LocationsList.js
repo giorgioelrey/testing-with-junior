@@ -8,13 +8,13 @@ const NewsList  = ({locations = []}) => (
   <React.Fragment>
 
       <div className="d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap">
-        <h1>Here's all your Locations</h1>
-        <Link to="/admin/dashboard/locations/create" className="btn btn-primary btn-lg">Add a new Location</Link>
+        <h1>Ecco tutte le location</h1>
+        <Link to="/admin/dashboard/locations/create" className="btn btn-primary btn-lg">Aggiungi nuova location</Link>
       </div>
 
       <div className="row">
           {locations.length > 0 && locations.map((location, idx) => (<LocationCard key={idx} location={location} />)) ||
-                        (<h2>No locations to show</h2>)}
+                        (<h2>Nessuna location da mostrare</h2>)}
       </div>
 
 

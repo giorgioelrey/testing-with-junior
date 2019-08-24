@@ -21,8 +21,8 @@ const PageCard = ({ page }) => {
         <img src={pageThumbnail || placeholder_post_image} className="card-img-top" alt="...where is the image"/>
         <div className="card-body">
           <h2 className="card-title">{page.name || 'Sample title'}</h2>
-          <h5>Last update: {page.updated_at}</h5>
-            <Link to={`/admin/dashboard/pages/edit/${page.id}`} className="btn btn-warning btn-lg ml-3">Edit this page</Link>
+          <h5>Data ultima modifica: {page.updated_at}</h5>
+            <Link to={`/admin/dashboard/pages/edit/${page.id}`} className="btn btn-warning btn-lg ml-3">Modifica pagina</Link>
         </div>
       </div>
 

@@ -54,7 +54,7 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
     <Fragment>
       <div className="container" id="create-edit-event-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your event</h1>
+              <h1>{section === 'create' ? 'Crea' : 'Modifica'} evento</h1>
               {submitErrors}
 
                 <EventForm

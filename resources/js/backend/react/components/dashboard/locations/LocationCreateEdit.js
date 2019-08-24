@@ -74,7 +74,7 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
     <Fragment>
       <div className="container" id="create-edit-news-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your location</h1>
+              <h1>{section === 'create' ? 'Crea' : 'Modifica'} location</h1>
               {submitErrors}
 
                 <LocationForm

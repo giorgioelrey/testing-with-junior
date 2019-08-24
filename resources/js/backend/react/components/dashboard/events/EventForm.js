@@ -60,26 +60,26 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                       <div className="my-5">
 
-                        <h2 >IT Contents</h2>
+                        <h2>Contenuti IT</h2>
 
                         <TextInputFormikField name={"metadescription_it"} label="Meta Description IT" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_it"} label="Titolo IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_it"} label="Description IT" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"description_it"} label="Descrizione IT" errors={errors} withPhoto={true} />
 
                       </div>
                       <hr/>
 
                       <div className="my-5">
 
-                        <h2 >EN Contents</h2>
+                        <h2>Contenuti EN</h2>
 
                         <TextInputFormikField name={"metadescription_en"} label="Meta Description EN" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_en"} label="Titolo EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_en"} label="Description EN" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"description_en"} label="Descrizione EN" errors={errors} withPhoto={true} />
 
                       </div>
 
@@ -89,7 +89,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <h2>Campi per entrambe le lingue</h2>
 
-                          <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                          <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Immagine principale evento'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={event.image_url}/>
 
                         <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
 
@@ -109,8 +109,8 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
                       </div>
 
                        <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Submit new event' : 'Submit your changes'}</button>
-                           <button type="reset" className="btn btn-info text- mr-2">Reset</button>
+                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Salva nuovo evento' : 'Salva modifiche ad evento'}</button>
+                           <button type="reset" className="btn btn-info text- mr-2">Resetta Campi</button>
                        </div>
                    </Form>
                )}
@@ -142,35 +142,35 @@ EventForm.defaultProps = {
   },
   yupSchema: {
       metadescription_it: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       metadescription_en: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       title_it: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo deve avere almeno 6 caratteri')
+          .required('Titolo è richiesto'),
       title_en: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo deve avere almeno 6 caratteri')
+          .required('Titolo è richiesto'),
       description_it:  Yup.string()
-         .min(30, 'Description must be at least 30 characters')
-          .required('Description is required'),
+         .min(30, 'Descrizione deve avere almeno 30 caratteri')
+          .required('Descrizione è richiesta'),
       description_en:  Yup.string()
-         .min(30, 'Description must be at least 30 characters')
-          .required('Description is required'),
+         .min(30, 'Descrizione deve avere almeno 30 caratteri')
+          .required('Descrizione è richiesta'),
       start_date: Yup.date()
-        .required('Event date is required')
-        .typeError("Event date required"),
+        .required('Data inizio evento richiesta')
+        .typeError("Data inizio evento da correggere"),
       start_time: Yup.date()
-        .required('Event time is required')
-        .typeError("Event time required"),
+        .required('Orario di inizio evento richiesta')
+        .typeError("Orario di inizio evento da correggere"),
       end_date: Yup.date()
-        .required('Event date is required')
-        .typeError("Event date required"),
+        .required('Data fine evento richiesta')
+        .typeError("Data fine evento da correggere"),
       end_time: Yup.date()
-        .required('Event time is required')
-        .typeError("Event time required"),
+        .required('Ora di fine evento richiesta')
+        .typeError("Ora di fine orario da correggere"),
   },
   pagesAvailable: [],
 }

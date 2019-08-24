@@ -12,9 +12,9 @@ const PostCard = ({ post }) => {
         </div>
         <div className="card-body">
           <h5 className="card-title">{post.title_it || 'Sample title'}</h5>
-          <p className="card-text">{post.postbody_it || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'}</p>
-            <Link to={`/admin/dashboard/news/show/${post.id}`} className="btn btn-primary btn-lg">Open</Link>
-            <Link to={`/admin/dashboard/news/edit/${post.id}`} className="btn btn-warning btn-lg ml-3">Edit this post</Link>
+         {/* <p className="card-text">{post.postbody_it || 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'}</p>*/}
+            <Link to={`/admin/dashboard/news/show/${post.id}`} className="btn btn-primary btn-lg">Apri Post</Link>
+            <Link to={`/admin/dashboard/news/edit/${post.id}`} className="btn btn-warning btn-lg ml-3">Modifica post</Link>
         </div>
       </div>
     </div>

@@ -20,8 +20,8 @@ const PageEdit =  ({page, updatePage, history, pageId, section, user }) => {
     <Fragment>
       <div className="container" id="create-edit-news-page">
 
-              <h1>Edit your page</h1>
-              <h2>Editing Page: {page.name}</h2>
+              <h1>Modifica pagina</h1>
+              <h2>Stai modificando pagina: {page.name}</h2>
               {submitErrors}
 
               <PagesForm

@@ -16,7 +16,7 @@ const PagesManagementPage = (props) => {
         contentArea = (<PageEdit {...props} pageId={props.match.params.id}/>)
         break;
   default:
-    contentArea = (<div>not chosen</div>)
+    contentArea = (<div>non scelto</div>)
   }
 
     return (
