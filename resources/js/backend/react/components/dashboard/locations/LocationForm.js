@@ -7,7 +7,7 @@ import SelectFormikField from './../forms/SelectFormikField';
 //import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
-const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
+const LocationForm = ({ location, categories = [], streets = [], initialValues, yupSchema, onSubmit, section}) => {
 
     console.log('newform cats', categories);
     console.log('location', location);
@@ -33,6 +33,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
           description_it: location.description_it || '',
           description_en: location.description_en || '',
           category_id: location.category_id || '',
+          street_id: location.street_id || '',
           id: location.id || ''
       } || initialValues;
 
@@ -53,10 +54,15 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                       {categories.length > 0 &&
                        (<SelectFormikField name={"category_id"} label="Scegli tipologia location" touched={touched} optionsTitle="Seleziona categoria" errors={errors} selectOptions={categories}
                           />) || null}
+
+                      {streets.length > 0 &&
+                       (<SelectFormikField name={"street_id"} label="Scegli la via della location" touched={touched} optionsTitle="Seleziona Via" errors={errors} selectOptions={streets}
+                          />) || null}
+
                       <hr/>
                       <div className="my-3">
 
-                        <h2 >IT Contents</h2>
+                        <h2 >Contenuti IT</h2>
 
                         <TextInputFormikField name={"metadescription_it"} label="MetaDescription IT" touched={touched} errors={errors} />
 
@@ -67,7 +73,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                       </div>
                       <hr/>
                       <div className="my-3">
-                        <h2 className="mt-3">EN Contents</h2>
+                        <h2 className="mt-3">Contenuti EN</h2>
 
                         <TextInputFormikField name={"metadescription_en"} label="Meta Description EN" touched={touched} errors={errors} />
 
@@ -88,7 +94,7 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                             options={{}}
                           />*/}
 
-                          <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
+                          <TextInputFormikField name={"address"} label="Indirizzo(Esempio:Via Montenapoleone 120, 20121, Milano, MI" touched={touched} errors={errors} />
 
                           <TextInputFormikField name={"latitude"} label="Latitudine" touched={touched} errors={errors} />
 
@@ -130,6 +136,7 @@ LocationForm.defaultProps = {
       description_it: '',
       description_en: '',
       category_id: '',
+      street_id: '',
       id: ''
   },
   yupSchema: {
@@ -161,7 +168,9 @@ LocationForm.defaultProps = {
          .min(30, 'Descrizione EN deve essere almeno di 30 caratteri')
           .required('Description EN è richiesta'),
        category_id: Yup.string().
-          required('Seleziona la categoria della location')
+          required('Seleziona la categoria della location'),
+       street_id: Yup.string().
+          required('Seleziona la via della location')
   },
   pagesAvailable: [],
 }

@@ -65,6 +65,7 @@ class LocationController extends Controller
     $location->description_en = $request->description_en;
     $location->image_url = $request->file('image_url')->store('public');
     $location->category_id = $request->category_id;
+    $location->street_id = $request->street_id;
 
     $location->save();
     $data = $location->toArray();
@@ -161,6 +162,7 @@ class LocationController extends Controller
     $location->description_en = $request->description_en;
     $location->image_url = $request->file('image_url')->store('public');
     $location->category_id = $request->category_id;
+    $location->street_id = $request->street_id;
 
     $location->save();
     $data = $location->toArray();

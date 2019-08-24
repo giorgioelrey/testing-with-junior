@@ -114,8 +114,8 @@ NewsForm.defaultProps = {
       title_en: '',
       postbodytop_it: '',
       postbodytop_en: '',
-      postbodytop_it: '',
-      postbodytop_en: '',
+      postbodybottom_it: '',
+      postbodybottom_en: '',
       category_id: '',
       id: ''
   },
@@ -158,7 +158,7 @@ NewsForm.defaultProps = {
          .min(30, 'Corpo del testo inferiore EN deve avere almeno 30 caratteri')
           .required('Corpo del testo inferiore EN è obbligatorio'),
        category_id: Yup.string().
-          required('La categoria del post è richiesta')
+          required('La categoria del post è richiesta'),
   },
   pagesAvailable: [],
 }
