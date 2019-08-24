@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -24,9 +25,17 @@ class ChangeEventsTableWithDateRange extends Migration
         Schema::table('events', function (Blueprint $table) {
 
             $table->date('end_date')->after('start_time');
-            $table->dateTime('end_time')->after('end_date');
+
 
         });
+
+        Schema::table('events', function (Blueprint $table) {
+
+          $table->dateTime('end_time')->after('end_date');
+
+
+        });
+
     }
 
     /**
