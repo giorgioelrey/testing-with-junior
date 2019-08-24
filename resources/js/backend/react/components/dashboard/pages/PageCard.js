@@ -17,8 +17,10 @@ const PageCard = ({ page }) => {
   return (
     <div className="col-md-6 col-xl-4 px-2 mb-5">
 
-      <div className="card">
-        <img src={pageThumbnail || placeholder_post_image} className="card-img-top" alt="...where is the image"/>
+      <div className="card" style={{overflow: 'hidden', position:'relative'}}>
+          <div className="card-img-top text-center" style={{overflow: 'hidden', height: '250px'}}>
+        <img src={pageThumbnail || placeholder_post_image} className="card-img-top" alt="...where is the image" style={{position: 'absolute', top: '0', left: '50%', transform: 'translateX(-50%)',height: '250px', width: 'auto'}}/>
+          </div>
         <div className="card-body">
           <h2 className="card-title">{page.name || 'Sample title'}</h2>
           <h5>Data ultima modifica: {page.updated_at}</h5>

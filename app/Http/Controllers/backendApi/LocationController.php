@@ -105,7 +105,6 @@ class LocationController extends Controller
 
     $locationResponse = $location->toArray();
 
-
     $response = [
       'success' => true,
       'location' => $locationResponse,
