@@ -14,12 +14,6 @@
 
     <div class='row m-0' id='contatti'>
 
-      <div  class='title'>
-          mnlounge
-        <div class='sotto_title'>
-
-        </div>
-      </div>
 
       <div class='quadrato lounge col-lg-6 order-1 p-0' >
 
@@ -53,7 +47,13 @@
 
       </div>
 
-      <div class='quadrato lounge content col-lg-6 order-2 d-flex align-items-center text-center py-5 p-lg-0'>
+      <div class='quadrato  lounge content col-lg-6 order-2  text-center py-5 p-lg-0'>
+        <div  class='title'>
+            mnlounge
+          <div class='sotto_title'>
+
+          </div>
+        </div>
 
         <div class='px-5'>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
