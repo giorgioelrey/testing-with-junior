@@ -11,6 +11,7 @@
 |
 */
 use App\Page;
+use App\Street;
 use App\Event;
 use App\Post;
 use App\Location;
@@ -57,7 +58,13 @@ function() {
 
 	//BRAND
 	Route::get(LaravelLocalization::transRoute('routes.brand'), function() {
-		return View::make('frontend.pages.brand',['lang' => LaravelLocalization::setLocale()]);
+
+	    $streets = Street::all()->toArray();
+
+		return View::make('frontend.pages.brand',[
+		    'lang' => LaravelLocalization::setLocale(),
+            'streets' => $streets
+        ]);
 	})->name('fe.brand');
 
 
