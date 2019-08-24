@@ -44,7 +44,9 @@ class StreetsTableSeeder extends Seeder
         $bigli = new Street();
         $bigli->name_it = "Via Bigli";
         $bigli->save();
-  /*
+
+        /*
+
         $alessandroManzoni = new Street();
         $alessandroManzoni->name_it = "Via Alessandro Manzoni";
         $alessandroManzoni->save();
@@ -57,7 +59,9 @@ class StreetsTableSeeder extends Seeder
         $fratelliGabba->name_it = "Via Fratelli Gabba";
         $fratelliGabba->save();
 
-*/
+
+      */
+
 
     }
 }

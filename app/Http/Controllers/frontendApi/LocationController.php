@@ -35,4 +35,39 @@ class LocationController extends Controller
       return response()->json($response, 200);
    }
 
+
+    public function boutiquesByStreetId($streetId){
+
+       $boutiques = Location::where('street_id', $streetId)
+           ->where('category_id', 4)
+           ->get();
+
+       if($boutiques->isEmpty()){
+           $response = [
+               'success' => false,
+               'boutiques' => [],
+               'message' => 'Boutiques not found.'
+           ];
+           return response()->json($response, 404);
+       }
+
+
+        $response = [
+            'success' => true,
+            'boutiques' => $boutiques->each(function ($item, $key) {
+
+            //Check if is a loremPixel url otherwise get url for img tag
+            $urlSplit = explode("/",$item['image_url']);
+            if (!in_array('montenapoleone', $urlSplit)){
+                $item['image_url'] = Storage::url($item['image_url']);
+            }
+        })->toArray(),
+            'message' => 'Boutiques retrieved successfully.'
+        ];
+
+        return response()->json($response, 200);
+
+    }
+
+
 }

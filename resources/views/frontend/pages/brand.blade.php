@@ -13,6 +13,17 @@
   <title>{{$lang == 'it' ? 'Soci' : 'Associates'}}</title>
 @endsection
 
+@section('scripts')
+    <script type="text/javascript">
+        const closeModalImg = "{{asset('/images/X.png')}}";
+        const streets = @json($streets);
+    console.log(streets)
+    </script>
+
+    <script src="{{asset('/js/frontend/brand.js')}}" charset="utf-8"></script>
+
+@endsection
+
 @section('content')
 
 
@@ -26,17 +37,11 @@
 
 </div>
 </div>
-  <div class='col-md-6  d-flex align-items-center'>
-    <div class="form-group m-auto w-50">
-       <label for="exampleFormControlSelect1">{!! ($lang == 'it') ? 'Via' : 'Address' !!}</label>
-       <select class="form-control" id="exampleFormControlSelect1">
-         <option>1</option>
-         <option>2</option>
-         <option>3</option>
-         <option>4</option>
-         <option>5</option>
-       </select>
-     </div>
+
+  <div class='col-md-6 bg-gold d-flex align-items-center'>
+
+      <div id="brand-location-picker"></div>
+
 
 
   </div>
