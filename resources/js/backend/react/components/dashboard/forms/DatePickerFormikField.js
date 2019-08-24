@@ -20,7 +20,6 @@ const DatePickerFormikField = ({ name, label, errors }) => (
          <DatePicker
            selected={props.field.value}
            onChange={handleChange}
-           minDate={moment()}
            isClearable={true}
          />
        )

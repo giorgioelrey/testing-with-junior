@@ -86,5 +86,19 @@ class EventController extends Controller
       return response()->json($response, 200);
     }
 
+    public function daysForMonthInYear($year, $month){
+
+        $daysArray = [1, 5,6,7,8,9,10];
+
+        $response = [
+            'success' => true,
+            'days' => $daysArray,
+            'message' => "Days for {$month}-{$year}",
+        ];
+
+        return response()->json($response, 200);
+
+    }
+
 
 }

@@ -53,8 +53,10 @@ class EventController extends Controller
         $event->title_it = $request->title_it;
         $event->title_en = $request->title_en;
         $event->address = $request->address;
-        $event->date = $request->date;
-        $event->time = $request->time;
+        $event->start_date = $request->start_date;
+        $event->start_time = $request->start_time;
+        $event->end_date = $request->end_date;
+        $event->end_time = $request->end_time;
         $event->description_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->description_it);
         $event->description_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->description_en);
         $event->image_url = $request->file('image_url')->store('public');
@@ -196,8 +198,10 @@ class EventController extends Controller
        $event->title_it = $request->title_it;
        $event->title_en = $request->title_en;
        $event->address = $request->address;
-       $event->date = $request->date;
-       $event->time = $request->time;
+       $event->start_date = $request->start_date;
+       $event->start_time = $request->start_time;
+       $event->end_date = $request->end_date;
+       $event->end_time = $request->end_time;
        $event->description_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->description_it, $event->description_it);
        $event->description_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->description_en, $event->description_en);
 

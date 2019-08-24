@@ -53,7 +53,7 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
     const storedImagePreview = currentImage && (
         <React.Fragment>
             <div class="pt-3">
-                <p>Current Image</p>
+                <p>Immagine Corrente</p>
                     <img src={currentImage}
                          alt={'currentImage'}
                          className="img-thumbnail mt-2"
@@ -66,7 +66,7 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
     return (
 
               <div className="form-group mb-5">
-              <label className="text-uppercase">MAX Image File 2MB</label>
+              <label className="text-uppercase">Dimensione massima immagine 2MB</label>
                 <div className="custom-file">
                    <label className="custom-file-label" htmlFor={name}>{label}</label>
                    <input name={name} type="file" onChange={(event) => {

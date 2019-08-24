@@ -18,7 +18,6 @@ class EventsCalendar extends Component {
 
     this.onSelect = this.onSelect.bind(this);
     this.getEventsPerDay = this.getEventsPerDay.bind(this);
-
   }
 
   getEventsPerDay(date){

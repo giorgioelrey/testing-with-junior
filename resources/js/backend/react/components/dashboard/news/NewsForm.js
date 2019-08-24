@@ -7,7 +7,7 @@ import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
-const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
+const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit, section }) => {
 
     console.log('newform cats', categories)
     console.log('post', post)
@@ -49,7 +49,7 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                       <Field type="hidden" className="form-control" name="id" ></Field>
 
                       {categories.length > 0 &&
-                       (<SelectFormikField name={"category_id"} label="Where do you want to publish this post at" touched={touched} optionsTitle="Select destination page" errors={errors} selectOptions={categories}
+                       (<SelectFormikField name={"category_id"} label="Seleziona categoria del post" touched={touched} optionsTitle="Seleziona categoria" errors={errors} selectOptions={categories}
                           />) || null}
                       <hr/>
                       <div className="my-3">
@@ -58,11 +58,11 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                         <TextInputFormikField name={"metadescription_it"} label="MetaDescription IT" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_it"} label="Titolo IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"postbodytop_it"} label="Post Body Top IT" errors={errors} withPhoto={false} />
+                        <WisiwygEditorFormikField name={"postbodytop_it"} label="Corpo del testo superiore IT" errors={errors} withPhoto={false} />
 
-                        <WisiwygEditorFormikField name={"postbodybottom_it"} label="Post Body Bottom IT" errors={errors} withPhoto={true}/>
+                        <WisiwygEditorFormikField name={"postbodybottom_it"} label="Corpo del testo inferiore IT" errors={errors} withPhoto={true}/>
 
                       </div>
                       <hr/>
@@ -71,11 +71,11 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
 
                           <TextInputFormikField name={"metadescription_en"} label="MetaDescription EN" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_en"} label="Titolo EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"postbodytop_en"} label="Post Body Top EN" errors={errors} withPhoto={false}/>
+                        <WisiwygEditorFormikField name={"postbodytop_en"} label="Corpo del testo superiore EN" errors={errors} withPhoto={false}/>
 
-                        <WisiwygEditorFormikField name={"postbodybottom_en"} label="Post Body Bottom EN" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"postbodybottom_en"} label="Copro del testo inferiore EN" errors={errors} withPhoto={true} />
 
                         {/*<Field
                            name="image_url"
@@ -86,11 +86,11 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
                            errors={errors}
                            touched={touched}
                          />*/}
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Post Image'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={post.image_url}/>
+                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Immagine Post'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={post.image_url}/>
 
                       </div>
                        <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">Submit new post</button>
+                           <button type="submit" className="btn btn-primary mr-2">{section === 'create' ? 'Salva nuovo' : 'Salva modifiche'} post</button>
                            <button type="reset" className="btn btn-info text- mr-2">Reset</button>
                        </div>
                    </Form>
@@ -114,8 +114,8 @@ NewsForm.defaultProps = {
       title_en: '',
       postbodytop_it: '',
       postbodytop_en: '',
-      postbodytop_it: '',
-      postbodytop_en: '',
+      postbodybottom_it: '',
+      postbodybottom_en: '',
       category_id: '',
       id: ''
   },
@@ -134,31 +134,31 @@ NewsForm.defaultProps = {
           value => value && SUPPORTED_FORMATS.includes(value.type)
         ),*/
       metadescription_it: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       metadescription_en: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       title_it: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo IT deve avere almeno 6 caratteri')
+          .required('Title è richiesto'),
       title_en: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo EN deve avere almeno 6 caratteri')
+          .required('Title è richiesto'),
       postbodytop_it:  Yup.string()
-         .min(30, 'Post body must be at least 30 characters')
-          .required('Post body is required'),
+         .min(30, 'Corpo del testo superiore IT deve avere almeno 30 caratteri')
+          .required('Corpo del testo superiore IT è obbligatorio'),
       postbodytop_en:  Yup.string()
-         .min(30, 'Post body must be at least 30 characters')
-          .required('Post body is required'),
+         .min(30, 'Corpo del testo inferiore IT deve avere almeno 30 caratteri')
+          .required('Corpo del testo inferiore IT è obbligatorio'),
       postbodybottom_it:  Yup.string()
-         .min(30, 'Post body must be at least 30 characters')
-          .required('Post body is required'),
+         .min(30, 'Corpo del testo superiore EN deve avere almeno 30 caratteri')
+          .required('Corpo del testo superiore EN è obbligatorio'),
       postbodybottom_en:  Yup.string()
-         .min(30, 'Post body must be at least 30 characters')
-          .required('Post body is required'),
+         .min(30, 'Corpo del testo inferiore EN deve avere almeno 30 caratteri')
+          .required('Corpo del testo inferiore EN è obbligatorio'),
        category_id: Yup.string().
-          required('Please select wich category you want to publish this post at')
+          required('La categoria del post è richiesta'),
   },
   pagesAvailable: [],
 }

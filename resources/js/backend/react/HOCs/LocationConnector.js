@@ -15,7 +15,8 @@ const LocationConnector = ((WrappedComponent) => {
             locations: [],
             mnLocation: {},
             apiErrors: [],
-            categories: []
+            categories: [],
+            streets: []
           }
 
           this.getAllLocations = this.getAllLocations.bind(this);
@@ -24,6 +25,7 @@ const LocationConnector = ((WrappedComponent) => {
           this.submitLocation = this.submitLocation.bind(this);
           this.updateLocation = this.updateLocation.bind(this);
           this.getCategories = this.getCategories.bind(this);
+          this.getStreets = this.getStreets.bind(this);
 
         }
 
@@ -33,6 +35,7 @@ const LocationConnector = ((WrappedComponent) => {
 
             let apiResponse;
             const categories = await this.getCategories();
+            const streets = await this.getStreets();
 
             console.log('categorie', categories)
 
@@ -47,10 +50,10 @@ const LocationConnector = ((WrappedComponent) => {
                 case 'show': case 'edit': apiResponse = await this.getLocation(this.props.locationId)
 
                             console.log('location get', apiResponse.data);
-                            this.setState({ mnLocation: apiResponse.data.location, isLoading: false, categories: categories.data.categories })
+                            this.setState({ mnLocation: apiResponse.data.location, isLoading: false, categories: categories.data.categories, streets: streets.data.streets })
                             ; break;
 
-                default: this.setState({ categories: categories.data.categories, isLoading: false });
+                default: this.setState({ categories: categories.data.categories, streets: streets.data.streets, isLoading: false });
               }
 
             } catch(error){
@@ -64,6 +67,16 @@ const LocationConnector = ((WrappedComponent) => {
         getCategories(){
           return axios({
             url: `/api/admin/categories/entity/location`,
+            method: 'get',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Authorization' : 'Bearer ' + this.props.user.token},
+            responseType: 'json',
+          })
+        }
+        getStreets(){
+          return axios({
+            url: `/api/admin/streets`,
             method: 'get',
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

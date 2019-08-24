@@ -4,6 +4,7 @@ import moment from 'moment';
 import Day from './Day';
 import DayOfWeek from './DayOfWeek';
 import Week from './Week';
+import axios from "axios";
 
 class Calendar extends Component {
   constructor(props) {
@@ -18,11 +19,13 @@ class Calendar extends Component {
     this.state = {
       date: date,
       month: month,
+      daysWithEventInCurrentMonth: []
     };
 
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.getDaysInMonthWithEvents = this.getDaysInMonthWithEvents.bind(this);
   }
 
   componentWillMount() {
@@ -46,6 +49,29 @@ class Calendar extends Component {
     nextState.month.locale(this.props.locale);
   }
 
+    getDaysInMonthWithEvents(year, month){
+        console.log('getDaysInMonthWithEvents');
+        //foreach day in the dayNumber array from the backend
+        //activate a class that will show textColor gold
+        axios({
+            url: `/api/events/days-for/year/${year}/month/${month}`,
+            method: 'get',
+            headers: { 'X-Requested-With': 'XMLHttpRequest'},
+            responseType: 'json',
+        })
+            .then(({data}) => {
+
+                console.log('events days in month found', data.days);
+
+                this.setState({daysWithEventInCurrentMonth: data.days});
+
+            })
+            .catch(error => {
+                console.log(error && error.response && error.response.data.message || 'errore nella chiamata')
+            })
+
+    }
+
   handleClick(date) {
     const flag = this.props.onSelect(date, this.state.date, this.state.month);
 
@@ -63,12 +89,16 @@ class Calendar extends Component {
   previous() {
     this.setState({
       month: moment(this.state.month).subtract(1, 'month'),
+    },()=>{
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
     });
   }
 
   next() {
     this.setState({
       month: moment(this.state.month).add(1, 'month'),
+    }, () => {
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
     });
   }
 
@@ -115,17 +145,22 @@ class Calendar extends Component {
       day.add(1, 'days');
     }
     while (current.isBefore(end)) {
+
       let dayClasses = this.props.dayClasses(current);
+
       if (!current.isSame(month, 'month')) {
         dayClasses = dayClasses.concat(['other-month']);
       }
 
-      ///has Events
+      //TODO: create is current to add to props forEachDay
+      const hasEvent = this.state.daysWithEventInCurrentMonth.includes(current.day());
+
       let props = {
         date: current.clone(),
         selected: date,
         month: month,
         today: today,
+        hasEvent: hasEvent,
         classes: dayClasses,
         handleClick: this.handleClick,
       };

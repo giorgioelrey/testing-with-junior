@@ -68,7 +68,7 @@ submitLoginForm(fields) {
                                .email('Email is invalid')
                                .required('Email is required'),
                            password: Yup.string()
-                               .min(6, 'Password must be at least 6 characters')
+                               .min(6, 'Password deve avere almeno 6 caratteri')
                                .required('Password is required'),
                        })}
                        onSubmit={this.submitLoginForm}

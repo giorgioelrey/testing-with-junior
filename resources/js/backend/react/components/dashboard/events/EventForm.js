@@ -35,8 +35,10 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
           address: event.address || '',
           description_it: event.description_it || '',
           description_en: event.description_en || '',
-          date: new Date(event.date) || '',
-          time: new Date(event.time)|| '',
+          start_date: new Date(event.start_date) || '',
+          start_time: new Date(event.start_time)|| '',
+          end_date: new Date(event.end_date) || '',
+          end_time: new Date(event.end_time)|| '',
           id: event.id || ''
       } || initialValues;
 
@@ -58,26 +60,26 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                       <div className="my-5">
 
-                        <h2 >IT Contents</h2>
+                        <h2>Contenuti IT</h2>
 
                         <TextInputFormikField name={"metadescription_it"} label="Meta Description IT" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_it"} label="Title IT" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_it"} label="Titolo IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_it"} label="Description IT" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"description_it"} label="Descrizione IT" errors={errors} withPhoto={true} />
 
                       </div>
                       <hr/>
 
                       <div className="my-5">
 
-                        <h2 >EN Contents</h2>
+                        <h2>Contenuti EN</h2>
 
                         <TextInputFormikField name={"metadescription_en"} label="Meta Description EN" touched={touched} errors={errors} />
 
-                        <TextInputFormikField name={"title_en"} label="Title EN" touched={touched} errors={errors} />
+                        <TextInputFormikField name={"title_en"} label="Titolo EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_en"} label="Description EN" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"description_en"} label="Descrizione EN" errors={errors} withPhoto={true} />
 
                       </div>
 
@@ -87,19 +89,28 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <h2>Campi per entrambe le lingue</h2>
 
+                          <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Immagine principale evento'} name={'image_url'} values={values} errors={errors} touched={touched} currentImage={event.image_url}/>
+
                         <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
 
-                        <DatePickerFormikField name="date" label="Data" errors={errors} />
+                          <p>Inserire data di inizio e data di fine identiche per evento di durata di un solo giorno</p>
+                          <p>Specificare adeguati orari di inizio e di fine</p>
 
-                        <TimePickerFormikField name="time" label="Ora" errors={errors}/>
+                        <DatePickerFormikField name="start_date" label="Data inizio" errors={errors} />
 
-                        <FileUploadInputFormikField setFieldValue={setFieldValue} label={'Event Image'} name={'image_url'} values={values} errors={errors} touched={touched}/>
+                        <TimePickerFormikField name="start_time" label="Ora di inizio" errors={errors}/>
+
+                        <DatePickerFormikField name="end_date" label="Data fine evento" errors={errors} />
+
+                        <TimePickerFormikField name="end_time" label="Ora di fine" errors={errors}/>
+
+
 
                       </div>
 
                        <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Submit new event' : 'Submit your changes'}</button>
-                           <button type="reset" className="btn btn-info text- mr-2">Reset</button>
+                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Salva nuovo evento' : 'Salva modifiche ad evento'}</button>
+                           <button type="reset" className="btn btn-info text- mr-2">Resetta Campi</button>
                        </div>
                    </Form>
                )}
@@ -123,36 +134,43 @@ EventForm.defaultProps = {
       description_it: '',
       description_en: '',
       address: '',
-      date: '',
-      time: '',
+      start_date: '',
+      start_time: '',
+      end_date: '',
+      end_time: '',
       id: ''
   },
   yupSchema: {
       metadescription_it: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       metadescription_en: Yup.string()
-         .min(6, 'Meta Description must be at least 6 characters')
-          .required('Meta Description is required'),
+         .min(6, 'Meta Description deve avere almeno 6 caratteri')
+          .required('Meta Description è richiesta'),
       title_it: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo deve avere almeno 6 caratteri')
+          .required('Titolo è richiesto'),
       title_en: Yup.string()
-         .min(6, 'Title must be at least 6 characters')
-          .required('Title is required'),
+         .min(6, 'Titolo deve avere almeno 6 caratteri')
+          .required('Titolo è richiesto'),
       description_it:  Yup.string()
-         .min(30, 'Description must be at least 30 characters')
-          .required('Description is required'),
+         .min(30, 'Descrizione deve avere almeno 30 caratteri')
+          .required('Descrizione è richiesta'),
       description_en:  Yup.string()
-         .min(30, 'Description must be at least 30 characters')
-          .required('Description is required'),
-      date: Yup.date()
-        .min(new Date(moment()), 'Select a date starting from today')
-        .required('Event date is required')
-        .typeError("Event date required"),
-      time: Yup.date()
-        .required('Event time is required')
-        .typeError("Event time required"),
+         .min(30, 'Descrizione deve avere almeno 30 caratteri')
+          .required('Descrizione è richiesta'),
+      start_date: Yup.date()
+        .required('Data inizio evento richiesta')
+        .typeError("Data inizio evento da correggere"),
+      start_time: Yup.date()
+        .required('Orario di inizio evento richiesta')
+        .typeError("Orario di inizio evento da correggere"),
+      end_date: Yup.date()
+        .required('Data fine evento richiesta')
+        .typeError("Data fine evento da correggere"),
+      end_time: Yup.date()
+        .required('Ora di fine evento richiesta')
+        .typeError("Ora di fine orario da correggere"),
   },
   pagesAvailable: [],
 }

@@ -33,8 +33,8 @@ const LocationShow = ({mnLocation, deleteLocation, history}) => {
             <p className="card-text">{mnLocation.description_it}</p>
             <p className="card-text"><small className="text-muted">{mnLocation.created_at}</small></p>
 
-              <Link to={`/admin/dashboard/location/edit/${mnLocation.id}`} className="btn btn-warning btn-lg mr-3">Edit this location</Link>
-            <a onClick={deleteSingleLocation.bind(null, mnLocation.id)} className="btn btn-danger btn-lg text-white">Delete this location</a>
+              <Link to={`/admin/dashboard/location/edit/${mnLocation.id}`} className="btn btn-warning btn-lg mr-3">Modifica location</Link>
+            <a onClick={deleteSingleLocation.bind(null, mnLocation.id)} className="btn btn-danger btn-lg text-white">Elimina location</a>
 
 
           </div>

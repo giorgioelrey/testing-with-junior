@@ -26,6 +26,7 @@ class LocationsTableSeeder extends Seeder
         $armaniHotel->description_en = "Located in the rationalist Manzoni 31 palazzo, the Armani Hotel Milano stands at the heart of the world-famous fashion district, near Piazza del Duomo and Teatro Alla Scala.  Personally designed by Giorgio Armani, the Hotel reflects his concept of comfort and hospitality. Every detail of the 95 Guestrooms and Suites has been chosen for its sculptural and aesthetic qualities, delivering a home-away-from-home experience. In line with the ‘Stay with Armani’ philosophy, a Lifestyle Manager will take care of guests’ needs throughout their whole stay.    On the 7th floor the Armani/Ristorante and the Armani/Bamboo Bar are two refined and elegant locations overlooking the city’s skyline. The Armani/Ristorante offers refined Italian gourmet cuisine and a wide Enoteca. The Armani/Bamboo Bar with its louvered window, double volume ceiling and backlit onyx elements is the perfect place for an informal lunch, an aperitivo or a late drink.   On the top floor the Armani/SPA, with its glass walls and ceiling, covers 1.000sm of beauty and peace and features 6 treatment rooms, a Couple Suite, Finnish sauna, steam bath, a relaxation pool and a 24/h fitness centre.  Finally, the Armani/Business Centre is fully equipped with state-of-the-art communication and audio/visual devices, for any corporate need.   Luxury, peace, and sophisticated beauty sprout from the purest Armani style, giving the idea of hospitality a new aesthetics.";
         $armaniHotel->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/Hotels/Armani_Hotel_Milano.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $armaniHotel->category_id = 3;
+        $armaniHotel->street_id = 9;
         $armaniHotel->save();
 
         $baglioniHotel = new Location;
@@ -44,6 +45,7 @@ Il Baglioni Hotel Carlton è un raffinato hotel 5 stelle, perfetto per viaggi di
 The Baglioni Hotel Carlton is a 5 star hotel in Milan, Italy perfect for both leisure and business trips. It is situated in the heart of Milan, at the crossroads of culture, fashion and design, in a highly prestigious position: it directly overlooks Via della Spiga, the most celebrated shopping street in the city. Via Montenapoleone, the cathedral and the famous La Scala theatre are situated a short distance away.The Baretto al Baglioni is one of the most famous restaurants in Milan and the perfect meeting place for the Italian and international Jet Set. A renowned place of refreshment for those working in Milan, Caffé Baglioni, is ideal for small work meetings and major encounters.";
         $baglioniHotel->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/Hotels/Terrace_Suite_Baglioni_Hotel_Carlton.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $baglioniHotel->category_id = 3;
+        $baglioniHotel->street_id = 10;
         $baglioniHotel->save();
 
         $baglioniHotel = new Location;
@@ -58,6 +60,7 @@ The Baglioni Hotel Carlton is a 5 star hotel in Milan, Italy perfect for both le
         $baglioniHotel->description_en = "On a private street between Via Montenapoleone, Via della Spiga, La Scala and the Accademia di Brera, in a tastefully renovated 18th-century Milanese palazzo is the Bulgari Hotel Milan, situated in the cultural and commercial heart of a city that, behind its austere façades, hides delightful and unexpected courtyards and green spaces. One such space is the Bulgari Hotel’s 4,000-square-meter private garden, a natural extension of the nearby Botanical Garden, a restorative oasis of serenity and relaxation in the midst of Milan’s busy pace.";
         $baglioniHotel->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/Hotels/Bulgari_Hotel_Milano.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $baglioniHotel->category_id = 3;
+        $baglioniHotel->street_id = 11;
         $baglioniHotel->save();
 
 
@@ -74,6 +77,7 @@ Entrando da via Monte Napoleone, i materiali (marmo, pietre grigie, legni pregia
         $zegnaBoutique->description_en = "The façade of the building hosting Spazio Zegna dates back to the 19th century and is located at the centre of the famous “quadrilatero della moda” in Milan. The Global Store is arranged on four floors and covers an overall surface of 700 sqm. The entrance goes through a double-height hall, followed by a large picture of Oasi Zegna, featuring alternating colours recalling the changing of the seasons near the Monte Rosa. The picture refers to the beauty of those natural landscapes and confirms Zegna’s long-standing commitment to the protection of the environment, which is the leitmotiv of the store and is expressed in the selection of manly colours and of the materials used.";
         $zegnaBoutique->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/boutique/Ermenegildo_Zegna_Btq_1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $zegnaBoutique->category_id = 4;
+        $zegnaBoutique->street_id = 1;
         $zegnaBoutique->save();
 
 
@@ -89,6 +93,7 @@ Entrando da via Monte Napoleone, i materiali (marmo, pietre grigie, legni pregia
         $balenciagaBoutique->description_en = "The Balenciaga House, image of Haute Couture, in the fashion worldwide scenario, is avant-garde for the research of materials and models. The Boutique is located in Via Santo Spirito inside a Milanese bourgeois palace where the modernity merge with the tradition.";
         $balenciagaBoutique->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/boutique/BALENCIAGA_BTQ.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $balenciagaBoutique->category_id = 4;
+        $balenciagaBoutique->street_id = 6;
         $balenciagaBoutique->save();
 
 
@@ -108,6 +113,7 @@ The store is divided into different areas, each one featuring an iconic element 
 As opposed to the solidity of architectural elements, the collection is shown on subtle displays and shelves in shiny carbon fibres contouring the whole perimeter. The displays are equipped with LED lights, enabling an almost invisible lighting. The lighting system from above mirrors the variety of finishes and spaces, combining hidden diffused light and side white lights in the halls with warm lights and decorated chandeliers at the centre. The interpretation of space and the series of rooms designed by David Chipperfield convey a solemn and intimate feeling, rarely found in a classic boutique.";
         $valentinoBoutique->image_url = 'https://www.montenapoleone.luxury/content/dam/montenapoleone/images/boutique/Valentino_Btq_1.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg';
         $valentinoBoutique->category_id = 3;
+        $valentinoBoutique->street_id = 1;
         $valentinoBoutique->save();
 
     }

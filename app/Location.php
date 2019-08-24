@@ -42,4 +42,12 @@ class Location extends Model
         return $this->belongsTo('App\Category');
     }
 
+    //RELATIONSHIP STREET(ONE) <-> LOCATIONS(MANY)
+    //One STREET has many LOCATIONS
+    //One LOCATION belongs to one STREET
+    public function street()
+    {
+        return $this->belongsTo('App\Street');
+    }
+
 }

@@ -36,8 +36,8 @@ const EventsShow = ({event, deleteEvent, history}) => {
             <p className="card-text">{event.description_it}</p>
             <p className="card-text"><small className="text-muted">{event.created_at}</small></p>
 
-              <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Edit this event</Link>
-            <a onClick={deleteCurrentEvent.bind(this, event.id)} className="btn btn-danger btn-lg text-white">Delete this event</a>
+              <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Modifica evento</Link>
+            <a onClick={deleteCurrentEvent.bind(this, event.id)} className="btn btn-danger btn-lg text-white">Cancella evento</a>
 
 
           </div>
