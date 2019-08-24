@@ -163,7 +163,6 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/streets', 'StreetsController@index')->name('streets.index');
 
-
-
+    Route::get('/street/{id}', 'StreetsController@show')->name('streets.show');
 
 });

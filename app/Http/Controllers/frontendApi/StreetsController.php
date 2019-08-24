@@ -20,4 +20,29 @@ class StreetsController extends Controller
         return response()->json($response, 200);
 
     }
+
+    public function show($id)
+    {
+
+        $street = Street::find($id)->toArray();
+
+        if (is_null($street)) {
+            $response = [
+                'success' => false,
+                'street' => [],
+                'message' => 'Street not found.'
+            ];
+            return response()->json($response, 404);
+        }
+
+        $response = [
+            'success' => true,
+            'street' => $street,
+            'message' => 'Street retrieved successfully.'
+        ];
+
+        return response()->json($response, 200);
+
+    }
+
 }

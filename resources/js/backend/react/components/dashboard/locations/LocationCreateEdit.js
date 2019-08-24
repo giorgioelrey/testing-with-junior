@@ -6,7 +6,7 @@ import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
 import LocationConnector from './../../../HOCs/LocationConnector';
 
-const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocation, submitLocation, history, locationId, section }) => {
+const LocationCreateEdit =  ({location, mnLocation = {}, categories, streets, updateLocation, submitLocation, history, locationId, section }) => {
 
   console.log('LocationCreateEdit', mnLocation);
   console.log('LocationCreateEdit categories', categories);
@@ -82,6 +82,7 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
                 location={mnLocation}
                 section={section}
                 categories={categories}
+                streets={streets}
                 />
 
       </div>

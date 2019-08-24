@@ -22,5 +22,6 @@ class UserAdminSeeder extends Seeder
       $admin->phone_number = '24234234324324';
       $admin->save();
       $admin->createToken('Laravel Password Grant Client')->accessToken;
+
     }
 }

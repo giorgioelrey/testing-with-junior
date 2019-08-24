@@ -14,7 +14,7 @@ class StreetsTableSeeder extends Seeder
     {
 
         $montenapoleone = new Street();
-        $montenapoleone->name = 'Via Montenapoleone';
+        $montenapoleone->name = 'Via Monte Napoleone';
         $montenapoleone->save();
 
         $verri = new Street();
@@ -44,6 +44,20 @@ class StreetsTableSeeder extends Seeder
         $bigli = new Street();
         $bigli->name = "Via Bigli";
         $bigli->save();
+
+        $alessandroManzoni = new Street();
+        $alessandroManzoni->name = "Via Alessandro Manzoni";
+        $alessandroManzoni->save();
+
+        $senato = new Street();
+        $senato->name = "Via Senato";
+        $senato->save();
+
+        $fratelliGabba = new Street();
+        $fratelliGabba->name = "Via Fratelli Gabba";
+        $fratelliGabba->save();
+
+
 
     }
 }
