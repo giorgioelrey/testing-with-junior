@@ -115,6 +115,10 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::post('/admin/image/update-and-get-path','ImageController@updateImageAndReturnPath')->name('image.update');
 
+  //****** STREETS****//
+
+  Route::get('/admin/streets', 'StreetsController@index')->name('streets.index');
+
 
 });
 
@@ -154,6 +158,12 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
     //****** SEARCH ****//
 
     Route::get('/search/{querystring}', 'SearchController@index')->name('search.query');
+
+    //****** STREETS****//
+
+    Route::get('/streets', 'StreetsController@index')->name('streets.index');
+
+
 
 
 });

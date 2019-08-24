@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import TextInputFormikField from './../forms/TextInputFormikField';
 import WisiwygEditorFormikField from './../forms/WisiwygEditorFormikField';
 import SelectFormikField from './../forms/SelectFormikField';
-import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
+//import GmapsPlacesAutocompleteFormikField from './../forms/GmapsPlacesAutocompleteFormikField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const LocationForm = ({ location, categories = [], initialValues, yupSchema, onSubmit, section}) => {
@@ -80,13 +80,19 @@ const LocationForm = ({ location, categories = [], initialValues, yupSchema, onS
                       <div className="my-3">
                         <h2 className="mt-3">Campi per entrambe le lingue</h2>
 
-                        <Field
+                        {/*<Field
                             name="address"
                             label="Address"
                             value={ location.address || ''}
                             component={GmapsPlacesAutocompleteFormikField}
                             options={{}}
-                          />
+                          />*/}
+
+                          <TextInputFormikField name={"address"} label="Indirizzo" touched={touched} errors={errors} />
+
+                          <TextInputFormikField name={"latitude"} label="Latitudine" touched={touched} errors={errors} />
+
+                          <TextInputFormikField name={"longitude"} label="Indirizzo" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"phonenumber"} label="Numero di telefono" touched={touched} errors={errors} />
 
