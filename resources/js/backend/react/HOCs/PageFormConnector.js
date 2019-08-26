@@ -146,7 +146,7 @@ const PageFormConnector = ((WrappedComponent) => {
             previousContents[fieldName]['data'] = fields[fieldName];
 
           } else {//image
-            debugger
+              
               if (fields[fieldName] !== null){
 
                 let imageFieldData = {

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/FileUploadInputFormikField.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/FileUploadInputFormikField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="174">
-              <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+              <caret line="148" column="14" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
               <folding>
                 <element signature="e#1#42#0" expanded="true" />
               </folding>
@@ -512,12 +508,12 @@
       <workItem from="1566465314712" duration="12948000" />
       <workItem from="1566565407910" duration="4108000" />
       <workItem from="1566593144310" duration="19546000" />
-      <workItem from="1566858736853" duration="2845000" />
+      <workItem from="1566858736853" duration="3018000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51184000" />
+    <option name="totallyTimeSpent" value="51357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="44" width="1680" height="1027" extended-state="0" />
@@ -1007,7 +1003,7 @@
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
-          <caret line="148" column="20" selection-start-line="148" selection-start-column="20" selection-end-line="148" selection-end-column="20" />
+          <caret line="148" column="14" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
           <folding>
             <element signature="e#1#42#0" expanded="true" />
           </folding>
