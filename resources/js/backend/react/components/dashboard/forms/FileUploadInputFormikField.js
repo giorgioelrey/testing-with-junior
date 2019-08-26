@@ -52,7 +52,7 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
 
     const storedImagePreview = currentImage && (
         <React.Fragment>
-            <div class="pt-3">
+            <div className="pt-3">
                 <p>Immagine Corrente</p>
                     <img src={currentImage}
                          alt={'currentImage'}
@@ -61,7 +61,7 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
                          width={400}
                     />
             </div>
-        </React.Fragment>) || null;
+        </React.Fragment>) || <p>Nessuna immagine caricata in precedenza</p>;
 
     return (
 

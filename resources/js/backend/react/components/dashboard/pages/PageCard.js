@@ -5,12 +5,16 @@ import placeholder_post_image from './../../../assets/placeholder_post_image.png
 const PageCard = ({ page }) => {
 
   const pageThumbnail = ((page) => {
+
     //Get array from each field object in contents[ [fieldName, fieldObject ], [fieldName, fieldObject ]...]
     const pageImages = Object.entries(JSON.parse(page.contents))
     //filter it where fieldObject.type == image
                           .filter((field) => field[1].type == 'image');
+
+    console.log('pageImages[0] !=',pageImages[0][1])
     //return first position field imageLink if filtered array isnot empty or null
-    return pageImages.length > 0 && ('/storage/' + pageImages[0][1].data.split('/')[1]) || null;
+    return pageImages.length > 0 && pageImages[0][1].data &&
+        ('/storage/' + pageImages[0][1].data.split('/')[1]) || null;
 
   })(page);
 
