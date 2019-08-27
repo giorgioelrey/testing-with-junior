@@ -28,7 +28,12 @@ class Calendar extends Component {
     this.getDaysInMonthWithEvents = this.getDaysInMonthWithEvents.bind(this);
   }
 
-  componentWillMount() {
+  async componentDidMount() {
+
+      this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
+  }
+
+    componentWillMount() {
     moment.locale(this.props.locale);
 
     if (!!this.state.date) {
@@ -50,7 +55,7 @@ class Calendar extends Component {
   }
 
     getDaysInMonthWithEvents(year, month){
-        console.log('getDaysInMonthWithEvents');
+        console.log('getDaysInMonthWithEvents', year, month);
         //foreach day in the dayNumber array from the backend
         //activate a class that will show textColor gold
         axios({
@@ -61,7 +66,7 @@ class Calendar extends Component {
         })
             .then(({data}) => {
 
-                console.log('events days in month found', data.days);
+                console.log('events days in month found', data);
 
                 this.setState({daysWithEventInCurrentMonth: data.days});
 
@@ -90,7 +95,7 @@ class Calendar extends Component {
     this.setState({
       month: moment(this.state.month).subtract(1, 'month'),
     },()=>{
-        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
     });
   }
 
@@ -98,7 +103,7 @@ class Calendar extends Component {
     this.setState({
       month: moment(this.state.month).add(1, 'month'),
     }, () => {
-        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
     });
   }
 
