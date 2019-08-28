@@ -66,9 +66,9 @@ class Calendar extends Component {
         })
             .then(({data}) => {
 
-                console.log('events days in month found', data);
+                console.log('events days in month found', Object.values(data.days));
 
-                this.setState({daysWithEventInCurrentMonth: data.days});
+                this.setState({daysWithEventInCurrentMonth:  Object.values(data.days)});
 
             })
             .catch(error => {
@@ -158,7 +158,14 @@ class Calendar extends Component {
       }
 
       //TODO: create is current to add to props forEachDay
-      const hasEvent = this.state.daysWithEventInCurrentMonth.includes(current.day());
+        /*
+        console.log('this.state.month', this.state.month.format('MM'));
+        console.log('passing-day', current.format('DD'));
+      console.log('passing-day month', current.format('MM'));
+        console.log('is in event array',this.state.daysWithEventInCurrentMonth.includes(current.day()));
+
+         */
+      const hasEvent = current.format('MM') == this.state.month.format('MM') ? this.state.daysWithEventInCurrentMonth.includes(current.format('YYYY-MM-DD')) : false;
 
       let props = {
         date: current.clone(),

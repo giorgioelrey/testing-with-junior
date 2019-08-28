@@ -69,6 +69,7 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
                         <WisiwygEditorFormikField name={"description_it"} label="Descrizione IT" errors={errors} withPhoto={true} />
 
                       </div>
+
                       <hr/>
 
                       <div className="my-5">

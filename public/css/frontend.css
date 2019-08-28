@@ -11253,56 +11253,69 @@ p {
   height: 100vh;
 }
 
-#home .Day-inner {
+#home #react-calendar .Day-inner {
   color: black;
 }
 
-#home .selected .Day-inner {
+#home #react-calendar .selected .Day-inner {
   color: white;
 }
 
-#home .Calendar {
+#home #react-calendar .Calendar {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 0;
   margin: 4rem auto 0;
 }
 
-#home .Calendar th,
-#home .Calendar td {
+#home #react-calendar .Calendar th,
+#home #react-calendar .Calendar td {
   padding: 22px 16px;
   text-align: center;
 }
 
-#home .Day:hover {
+#home #react-calendar .Calendar .Day:hover {
   background: #eee;
   color: #000;
 }
 
-#home .Day.today {
+#home #react-calendar .Calendar .Day.today {
   background: #caa660;
   color: #fff;
 }
 
-#home .Day.selected {
+#home #react-calendar .Calendar .Day.selected {
   width: 100px;
   background: #caa660;
   padding: 21px;
   border-radius: 50px;
 }
 
-#home .Day.other-month {
+#home #react-calendar .Calendar .Day.has-event a {
+  color: #caa660;
+}
+
+#home #react-calendar .Calendar .Day.has-event.selected a {
+  color: #eee;
+}
+
+#home #react-calendar .Calendar .Day.other-month,
+#home #react-calendar .Calendar .Day.other-month.selected {
   background: #fafafa;
+}
+
+#home #react-calendar .Calendar .Day.other-month a,
+#home #react-calendar .Calendar .Day.other-month.selected a {
   color: #aaa;
 }
 
-#home .table thead th {
+#home #react-calendar .Calendar .table thead th {
   vertical-align: bottom;
   border-bottom: 0px solid #dee2e6;
 }
 
-#home .table th,
-#home .table td {
+#home #react-calendar .Calendar .table th,
+#home #react-calendar .Calendar .table td {
   vertical-align: top;
   border-top: 0px solid #dee2e6;
 }

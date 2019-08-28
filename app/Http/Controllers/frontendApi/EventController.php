@@ -39,7 +39,10 @@ class EventController extends Controller
     public function showByDate($date)
     {
 
-      $foundEvents = DB::table('events')->whereDate('date', $date)->get();
+      $foundEvents = Event::where('start_date','<=',$date)
+                            ->where('end_date','>=', $date)
+                            ->get();
+
       $eventsArray = $foundEvents->toArray();
 
       if (is_null($eventsArray)) {
@@ -106,7 +109,7 @@ class EventController extends Controller
         }
 
         $formattedDays = array_map(function($day){
-            return Carbon::parse($day)->day;
+            return Carbon::parse($day)->format('Y-m-d');
         },$daysWithEvents);
 
         $response = [

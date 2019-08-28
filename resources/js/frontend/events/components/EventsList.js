@@ -28,7 +28,7 @@ class EventsList extends React.Component{
     })
     .then(({data}) => {
 
-      console.log('events found', data.events);
+      console.log('compevents found', data.events);
 
       this.setState({events: data.events});
 
