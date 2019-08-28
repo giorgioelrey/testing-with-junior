@@ -1,7 +1,7 @@
 import React from 'react';
 import Event from './Event';
 
-const EventsList = ({events, date, userLanguage} ) => {
+const EventsList = ({events = [], date, userLanguage} ) => {
 
   return (
     <div>

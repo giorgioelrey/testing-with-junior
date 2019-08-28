@@ -28,7 +28,12 @@ class Calendar extends Component {
     this.getDaysInMonthWithEvents = this.getDaysInMonthWithEvents.bind(this);
   }
 
-  componentWillMount() {
+  async componentDidMount() {
+
+      this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
+  }
+
+    componentWillMount() {
     moment.locale(this.props.locale);
 
     if (!!this.state.date) {
@@ -50,7 +55,7 @@ class Calendar extends Component {
   }
 
     getDaysInMonthWithEvents(year, month){
-        console.log('getDaysInMonthWithEvents');
+        console.log('getDaysInMonthWithEvents', year, month);
         //foreach day in the dayNumber array from the backend
         //activate a class that will show textColor gold
         axios({
@@ -61,9 +66,9 @@ class Calendar extends Component {
         })
             .then(({data}) => {
 
-                console.log('events days in month found', data.days);
+                console.log('events days in month found', Object.values(data.days));
 
-                this.setState({daysWithEventInCurrentMonth: data.days});
+                this.setState({daysWithEventInCurrentMonth:  Object.values(data.days)});
 
             })
             .catch(error => {
@@ -90,7 +95,7 @@ class Calendar extends Component {
     this.setState({
       month: moment(this.state.month).subtract(1, 'month'),
     },()=>{
-        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
     });
   }
 
@@ -98,7 +103,7 @@ class Calendar extends Component {
     this.setState({
       month: moment(this.state.month).add(1, 'month'),
     }, () => {
-        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month);
+        this.getDaysInMonthWithEvents(moment(this.state.month).format('YYYY'), this.state.month.format('MM'));
     });
   }
 
@@ -153,7 +158,14 @@ class Calendar extends Component {
       }
 
       //TODO: create is current to add to props forEachDay
-      const hasEvent = this.state.daysWithEventInCurrentMonth.includes(current.day());
+        /*
+        console.log('this.state.month', this.state.month.format('MM'));
+        console.log('passing-day', current.format('DD'));
+      console.log('passing-day month', current.format('MM'));
+        console.log('is in event array',this.state.daysWithEventInCurrentMonth.includes(current.day()));
+
+         */
+      const hasEvent = current.format('MM') == this.state.month.format('MM') ? this.state.daysWithEventInCurrentMonth.includes(current.format('YYYY-MM-DD')) : false;
 
       let props = {
         date: current.clone(),

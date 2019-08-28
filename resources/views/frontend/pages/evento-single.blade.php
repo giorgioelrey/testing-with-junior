@@ -42,7 +42,7 @@
     </div>
   </div>
 
-<p class='paragrafo-single'>{{$event['description_'.$lang]}}</p>
+<p class='paragrafo-single'>{!! $event['description_'.$lang]  !!}</p>
 
 
 

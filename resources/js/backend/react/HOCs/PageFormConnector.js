@@ -81,9 +81,13 @@ const PageFormConnector = ((WrappedComponent) => {
                 formStartingValues[key] =  isNotImageField ? pageContents[key]['data'] : null;
 
                 fieldsData[key] = {};
-                fieldsData[key]['name'] = key
+                fieldsData[key]['name'] = key;
 
                 fieldsData[key]['data'] = isNotImageField ? pageContents[key]['data'] : null;
+
+                if(!isNotImageField){
+                    fieldsData[key]['previousUrl'] = pageContents[key]['data'] && pageContents[key]['data'].replace('public', "/storage");
+                }
 
                 fieldsData[key]['type'] = pageContents[key]['type'];
 
@@ -143,26 +147,30 @@ const PageFormConnector = ((WrappedComponent) => {
 
           } else {//image
 
-            let imageFieldData = {
-              name: fieldName,
-              data: fields[fieldName],
-              previousurl: previousContents[fieldName]['data'],
-             pageid: pageId
-           };
-           console.log('imageFieldData', imageFieldData)
+              if (fields[fieldName] !== null){
 
-              try {
+                let imageFieldData = {
+                  name: fieldName,
+                  data: fields[fieldName],
+                  previousurl: previousContents[fieldName]['data'],
+                 pageid: pageId
+               };
+               console.log('imageFieldData', imageFieldData);
 
-                const {data} =  await this.updateImageAndReturnUrl(imageFieldData);
+                  try {
 
-                console.log('storing image data', data);
+                    const {data} =  await this.updateImageAndReturnUrl(imageFieldData);
 
-                previousContents[fieldName]['data'] = data.path;
+                    console.log('storing image data', data);
 
-              } catch(error){
+                    previousContents[fieldName]['data'] = data.path;
 
-                console.log('errore immagine',error, error.response.data.message)
+                  } catch(error){
+
+                    console.log('errore immagine',error, error.response.data.message)
+                  }
               }
+
 
           }
 

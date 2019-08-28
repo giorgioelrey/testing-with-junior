@@ -17,7 +17,7 @@ class EventController extends Controller
     {
       $response = [
            'success' => true,
-           'events' => array_reverse(Event::all()->reverse()->each(function ($item, $key) {
+           'events' => array_reverse(Event::all()->each(function ($item, $key) {
              //Check if is a loremPixel url otherwise get url for img tag
               $urlSplit = explode("/",$item['image_url']);
               if (!in_array('lorempixel.com', $urlSplit)){
@@ -192,7 +192,7 @@ class EventController extends Controller
             }
         }
 
-      Storage::delete($event->image_url);
+
        $event->metadescription_it = $request->metadescription_it;
        $event->metadescription_en = $request->metadescription_en;
        $event->title_it = $request->title_it;

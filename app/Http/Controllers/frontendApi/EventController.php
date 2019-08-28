@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -38,7 +39,10 @@ class EventController extends Controller
     public function showByDate($date)
     {
 
-      $foundEvents = DB::table('events')->whereDate('date', $date)->get();
+      $foundEvents = Event::where('start_date','<=',$date)
+                            ->where('end_date','>=', $date)
+                            ->get();
+
       $eventsArray = $foundEvents->toArray();
 
       if (is_null($eventsArray)) {
@@ -88,16 +92,46 @@ class EventController extends Controller
 
     public function daysForMonthInYear($year, $month){
 
-        $daysArray = [1, 5,6,7,8,9,10];
+
+        $eventsInThisMonth = Event::whereMonth('start_date',$month)->whereYear('start_date',$year)->get()->toArray();
+
+        $daysWithEvents = [];
+
+        foreach ($eventsInThisMonth as $event ){
+
+            $startDate = Carbon::parse($event['start_date']);
+            $endDate = Carbon::parse($event['end_date']);
+
+            $daysBetween = $this->datesbetween($startDate,$endDate);
+
+            $daysWithEvents = array_unique(array_merge($daysBetween,$daysWithEvents));
+
+        }
+
+        $formattedDays = array_map(function($day){
+            return Carbon::parse($day)->format('Y-m-d');
+        },$daysWithEvents);
 
         $response = [
             'success' => true,
-            'days' => $daysArray,
+            'days' => $formattedDays,
             'message' => "Days for {$month}-{$year}",
         ];
 
         return response()->json($response, 200);
 
+    }
+
+    private function datesbetween ($date1,$date2)
+    {
+        $dates= array();
+        for ($i = $date1
+        ; $i<= $date2
+        ; $i=date_add($i, date_interval_create_from_date_string('1 days')) )
+        {
+            $dates[] = clone $i;
+        }
+        return $dates;
     }
 
 
