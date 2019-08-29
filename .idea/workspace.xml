@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/EventsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EventsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsShow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/evento-single.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/evento-single.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,44 +20,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js">
+        <entry file="file://$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="-279">
+              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCard.js">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+            <state relative-caret-position="459">
+              <caret line="150" column="26" selection-start-line="113" selection-start-column="3" selection-end-line="150" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsShow.js">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="936">
-              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="309">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#51#65#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <element signature="e#59#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/ImageController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+              <folding>
+                <element signature="e#51#65#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,8 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/NewsList.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/NewsShow.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageEdit.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesList.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js" />
@@ -136,7 +143,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/frontend/brand/brand.js" />
         <option value="$PROJECT_DIR$/database/seeds/StreetsTableSeeder.php" />
         <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" />
@@ -157,6 +163,9 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/pages/evento-single.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsShow.js" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PageBrandTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -269,11 +278,11 @@
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds">
     <option name="x" value="13" />
-    <option name="y" value="268" />
+    <option name="y" value="23" />
     <option name="width" value="1833" />
-    <option name="height" value="1172" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -287,6 +296,54 @@
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="backendApi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -298,7 +355,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/frontend/brand/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/database/seeds" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -312,6 +369,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/database/seeds" />
       <recent name="$PROJECT_DIR$/resources/js/frontend/brand/components" />
       <recent name="$PROJECT_DIR$/resources/js/frontend/brand" />
     </key>
@@ -354,16 +412,18 @@
       <workItem from="1567009520388" duration="6568000" />
       <workItem from="1567086045387" duration="1384000" />
       <workItem from="1567087754886" duration="628000" />
+      <workItem from="1567095642174" duration="1722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62296000" />
+    <option name="totallyTimeSpent" value="64018000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="268" width="1833" height="1172" extended-state="0" />
+    <frame x="13" y="23" width="1833" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35702103" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.39340535" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -376,7 +436,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26464844" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23094426" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -411,51 +471,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/frontendApi/PostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="17" column="124" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="124" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="27" column="20" selection-start-line="19" selection-start-column="50" selection-end-line="27" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.mix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="18" column="76" selection-start-line="18" selection-start-column="76" selection-end-line="18" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/press.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="15" selection-start-line="15" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="48" column="38" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
-          <folding>
-            <element signature="e#52#69#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -480,13 +495,6 @@
           <folding>
             <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -575,13 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/ImageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-807">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
@@ -598,16 +599,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#123#2647#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/gmaps/components/GmapApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="60" column="44" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -650,13 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -713,23 +697,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134733_remove_description_it_en_from_events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5434">
-          <caret line="209" column="40" selection-start-line="209" selection-start-column="40" selection-end-line="209" selection-end-column="40" />
-          <folding>
-            <element signature="e#51#65#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134733_remove_description_it_en_from_events.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/frontendApi/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
@@ -777,13 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/calendar/components/Calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="212" column="60" selection-start-line="212" selection-start-column="42" selection-end-line="212" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
@@ -811,16 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -833,16 +784,135 @@
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
-          <caret line="2" column="36" lean-forward="true" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
+          <caret line="2" column="36" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventsShow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+        <state relative-caret-position="442">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="804">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-926">
+          <caret line="34" column="56" selection-start-line="34" selection-start-column="56" selection-end-line="34" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/calendar/components/Calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5356">
+          <caret line="212" column="60" selection-start-line="212" selection-start-column="42" selection-end-line="212" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/gmaps/components/GmapApp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/contatti.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="77" column="10" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="77" selection-end-column="10" />
+          <folding>
+            <element signature="e#353#2911#0#HTML" />
+            <element signature="e#487#511#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="47" column="22" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="150" column="26" selection-start-line="113" selection-start-column="3" selection-end-line="150" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PageBrandTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="e#7#20#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/CategoriesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-279">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#59#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/ImageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#51#65#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#51#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

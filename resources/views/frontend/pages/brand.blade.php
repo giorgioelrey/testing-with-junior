@@ -45,7 +45,7 @@
 
 
   </div>
-  <div class='col-md-6 bg-gold'>
+  <div class='col-md-6'>
 
   </div>
   </div>
