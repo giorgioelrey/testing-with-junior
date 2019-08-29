@@ -33,8 +33,10 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
           title_it: event.title_it || '',
           title_en: event.title_en || '',
           address: event.address || '',
-          description_it: event.description_it || '',
-          description_en: event.description_en || '',
+          bodytop_it: event.bodytop_it || '',
+          bodytop_en: event.bodytop_en || '',
+          bodybottom_it: event.bodybottom_it || '',
+          bodybottom_en: event.bodybottom_en || '',
           start_date: new Date(event.start_date) || '',
           start_time: new Date(event.start_time)|| '',
           end_date: new Date(event.end_date) || '',
@@ -66,7 +68,9 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TextInputFormikField name={"title_it"} label="Titolo IT" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_it"} label="Descrizione IT" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"bodytop_it"} label="Corpo del testo superiore IT" errors={errors} withPhoto={true} />
+
+                        <WisiwygEditorFormikField name={"bodybottom_it"} label="Corpo del testo inferiore IT" errors={errors} withPhoto={true} />
 
                       </div>
 
@@ -80,7 +84,9 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                         <TextInputFormikField name={"title_en"} label="Titolo EN" touched={touched} errors={errors} />
 
-                        <WisiwygEditorFormikField name={"description_en"} label="Descrizione EN" errors={errors} withPhoto={true} />
+                        <WisiwygEditorFormikField name={"bodytop_en"} label="Corpo del testo superiore EN" errors={errors} withPhoto={true} />
+
+                        <WisiwygEditorFormikField name={"bodybottom_en"} label="Corpo del testo inferiore EN" errors={errors} withPhoto={true} />
 
                       </div>
 
@@ -132,8 +138,10 @@ EventForm.defaultProps = {
       metadescription_en: '',
       title_it: '',
       title_en: '',
-      description_it: '',
-      description_en: '',
+      bodytop_it: '',
+      bodytop_en: '',
+      bodybottom_it: '',
+      bodybottom_en: '',
       address: '',
       start_date: '',
       start_time: '',
@@ -154,12 +162,18 @@ EventForm.defaultProps = {
       title_en: Yup.string()
          .min(6, 'Titolo deve avere almeno 6 caratteri')
           .required('Titolo è richiesto'),
-      description_it:  Yup.string()
-         .min(30, 'Descrizione deve avere almeno 30 caratteri')
-          .required('Descrizione è richiesta'),
-      description_en:  Yup.string()
-         .min(30, 'Descrizione deve avere almeno 30 caratteri')
-          .required('Descrizione è richiesta'),
+      bodytop_it:  Yup.string()
+          .min(30, 'Corpo del testo superiore IT deve avere almeno 30 caratteri')
+          .required('Corpo del testo superiore IT è obbligatorio'),
+      bodytop_en:  Yup.string()
+          .min(30, 'Corpo del testo inferiore IT deve avere almeno 30 caratteri')
+          .required('Corpo del testo inferiore IT è obbligatorio'),
+      bodybottom_it:  Yup.string()
+          .min(30, 'Corpo del testo superiore EN deve avere almeno 30 caratteri')
+          .required('Corpo del testo superiore EN è obbligatorio'),
+      bodybottom_en:  Yup.string()
+          .min(30, 'Corpo del testo inferiore EN deve avere almeno 30 caratteri')
+          .required('Corpo del testo inferiore EN è obbligatorio'),
       start_date: Yup.date()
         .required('Data inizio evento richiesta')
         .typeError("Data inizio evento da correggere"),

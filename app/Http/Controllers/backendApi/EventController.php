@@ -57,8 +57,10 @@ class EventController extends Controller
         $event->start_time = $request->start_time;
         $event->end_date = $request->end_date;
         $event->end_time = $request->end_time;
-        $event->description_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->description_it);
-        $event->description_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->description_en);
+        $event->bodytop_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodytop_it);
+        $event->bodytop_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodytop_en);
+        $event->bodybottom_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodybottom_it);
+        $event->bodybottom_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodybottom_en);
         $event->image_url = $request->file('image_url')->store('public');
 
         $event->save();
@@ -202,8 +204,10 @@ class EventController extends Controller
        $event->start_time = $request->start_time;
        $event->end_date = $request->end_date;
        $event->end_time = $request->end_time;
-       $event->description_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->description_it, $event->description_it);
-       $event->description_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->description_en, $event->description_en);
+       $event->bodytop_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodytop_it, $event->bodytop_it);
+       $event->bodytop_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodytop_en, $event->bodytop_en);
+       $event->bodybottom_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodybottom_it, $event->bodybottom_it);
+       $event->bodybottom_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodybottom_en, $event->bodybottom_en);
 
         if ($request->hasFile('image_url')){
             Storage::delete($event->image_url);
@@ -243,8 +247,10 @@ class EventController extends Controller
       $data = $event->toArray();
 
       Storage::delete($event->image_url);
-      QuillEditorHelper::deleteAllImagesForField( $event->description_it);
-      QuillEditorHelper::deleteAllImagesForField( $event->description_en);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodytop_it);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodytop_en);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodybottom_it);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodybottom_en);
       $event->delete();
 
        $response = [
