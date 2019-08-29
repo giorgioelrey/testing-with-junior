@@ -4,6 +4,7 @@ namespace App\QuillEditorHelper;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
+define( 'MAX_FILE_SIZE', 2000000 );
 use Sunra\PhpSimple\HtmlDomParser;
 
 class QuillEditorHelper
