@@ -33,7 +33,7 @@ const EventsShow = ({event, deleteEvent, history}) => {
             <h5 className="card-title">{event.title_it}</h5>
             <h3>{event.subtitle}</h3>
             <p>{event.date}</p>
-            <p className="card-text">{event.description_it}</p>
+            <p className="card-text">{event.bodytop_it}</p>
             <p className="card-text"><small className="text-muted">{event.created_at}</small></p>
 
               <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Modifica evento</Link>
