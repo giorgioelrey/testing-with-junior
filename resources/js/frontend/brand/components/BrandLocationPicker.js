@@ -71,13 +71,13 @@ class BrandLocationPicker extends React.Component{
 
                 <select value={this.state.pickedStreetId}
                         onChange={this.onStreetChange}>
-                    {this.props.streets.map((street) => <option key={street.id} value={street.id}>{street.name_it}</option>)}
+                    {this.props.streets.map((street, idx) => <option key={idx} value={street.id}>{street.name_it}</option>)}
                 </select>
 
                 <ul>
                 {this.state.boutiques.length > 0 &&
-                this.state.boutiques.map((boutique) =>
-                     <li
+                this.state.boutiques.map((boutique, idx) =>
+                     <li key={idx}
                          onClick={(event) => {this.setState({pickedBoutique: boutique, modalOpen: true})}}
                      >
                          {boutique[`name_${this.props.userLanguage}`]}

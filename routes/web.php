@@ -209,6 +209,9 @@ function() {
 		return View::make('frontend.pages.vendemmia',['lang' => LaravelLocalization::setLocale(), 'contents' => $contents]);
 	})->name('fe.vendemmia');
 
+	//MAIL
+
+    Route::get('send-contact-mail/{page}', 'SendMailController@sendContactFormMail')->name('routes.sendmail');
 
 	//HOME
 
