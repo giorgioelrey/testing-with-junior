@@ -20,7 +20,6 @@ class SendMailController extends Controller
         $to = $page == 'contatti' ? 'petetti.giorgio@gmail.com': 'riccardosilvi@armadioverde.it';
         $subject = "montenapoleone test {$page}";
         $message = "Da {$validatedData['first_name']} {$validatedData['last_name']}, messaggio: {$validatedData['message_body']}";
-        ;
 
         // Sending email
         if(mail($to, $subject, $message)){
