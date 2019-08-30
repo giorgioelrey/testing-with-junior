@@ -33,8 +33,8 @@ const NewsShow = ({post, deletePost, history}) => {
             <p className="card-text">{post.postbody_it}</p>
             <p className="card-text"><small className="text-muted">{post.created_at}</small></p>
 
-              <Link to={`/admin/dashboard/news/edit/${post.id}`} className="btn btn-warning btn-lg mr-3">Edit this post</Link>
-            <a onClick={deleteSingleNews.bind(this, post.id)} className="btn btn-danger btn-lg text-white">Delete this post</a>
+              <Link to={`/admin/dashboard/news/edit/${post.id}`} className="btn btn-warning btn-lg mr-3">Modifica questo post</Link>
+            <a onClick={deleteSingleNews.bind(this, post.id)} className="btn btn-danger btn-lg text-white">Elimina il  post</a>
 
 
           </div>

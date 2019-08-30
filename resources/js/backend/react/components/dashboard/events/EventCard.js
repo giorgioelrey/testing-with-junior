@@ -13,14 +13,14 @@ const EventCard = ({ event }) => {
 
     </div>
 
-    <div className="col-md-7 align-self-center">
+    <div className="col-md-6 align-self-center">
       <h5 className="titolo_back">{event.title_it || 'Sample title'}</h5>
-      <h3 className="data_back">{event.date}</h3>
+      <h3 className="data_back">Da {event.start_date} a {event.end_date}</h3>
     </div>
 
-    <div className="col-md-2 align-self-center">
-      <Link to={`/admin/dashboard/event/show/id/${event.id}`} className="btn btn-primary btn-sm mb-3">Open</Link>
-      <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-sm ">Edit </Link>
+    <div className="col-md-3 align-self-center">
+        <Link to={`/admin/dashboard/event/show/id/${event.id}`} className="btn btn-primary btn-sm mb-3">Apri</Link>
+        <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-sm ">Modifica </Link>
   </div>
     </div>
   </React.Fragment>

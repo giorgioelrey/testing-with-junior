@@ -10723,10 +10723,10 @@ main {
 }
 
 p {
-  font-size: 21px;
+  font-size: 19px;
   font-family: "Playfair Display", serif;
   color: black;
-  line-height: 35px;
+  line-height: 31px;
   word-break: break-word;
 }
 
@@ -10901,6 +10901,7 @@ p {
 }
 
 .carousel-caption h5 {
+  font-weight: 700;
   text-align: center;
   font-family: "Playfair Display", serif;
   font-size: 42px;
@@ -10910,6 +10911,16 @@ p {
   .carousel-caption h5 {
     font-size: 33px;
   }
+}
+
+#quadrato_top {
+  background-color: black;
+  right: 16px;
+  top: 519px;
+  position: fixed;
+  z-index: 1030;
+  height: 60px;
+  width: 60px;
 }
 
 #top {
@@ -10922,7 +10933,7 @@ p {
   height: 30px;
   width: 30px;
   cursor: pointer;
-  border: solid black;
+  border: solid white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -11242,56 +11253,69 @@ p {
   height: 100vh;
 }
 
-#home .Day-inner {
+#home #react-calendar .Day-inner {
   color: black;
 }
 
-#home .selected .Day-inner {
+#home #react-calendar .selected .Day-inner {
   color: white;
 }
 
-#home .Calendar {
+#home #react-calendar .Calendar {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 0;
   margin: 4rem auto 0;
 }
 
-#home .Calendar th,
-#home .Calendar td {
+#home #react-calendar .Calendar th,
+#home #react-calendar .Calendar td {
   padding: 22px 16px;
   text-align: center;
 }
 
-#home .Day:hover {
+#home #react-calendar .Calendar .Day:hover {
   background: #eee;
   color: #000;
 }
 
-#home .Day.today {
+#home #react-calendar .Calendar .Day.today {
   background: #caa660;
   color: #fff;
 }
 
-#home .Day.selected {
+#home #react-calendar .Calendar .Day.selected {
   width: 100px;
   background: #caa660;
   padding: 21px;
   border-radius: 50px;
 }
 
-#home .Day.other-month {
+#home #react-calendar .Calendar .Day.has-event a {
+  color: #caa660;
+}
+
+#home #react-calendar .Calendar .Day.has-event.selected a {
+  color: #eee;
+}
+
+#home #react-calendar .Calendar .Day.other-month,
+#home #react-calendar .Calendar .Day.other-month.selected {
   background: #fafafa;
+}
+
+#home #react-calendar .Calendar .Day.other-month a,
+#home #react-calendar .Calendar .Day.other-month.selected a {
   color: #aaa;
 }
 
-#home .table thead th {
+#home #react-calendar .Calendar .table thead th {
   vertical-align: bottom;
   border-bottom: 0px solid #dee2e6;
 }
 
-#home .table th,
-#home .table td {
+#home #react-calendar .Calendar .table th,
+#home #react-calendar .Calendar .table td {
   vertical-align: top;
   border-top: 0px solid #dee2e6;
 }
@@ -11350,25 +11374,17 @@ p {
 }
 
 #servizi-mnlounge .title {
-  font-family: "Playfair Display", serif;
-  left: 50%;
-  font-size: 32px;
   line-height: 32px;
-  position: absolute;
   text-transform: uppercase;
-  margin-top: 87px;
-  z-index: 1000;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  margin-top: 100px;
 }
 
 #servizi-mnlounge .sotto_title {
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  margin: 0 auto;
   margin-top: 30px;
-  left: 50%;
-  z-index: 999999;
-  position: absolute;
   width: 160px;
   height: 1px;
   background-color: #000000;

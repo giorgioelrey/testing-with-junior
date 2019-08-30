@@ -22,7 +22,7 @@ const PagesForm = ({ page, pageFormData, onSubmit }) => {
                       <PageFields errors={errors} status={status} touched={touched} fieldsData={pageFormData.fieldsData}
                       setFieldValue={setFieldValue} values={values}/>
                       <div className="form-group">
-                          <button type="submit" className="btn btn-primary mr-2">Update Page</button>
+                          <button type="submit" className="btn btn-primary mr-2">Conferma modifiche pagina</button>
                       </div>
                     </Form>
                  )

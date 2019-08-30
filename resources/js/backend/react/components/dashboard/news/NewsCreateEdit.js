@@ -20,7 +20,7 @@ const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pag
       formData.append( key, fields[key] )
     }
 
-    console.log('fullForm Data file', formData.get('image_url'))
+    console.log('fullForm Data file', formData.get('image_url'));
 
     try {
 
@@ -46,7 +46,7 @@ const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pag
     <Fragment>
       <div className="container" id="create-edit-news-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your post</h1>
+              <h1>{section === 'create' ? 'Crea nuovo' : 'Modifica'} post</h1>
               {submitErrors}
 
                 <NewsForm
@@ -54,6 +54,7 @@ const NewsCreateEdit =  ({post, categories, updatePost, submitPost, history, pag
                 pagesAvailable={pagesAvailable}
                 post={post}
                 categories={categories}
+                section={section}
                 />
 
       </div>

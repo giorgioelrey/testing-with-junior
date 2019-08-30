@@ -178,6 +178,8 @@ return [
          */
 
          Zizaco\Entrust\EntrustServiceProvider::class,
+         Weidner\Goutte\GoutteServiceProvider::class,
+         Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -187,6 +189,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\QuillEditorHelperServiceProvider::class
 
     ],
 
@@ -239,6 +242,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'QuillEditorHelper' => App\QuillEditorHelper\QuillEditorHelperFacade::class
 
     ],
 

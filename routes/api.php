@@ -55,6 +55,8 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::post('/admin/post/store', 'PostController@store')->name('post.store');
 
+  Route::get('/admin/post/get-for-update/{id}', 'PostController@prepareForUpdate')->name('post.prepareupdate');
+
   Route::post('/admin/post/update', 'PostController@update')->name('post.update');
 
   Route::delete('/admin/post/destroy/{id}', 'PostController@destroy')->name('post.destroy');
@@ -113,6 +115,10 @@ Route::middleware(['auth:api','throttle:60,1','json.response'])->namespace('back
 
   Route::post('/admin/image/update-and-get-path','ImageController@updateImageAndReturnPath')->name('image.update');
 
+  //****** STREETS****//
+
+  Route::get('/admin/streets', 'StreetsController@index')->name('streets.index');
+
 
 });
 
@@ -135,6 +141,8 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/events/month/{month}', 'EventController@showByMonth')->name('event.month');
 
+    Route::get('/events/days-for/year/{year}/month/{month}', 'EventController@daysForMonthInYear')->name('event.daysForMonthInYear');
+
     //****** POSTS -> PRESS ****//
 
     Route::get('/posts/press', 'PostController@press')->name('posts.press');
@@ -151,5 +159,14 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/search/{querystring}', 'SearchController@index')->name('search.query');
 
+    //****** STREETS****//
+
+    Route::get('/streets', 'StreetsController@index')->name('streets.index');
+
+    Route::get('/street/{id}', 'StreetsController@show')->name('streets.show');
+
+    //****** LOCATION  - STREETS****//
+
+    Route::get('/boutiques-for-street/{streetId}', 'LocationController@boutiquesByStreetId')->name('location.boutiquesStreet');
 
 });

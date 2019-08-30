@@ -14,12 +14,6 @@
 
     <div class='row m-0' id='contatti'>
 
-      <div  class='title'>
-          mnlounge
-        <div class='sotto_title'>
-
-        </div>
-      </div>
 
       <div class='quadrato lounge col-lg-6 order-1 p-0' >
 
@@ -53,7 +47,13 @@
 
       </div>
 
-      <div class='quadrato lounge content col-lg-6 order-2 d-flex align-items-center text-center py-5 p-lg-0'>
+      <div class='quadrato  lounge content col-lg-6 order-2  text-center py-5 p-lg-0'>
+        <div  class='title'>
+            mnlounge
+          <div class='sotto_title'>
+
+          </div>
+        </div>
 
         <div class='px-5'>{!! ($lang == 'it') ? $contents->content_top->data->it : $contents->content_top->data->en !!}</div>
 
@@ -63,7 +63,8 @@
 
       <div class='quadrato lounge content col-lg-6 order-4 p-0 d-flex align-items-center aria pb-3 pb-lg-0'>
 
-        <form>
+          <form action="{{route('routes.sendmail', ['page' => 'mnlounge'])}}" method="GET">
+              @csrf
           <div class="form-group">
             <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}">

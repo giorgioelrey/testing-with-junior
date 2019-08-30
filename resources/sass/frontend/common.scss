@@ -68,10 +68,10 @@ main {
 
 
 p{
-  font-size: 21px;
+  font-size: 19px;
   font-family: 'Playfair Display', serif;
   color: black;
-  line-height: 35px;
+  line-height: 31px;
   word-break: break-word;
 
 
@@ -285,6 +285,7 @@ p{
   word-wrap: break-word;
 
   h5{
+    font-weight: 700;
 
     text-align: center;
     font-family: 'Playfair Display', serif;
@@ -300,7 +301,19 @@ p{
   }
 
 }
+#quadrato_top{
+  background-color: black;
+      right: 16px;
+      top: 519px;
+      position: fixed;
+      z-index: 1030;
+      height: 60px;
+      width: 60px;
 
+
+
+
+}
 
 #top {
 
@@ -313,7 +326,7 @@ p{
   height: 30px;
   width: 30px;
   cursor: pointer;
-  border: solid  black;
+  border: solid  white;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;

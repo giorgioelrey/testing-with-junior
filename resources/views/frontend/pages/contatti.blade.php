@@ -48,19 +48,21 @@
         </div>
 
         <div class='col-lg-6 quadrato contatti content order-4  d-flex align-items-center aria pb-3 pb-lg-0'>
-          <form>
-            <div class="form-group">
+          <form action="{{route('routes.sendmail', ['page' => 'contatti'])}}" method="GET">
+              @csrf
+            <div class="form-group" >
               <label for="formGroupExampleInput">{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}">
+              <input type="text" class="form-control" name="first_name" placeholder="{!! ($lang == 'it') ? 'Nome' : 'First Name' !!}">
 
             </div>
             <div class="form-group">
               <label for="formGroupExampleInput2">{!! ($lang == 'it') ? 'Cognome' : 'Last Name' !!}</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="{!! ($lang == 'it') ? 'Cognome' : 'Last Name' !!}">
+              <input type="text" class="form-control" name="last_name"
+                     placeholder="{!! ($lang == 'it') ? 'Cognome' : 'Last Name' !!}">
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">{!! ($lang == 'it') ? 'Messaggio' : 'Message' !!}</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="50"></textarea>
+              <textarea class="form-control" name="message_body" rows="3" cols="50"></textarea>
             </div>
             <button type="submit" class="btn btn-primary invia">{!! ($lang == 'it') ? 'Invia' : 'Submit' !!}</button>
           </form>

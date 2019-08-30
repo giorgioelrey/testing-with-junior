@@ -48,10 +48,25 @@ class Thumb extends React.Component {
 }
 
 
-const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , values, errors}) => (
+const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , values, errors, currentImage}) => {
+
+    const storedImagePreview = currentImage && (
+        <React.Fragment>
+            <div className="pt-3">
+                <p>Immagine Corrente</p>
+                    <img src={currentImage}
+                         alt={'currentImage'}
+                         className="img-thumbnail mt-2"
+                         height={400}
+                         width={400}
+                    />
+            </div>
+        </React.Fragment>) || <p>Nessuna immagine caricata in precedenza</p>;
+
+    return (
 
               <div className="form-group mb-5">
-              <label className="text-uppercase">MAX Image File 2MB</label>
+              <label className="text-uppercase">Dimensione massima immagine 2MB</label>
                 <div className="custom-file">
                    <label className="custom-file-label" htmlFor={name}>{label}</label>
                    <input name={name} type="file" onChange={(event) => {
@@ -59,9 +74,10 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
                    }} className={'custom-file-input'} />
                 </div>
                 <Thumb file={values[name]} />
+                  {storedImagePreview}
               </div>
-
-)
+            )
+};
 
 export default FileUploadInputFormikField;
 

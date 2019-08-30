@@ -7,6 +7,7 @@ class Day extends Component {
       today,
       date,
       selected,
+      hasEvent,
       classes,
       handleClick,
       children,
@@ -18,6 +19,10 @@ class Day extends Component {
     }
     if (selected && selected.isSame(date, 'day')) {
       classNames.push('selected');
+    }
+
+    if (hasEvent === true ){
+        classNames.push('has-event');
     }
 
     let body;

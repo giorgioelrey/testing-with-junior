@@ -10,13 +10,13 @@ require('./bootstrap');
 $(document).ready(function(){
   $(window).scroll(function() {
   if ($(this).scrollTop()) {
-      $('#top').fadeIn();
+      $('#top , #quadrato_top').fadeIn();
   } else {
-      $('#top').fadeOut();
+      $('#top , #quadrato_top').fadeOut();
   }
 });
 
-$("#top").click(function () {
+$("#top , #quadrato_top").click(function () {
  //1 second of animation time
  //html works for FFX but not Chrome
  //body works for Chrome but not FFX

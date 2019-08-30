@@ -14,11 +14,12 @@ class DatabaseSeeder extends Seeder
       //per richiamare questo Seeder
         //php artisan db:seed
        $this->call([
-      CategoriesTableSeeder::class,
+         CategoriesTableSeeder::class,
          EventsTableSeeder::class,
          PagesTableSeeder::class,
          PostsTableSeeder::class,
-         LocationsTableSeeder::class
+         StreetsTableSeeder::class,
+         LocationsTableSeeder::class,
        ]);
     }
 }

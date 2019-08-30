@@ -15,8 +15,10 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
 
     try {
 
-      fields.date = moment(fields.date).format('YYYY-MM-DD');
-      fields.time = moment(fields.time).format('YYYY-MM-DD HH:mm:ss');
+      fields.start_date = moment(fields.start_date).format('YYYY-MM-DD');
+      fields.start_time = moment(fields.start_time).format('YYYY-MM-DD HH:mm:ss');
+      fields.end_date = moment(fields.end_date).format('YYYY-MM-DD');
+      fields.end_time = moment(fields.end_time).format('YYYY-MM-DD HH:mm:ss');
 
       console.log('campi preSubmit', fields)
 
@@ -52,7 +54,7 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
     <Fragment>
       <div className="container" id="create-edit-event-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your event</h1>
+              <h1>{section === 'create' ? 'Crea' : 'Modifica'} evento</h1>
               {submitErrors}
 
                 <EventForm

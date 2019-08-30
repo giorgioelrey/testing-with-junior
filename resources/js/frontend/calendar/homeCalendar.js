@@ -18,12 +18,11 @@ class EventsCalendar extends Component {
 
     this.onSelect = this.onSelect.bind(this);
     this.getEventsPerDay = this.getEventsPerDay.bind(this);
-
   }
 
   getEventsPerDay(date){
 
-    console.log('chiamo api e invio ' , date)
+    console.log('chiamo api e invio ' , date.format('YYYY-MM-DD'))
 
     axios({
       url: `/api/events/date/${date.format('YYYY-MM-DD')}`,
@@ -33,7 +32,7 @@ class EventsCalendar extends Component {
     })
     .then(({data}) => {
 
-      console.log('events found', data.events);
+      console.log('getEvents PerDay events found', data );
 
       this.setState({events: data.events});
 
@@ -64,7 +63,7 @@ class EventsCalendar extends Component {
   }
 
   componentDidMount(){
-    console.log('componentDidMount', this.state.date);
+    console.log('componentDidMount', this.state.date.format('YYYY-MM-DD'));
     this.getEventsPerDay(this.state.date);
   }
 

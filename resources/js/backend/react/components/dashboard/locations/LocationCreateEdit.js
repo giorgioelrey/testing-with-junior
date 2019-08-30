@@ -6,7 +6,7 @@ import ErrorsAlert from './../../ErrorsAlert';
 import ImageUploader from './ImageUploader';
 import LocationConnector from './../../../HOCs/LocationConnector';
 
-const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocation, submitLocation, history, locationId, section }) => {
+const LocationCreateEdit =  ({location, mnLocation = {}, categories, streets, updateLocation, submitLocation, history, locationId, section }) => {
 
   console.log('LocationCreateEdit', mnLocation);
   console.log('LocationCreateEdit categories', categories);
@@ -16,6 +16,8 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
 
       console.log('data from location form', fields)
       console.log('mnLocation location form', mnLocation)
+/*
+        TO USE IF RESTORING GOOGLE AUTOCOMPLETE ADDRESS FIELD
 
       if (section == 'create'){
         fields.latitude = fields.address.coordinates.lat;
@@ -38,9 +40,7 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
           fields.address = mnLocation.address ;
         }
       }
-
-
-
+ */
     console.log('preparing field in formData',  fields);
     let formData = new FormData();
     for (var key in fields) {
@@ -74,7 +74,7 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
     <Fragment>
       <div className="container" id="create-edit-news-page">
 
-              <h1>{section === 'create' ? 'Create' : 'Edit'} your location</h1>
+              <h1>{section === 'create' ? 'Crea' : 'Modifica'} location</h1>
               {submitErrors}
 
                 <LocationForm
@@ -82,6 +82,7 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, updateLocat
                 location={mnLocation}
                 section={section}
                 categories={categories}
+                streets={streets}
                 />
 
       </div>

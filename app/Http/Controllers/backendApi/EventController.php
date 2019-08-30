@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use QuillEditorHelper;
 
 class EventController extends Controller
 {
@@ -16,7 +17,7 @@ class EventController extends Controller
     {
       $response = [
            'success' => true,
-           'events' => array_reverse(Event::all()->reverse()->each(function ($item, $key) {
+           'events' => array_reverse(Event::all()->each(function ($item, $key) {
              //Check if is a loremPixel url otherwise get url for img tag
               $urlSplit = explode("/",$item['image_url']);
               if (!in_array('lorempixel.com', $urlSplit)){
@@ -52,10 +53,14 @@ class EventController extends Controller
         $event->title_it = $request->title_it;
         $event->title_en = $request->title_en;
         $event->address = $request->address;
-        $event->date = $request->date;
-        $event->time = $request->time;
-        $event->description_it = $request->description_it;
-        $event->description_en = $request->description_en;
+        $event->start_date = $request->start_date;
+        $event->start_time = $request->start_time;
+        $event->end_date = $request->end_date;
+        $event->end_time = $request->end_time;
+        $event->bodytop_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodytop_it);
+        $event->bodytop_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodytop_en);
+        $event->bodybottom_it = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodybottom_it);
+        $event->bodybottom_en = QuillEditorHelper::convertAndStoreBase64ImagesFromFieldAndReturnFieldWithReadableImageUrls($request->bodybottom_en);
         $event->image_url = $request->file('image_url')->store('public');
 
         $event->save();
@@ -174,21 +179,41 @@ class EventController extends Controller
 
        $input = $request->all();
 
-       $validator = Validator::make($input, [
-          'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-       ]);
+        if ($request->hasFile('image_url')) {
+            $validator = Validator::make($input, [
+                'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+            ]);
 
-      Storage::delete($event->image_url);
+            if ($validator->fails()) {
+                $response = [
+                    'success' => false,
+                    'data' => 'Validation Error.',
+                    'message' => $validator->errors()
+                ];
+                return response()->json($response, 404);
+            }
+        }
+
+
        $event->metadescription_it = $request->metadescription_it;
        $event->metadescription_en = $request->metadescription_en;
        $event->title_it = $request->title_it;
        $event->title_en = $request->title_en;
        $event->address = $request->address;
-       $event->date = $request->date;
-       $event->time = $request->time;
-       $event->description_it = $request->description_it;
-       $event->description_en = $request->description_en;
-       $event->image_url = $request->file('image_url')->store('public');
+       $event->start_date = $request->start_date;
+       $event->start_time = $request->start_time;
+       $event->end_date = $request->end_date;
+       $event->end_time = $request->end_time;
+       $event->bodytop_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodytop_it, $event->bodytop_it);
+       $event->bodytop_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodytop_en, $event->bodytop_en);
+       $event->bodybottom_it = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodybottom_it, $event->bodybottom_it);
+       $event->bodybottom_en = QuillEditorHelper::updateImagesForFieldAndSaveChangedOnesStoringValidUrlAndReturnField($request->bodybottom_en, $event->bodybottom_en);
+
+        if ($request->hasFile('image_url')){
+            Storage::delete($event->image_url);
+            $event->image_url = $request->file('image_url')->store('public');
+        }
+
 
       //UPDATE OPS
 
@@ -222,7 +247,10 @@ class EventController extends Controller
       $data = $event->toArray();
 
       Storage::delete($event->image_url);
-
+      QuillEditorHelper::deleteAllImagesForField( $event->bodytop_it);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodytop_en);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodybottom_it);
+      QuillEditorHelper::deleteAllImagesForField( $event->bodybottom_en);
       $event->delete();
 
        $response = [
