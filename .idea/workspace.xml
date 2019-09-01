@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelper.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,15 +16,30 @@
       <executable />
     </execution>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="testing-with-junior" />
+  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelper.php">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            <state relative-caret-position="219">
+              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
               <folding>
-                <element signature="e#41#80#0#PHP" expanded="true" />
+                <element signature="e#7#38#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="240" selection-start-line="240" selection-end-line="283" selection-end-column="22" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,13 +84,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesList.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/TextInputFormikField.js" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_24_141116_add_lat_lon_to_locations.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_24_141842_create_streets_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_08_24_142258_add_street_to_locations.php" />
-        <option value="$PROJECT_DIR$/app/Location.php" />
         <option value="$PROJECT_DIR$/app/Street.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/StreetsController.php" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" />
@@ -91,19 +98,15 @@
         <option value="$PROJECT_DIR$/database/seeds/LocationsTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_24_152839_change_name_column_in_streets.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/StreetsController.php" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" />
         <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/StreetSelectFormikField.js" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" />
         <option value="$PROJECT_DIR$/webpack.mix.js" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/js/frontend/brand/brand.js" />
         <option value="$PROJECT_DIR$/database/seeds/StreetsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/FileUploadInputFormikField.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageCard.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" />
         <option value="$PROJECT_DIR$/resources/js/frontend/calendar/components/EventsList.js" />
         <option value="$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/EventController.php" />
@@ -121,6 +124,17 @@
         <option value="$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/PageBrandTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelper.php" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/SendMailController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/contatti.blade.php" />
+        <option value="$PROJECT_DIR$/config/mail.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SendMailController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/mn-vip-lounge.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" />
+        <option value="$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php" />
       </list>
     </option>
   </component>
@@ -243,6 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,37 +268,23 @@
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="QuillEditorHelper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,6 +304,9 @@
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database/seeds" />
       <recent name="$PROJECT_DIR$/resources/js/frontend/brand/components" />
@@ -347,21 +351,22 @@
       <workItem from="1567009520388" duration="6568000" />
       <workItem from="1567086045387" duration="1384000" />
       <workItem from="1567087754886" duration="628000" />
-      <workItem from="1567095642174" duration="3316000" />
+      <workItem from="1567095642174" duration="3906000" />
+      <workItem from="1567188220536" duration="10207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65612000" />
+    <option name="totallyTimeSpent" value="76409000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18181819" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76494026" visible="true" weight="0.27833125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.23505977" side_tool="true" visible="true" weight="0.27833125" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -371,7 +376,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.23094426" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4288965" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -406,158 +411,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/StreetsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/frontend/app.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-257" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sass/frontend/common.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="398" column="9" selection-start-line="398" selection-start-column="9" selection-end-line="398" selection-end-column="9" />
-          <folding>
-            <element signature="e#11#78#0" />
-            <element signature="e#90#157#0" />
-            <element signature="e#337#522#0" />
-            <element signature="e#531#586#0" />
-            <element signature="e#594#618#0" />
-            <element signature="e#627#674#0" />
-            <element signature="e#691#712#0" />
-            <element signature="e#725#783#0" />
-            <element signature="e#797#832#0" />
-            <element signature="e#850#896#0" />
-            <element signature="e#905#967#0" />
-            <element signature="e#973#1103#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/ImageUploader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="115" column="40" selection-start-line="115" selection-start-column="40" selection-end-line="115" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/brand/brand.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/PostCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/FileUploadInputFormikField.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="148" column="14" selection-start-line="148" selection-start-column="14" selection-end-line="148" selection-end-column="14" />
-          <folding>
-            <element signature="e#1#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/gmaps/gmaps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#123#2647#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="20" column="261" selection-start-line="20" selection-start-column="261" selection-end-line="20" selection-end-column="261" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1104">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="752">
@@ -744,17 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/contatti.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="77" column="10" lean-forward="true" selection-start-line="13" selection-start-column="2" selection-end-line="77" selection-end-column="10" />
-          <folding>
-            <element signature="e#353#2911#0#HTML" />
-            <element signature="e#487#511#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="636">
@@ -762,16 +604,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -789,13 +622,6 @@
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelperFacade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -819,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="150" column="26" selection-start-line="113" selection-start-column="3" selection-end-line="150" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/ImageController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -846,12 +665,159 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelperFacade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/QuillEditorHelper/QuillEditorHelper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="-649">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
           <folding>
             <element signature="e#41#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="79" column="34" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_24_142258_add_street_to_locations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_24_141842_create_streets_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_01_223117_add_category_to_location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_23_195634_change_events_table_with_date_range.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="657">
+          <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/UserAdminSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SendMailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="21" column="130" selection-start-line="21" selection-start-column="130" selection-end-line="21" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/mn-vip-lounge.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/contatti.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="66" column="117" selection-start-line="52" selection-start-column="12" selection-end-line="66" selection-end-column="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-38">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageConnector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2326">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="240" selection-start-line="240" selection-end-line="283" selection-end-column="22" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
