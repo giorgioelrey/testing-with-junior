@@ -6,7 +6,7 @@ const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, h
   let optionsList = options &&  (<ul className="flex-column">
                                   {options.map((option, idx) => (
                                     <Link
-                                      className="d-block"
+                                      className="d-none d-sm-block"
                                       key={idx}
                                       to={`/admin/dashboard/${linkEndpoint}/${option.linkEndpoint}`}>
                                         {option.linkName}

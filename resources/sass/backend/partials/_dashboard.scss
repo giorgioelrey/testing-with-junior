@@ -6,14 +6,24 @@
 
     width: 200px;
     height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+
     background: yellow;
     a.nav-link {
       color: #24EAB6
     }
+      @media all and (max-width: 575px){
+          width: 100%;
+          height: auto;
+      }
+
+      @media all and (min-width: 576px){
+          overflow-y: scroll;
+          overflow-x: hidden;
+      }
 
   }
+
+
 
   .content-area {
     
@@ -21,6 +31,11 @@
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+
+      @media all and (max-width: 575px){
+          width: 100%;
+          height:auto;
+      }
 
   }
 

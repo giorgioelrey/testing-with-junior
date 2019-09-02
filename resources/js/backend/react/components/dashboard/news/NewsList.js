@@ -7,9 +7,9 @@ const NewsList  = ({posts}) => (
 
   <React.Fragment>
 
-      <div className="d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap">
+      <div className="mb-3">
         <h1>Ecco tutti i post</h1>
-        <Link to="/admin/dashboard/news/create" className="btn btn-primary btn-lg">Aggiungi un nuovo post</Link>
+        <Link to="/admin/dashboard/news/create" className="btn btn-primary ">Aggiungi un nuovo post</Link>
       </div>
 
       <div className="row">

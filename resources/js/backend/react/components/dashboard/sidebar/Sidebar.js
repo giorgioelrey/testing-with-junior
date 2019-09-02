@@ -11,8 +11,8 @@ import SidebarLink from './SidebarLink';
 
     return (
       <nav className="bg-light sidebar">
-        <div className=" mt-5">
-          <ul className="nav flex-column">
+        <div className="my-3 my-sm-5">
+          <ul className="nav flex-row flex-sm-column">
               {navItems}
           </ul>
         </div>
@@ -29,13 +29,13 @@ Sidebar.defaultProps = {
   navItemsData: [
     {
       linkEndpoint: 'pages',
-      linkName: 'Pages',
+      linkName: 'Pagine',
       svgClass : 'feather-book-open',
       innerSvg: (<Fragment><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></Fragment>)
     },
     {
       linkEndpoint: 'news',
-      linkName: 'News',
+      linkName: 'News/Archivio',
       svgClass : 'feather-layers',
       innerSvg: (<Fragment><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></Fragment>),
       options: [
@@ -44,7 +44,7 @@ Sidebar.defaultProps = {
     },
     {
       linkEndpoint: 'events',
-      linkName: 'Events',
+      linkName: 'Eventi',
       svgClass : 'feather-calendar',
       innerSvg: (<Fragment><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></Fragment>),
       options: [

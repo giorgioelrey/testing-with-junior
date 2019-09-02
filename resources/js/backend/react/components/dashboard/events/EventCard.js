@@ -19,8 +19,8 @@ const EventCard = ({ event }) => {
     </div>
 
     <div className="col-md-3 align-self-center">
-        <Link to={`/admin/dashboard/event/show/id/${event.id}`} className="btn btn-primary btn-sm mb-3">Apri</Link>
-        <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-sm ">Modifica </Link>
+        <Link to={`/admin/dashboard/event/show/id/${event.id}`} className="btn btn-primary  mb-3">Apri</Link>
+        <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning  ">Modifica </Link>
   </div>
     </div>
   </React.Fragment>
