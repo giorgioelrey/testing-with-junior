@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class='col-lg-6 pr-0'>
+      <div class='col-lg-6 pr-md-0 '>
         <div class='bordo'>
           <div id="react-calendar">
 
@@ -79,7 +79,7 @@
 
       </div>
 
-      <div class='col-lg-6 pr-0'>
+      <div class='col-lg-6 pr-0 pl-0 pl-lg-3'>
 
         <div id="map" style="width: 100%; height:800px;">
 

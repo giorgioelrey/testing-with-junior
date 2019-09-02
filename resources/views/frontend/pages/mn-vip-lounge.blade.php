@@ -61,7 +61,7 @@
 
 
 
-      <div class='quadrato lounge content col-lg-6 order-4 p-0 d-flex align-items-center aria pb-3 pb-lg-0'>
+      <div class='quadrato lounge content col-lg-6 order-4  d-flex align-items-center aria pb-3 pb-lg-0'>
 
           <form action="{{route('routes.sendmail', ['page' => 'mnlounge'])}}" method="GET">
               @csrf

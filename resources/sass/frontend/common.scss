@@ -100,6 +100,7 @@ p{
 }
 .corpo-post{
   h1 {
+    word-break: break-word;
     font-size: 24px;
     font-family: 'Playfair Display', serif;
     text-align: left;
@@ -317,7 +318,54 @@ p{
 }
 
 @media all and (max-width: 768px){
+  .box .img-box {
+    left: 0!important;
+    margin-left: -200px;
+    position: absolute;
+}
+  #contatti .title {
+    margin-top: 50px!important;
+}
+  #contatti .aria {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+  .box-img-single {
+      padding: 20px;
+  }
+  .single-title {
+    margin-top: 30px !important;
+}
 
+
+
+  .carousel-control-prev {
+    left: 20px;
+}
+.carousel-control-next {
+    right: 20px;
+}
+  #home #react-calendar .Calendar .Day.selected {
+    height: 40px!important;
+    width: 40px!important;
+    background: #caa660;
+    border-radius: 50px;
+}
+
+  .table th, .table td {
+    padding: 8px;
+
+}
+#home .mostra_evento {
+    border: 1px solid black;
+    width: 100%!important;
+    margin: 15px auto 0;
+}
+#home .bordo {
+    margin-top: 15px;
+    height: 590px!important;
+    border: 0px solid black!important;
+}
   .carousel-caption h5 {
     font-size: 33px;
   }

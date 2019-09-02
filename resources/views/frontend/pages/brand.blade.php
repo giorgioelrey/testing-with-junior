@@ -38,7 +38,7 @@
 </div>
 </div>
 
-  <div class='col-md-6 bg-gold d-flex align-items-center'>
+  <div class='col-lg-6 bg-gold order-1 d-flex align-items-center mobile_place'>
 
       <div id="brand-location-picker"></div>
 
@@ -46,7 +46,7 @@
 
   </div>
 
-    <div class='quadrato contatti col-lg-6   bg-dark p-0' style="overflow:hidden;">
+    <div class='quadrato contatti col-lg-6 order-2  bg-dark p-0' style="overflow:hidden;">
       <img class="" src="{{$contents->image_top_url->data}}" alt="">
   </div>
 
@@ -71,11 +71,9 @@
 
 
 
-  <div class='quadrato contatti col-lg-6  bg-dark p-0' style="overflow:hidden;">
-    <img class="" src="{{$contents->image_bottom_url->data}}" alt="">
-</div>
 
-<div class='col-md-6 d-flex bg-green align-items-center '>
+
+<div class='col-lg-6 d-flex bg-green order-lg-4 align-items-center mobile_place'>
 
   <ul class='hotel'>
     <li><a href='#'>ARMANI HOTEL </a></li>
@@ -94,7 +92,9 @@
 
 </div>
 
-
+<div class='quadrato contatti col-lg-6 order-lg-3 bg-dark p-0' style="overflow:hidden;">
+  <img class="" src="{{$contents->image_bottom_url->data}}" alt="">
+</div>
 
 
 
