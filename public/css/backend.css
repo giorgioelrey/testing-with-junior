@@ -10662,6 +10662,35 @@ a.text-dark:focus {
   }
 }
 
+@media all and (max-width: 565px) {
+  h1 {
+    font-size: 15px;
+  }
+}
+
+.react-datepicker-wrapper {
+  margin-left: 30px;
+}
+
+@media all and (max-width: 565px) {
+  .react-datepicker-wrapper {
+    display: block !important;
+  }
+}
+
+.react-datepicker-wrapper .react-datepicker__input-container {
+  border: 1px solid lightgray;
+}
+
+.show-card img.card-img-top {
+  max-width: 100%;
+  border: 1px solid #343a40;
+}
+
+.show-card .card-text img {
+  max-width: 100%;
+}
+
 #event_list_back {
   border: 1px solid black;
 }
@@ -10702,8 +10731,6 @@ a.text-dark:focus {
 #dashboard-page .sidebar {
   width: 200px;
   height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
   background: yellow;
 }
 
@@ -10711,11 +10738,32 @@ a.text-dark:focus {
   color: #24EAB6;
 }
 
+@media all and (max-width: 575px) {
+  #dashboard-page .sidebar {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media all and (min-width: 576px) {
+  #dashboard-page .sidebar {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
 #dashboard-page .content-area {
   width: calc(100vw - 200px);
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+@media all and (max-width: 575px) {
+  #dashboard-page .content-area {
+    width: 100%;
+    height: auto;
+  }
 }
 
 #navbar-backoffice {

@@ -9,7 +9,7 @@ const EventsList  = ({events}) => (
 
       <div className="d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap">
         <h1>Ecco tutti i tuoi eventi</h1>
-        <Link to="/admin/dashboard/events/create" className="btn btn-primary btn-sm">Aggiungi un nuovo evento</Link>
+        <Link to="/admin/dashboard/events/create" className="btn btn-primary ">Aggiungi un nuovo evento</Link>
       </div>
 
           {events.length > 0 &&

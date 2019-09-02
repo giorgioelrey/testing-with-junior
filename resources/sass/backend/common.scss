@@ -1,4 +1,31 @@
 
+h1 {
+    @media all and (max-width: 565px){
+        font-size: 15px;
+    }
+}
+
+.react-datepicker-wrapper {
+    margin-left: 30px;
+
+    @media all and (max-width: 565px) {
+
+        display: block!important;
+    }
+    .react-datepicker__input-container {border: 1px solid lightgray}
+}
+
+.show-card {
+    img.card-img-top {
+        max-width: 100%;
+        border: 1px solid #343a40;
+
+    }
+    .card-text {
+        img {max-width: 100%;}
+    }
+}
+
 #event_list_back{
 border:1px solid black;
 

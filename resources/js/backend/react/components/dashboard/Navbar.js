@@ -23,7 +23,7 @@ class Navbar extends Component {
   render() {
 
     //SHOW LINKS based on userLogin status
-    let authLinks = null
+    let authLinks = null;
 
     if (this.props.user.token !== ''){//LOGGED IN
       authLinks = (
@@ -43,14 +43,10 @@ class Navbar extends Component {
           <img height="30" src={logo_core} alt="ciao" />
         </NavLink>
 
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse " id="navbarNavAltMarkup">
-          <div className="navbar-nav ml-auto">
-            {authLinks}
-          </div>
-        </div>
+      <div className="navbar-nav ml-auto">
+        {authLinks}
+      </div>
+
       </nav>
 
     );

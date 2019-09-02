@@ -66,6 +66,18 @@ class BrandLocationPicker extends React.Component{
 
     render(){
 
+        const boutiquesForStreet = this.state.boutiques.length > 0 && (
+            <ul>
+                {this.state.boutiques.map((boutique, idx) =>
+                <li key={idx}
+                    onClick={(event) => {this.setState({pickedBoutique: boutique, modalOpen: true})}}
+                >
+                    {boutique[`name_${this.props.userLanguage}`]}
+                </li>
+                )}
+            </ul>
+        ) || null;
+
         return(
             <React.Fragment>
 
@@ -74,17 +86,7 @@ class BrandLocationPicker extends React.Component{
                     {this.props.streets.map((street, idx) => <option key={idx} value={street.id}>{street.name_it}</option>)}
                 </select>
 
-                <ul>
-                {this.state.boutiques.length > 0 &&
-                this.state.boutiques.map((boutique, idx) =>
-                     <li key={idx}
-                         onClick={(event) => {this.setState({pickedBoutique: boutique, modalOpen: true})}}
-                     >
-                         {boutique[`name_${this.props.userLanguage}`]}
-                     </li>
-                    )
-                }
-                </ul>
+                {boutiquesForStreet}
 
                 <Modal
                     visible={this.state.modalOpen}
@@ -92,7 +94,6 @@ class BrandLocationPicker extends React.Component{
                     dialogClassName={'modal-xl'}
                     disablebuttons={"false"}
                 >
-
 
                     <div className="close_modal" onClick={()=>{this.setState({modalOpen:false})}} style={{padding: '15px'}}>
                         <img src={this.props.closeModalImg} alt="x image" />

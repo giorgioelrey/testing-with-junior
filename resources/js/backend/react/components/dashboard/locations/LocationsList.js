@@ -9,7 +9,7 @@ const NewsList  = ({locations = []}) => (
 
       <div className="d-flex justify-content-between align-items-center mb-3 w-75 flex-wrap">
         <h1>Ecco tutte le location</h1>
-        <Link to="/admin/dashboard/locations/create" className="btn btn-primary btn-lg">Aggiungi nuova location</Link>
+        <Link to="/admin/dashboard/locations/create" className="btn btn-primary ">Aggiungi nuova location</Link>
       </div>
 
       <div className="row">

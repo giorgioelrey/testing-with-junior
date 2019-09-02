@@ -40,11 +40,11 @@ const DashboardPage = (props) => {
       <Fragment>
 
         <Navbar {...props} />
-        <div className="d-flex" id="dashboard-page">
+        <div className="d-flex flex-column flex-sm-row" id="dashboard-page">
 
               <Sidebar {...props} />
 
-              <div className="content-area p-5">
+              <div className="content-area py-5 px-4 px-sm-5">
 
                   {contentArea}
 
