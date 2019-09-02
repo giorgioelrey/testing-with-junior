@@ -37,6 +37,13 @@ main {
 
 
 }
+textarea.form-control {
+    width: 100%!important;
+    height: 150px!important;
+}
+
+
+
 
 .box-img-single{
   padding: 89px;
@@ -63,6 +70,20 @@ main {
   width: 100%;
 
 }
+#evento-single{
+img{
+
+  margin-bottom: 80px;
+    max-width: 100%;
+    margin-top: 80px;
+}
+
+
+}
+
+
+
+
 
 
 
@@ -161,13 +182,14 @@ p{
 
 .bg-gold{
   background-color: #caa660;
-  height: 100vh;
+
 }
 .bg-green{
   background-color:#799f6f;
-  height: 100vh;
+
 }
 .title{
+  word-break: break-word;
   line-height: 32px;
   text-transform: uppercase;
   text-align: center;
@@ -432,7 +454,7 @@ p{
 
 }
 
-#contatti, #servizi-mnlounge {
+#contatti, #servizi-mnlounge,#soci {
 
   .quadrato {
 
@@ -442,7 +464,7 @@ p{
     background-repeat: no-repeat;
     background-position: center;
 
-    &.lounge, &.contatti {
+    &.lounge, &.contatti,&.soci {
       height: auto;
 
     }

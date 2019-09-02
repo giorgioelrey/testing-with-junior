@@ -60,12 +60,31 @@ function() {
 	Route::get(LaravelLocalization::transRoute('routes.brand'), function() {
 
 	    $streets = Street::all()->toArray();
+			$dynamicPage = Page::whereName('brand')->get();
+
+			$contents = json_decode($dynamicPage->first()->contents);
+
+			foreach ($contents as &$content) {
+				if($content->type == 'image' && !empty($content->data)){
+
+					$content->data = Storage::url($content->data);
+
+				}
+			}
 
 		return View::make('frontend.pages.brand',[
 		    'lang' => LaravelLocalization::setLocale(),
-            'streets' => $streets
+            'streets' => $streets,
+						'contents'=> $contents
         ]);
-	})->name('fe.brand');
+
+			})->name('fe.brand');
+
+
+
+
+
+
 
 
 

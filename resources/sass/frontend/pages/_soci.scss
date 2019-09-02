@@ -1,3 +1,35 @@
+
+select {
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 19px;
+    word-wrap: normal;
+}
+
+
+
+#brand-location-picker{
+  margin-left: 30px;
+  ul{
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 19px;
+    line-height: 24px;
+    list-style-type: none;
+    margin-left: -38px;
+
+
+  }
+
+
+
+}
+
+
+
+
+
+
 #soci{
 
 
@@ -12,14 +44,15 @@
 
 .hotel{
   color:#000000;
-  font-size:18px;
+  font-size:19px;
  font-family: 'Playfair Display', serif;
   font-weight: 700;
   list-style: none;
 
 a{
+  line-height: 24px;
   color:#000000;
-  font-size:18px;
+  font-size:19px;
   text-decoration: none;
 
 

@@ -56,6 +56,34 @@
 
 
   </div>
+
+  <div class='divider'></div>
+  <div class='row d-flex justify-content-center'>
+  <div class='col-md-10'>
+
+
+  <div class='paragrafo-single'>
+      {!! $event['bodybottom_'.$lang] !!}
+  </div>
+
+
+
+  </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
