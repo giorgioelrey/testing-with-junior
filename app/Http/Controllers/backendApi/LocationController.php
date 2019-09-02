@@ -54,6 +54,8 @@ class LocationController extends Controller
 
 
     $location = new Location;
+    $location->metadescription_it = $request->metadescription_it;
+    $location->metadescription_en = $request->metadescription_en;
     $location->name_it = $request->name_it;
     $location->name_en = $request->name_en;
     $location->address = $request->address;
@@ -131,23 +133,24 @@ class LocationController extends Controller
       return response()->json($response, 404);
     }
 
-    $input = $request->all();
-    $validator = Validator::make($input, [
-      'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
-    ]);
+  if ($request->hasFile('image_url')) {
+          $validator = Validator::make($input, [
+              'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2000',
+          ]);
 
-    if ($validator->fails()) {
-      $response = [
-        'success' => false,
-        'data' => 'Validation Error.',
-        'message' => $validator->errors()
-      ];
-      return response()->json($response, 404);
-    }
-
-    Storage::delete($location->image_url);
+          if ($validator->fails()) {
+              $response = [
+                  'success' => false,
+                  'data' => 'Validation Error.',
+                  'message' => $validator->errors()
+              ];
+              return response()->json($response, 404);
+          }
+  }
 
     //UPDATE OPS
+    $location->metadescription_it = $request->metadescription_it;
+    $location->metadescription_en = $request->metadescription_en;
     $location->name_it = $request->name_it;
     $location->name_en = $request->name_en;
     $location->slug_it = $request->slug_it;
@@ -159,9 +162,13 @@ class LocationController extends Controller
     $location->email = $request->email;
     $location->description_it = $request->description_it;
     $location->description_en = $request->description_en;
-    $location->image_url = $request->file('image_url')->store('public');
     $location->category_id = $request->category_id;
     $location->street_id = $request->street_id;
+
+      if ($request->hasFile('image_url')){
+          Storage::delete($location->image_url);
+          $location->image_url = $request->file('image_url')->store('public');
+      }
 
     $location->save();
     $data = $location->toArray();
