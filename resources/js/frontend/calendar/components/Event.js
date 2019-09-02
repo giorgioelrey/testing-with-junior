@@ -17,7 +17,7 @@ const Event = ({userLanguage = 'it', event}) => {
       <a href={link} style={{position: 'absolute', width: '100%', height: '100%' }}></a>
       <h2 style={{fontSize: '18px', color: 'black',marginBottom: 0}}>{event['title_'+userLanguage]}</h2>
       <p style={{fontSize: '16px',  lineHeight: '18px',marginBottom: 0}}>{event.address}</p>
-      <p style={{fontSize: '16px', lineHeight: '18px', marginBottom: 0}}>{moment(event.time).format('HH:mm')}</p>
+      
 
     </div>
   )

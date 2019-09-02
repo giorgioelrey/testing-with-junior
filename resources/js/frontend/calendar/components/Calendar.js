@@ -201,18 +201,18 @@ class Calendar extends Component {
       nav = (
         <tr className="month-header">
           <th className="nav previous">
-            <button className="nav-inner" onClick={this.previous} type="button">
-              -
-            </button>
+            <div className="nav-inner" onClick={this.previous} type="button">
+              <i className="fas fa-angle-left"></i>
+            </div>
           </th>
           <th colSpan="5">
             <span className="month">{month.format('MMMM')}</span>{' '}
             <span className="year">{month.format('YYYY')}</span>
           </th>
           <th className="nav next">
-            <button className="nav-inner" onClick={this.next} type="button">
-              -
-            </button>
+            <div className="nav-inner" onClick={this.next} type="button">
+              <i className="fas fa-angle-right"></i>
+            </div>
           </th>
         </tr>
       );
