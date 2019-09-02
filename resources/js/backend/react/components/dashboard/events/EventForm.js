@@ -115,8 +115,8 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
 
                       </div>
 
-                       <div className="form-group">
-                           <button type="submit" className="btn btn-primary mr-2">{section == 'create' ? 'Salva nuovo evento' : 'Salva modifiche ad evento'}</button>
+                       <div className="form-group pt-4">
+                           <button type="submit" className="btn btn-primary mr-2 mb-3">{section == 'create' ? 'Salva nuovo evento' : 'Salva modifiche ad evento'}</button>
                            <button type="reset" className="btn btn-info text- mr-2">Resetta Campi</button>
                        </div>
                    </Form>

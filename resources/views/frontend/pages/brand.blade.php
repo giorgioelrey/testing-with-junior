@@ -38,16 +38,18 @@
 </div>
 </div>
 
-  <div class='col-md-6 bg-gold d-flex align-items-center'>
+  <div class='col-lg-6 bg-gold order-1 d-flex align-items-center mobile_place'>
 
       <div id="brand-location-picker"></div>
 
 
 
   </div>
-  <div class='col-md-6'>
 
+    <div class='quadrato contatti col-lg-6 order-2  bg-dark p-0' style="overflow:hidden;">
+      <img class="" src="{{$contents->image_top_url->data}}" alt="">
   </div>
+
   </div>
   </div>
 
@@ -69,26 +71,30 @@
 
 
 
-<div class='col-md-6 bg-green d-flex align-items-center'>
 
-</div>
 
-<div class='col-md-6 d-flex align-items-center '>
+<div class='col-lg-6 d-flex bg-green order-lg-4 align-items-center mobile_place'>
 
   <ul class='hotel'>
-
-<li><a href='#'>LE GRAND HOTEL DE MILAN </a></li>
-<li><a href='#'> SAVOIA </a></li>
-<li><a href='#'>  MENDELSON </a></li>
-<li><a href='#'>  HACHIVA </a></li>
-<li><a href='#'>  MANDARINO </a></li>
-<li><a href='#'>  TOLENTINO HOTEL </a></li>
+    <li><a href='#'>ARMANI HOTEL </a></li>
+    <li><a href='#'>BULGARI </a></li>
+    <li><a href='#'>FOUR SEASON </a></li>
+<li><a href='#'> GRAND HOTEL ET DE MILAN </a></li>
+<li><a href='#'>HOTEL BAGLIONI </a></li>
+<li><a href='#'> HOTEL GALLIA </a></li>
+<li><a href='#'>  HOTEL MANZONI</a></li>
+<li><a href='#'>  HOTEL PRINCIPE DI SAVOIA </a></li>
+<li><a href='#'>  MANDARIN ORIENTAL MILAN </a></li>
+<li><a href='#'>  PARKHYATT </a></li>
+<li><a href='#'>  THE WESTIN </a></li>
 </ul>
 
 
 </div>
 
-
+<div class='quadrato contatti col-lg-6 order-lg-3 bg-dark p-0' style="overflow:hidden;">
+  <img class="" src="{{$contents->image_bottom_url->data}}" alt="">
+</div>
 
 
 

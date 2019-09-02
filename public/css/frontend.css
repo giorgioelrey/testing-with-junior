@@ -10697,6 +10697,11 @@ main {
   margin-bottom: 80px;
 }
 
+textarea.form-control {
+  width: 100% !important;
+  height: 150px !important;
+}
+
 .box-img-single {
   padding: 89px;
 }
@@ -10722,6 +10727,12 @@ main {
   width: 100%;
 }
 
+#evento-single img {
+  margin-bottom: 80px;
+  max-width: 100%;
+  margin-top: 80px;
+}
+
 p {
   font-size: 19px;
   font-family: "Playfair Display", serif;
@@ -10741,6 +10752,7 @@ p {
 }
 
 .corpo-post h1 {
+  word-break: break-word;
   font-size: 24px;
   font-family: "Playfair Display", serif;
   text-align: left;
@@ -10800,15 +10812,14 @@ p {
 
 .bg-gold {
   background-color: #caa660;
-  height: 100vh;
 }
 
 .bg-green {
   background-color: #799f6f;
-  height: 100vh;
 }
 
 .title {
+  word-break: break-word;
   line-height: 32px;
   text-transform: uppercase;
   text-align: center;
@@ -10908,6 +10919,61 @@ p {
 }
 
 @media all and (max-width: 768px) {
+  .box .img-box {
+    left: 0 !important;
+    margin-left: -200px;
+    position: absolute;
+  }
+
+  #contatti .title {
+    margin-top: 50px !important;
+  }
+
+  #contatti .aria {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .box-img-single {
+    padding: 20px;
+  }
+
+  .single-title {
+    margin-top: 30px !important;
+  }
+
+  .carousel-control-prev {
+    left: 20px;
+  }
+
+  .carousel-control-next {
+    right: 20px;
+  }
+
+  #home #react-calendar .Calendar .Day.selected {
+    height: 40px !important;
+    width: 40px !important;
+    background: #caa660;
+    border-radius: 50px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+
+  #home .mostra_evento {
+    border: 1px solid black;
+    width: 100% !important;
+    margin: 15px auto 0;
+  }
+
+  #home .bordo {
+    margin-top: 15px;
+    height: 590px !important;
+    border: 0px solid black !important;
+  }
+
   .carousel-caption h5 {
     font-size: 33px;
   }
@@ -11022,7 +11088,8 @@ p {
 }
 
 #contatti .quadrato,
-#servizi-mnlounge .quadrato {
+#servizi-mnlounge .quadrato,
+#soci .quadrato {
   height: 100vh;
   overflow: hidden;
   background-size: cover;
@@ -11032,19 +11099,26 @@ p {
 
 #contatti .quadrato.lounge,
 #contatti .quadrato.contatti,
+#contatti .quadrato.soci,
 #servizi-mnlounge .quadrato.lounge,
-#servizi-mnlounge .quadrato.contatti {
+#servizi-mnlounge .quadrato.contatti,
+#servizi-mnlounge .quadrato.soci,
+#soci .quadrato.lounge,
+#soci .quadrato.contatti,
+#soci .quadrato.soci {
   height: auto;
 }
 
 @media all and (max-width: 1024px) {
   #contatti .quadrato,
-  #servizi-mnlounge .quadrato {
+  #servizi-mnlounge .quadrato,
+  #soci .quadrato {
     height: 100vw;
   }
 
   #contatti .quadrato.contatti img,
-  #servizi-mnlounge .quadrato.contatti img {
+  #servizi-mnlounge .quadrato.contatti img,
+  #soci .quadrato.contatti img {
     width: 130%;
     -webkit-transform: translateX(-10%);
             transform: translateX(-10%);
@@ -11055,27 +11129,34 @@ p {
   #contatti .quadrato.lounge,
   #contatti .quadrato.contatti,
   #servizi-mnlounge .quadrato.lounge,
-  #servizi-mnlounge .quadrato.contatti {
+  #servizi-mnlounge .quadrato.contatti,
+  #soci .quadrato.lounge,
+  #soci .quadrato.contatti {
     height: 100vw;
   }
 
   #contatti .quadrato.lounge.content,
   #contatti .quadrato.contatti.content,
   #servizi-mnlounge .quadrato.lounge.content,
-  #servizi-mnlounge .quadrato.contatti.content {
+  #servizi-mnlounge .quadrato.contatti.content,
+  #soci .quadrato.lounge.content,
+  #soci .quadrato.contatti.content {
     height: auto;
   }
 
   #contatti .quadrato.lounge .carousel-item img,
   #contatti .quadrato.contatti .carousel-item img,
   #servizi-mnlounge .quadrato.lounge .carousel-item img,
-  #servizi-mnlounge .quadrato.contatti .carousel-item img {
+  #servizi-mnlounge .quadrato.contatti .carousel-item img,
+  #soci .quadrato.lounge .carousel-item img,
+  #soci .quadrato.contatti .carousel-item img {
     width: 150%;
     bottom: 50%;
   }
 
   #contatti .quadrato.contatti img,
-  #servizi-mnlounge .quadrato.contatti img {
+  #servizi-mnlounge .quadrato.contatti img,
+  #soci .quadrato.contatti img {
     width: 100%;
     -webkit-transform: translateX(0);
             transform: translateX(0);
@@ -11084,17 +11165,20 @@ p {
 
 @media all and (min-width: 1200px) {
   #contatti .quadrato.contatti,
-  #servizi-mnlounge .quadrato.contatti {
+  #servizi-mnlounge .quadrato.contatti,
+  #soci .quadrato.contatti {
     height: auto;
   }
 
   #contatti .quadrato.contatti img,
-  #servizi-mnlounge .quadrato.contatti img {
+  #servizi-mnlounge .quadrato.contatti img,
+  #soci .quadrato.contatti img {
     width: 100%;
   }
 
   #contatti .quadrato .carousel-item img,
-  #servizi-mnlounge .quadrato .carousel-item img {
+  #servizi-mnlounge .quadrato .carousel-item img,
+  #soci .quadrato .carousel-item img {
     width: 100%;
   }
 }
@@ -11206,6 +11290,10 @@ p {
   padding-top: 40px;
 }
 
+#home [type=button] {
+  -webkit-appearance: none;
+}
+
 #home .carousel {
   overflow: hidden;
 }
@@ -11214,10 +11302,14 @@ p {
   height: 800px;
 }
 
+#home .previous .nav-inner {
+  margin-left: 16px;
+}
+
 #home .mostra_evento {
   border: 1px solid black;
-  width: 396px;
-  margin: 2rem auto 0;
+  width: 349px;
+  margin: 15px auto 0;
 }
 
 #home .mostra_evento h1 {
@@ -11227,7 +11319,7 @@ p {
 
 #home .mostra_evento h3 {
   font-family: "Playfair Display", serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: bold;
 }
 
@@ -11242,14 +11334,16 @@ p {
 }
 
 #home .bordo {
-  margin: 37px 10px 20px 28px;
+  margin-top: 15px;
+  height: 770px;
   border: 1px solid black;
 }
 
 #home #react-calendar {
-  padding-right: 29px;
-  padding-left: 22px;
-  max-width: 453px;
+  margin-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 377px;
   height: 100vh;
 }
 
@@ -11265,12 +11359,11 @@ p {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 0;
-  margin: 4rem auto 0;
 }
 
 #home #react-calendar .Calendar th,
 #home #react-calendar .Calendar td {
-  padding: 22px 16px;
+  border-top: 0px solid #dee2e6;
   text-align: center;
 }
 
@@ -11285,9 +11378,9 @@ p {
 }
 
 #home #react-calendar .Calendar .Day.selected {
-  width: 100px;
+  height: 50px;
+  width: 50px;
   background: #caa660;
-  padding: 21px;
   border-radius: 50px;
 }
 
@@ -11320,6 +11413,11 @@ p {
   border-top: 0px solid #dee2e6;
 }
 
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 0px solid #dee2e6 !important;
+}
+
 #news .container-fluid {
   width: 90%;
   padding-right: 15px;
@@ -11328,17 +11426,38 @@ p {
   margin-left: auto;
 }
 
+select {
+  line-height: 24px;
+  text-transform: uppercase;
+  font-size: 19px;
+  word-wrap: normal;
+}
+
+#brand-location-picker {
+  margin-left: 30px;
+}
+
+#brand-location-picker ul {
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 19px;
+  line-height: 24px;
+  list-style-type: none;
+  margin-left: -38px;
+}
+
 #soci .hotel {
   color: #000000;
-  font-size: 18px;
+  font-size: 19px;
   font-family: "Playfair Display", serif;
   font-weight: 700;
   list-style: none;
 }
 
 #soci .hotel a {
+  line-height: 24px;
   color: #000000;
-  font-size: 18px;
+  font-size: 19px;
   text-decoration: none;
 }
 
@@ -11367,10 +11486,21 @@ p {
   background-color: #000000;
 }
 
+@media all and (max-width: 768px) {
+  #soci .mobile_place {
+    height: 700px;
+  }
+}
+
 #servizi-mnlounge .carousel-item img {
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#servizi-mnlounge .aria {
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 #servizi-mnlounge .title {
@@ -11429,8 +11559,8 @@ p {
 }
 
 #contatti .aria {
-  padding-left: 5rem !important;
-  padding-right: 5rem !important;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 
 #contatti .form-control {

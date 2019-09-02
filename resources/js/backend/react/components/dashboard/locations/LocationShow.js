@@ -30,12 +30,12 @@ const LocationShow = ({mnLocation, deleteLocation, history}) => {
           <img src={mnLocation && mnLocation.image_url || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '100%'}}/>
           <div className="card-body">
             <h5 className="card-title">{mnLocation.name_it}</h5>
-            <p className="card-text">{mnLocation.description_it}</p>
+            <p className="card-text" dangerouslySetInnerHTML={{ __html:mnLocation.description_it}}></p>
             <p className="card-text"><small className="text-muted">{mnLocation.created_at}</small></p>
-
-              <Link to={`/admin/dashboard/location/edit/${mnLocation.id}`} className="btn btn-warning btn-lg mr-3">Modifica location</Link>
-            <a onClick={deleteSingleLocation.bind(null, mnLocation.id)} className="btn btn-danger btn-lg text-white">Elimina location</a>
-
+            <div className="d-flex justify-content-around flex-sm-none">
+              <Link to={`/admin/dashboard/location/edit/${mnLocation.id}`} className="btn btn-warning  mr-3">Modifica location</Link>
+            <a onClick={deleteSingleLocation.bind(null, mnLocation.id)} className="btn btn-danger  text-white">Elimina location</a>
+            </div>
 
           </div>
         </div>

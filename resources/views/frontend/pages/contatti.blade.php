@@ -28,7 +28,7 @@
 
           </div>
         </div>
-        <div class='pl-5 rif-contatti'>
+        <div class='pl-md-5 rif-contatti'>
 
           <p class='m-0'>{!! ($lang == 'it') ? 'Indirizzo' : 'Address' !!}:</p>
           <div class='contatti-underline'></div>
@@ -70,7 +70,7 @@
 
         </div>
 
-        <div class='quadrato contatti col-lg-6 order-3     order-md-4   bg-dark p-0' style="overflow:hidden;">
+        <div class='quadrato contatti col-lg-6 order-3     order-lg-4   bg-dark p-0' style="overflow:hidden;">
 
                   <img class="" src="{{$contents->image_bottom_url->data}}" alt="">
 

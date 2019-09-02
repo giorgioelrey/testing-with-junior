@@ -27,17 +27,19 @@ const EventsShow = ({event, deleteEvent, history}) => {
 
     return (
       <Fragment>
-        <div className="card mb-3 flex-row border-dark">
-          <img src={event && event.image_url || placeholder_post_image} className="card-img-top" alt="..." style={{maxWidth: '30%', border: '1px solid #343a40'}}/>
+        <div className="show-card card mb-3 border-dark">
+          <img src={event && event.image_url || placeholder_post_image} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">{event.title_it}</h5>
-            <h3>{event.subtitle}</h3>
-            <p>{event.date}</p>
-            <p className="card-text">{event.bodytop_it}</p>
-            <p className="card-text"><small className="text-muted">{event.created_at}</small></p>
-
-              <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning btn-lg mr-3">Modifica evento</Link>
-            <a onClick={deleteCurrentEvent.bind(this, event.id)} className="btn btn-danger btn-lg text-white">Cancella evento</a>
+            <h5 className="card-title">Titolo<br/>{event.title_it}</h5>
+              <hr/>
+            <p>Da {event.start_date} a {event.end_date}</p>
+              <hr/>
+            <p className="card-text" dangerouslySetInnerHTML={{ __html:'<h5>Descrizione Superiore IT</h5><br>' + event.bodytop_it}}></p>
+              <hr/>
+              <div className="d-flex justify-content-around flex-sm-none">
+              <Link to={`/admin/dashboard/event/edit/${event.id}`} className="btn btn-warning  mr-3">Modifica evento</Link>
+            <a onClick={deleteCurrentEvent.bind(this, event.id)} className="btn btn-danger  text-white">Cancella evento</a>
+              </div>
 
 
           </div>

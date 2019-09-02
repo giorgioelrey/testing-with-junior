@@ -70,7 +70,7 @@
           </div>
         </div>
       </div>
-      <div class='col-lg-6'>
+      <div class='col-lg-6 pr-md-0 '>
         <div class='bordo'>
           <div id="react-calendar">
 
@@ -79,7 +79,7 @@
 
       </div>
 
-      <div class='col-lg-6'>
+      <div class='col-lg-6 pr-0 pl-0 pl-lg-3'>
 
         <div id="map" style="width: 100%; height:800px;">
 
@@ -92,7 +92,29 @@
 
 
     </div>
+
+    <div class='row m-0'>
+      <div class="col-12 p-0" style="">
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/dttWXAbHJIQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+      </div>
+
+      </div>
+
+
+
+
+
+
   </div>
+
+
+
+
+
+
+
 
 
 
