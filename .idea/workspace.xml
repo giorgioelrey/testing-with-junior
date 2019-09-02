@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,26 +22,77 @@
     <favorites_list name="testing-with-junior" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="-1577">
+              <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
               <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
+        <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="240" selection-start-line="240" selection-end-line="283" selection-end-column="22" />
+            <state relative-caret-position="1146">
+              <caret line="138" column="14" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
               <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="181" column="68" selection-start-line="180" selection-start-column="10" selection-end-line="181" selection-end-column="68" />
+              <folding>
+                <element signature="e#59#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-55">
+              <caret line="152" column="4" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_30_214156_create_locations_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+              <folding>
+                <element signature="e#7#45#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,11 +137,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Street.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/StreetsController.php" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/NewsForm.js" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/PostCard.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationCard.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/HOCs/LocationConnector.js" />
@@ -135,6 +185,9 @@
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" />
         <option value="$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php" />
       </list>
     </option>
   </component>
@@ -268,18 +321,84 @@
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="backendApi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="react" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="react" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="react" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -352,21 +471,22 @@
       <workItem from="1567086045387" duration="1384000" />
       <workItem from="1567087754886" duration="628000" />
       <workItem from="1567095642174" duration="3906000" />
-      <workItem from="1567188220536" duration="10207000" />
+      <workItem from="1567188220536" duration="10555000" />
+      <workItem from="1567450845986" duration="1204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76409000" />
+    <option name="totallyTimeSpent" value="77961000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.76494026" visible="true" weight="0.27833125" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8396861" visible="true" weight="0.2833126" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.23505977" side_tool="true" visible="true" weight="0.27833125" />
+      <window_info id="Favorites" order="3" sideWeight="0.1603139" side_tool="true" weight="0.17980692" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -376,7 +496,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.4288965" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.29692832" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -411,54 +531,10 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="169" column="90" selection-start-line="169" selection-start-column="71" selection-end-line="169" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/calendar/components/EventsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/NewsCreateEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/EventsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="25" column="85" lean-forward="true" selection-start-line="25" selection-start-column="85" selection-end-line="25" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_15_160851_create_events_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
           <caret line="25" column="43" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="25" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_30_214221_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="46" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="26" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -484,19 +560,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4745">
-          <caret line="164" column="6" selection-start-line="164" selection-start-column="6" selection-end-line="164" selection-end-column="6" />
-          <caret line="167" column="6" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
-          <caret line="170" column="6" selection-start-line="170" selection-start-column="6" selection-end-line="170" selection-end-column="6" />
-          <caret line="173" column="6" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/frontend/pages/_home.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="626">
@@ -506,16 +569,6 @@
             <element signature="e#353#404#0" />
             <element signature="e#415#459#0" />
             <element signature="e#466#532#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -605,16 +658,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/BrandPageTableSeeder.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#59#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -700,13 +743,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_24_141842_create_streets_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_01_223117_add_category_to_location.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
@@ -802,6 +838,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -812,13 +858,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/TimePickerFormikField.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="572">
+          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1577">
+          <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
           <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1146">
+          <caret line="138" column="14" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="181" column="68" selection-start-line="180" selection-start-column="10" selection-end-line="181" selection-end-column="68" />
+          <folding>
+            <element signature="e#59#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-55">
+          <caret line="152" column="4" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_30_214221_create_posts_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_01_223117_add_category_to_location.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_30_214156_create_locations_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="33" column="77" selection-start-line="33" selection-start-column="77" selection-end-line="33" selection-end-column="77" />
         </state>
       </provider>
     </entry>
