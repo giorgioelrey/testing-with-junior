@@ -1,4 +1,14 @@
 #home {
+  .fas {
+      cursor: pointer;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: white;
+      font-weight: 900;
+  }
+
+
+
   [type=button] {
       -webkit-appearance: none;
   }
@@ -29,18 +39,24 @@
 
 
 .mostra_evento{
-border: 1px solid black;
-width: 349px;
+    border: 1px solid black;
+    width: 349px;
+    padding:16px;
     margin: 15px auto 0;
-     h1 {
+
+     h2 {
+
+       font-weight: bold;
+       color:black;
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-}
-    h3{
+           }
 
+    p{
+  color:black;
     font-family: 'Playfair Display', serif;
     font-size: 19px;
-    font-weight: bold;
+
 
     }
 }
