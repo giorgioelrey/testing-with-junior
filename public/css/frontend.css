@@ -10692,6 +10692,50 @@ main {
   margin-top: 146px;
 }
 
+.section-video-bg-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #333333;
+  opacity: 0.75;
+}
+
+.video-nav-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.section-video-controls {
+  display: table;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.section-video-button {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.section-video-controls a {
+  display: inline-block;
+  outline: medium none;
+  background: none repeat scroll 0% 0% transparent;
+  border: 2px solid;
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+  padding: 12px 28px;
+  margin: 0 5px;
+  border-radius: 80px;
+  color: #8f8072;
+}
+
 .carta {
   margin: 0 auto;
   margin-bottom: 80px;
@@ -10950,6 +10994,10 @@ p {
     right: 20px;
   }
 
+  #home #react-calendar {
+    padding-left: 0px !important;
+  }
+
   #home #react-calendar .Calendar .Day.selected {
     height: 40px !important;
     width: 40px !important;
@@ -10965,12 +11013,12 @@ p {
   #home .mostra_evento {
     border: 1px solid black;
     width: 100% !important;
-    margin: 15px auto 0;
+    margin: 30px auto 0 !important;
   }
 
   #home .bordo {
     margin-top: 15px;
-    height: 590px !important;
+    height: 623px !important;
     border: 0px solid black !important;
   }
 
@@ -11290,6 +11338,14 @@ p {
   padding-top: 40px;
 }
 
+#home .fas {
+  cursor: pointer;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  font-weight: 900;
+}
+
 #home [type=button] {
   -webkit-appearance: none;
 }
@@ -11309,18 +11365,21 @@ p {
 #home .mostra_evento {
   border: 1px solid black;
   width: 349px;
-  margin: 15px auto 0;
+  padding: 16px;
+  margin: 30px auto 0;
 }
 
-#home .mostra_evento h1 {
+#home .mostra_evento h2 {
+  font-weight: bold;
+  color: black;
   font-family: "Playfair Display", serif;
   font-size: 24px;
 }
 
-#home .mostra_evento h3 {
+#home .mostra_evento p {
+  color: black;
   font-family: "Playfair Display", serif;
   font-size: 19px;
-  font-weight: bold;
 }
 
 #home .data {
@@ -11334,16 +11393,17 @@ p {
 }
 
 #home .bordo {
-  margin-top: 15px;
-  height: 770px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 30px;
+  height: 740px;
   border: 1px solid black;
 }
 
 #home #react-calendar {
-  margin-top: 15px;
-  padding-right: 15px;
-  padding-left: 15px;
-  max-width: 377px;
+  margin-top: 30px;
+  padding-left: 30px;
+  max-width: 370px;
   height: 100vh;
 }
 
@@ -11427,6 +11487,7 @@ p {
 }
 
 select {
+  height: calc(1.6em + 0.75rem + 10px);
   line-height: 24px;
   text-transform: uppercase;
   font-size: 19px;
@@ -11441,7 +11502,7 @@ select {
   cursor: pointer;
   margin-top: 15px;
   font-size: 19px;
-  line-height: 24px;
+  line-height: 30px;
   list-style-type: none;
   margin-left: -38px;
 }
@@ -11450,18 +11511,18 @@ select {
   color: #000000;
   font-size: 19px;
   font-family: "Playfair Display", serif;
-  font-weight: 700;
   list-style: none;
 }
 
 #soci .hotel a {
-  line-height: 24px;
+  line-height: 30px;
   color: #000000;
   font-size: 19px;
   text-decoration: none;
 }
 
 #soci .title {
+  align-self: self-start;
   font-family: "Playfair Display", serif;
   left: 50%;
   font-size: 32px;

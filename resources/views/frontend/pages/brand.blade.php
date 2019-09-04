@@ -30,16 +30,16 @@
   <div class='container-fluid' id='soci'>
   <div class='row'>
 
-<div  class='title'>Boutiques
 
-<div class='sotto_title'>
-
-
-</div>
-</div>
 
   <div class='col-lg-6 bg-gold order-1 d-flex align-items-center mobile_place'>
+    <div  class='title'>Boutiques
 
+    <div class='sotto_title'>
+
+
+    </div>
+    </div>
       <div id="brand-location-picker"></div>
 
 
@@ -58,12 +58,7 @@
   <div class='container-fluid' id='soci'>
   <div class='row'>
 
-  <div  class='title'>Hotels
 
-  <div class='sotto_title'>
-
-  </div>
-  </div>
 
 
 
@@ -74,7 +69,12 @@
 
 
 <div class='col-lg-6 d-flex bg-green order-lg-4 align-items-center mobile_place'>
+  <div  class='title'>Hotels
 
+  <div class='sotto_title'>
+
+  </div>
+  </div>
   <ul class='hotel'>
     <li><a href='#'>ARMANI HOTEL </a></li>
     <li><a href='#'>BULGARI </a></li>

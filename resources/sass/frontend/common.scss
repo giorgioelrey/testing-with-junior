@@ -30,6 +30,54 @@ main {
   margin-top: 146px;
 }
 
+
+.section-video-bg-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #333333;
+  opacity: 0.75;
+}
+.video-nav-control {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.section-video-controls {
+    display: table;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    z-index: 2;
+}
+.section-video-button {
+    display: table-cell;
+    vertical-align: middle;
+}
+.section-video-controls a {
+    display: inline-block;
+    outline: medium none;
+    background: none repeat scroll 0% 0% transparent;
+    border: 2px solid;
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+    padding: 12px 28px;
+    margin: 0 5px;
+    border-radius: 80px;
+    color: #8f8072;
+}
+
+
+
+
+
+
+
+
 .carta {
 
   margin: 0 auto;
@@ -345,6 +393,10 @@ p{
 .carousel-control-next {
     right: 20px;
 }
+#home #react-calendar{
+padding-left: 0px!important;
+}
+
   #home #react-calendar .Calendar .Day.selected {
     height: 40px!important;
     width: 40px!important;
@@ -359,11 +411,11 @@ p{
 #home .mostra_evento {
     border: 1px solid black;
     width: 100%!important;
-    margin: 15px auto 0;
+    margin: 30px auto 0!important;
 }
 #home .bordo {
     margin-top: 15px;
-    height: 590px!important;
+    height: 623px!important;
     border: 0px solid black!important;
 }
   .carousel-caption h5 {
