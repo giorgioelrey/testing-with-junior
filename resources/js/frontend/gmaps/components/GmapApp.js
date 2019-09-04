@@ -73,7 +73,7 @@ class GmappApp extends Component {
        <div className="modal-body">
 
          <div className="row justify-content-md-center">
-            <div className="col-md-4">
+            <div className="col-md-3">
               <div className="dettaglio-modale ">
                  <p>{this.state.clickedLocation.address}</p>
                  <p>{this.state.clickedLocation.phonenumber}</p>

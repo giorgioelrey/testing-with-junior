@@ -1,4 +1,14 @@
 #home {
+  .fas {
+      cursor: pointer;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      color: white;
+      font-weight: 900;
+  }
+
+
+
   [type=button] {
       -webkit-appearance: none;
   }
@@ -29,18 +39,24 @@
 
 
 .mostra_evento{
-border: 1px solid black;
-width: 349px;
-    margin: 15px auto 0;
-     h1 {
+    border: 1px solid black;
+    width: 349px;
+    padding:16px;
+    margin: 30px auto 0;
+
+     h2 {
+
+       font-weight: bold;
+       color:black;
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-}
-    h3{
+           }
 
+    p{
+  color:black;
     font-family: 'Playfair Display', serif;
     font-size: 19px;
-    font-weight: bold;
+
 
     }
 }
@@ -56,25 +72,23 @@ width: 349px;
   text-align: center;
   font-size: 18px;
 }
-.bordo{
-margin-top: 15px;
-height: 770px;
-
-border: 1px solid black;
-
-
-
+.bordo {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 30px;
+    height: 740px;
+    border: 1px solid black;
 }
 
   $calendarGold: #caa660;
 
   #react-calendar{
 
-      margin-top: 15px;
-      padding-right: 15px;
-      padding-left: 15px;
-      max-width: 377px;
-      height: 100vh;
+    margin-top: 30px;
+
+    padding-left: 30px;
+    max-width: 370px;
+    height: 100vh;
 
 
   .Day-inner{
