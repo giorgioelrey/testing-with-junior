@@ -42,7 +42,7 @@
     border: 1px solid black;
     width: 349px;
     padding:16px;
-    margin: 15px auto 0;
+    margin: 30px auto 0;
 
      h2 {
 
@@ -72,25 +72,23 @@
   text-align: center;
   font-size: 18px;
 }
-.bordo{
-margin-top: 15px;
-height: 770px;
-
-border: 1px solid black;
-
-
-
+.bordo {
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 30px;
+    height: 740px;
+    border: 1px solid black;
 }
 
   $calendarGold: #caa660;
 
   #react-calendar{
 
-      margin-top: 15px;
-      padding-right: 15px;
-      padding-left: 15px;
-      max-width: 377px;
-      height: 100vh;
+    margin-top: 30px;
+
+    padding-left: 30px;
+    max-width: 370px;
+    height: 100vh;
 
 
   .Day-inner{

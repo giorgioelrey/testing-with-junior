@@ -393,6 +393,10 @@ p{
 .carousel-control-next {
     right: 20px;
 }
+#home #react-calendar{
+padding-left: 0px!important;
+}
+
   #home #react-calendar .Calendar .Day.selected {
     height: 40px!important;
     width: 40px!important;
@@ -407,11 +411,11 @@ p{
 #home .mostra_evento {
     border: 1px solid black;
     width: 100%!important;
-    margin: 15px auto 0;
+    margin: 30px auto 0!important;
 }
 #home .bordo {
     margin-top: 15px;
-    height: 590px!important;
+    height: 623px!important;
     border: 0px solid black!important;
 }
   .carousel-caption h5 {
