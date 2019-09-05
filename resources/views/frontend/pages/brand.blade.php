@@ -75,6 +75,9 @@
 
   </div>
   </div>
+
+  <div id='hotel-picker'></div>
+{{--
   <ul class='hotel'>
     <li><a href='#'>ARMANI HOTEL </a></li>
     <li><a href='#'>BULGARI </a></li>
@@ -88,6 +91,8 @@
 <li><a href='#'>  PARKHYATT </a></li>
 <li><a href='#'>  THE WESTIN </a></li>
 </ul>
+--}}
+
 
 
 </div>

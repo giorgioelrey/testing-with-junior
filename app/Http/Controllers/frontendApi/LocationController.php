@@ -70,4 +70,36 @@ class LocationController extends Controller
     }
 
 
+public function hotels(){
+
+  $response = [
+       'success' => true,
+       'hotels' => Location::where('category_id', 3)->get()->each(function ($item, $key) {
+
+        //Check if is a seed url otherwise get url for img tag
+      //    $urlSplit = explode("/",$item->image_url);
+      //    if (!in_array('montenapoleone', $urlSplit)){
+        //  $item->image_url = Storage::url($item->image_url);
+      //   }
+
+        })->toArray(),
+       'message' => 'All hotels retrieved successfully.'
+   ];
+
+   return response()->json($response, 200);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
