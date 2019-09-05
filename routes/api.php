@@ -169,4 +169,9 @@ Route::middleware(['json.response','throttle:100,1'])->namespace('frontendApi')-
 
     Route::get('/boutiques-for-street/{streetId}', 'LocationController@boutiquesByStreetId')->name('location.boutiquesStreet');
 
+    //****** LOCATION  - HOTELS****//
+
+    Route::get('/hotels','LocationController@hotels')->name('location.hotels');
+
+    
 });
