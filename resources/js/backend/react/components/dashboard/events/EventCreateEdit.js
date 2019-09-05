@@ -15,6 +15,7 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
 
     try {
 
+        console.log('campi preSubmit updaaate', fields)
       fields.start_date = moment(fields.start_date).format('YYYY-MM-DD');
       fields.start_time = moment(fields.start_time).format('YYYY-MM-DD HH:mm:ss');
       fields.end_date = moment(fields.end_date).format('YYYY-MM-DD');

@@ -34,6 +34,7 @@
   @yield('title')
 
   <!-- Scripts -->
+    @yield('header_scripts')
   <script src="{{ asset('js/frontend/app.js') }}" defer></script>
 
   <!-- Fonts -->
