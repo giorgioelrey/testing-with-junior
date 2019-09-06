@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,26 +24,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <state relative-caret-position="691">
+              <caret line="240" column="192" selection-start-line="240" selection-start-column="192" selection-end-line="240" selection-end-column="192" />
               <folding>
-                <element signature="e#998#1006#0#HTML" />
-                <element signature="e#1078#1367#0#HTML" />
-                <element signature="e#1390#1857#0#HTML" />
-                <element signature="e#1932#2105#0#HTML" />
-                <element signature="e#2179#2323#0#HTML" />
-                <element signature="e#2398#2661#0#HTML" />
-                <element signature="e#2714#2741#0#HTML" />
-                <element signature="e#2782#2810#0#HTML" />
-                <element signature="e#2874#3131#0#HTML" />
-                <element signature="e#3179#3219#0#HTML" />
-                <element signature="e#3280#3326#0#HTML" />
-                <element signature="e#3369#3418#0#HTML" />
-                <element signature="e#3758#3963#0#HTML" />
-                <element signature="e#4004#4039#0#HTML" />
+                <element signature="e#354#2206#0#HTML" />
+                <element signature="e#2209#3623#0#HTML" />
+                <element signature="e#2365#2518#0#HTML" expanded="true" />
+                <element signature="e#2948#3378#0#HTML" />
+                <element signature="e#3476#3628#0#HTML" expanded="true" />
+                <element signature="e#3686#5119#0#HTML" />
+                <element signature="e#3820#3973#0#HTML" expanded="true" />
+                <element signature="e#4931#5083#0#HTML" expanded="true" />
+                <element signature="e#5283#5436#0#HTML" expanded="true" />
+                <element signature="e#6394#6546#0#HTML" expanded="true" />
+                <element signature="e#6745#6898#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/PagesUpdateTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,6 +85,7 @@
       <find>btn-lg</find>
       <find>btn-sm</find>
       <find>HTML</find>
+      <find>ro</find>
     </findStrings>
     <replaceStrings>
       <replace>deve avere almeno 6 caratteri</replace>
@@ -93,11 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" />
-        <option value="$PROJECT_DIR$/webpack.mix.js" />
-        <option value="$PROJECT_DIR$/resources/js/frontend/brand/brand.js" />
-        <option value="$PROJECT_DIR$/database/seeds/StreetsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/FileUploadInputFormikField.js" />
         <option value="$PROJECT_DIR$/resources/js/frontend/calendar/components/EventsList.js" />
         <option value="$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js" />
@@ -121,7 +126,6 @@
         <option value="$PROJECT_DIR$/config/mail.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SendMailController.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/pages/mn-vip-lounge.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js" />
         <option value="$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js" />
@@ -144,6 +148,12 @@
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventCreateEdit.js" />
         <option value="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PagesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_09_06_165709_add_form_layout_column_to_pages.php" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/PagesUpdateTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -256,9 +266,9 @@
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="1680" />
+    <option name="width" value="2560" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
@@ -276,6 +286,32 @@
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="backendApi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -290,14 +326,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
-              <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
@@ -381,18 +409,20 @@
       <workItem from="1567095642174" duration="3906000" />
       <workItem from="1567188220536" duration="10555000" />
       <workItem from="1567450845986" duration="8197000" />
-      <workItem from="1567614551065" duration="2230000" />
+      <workItem from="1567614551065" duration="2494000" />
+      <workItem from="1567696053948" duration="78000" />
+      <workItem from="1567787926270" duration="11253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87184000" />
+    <option name="totallyTimeSpent" value="98779000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8396861" visible="true" weight="0.3094645" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8396861" visible="true" weight="0.27459526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.1603139" side_tool="true" weight="0.17980692" />
@@ -440,104 +470,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeds/UserAdminSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="10" column="19" lean-forward="true" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SendMailController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="21" column="130" selection-start-line="21" selection-start-column="130" selection-end-line="21" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/mn-vip-lounge.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/contatti.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="66" column="117" selection-start-line="52" selection-start-column="12" selection-end-line="66" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageFormConnector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/HOCs/PageConnector.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2326">
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="240" selection-start-line="240" selection-end-line="283" selection-end-column="22" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/locations/LocationForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1146">
-          <caret line="138" column="14" selection-start-line="138" selection-start-column="14" selection-end-line="138" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -559,26 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="16" column="46" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -794,16 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="107" column="42" selection-start-line="107" selection-start-column="42" selection-end-line="107" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/forms/TimePickerFormikField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -832,10 +734,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/frontend/brand/components/HotelPicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        <state relative-caret-position="329">
+          <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
           <folding>
             <element signature="e#998#1006#0#HTML" />
             <element signature="e#1078#1367#0#HTML" />
@@ -851,6 +768,121 @@
             <element signature="e#3369#3418#0#HTML" />
             <element signature="e#3758#3963#0#HTML" />
             <element signature="e#4004#4039#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PageBrandTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_19_190303_create_pages_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="38" column="66" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="66" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_06_165709_add_form_layout_column_to_pages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-146">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/backendApi/PageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1145">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/events/EventForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="64" column="45" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="64" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PagesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="235" column="7" lean-forward="true" selection-start-line="154" selection-start-column="3" selection-end-line="235" selection-end-column="7" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="22" column="133" selection-start-line="22" selection-start-column="133" selection-end-line="22" selection-end-column="133" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="240" column="192" selection-start-line="240" selection-start-column="192" selection-end-line="240" selection-end-column="192" />
+          <folding>
+            <element signature="e#354#2206#0#HTML" />
+            <element signature="e#2209#3623#0#HTML" />
+            <element signature="e#2365#2518#0#HTML" expanded="true" />
+            <element signature="e#2948#3378#0#HTML" />
+            <element signature="e#3476#3628#0#HTML" expanded="true" />
+            <element signature="e#3686#5119#0#HTML" />
+            <element signature="e#3820#3973#0#HTML" expanded="true" />
+            <element signature="e#4931#5083#0#HTML" expanded="true" />
+            <element signature="e#5283#5436#0#HTML" expanded="true" />
+            <element signature="e#6394#6546#0#HTML" expanded="true" />
+            <element signature="e#6745#6898#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/PagesUpdateTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
