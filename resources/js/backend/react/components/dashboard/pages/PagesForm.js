@@ -7,6 +7,7 @@ import PageFormConnector from './../../../HOCs/PageFormConnector';
 const PagesForm = ({ page, pageFormData, onSubmit }) => {
 
   console.log('form data ', pageFormData);
+  console.log('page for from', page);
 
     return(
 
@@ -19,7 +20,7 @@ const PagesForm = ({ page, pageFormData, onSubmit }) => {
 
                  return (
                     <Form className="cms-form login">
-                      <PageFields errors={errors} status={status} touched={touched} fieldsData={pageFormData.fieldsData}
+                      <PageFields errors={errors} status={status} touched={touched} fieldsData={pageFormData.fieldsData} layout={page.be_form_layout}
                       setFieldValue={setFieldValue} values={values}/>
                       <div className="form-group">
                           <button type="submit" className="btn btn-primary mr-2">Conferma modifiche pagina</button>
