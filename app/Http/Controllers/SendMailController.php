@@ -15,7 +15,7 @@ class SendMailController extends Controller
             'message_body' => 'required|min:5'
         ]);
 
-        $to = $page == 'contatti' ? 'petetti.giorgio@gmail.com': 'riccardosilvi@armadioverde.it';
+        $to = $page == 'contatti' ? 'segreteria@montenapoleonedistrict.it': 'contact@mnlounge.it';
         $subject = "montenapoleone test {$page}";
         $message = "Da {$validatedData['first_name']} {$validatedData['last_name']}, messaggio: {$validatedData['message_body']}";
 
