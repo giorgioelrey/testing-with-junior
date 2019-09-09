@@ -59,7 +59,7 @@
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.brand' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.brand')}}">brand</a>
+              <a class="nav-link" href="{{route('fe.brand')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'Soci e Partner' : 'brand'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.eventi' ? 'active' : '' }}">

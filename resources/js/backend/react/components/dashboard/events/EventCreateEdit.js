@@ -15,15 +15,11 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
 
     try {
 
-        console.log('campi preSubmit updaaate', fields)
       fields.start_date = moment(fields.start_date).format('YYYY-MM-DD');
       fields.start_time = moment(fields.start_time).format('YYYY-MM-DD HH:mm:ss');
       fields.end_date = moment(fields.end_date).format('YYYY-MM-DD');
       fields.end_time = moment(fields.end_time).format('YYYY-MM-DD HH:mm:ss');
 
-      console.log('campi preSubmit', fields)
-
-      console.log('submit events fields',  fields);
       let formData = new FormData();
 
       for (var key in fields) {
@@ -31,17 +27,11 @@ const EventCreateEdit =  ({event, updateEvent, submitEvent, history, pagesAvaila
         formData.append( key, fields[key] )
       }
 
-      console.log('fullForm Data file', formData.get('image_url'))
-
       const {data} = await (section === 'create' ?   submitEvent(formData) : updateEvent(formData));
-
-      console.log('success', data);
 
       history.push('/admin/dashboard/events');
 
     } catch(error){
-
-      console.log('error submit', error);
 
       setSubmissionErrors([error.response.data.message]);
 

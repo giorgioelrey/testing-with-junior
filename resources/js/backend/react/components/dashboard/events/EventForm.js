@@ -16,8 +16,6 @@ import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, onSubmit }) => {
 
-    console.log('convert new',new Date(event.time));
-
     const FILE_SIZE = 160 * 2000;
     const SUPPORTED_FORMATS = [
      "image/jpg",
@@ -44,15 +42,13 @@ const EventForm = ({ event, section, initialValues, yupSchema, pagesAvailable, o
           id: event.id || ''
       } || initialValues;
 
-      console.log(formStartingValues);
-
     return(
 
         <Fragment>
         <Formik
                initialValues={formStartingValues}
                validationSchema={Yup.object().shape(yupSchema)}
-               onSubmit={ (fields) => {console.log('submit event'); onSubmit(fields)} }
+               onSubmit={ (fields) => { onSubmit(fields)} }
                render={({ errors, status, touched , values, setFieldValue}) => (
                    <Form className="cms-form login">
 

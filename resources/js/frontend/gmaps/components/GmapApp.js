@@ -105,7 +105,6 @@ class GmappApp extends Component {
           //usePlaces
           //useVisualization
           onCenterChanged={() => {
-            console.log('The center of the map has changed.')
           }}
         />
         {this.props.locations.length > 0 &&

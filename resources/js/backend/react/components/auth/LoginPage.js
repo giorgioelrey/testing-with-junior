@@ -25,7 +25,6 @@ submitLoginForm(fields) {
   this.props.submitForm(fields,
   () => {
     this.setState({ redirectToReferrer: true }, () => {
-      console.log('user logged')
     });
   });
 
@@ -40,7 +39,6 @@ submitLoginForm(fields) {
 
      if (this.state.redirectToReferrer === true) {
 
-      console.log('redirecting to', from)
        return <Redirect to={from} />
      }
 

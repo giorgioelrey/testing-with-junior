@@ -36,7 +36,6 @@ class GmapsPlacesAutocompleteFormikField extends Component {
       .then(results => getLatLng(results[0]))
       .then(latLng => {
 
-        console.log('latLng', latLng)
         this.setState(() => {
           this.props.form.setFieldValue(this.state.name, {
             value: address,
@@ -61,7 +60,7 @@ class GmapsPlacesAutocompleteFormikField extends Component {
 
     const error = errors[name];
     const touch = touched[name];
-    //console.log(this.state);
+
     return (
       <PlacesAutocomplete
         name={name}

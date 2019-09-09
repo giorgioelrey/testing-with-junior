@@ -21,7 +21,6 @@ const WisiwygEditorFormikField = ({ errors, name, label, withPhoto}) => (
              toolbarMedia.push('image');
          }
 
-       //console.log('wisiwyg field', field,  'errors', errors);
        return <ReactQuill
          value={field.value}
         onChange={field.onChange(field.name)}

@@ -3,11 +3,8 @@ import {Switch, Route, Link, Redirect} from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component,  user, ...rest }) => {
 
-console.log('props private', rest)
 
   return   (<Route {...rest} render={(props) => {
-
-    //console.log('token check', user.token);
 
     return (
     (user.token && user.token !== null && user.token !== undefined)

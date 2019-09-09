@@ -29,23 +29,19 @@ const PostConnector = ((WrappedComponent) => {
 
         async componentDidMount(){
 
-          console.log('hoc props', this.props)
-
             let apiResponse;
             const categories = await this.getCategories();
-
-            console.log('categorie', categories)
 
             try {
 
               switch(this.props.section){
 
                 case 'list': apiResponse = await this.getAllPosts();
-                            console.log(apiResponse)
+
                              this.setState({ posts: apiResponse.data.posts, isLoading: false })
                              ; break;
                 case 'show': case 'edit': apiResponse = await this.getPost(this.props.postId, this.props.section);
-                            console.log('hoc post edit',apiResponse);
+
                             this.setState({ post: apiResponse.data.post, isLoading: false, categories: categories.data.categories })
                             ; break;
 
@@ -54,7 +50,7 @@ const PostConnector = ((WrappedComponent) => {
 
             } catch(error){
 
-               console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
+               this.setState({ apiErrors: [error.response.data.message]})
             }
 
 
@@ -72,8 +68,6 @@ const PostConnector = ((WrappedComponent) => {
         }
 
         getAllPosts(){
-
-          console.log('sto per fare la chiamata dal hoc')
 
          return axios({
            url: `/api/admin/post/all`,

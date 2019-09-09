@@ -23,17 +23,11 @@ const PageFormConnector = ((WrappedComponent) => {
 
     componentDidMount(){
 
-      console.log('hoc props componentDidMount PageForm Connector', this.props);
-
       this.setState({ isLoading: false, pageFormData: this.prepareFormDataForEdit(this.props.page) });
 
     }
 
     async pageUpdate(pageId, fields){
-
-      //console.log('fields for update', fields)
-
-        //console.log('about to update props', JSON.parse(this.props.page.contents))
 
         const updatedPageData = await this.prepareFormDataForSubmission(fields, pageId);
 
@@ -41,13 +35,9 @@ const PageFormConnector = ((WrappedComponent) => {
 
         const {data} = await this.props.updatePage(pageId, updatedPageData);
 
-        console.log('success', data);
-
         this.props.history.push('/admin/dashboard/pages');
 
       } catch(error){
-
-        console.log('error submit', error);
 
         this.props.setSubmissionErrors([error.response.data.message]);
 
@@ -62,14 +52,11 @@ const PageFormConnector = ((WrappedComponent) => {
       const yupValSchema = {};
 
       const pageContents = JSON.parse(page.contents);
-      console.log('pageContents come oggetto', pageContents)
 
       for (var key in pageContents) {
 
             const fieldTranslated = pageContents[key]['translated'];
             const isNotImageField = (pageContents[key]['type'] !== 'image');
-            //console.log('field', pageContents[key])
-
 
             if (isNotImageField){
                 var validationMinChars = pageContents[key]['type'] == 'wisiwyg' ? 30 : 6;
@@ -122,8 +109,6 @@ const PageFormConnector = ((WrappedComponent) => {
             }
         }
 
-        //console.log(formStartingValues, fieldsData, yupValSchema)
-
     return  { formStartingValues, fieldsData, yupValSchema};
 
     }
@@ -131,9 +116,6 @@ const PageFormConnector = ((WrappedComponent) => {
   async prepareFormDataForSubmission(fields, pageId){
 
       const previousContents = JSON.parse(this.props.page.contents);
-
-      console.log('previousContents', previousContents)
-      console.log('fields', fields);
 
       for (var fieldName in previousContents) {
 
@@ -155,19 +137,15 @@ const PageFormConnector = ((WrappedComponent) => {
                   previousurl: previousContents[fieldName]['data'],
                  pageid: pageId
                };
-               console.log('imageFieldData', imageFieldData);
 
                   try {
 
                     const {data} =  await this.updateImageAndReturnUrl(imageFieldData);
 
-                    console.log('storing image data', data);
-
                     previousContents[fieldName]['data'] = data.path;
 
                   } catch(error){
 
-                    console.log('errore immagine',error, error.response.data.message)
                   }
               }
 
@@ -192,15 +170,12 @@ const PageFormConnector = ((WrappedComponent) => {
 
             },{})
             previousContents[fieldName]['data'] = updatedContentData;
-            console.log('fields keys',updatedContentData)
 
           }
 
         }
 
       }
-
-      console.log('done ready for submission',previousContents);
       
       return previousContents
 
@@ -216,8 +191,6 @@ const PageFormConnector = ((WrappedComponent) => {
         formData.append('pageid',imageFieldData.pageid);
         formData.append('previousurl', imageFieldData.previousurl);
 
-        console.log('sto per fare la chiamata di update delle immagini');
-
       try {
 
         return  await axios({
@@ -231,8 +204,6 @@ const PageFormConnector = ((WrappedComponent) => {
          });
 
       } catch(error){
-
-        console.log('error submit', error);
 
         this.props.setSubmissionErrors([error.response.data.message]);
 

@@ -3,14 +3,11 @@ import { withRouter } from 'react-router-dom';
 import PagesForm from './PagesForm';
 import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
-import ImageUploader from './ImageUploader';
 
 //Helpers
 import PageConnector from './../../../HOCs/PageConnector';
 
 const PageEdit =  ({page, updatePage, history, pageId, section, user }) => {
-
-  console.log('PageEdit', page);
 
   const [submissionErrors, setSubmissionErrors] = useState([]);
 

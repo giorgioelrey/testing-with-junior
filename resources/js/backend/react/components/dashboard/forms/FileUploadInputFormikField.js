@@ -33,8 +33,6 @@ class Thumb extends React.Component {
     const { file } = this.props;
     const { loading, thumb } = this.state;
 
-    //console.log('file', file)
-
     if (!file) { return null; }
 
     if (loading) { return <p>loading...</p>; }

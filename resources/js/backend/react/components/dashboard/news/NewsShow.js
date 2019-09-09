@@ -12,13 +12,10 @@ const NewsShow = ({post, deletePost, history}) => {
     deletePost(id)
       .then(({data}) => {
 
-        console.log('success', data);
         history.push('/admin/dashboard/news');
 
       })
       .catch((error) => {
-
-        console.log('error submit', error);
 
       })
 

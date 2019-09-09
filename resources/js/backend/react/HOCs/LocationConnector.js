@@ -31,25 +31,20 @@ const LocationConnector = ((WrappedComponent) => {
 
         async componentDidMount(){
 
-          console.log('hoc props', this.props)
-
             let apiResponse;
             const categories = await this.getCategories();
             const streets = await this.getStreets();
-
-            console.log('categorie', categories)
 
             try {
 
               switch(this.props.section){
 
                 case 'list': apiResponse = await this.getAllLocations();
-                            console.log(apiResponse)
+
                              this.setState({ locations: apiResponse.data.locations, isLoading: false })
                              ; break;
                 case 'show': case 'edit': apiResponse = await this.getLocation(this.props.locationId)
 
-                            console.log('location get', apiResponse.data);
                             this.setState({ mnLocation: apiResponse.data.location, isLoading: false, categories: categories.data.categories, streets: streets.data.streets })
                             ; break;
 
@@ -58,7 +53,7 @@ const LocationConnector = ((WrappedComponent) => {
 
             } catch(error){
 
-               console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
+              this.setState({ apiErrors: [error.response.data.message]})
             }
 
 
@@ -86,8 +81,6 @@ const LocationConnector = ((WrappedComponent) => {
         }
 
         getAllLocations(){
-
-          console.log('sto per fare la chiamata dal hoc locations')
 
          return axios({
            url: `/api/admin/locations/all`,

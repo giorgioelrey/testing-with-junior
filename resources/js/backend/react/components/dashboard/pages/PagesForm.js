@@ -6,9 +6,6 @@ import PageFormConnector from './../../../HOCs/PageFormConnector';
 
 const PagesForm = ({ page, pageFormData, onSubmit }) => {
 
-  console.log('form data ', pageFormData);
-  console.log('page for from', page);
-
     return(
 
         <Fragment>

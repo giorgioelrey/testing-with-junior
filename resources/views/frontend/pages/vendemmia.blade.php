@@ -18,26 +18,26 @@
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <div class="carousel-item position-relative active">
                 <img src="{{$contents->carousel_image_1->data}}" class="d-block " alt="...">
                 <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
-                  <h5>{{$contents->carousel_image_1_text->data}}</h5>
 
+                  <a href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$contents->carousel_image_1_text->data}}</h5></a>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item position-relative">
                 <img src="{{$contents->carousel_image_2->data}}" class="d-block " alt="...">
                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
-                  <h5>{{$contents->carousel_image_2_text->data}}</h5>
 
+                  <a href="{{$lang == 'it' ? $contents->carousel_image_2_link->data->it : $contents->carousel_image_2_link->data->en}}"><h5>{{$contents->carousel_image_2_text->data}}</h5></a>
                 </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item position-relative">
                 <img src="{{$contents->carousel_image_3->data}}" class="d-block " alt="...">
                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
-                  <h5>{{$contents->carousel_image_3_text->data}}</h5>
-
+                    <a href="{{$lang == 'it' ? $contents->carousel_image_3_link->data->it : $contents->carousel_image_3_link->data->en}}"><h5>{{$contents->carousel_image_3_text->data}}</h5></a>
                 </div>
+
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
