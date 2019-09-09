@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, ErrorMessage } from 'formik';
+import { Field } from 'formik';
 import ReactQuill from 'react-quill';
 
 const WisiwygEditorPageField = ({idx, errors, field}) => (
@@ -9,7 +9,6 @@ const WisiwygEditorPageField = ({idx, errors, field}) => (
      <Field name={field.name}>
      {({ field, errors }) =>
      {
-      // console.log('wisiwyg', field,  'errors', errors);
        return <ReactQuill value={field.value} onChange={field.onChange(field.name)} />
      }}
      </Field>

@@ -9,9 +9,6 @@ import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, onSubmit, section }) => {
 
-    console.log('newform cats', categories)
-    console.log('post', post)
-
     const FILE_SIZE = 160 * 2000;
     const SUPPORTED_FORMATS = [
      "image/jpg",
@@ -33,8 +30,6 @@ const NewsForm = ({ post, categories, initialValues, yupSchema, pagesAvailable, 
           category_id: post.category_id || '',
           id: post.id || ''
       } || initialValues;
-
-      console.log('formStartingValues', formStartingValues)
 
     return(
 

@@ -1,21 +1,15 @@
 import React, { Fragment, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import LocationForm from './LocationForm';
-import {Link} from 'react-router-dom';
 import ErrorsAlert from './../../ErrorsAlert';
-import ImageUploader from './ImageUploader';
 import LocationConnector from './../../../HOCs/LocationConnector';
 
 const LocationCreateEdit =  ({location, mnLocation = {}, categories, streets, updateLocation, submitLocation, history, locationId, section }) => {
 
-  console.log('LocationCreateEdit', mnLocation);
-  console.log('LocationCreateEdit categories', categories);
   const [submissionErrors, setSubmissionErrors] = useState([]);
 
   const locationSubmit = async (fields) => {
 
-      console.log('data from location form', fields)
-      console.log('mnLocation location form', mnLocation)
 /*
         TO USE IF RESTORING GOOGLE AUTOCOMPLETE ADDRESS FIELD
 
@@ -41,26 +35,19 @@ const LocationCreateEdit =  ({location, mnLocation = {}, categories, streets, up
         }
       }
  */
-    console.log('preparing field in formData',  fields);
+
     let formData = new FormData();
     for (var key in fields) {
-      console.log(key,fields[key])
       formData.append( key, fields[key] )
     }
-
-    console.log('fullForm Data file', formData.get('image_url'))
 
     try {
 
       const {data} = await (section === 'create' ?  submitLocation(formData) : updateLocation(formData));
 
-      console.log('success', data);
-
       history.push('/admin/dashboard/locations');
 
     } catch(error){
-
-      console.log('error submit', error);
 
       setSubmissionErrors([error.response.data.message]);
 

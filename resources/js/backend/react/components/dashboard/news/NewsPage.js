@@ -16,13 +16,13 @@ const NewsPage = (props) => {
       contentArea = (<NewsList {...props} />)
       break;
     case 'show':
-      contentArea = (<NewsShow {...props} postId={props.match.params.id}/>)
+      contentArea = (<NewsShow {...props} postId={props.match.params.id}/>);
       break;
     case 'create':
-        contentArea = (<NewsCreateEdit {...props}/>)
+        contentArea = (<NewsCreateEdit {...props}/>);
       break;
     case 'edit':
-        contentArea = (<NewsCreateEdit {...props} postId={props.match.params.id}/>)
+        contentArea = (<NewsCreateEdit {...props} postId={props.match.params.id}/>);
         break;
   default:
     contentArea = (<div>not chosen</div>)

@@ -12,13 +12,10 @@ const LocationShow = ({mnLocation, deleteLocation, history}) => {
     deleteLocation(id)
       .then(({data}) => {
 
-        console.log('success', data);
         history.push('/admin/dashboard/locations');
 
       })
       .catch((error) => {
-
-        console.log('error submit', error);
 
       })
 

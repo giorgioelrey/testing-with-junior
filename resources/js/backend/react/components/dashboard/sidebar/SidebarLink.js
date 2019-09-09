@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, height, options, match, history, location }) => {
@@ -12,7 +12,7 @@ const SidebarLink = ({user, linkEndpoint, linkName, svgClass, innerSvg, width, h
                                         {option.linkName}
                                     </Link>))
                                   }
-                                </ul>) || null
+                                </ul>) || null;
 
   return(
       <li className="nav-item">

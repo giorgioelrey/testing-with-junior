@@ -32,8 +32,6 @@ async logoutClicked(token,successCallback, errorCallback){
 
   } catch(error){
 
-    console.log(error.response.data);
-
     this.setState({ authErrors: [error.response.data.message]});
 
   }
@@ -43,21 +41,16 @@ async logoutClicked(token,successCallback, errorCallback){
 async loginClicked(fields,successCallback, errorCallback) {
 
     try {
-         console.log('fields', fields);
 
          const { data } = await axios(axiosHelper.getLoginConfig(fields));
 
-         console.log('login response.data ', data.token);
          localStorage.setItem('usertoken', data.token);
          this.setState({user: {...data.user, token: data.token}}, () => {
            successCallback()
 
          })
 
-
        } catch(error) {
-
-         console.log('login issues', error.response.data);
 
          this.setState({authErrors: [error.response.data.errors]}, () => {
            errorCallback()
@@ -71,10 +64,6 @@ async loginClicked(fields,successCallback, errorCallback) {
   render() {
 
     const { user } = this.state;
-
-    //console.log('gmapsApiKey', gmapsApiKey);
-
-    //console.log('localStorage token', this.props.localstoragetoken)
 
     return (
       <Fragment>

@@ -30,17 +30,12 @@ const AuthConnector = ((WrappedComponent) => {
       async submitLogin(fields, successCallback) {
 
           try {
-               console.log('fields', fields);
 
                const { data } = await axios(axiosHelper.getLoginConfig(fields));
-
-               console.log('login response.data ', data);
 
                this.setState({ user: data.user, redirectToReferrer: true });
 
              } catch(error) {
-
-               console.log('login issues', error.response.data);
 
                this.setState({ errors: [error.response.data.errors]})
 
@@ -58,8 +53,6 @@ const AuthConnector = ((WrappedComponent) => {
           this.setState({ isLoading: false, user: {token: null} });
 
         } catch(error){
-
-          console.log(error.response.data);
 
           this.setState({ isLoading: false, errors: [error.response.data.message]});
 
@@ -104,8 +97,6 @@ const AuthConnector = ((WrappedComponent) => {
     }
 
       render(){
-
-        console.log('authConnector props', this.props);
 
         if (this.state.errors.length > 0) {return (<ErrorsAlert errors={this.state.apiErrors} />)};
 

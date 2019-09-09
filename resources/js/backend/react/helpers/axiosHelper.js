@@ -13,10 +13,7 @@ export function getLoginConfig({ email, password, password_confirmation }){
     headers: { 'X-Requested-With': 'XMLHttpRequest' },
     data: axiosData,
     responseType: 'json',
-  }
-
-  console.log('axios data', axiosData);
-  console.log('login data', loginConfig);
+  };
 
   return loginConfig;
 

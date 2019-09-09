@@ -21,8 +21,6 @@ const PageConnector = ((WrappedComponent) => {
 
         async componentDidMount(){
 
-          console.log('hoc props componentDidMount Page Connector', this.props)
-
           let apiResponse;
 
           try {
@@ -30,7 +28,7 @@ const PageConnector = ((WrappedComponent) => {
             switch(this.props.section){
 
               case 'list': apiResponse = await this.getAllPages();
-                          console.log(apiResponse)
+
                            this.setState({ pages: apiResponse.data.pages, isLoading: false })
                            ; break;
               case 'show': case 'edit': apiResponse = await this.getPageById(this.props.pageId)
@@ -42,14 +40,12 @@ const PageConnector = ((WrappedComponent) => {
 
           } catch(error){
 
-             console.log('hocs error call',error.response.data); this.setState({ apiErrors: [error.response.data.message]})
+              this.setState({ apiErrors: [error.response.data.message]})
           }
 
         }
 
         getAllPages(){
-
-          console.log('sto per fare la chiamata dal hoc, getAllPages')
 
          return axios({
            url: `/api/admin/pages/all`,
@@ -92,8 +88,6 @@ const PageConnector = ((WrappedComponent) => {
 
 
         render(){
-
-          console.log('pagesConnector', this.props)
 
           if (this.state.apiErrors.length > 0)  return (<ErrorsAlert errors={this.state.apiErrors} />)
 
