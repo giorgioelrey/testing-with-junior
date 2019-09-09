@@ -28,13 +28,10 @@ class EventsList extends React.Component{
     })
     .then(({data}) => {
 
-      console.log('compevents found', data.events);
-
       this.setState({events: data.events});
 
     })
     .catch(error => {
-      console.log(error.response.data.message)
     })
 
   }

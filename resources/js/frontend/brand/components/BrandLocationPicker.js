@@ -40,7 +40,7 @@ class BrandLocationPicker extends React.Component{
             this.setState({boutiques: data.boutiques});
 
         }catch(error){
-            console.log(error.response.data.message)
+
         }
     }
 

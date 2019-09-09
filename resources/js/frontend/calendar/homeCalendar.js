@@ -22,8 +22,6 @@ class EventsCalendar extends Component {
 
   getEventsPerDay(date){
 
-    console.log('chiamo api e invio ' , date.format('YYYY-MM-DD'))
-
     axios({
       url: `/api/events/date/${date.format('YYYY-MM-DD')}`,
       method: 'get',
@@ -32,13 +30,11 @@ class EventsCalendar extends Component {
     })
     .then(({data}) => {
 
-      console.log('getEvents PerDay events found', data );
-
       this.setState({events: data.events});
 
     })
     .catch(error => {
-      console.log(error.response.data.message)
+
     })
 
   }
@@ -50,20 +46,17 @@ class EventsCalendar extends Component {
       return false;
     } else if (currentMonth.isSame(date, 'month')) {
 
-      console.log('onSelect: true', date);
-
       this.setState({date: date}, () => { this.getEventsPerDay(this.state.date)});
 
       return true;
 
     } else {
-      console.log('onSelect: none', date);
+
     }
 
   }
 
   componentDidMount(){
-    console.log('componentDidMount', this.state.date.format('YYYY-MM-DD'));
     this.getEventsPerDay(this.state.date);
   }
 

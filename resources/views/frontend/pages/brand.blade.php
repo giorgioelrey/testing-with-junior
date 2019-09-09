@@ -17,7 +17,6 @@
     <script type="text/javascript">
         const closeModalImg = "{{asset('/images/X.png')}}";
         const streets = @json($streets);
-    console.log(streets)
     </script>
 
     <script src="{{asset('/js/frontend/brand.js')}}" charset="utf-8"></script>

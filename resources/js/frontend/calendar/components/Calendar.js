@@ -48,14 +48,13 @@ class Calendar extends Component {
 
     if (!!nextState.date) {
       nextState.date.locale(this.props.locale);
-      console.log('Calendar component componentWillUpdate');
     }
 
     nextState.month.locale(this.props.locale);
   }
 
     getDaysInMonthWithEvents(year, month){
-        console.log('getDaysInMonthWithEvents', year, month);
+
         //foreach day in the dayNumber array from the backend
         //activate a class that will show textColor gold
         axios({
@@ -66,13 +65,10 @@ class Calendar extends Component {
         })
             .then(({data}) => {
 
-                console.log('events days in month found', Object.values(data.days));
-
                 this.setState({daysWithEventInCurrentMonth:  Object.values(data.days)});
 
             })
             .catch(error => {
-                console.log(error && error.response && error.response.data.message || 'errore nella chiamata')
             })
 
     }
@@ -158,13 +154,7 @@ class Calendar extends Component {
       }
 
       //TODO: create is current to add to props forEachDay
-        /*
-        console.log('this.state.month', this.state.month.format('MM'));
-        console.log('passing-day', current.format('DD'));
-      console.log('passing-day month', current.format('MM'));
-        console.log('is in event array',this.state.daysWithEventInCurrentMonth.includes(current.day()));
 
-         */
       const hasEvent = current.format('MM') == this.state.month.format('MM') ? this.state.daysWithEventInCurrentMonth.includes(current.format('YYYY-MM-DD')) : false;
 
       let props = {

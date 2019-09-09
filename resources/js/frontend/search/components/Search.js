@@ -20,8 +20,6 @@ export default class Search extends Component {
 
   async getResults(query){
 
-    console.log('INIZIO LA RICERCA', query)
-
     try {
 
       const {data} = await axios({
@@ -33,22 +31,14 @@ export default class Search extends Component {
         responseType: 'json',
       });
 
-      console.log('risultati', data);
-
       //prevents failing from results being an object
       if (!Array.isArray(data.results)){
         data.results =  Object.values(data.results)
       }
 
-      this.setState({queryResults: data.results, searchDone: true},
-        //check state after update
-        () => {
-          console.log('state now has following results', this.state.queryResults);
-        });
+      this.setState({queryResults: data.results, searchDone: true});
 
       } catch (error) {
-        console.log('SEARCH ERROR')
-          console.log(error)
       }
 
     }
