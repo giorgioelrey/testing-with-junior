@@ -30,9 +30,8 @@ Route::middleware('json.response')->namespace('backendApi')->name('be.api.')->gr
     //****** IMAGES ****//
     Route::post('/admin/image/store', 'ImageController@store')->name('image.store');
 
-
-      //->register - POST //abilitare solo per la popolazione iniziale dell'userAdmin
-    Route::post('/admin/register', 'AuthController@register')->name('register.api');
+    //->register - POST //abilitare solo per la popolazione iniziale dell'userAdmin
+    //Route::post('/admin/register', 'AuthController@register')->name('register.api');
 
 
 });

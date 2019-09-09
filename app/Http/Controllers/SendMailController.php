@@ -9,8 +9,6 @@ class SendMailController extends Controller
 {
     public function sendContactFormMail($page, Request $request){
 
-        //phpinfo();
-
         $validatedData = $request->validate([
             'first_name' => 'required|min:3|max:50',
             'last_name' => 'required|min:3|max:50',
@@ -23,11 +21,8 @@ class SendMailController extends Controller
 
         // Sending email
         if(mail($to, $subject, $message)){
-            dd('riuscito');
             redirect()->back();
         } else{
-
-            dd('fallito');
             redirect()->back();
         }
 
