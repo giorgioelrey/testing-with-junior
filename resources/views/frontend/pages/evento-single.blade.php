@@ -32,7 +32,7 @@
 
 
 
-  <div class='col-md-6'>
+  <div class='col-md-5'>
 
   <div  class='title single-title'>
     {{$event['title_'.$lang]}}
