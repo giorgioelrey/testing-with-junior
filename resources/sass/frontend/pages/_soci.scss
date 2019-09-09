@@ -1,4 +1,14 @@
 
+#hotel-picker{
+  margin:0  auto;
+
+  .hotel{
+    padding-left: 0px;
+  }
+}
+
+
+
 select {
   height: calc(1.6em + 0.75rem + 10px);
     line-height: 24px;
@@ -10,7 +20,13 @@ select {
 
 
 #brand-location-picker{
-  margin-left: 30px;
+
+  margin: 0 auto;
+      width: 70%;
+
+  select{
+    width: 100%;
+  }
   ul{
     cursor: pointer;
     margin-top: 15px;
