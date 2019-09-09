@@ -1,5 +1,4 @@
 import React, {Fragment} from 'react';
-import {Field, ErrorMessage, Form} from 'formik';
 import TextInputPageField from './TextInputPageField';
 import WisiwygEditorPageField from './WisiwygEditorPageField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
@@ -26,7 +25,6 @@ const PageFields = ({ errors, status, touched, fieldsData, setFieldValue, values
         const fields = [];
 
         section.fields.forEach((fieldName, idx) => {
-            //console.log('sectionrenderfield',fieldName, fieldsData[fieldName]);
             fields.push(fieldRenderer(fieldsData[fieldName], idx));
         });
 
@@ -44,15 +42,13 @@ const PageFields = ({ errors, status, touched, fieldsData, setFieldValue, values
         )
     };
 
-    const unorderedRenderedForm =  Object.values(fieldsData).map(fieldRenderer);
+    const unorderedRenderedForm =  () => Object.values(fieldsData).map(fieldRenderer);
 
     const sections = layout && JSON.parse(layout).sections || null;
 
-    console.log('sections',sections);
-
     return (
     <Fragment>
-        {sections != null && sections.map(sectionRenderer) || unorderedRenderedForm }
+        {sections != null && sections.map(sectionRenderer) || unorderedRenderedForm() }
     </Fragment>
   );
 }

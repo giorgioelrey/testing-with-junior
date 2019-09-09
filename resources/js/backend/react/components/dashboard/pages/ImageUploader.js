@@ -7,7 +7,7 @@ class ImageUploader extends Component {
   constructor(props){
 
     super(props);
-    this.state = { selectedFile: null }
+    this.state = { selectedFile: null };
 
     this.fileChangedHandler = this.fileChangedHandler.bind(this);
     this.uploadHandler = this.uploadHandler.bind(this);
@@ -21,8 +21,8 @@ class ImageUploader extends Component {
   }
 
   uploadHandler() {
-    console.log(this.state.selectedFile)
-    const formData = new FormData()
+
+    const formData = new FormData();
    formData.append(
      'select_file',
      this.state.selectedFile,
@@ -30,14 +30,14 @@ class ImageUploader extends Component {
    )
    axios.post('/api/admin/image/store', formData,{
     onUploadProgress: progressEvent => {
-      console.log(progressEvent.loaded / progressEvent.total)
+
     }
   })
   .then(res => {
-    console.log('ok image', res)
+
   })
   .catch(err => {
-    console.log ('ko image',err.response.data.message)
+
   })
 
 

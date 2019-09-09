@@ -6,21 +6,17 @@ import placeholder_post_image from './../../../assets/placeholder_post_image.png
 
 const EventsShow = ({event, deleteEvent, history}) => {
 
-  console.log(event)
-
   const deleteCurrentEvent = (id) => {
 
     //axios call for deletion
     deleteEvent(id)
       .then(({data}) => {
 
-        console.log('success', data);
         history.push('/admin/dashboard/events');
 
       })
       .catch((error) => {
 
-        console.log('deletion error', error);
       })
 
   }

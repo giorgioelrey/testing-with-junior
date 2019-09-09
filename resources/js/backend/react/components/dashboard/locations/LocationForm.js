@@ -9,9 +9,6 @@ import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
 
 const LocationForm = ({ location, categories = [], streets = [], initialValues, yupSchema, onSubmit, section}) => {
 
-    console.log('newform cats', categories);
-    console.log('location', location);
-
     const FILE_SIZE = 160 * 2000;
     const SUPPORTED_FORMATS = [
      "image/jpg",
@@ -38,8 +35,6 @@ const LocationForm = ({ location, categories = [], streets = [], initialValues, 
           street_id: location.street_id || '',
           id: location.id || ''
       } || initialValues;
-
-    console.log('formStartingValues', formStartingValues)
 
     return(
 
