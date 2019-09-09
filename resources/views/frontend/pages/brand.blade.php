@@ -28,7 +28,7 @@
 
 
   <div class='container-fluid' id='soci'>
-  <div class='row'>
+  <div class='row d-flex justify-content-center'>
 
 
 
@@ -40,8 +40,8 @@
 
     </div>
     </div>
-      <div id="brand-location-picker"></div>
 
+      <div id="brand-location-picker"></div>
 
 
   </div>
@@ -56,7 +56,7 @@
 
 
   <div class='container-fluid' id='soci'>
-  <div class='row'>
+  <div class='row d-flex justify-content-center'>
 
 
 
@@ -72,11 +72,11 @@
   <div  class='title'>Hotels
 
   <div class='sotto_title'>
-
-  </div>
+</div>
   </div>
 
   <div id='hotel-picker'></div>
+
 {{--
   <ul class='hotel'>
     <li><a href='#'>ARMANI HOTEL </a></li>
