@@ -18,7 +18,7 @@ import SidebarLink from './SidebarLink';
 
     );
 
-}
+};
 
 export default Sidebar;
 

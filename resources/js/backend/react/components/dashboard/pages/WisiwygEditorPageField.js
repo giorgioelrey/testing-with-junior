@@ -15,6 +15,6 @@ const WisiwygEditorPageField = ({idx, errors, field}) => (
      <div className={'invalid-feedback ' + (errors[field.name] ? 'd-block' : '')}>{errors[field.name]}</div>
 
   </div>
-)
+);
 
 export default WisiwygEditorPageField;
