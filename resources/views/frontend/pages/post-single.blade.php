@@ -53,7 +53,7 @@
 
   </div>
 <div class='divider'></div>
-<div class='row d-flex justify-content-center'>
+<div class='row d-flex justify-content-center pb-5'>
 <div class='col-md-10'>
 
 
