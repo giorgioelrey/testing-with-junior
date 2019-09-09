@@ -205,24 +205,25 @@
                             <div class="carousel-item active">
                                 <img src="{{$contents->carousel_image_1->data}}" class="d-block " alt="...">
                                 <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
-                                    <h5>{{$contents->carousel_image_1_text->data}}</h5>
+                                    <a href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$contents->carousel_image_1_text->data}}</h5></a>
+
                                 </div>
-                                <a class="carousel-page-link" href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"></a>
+
                             </div>
                             <div class="carousel-item">
                                 <img src="{{$contents->carousel_image_2->data}}" class="d-block " alt="...">
                                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
-                                    <h5>{{$contents->carousel_image_2_text->data}}</h5>
+                                    <a href="{{$lang == 'it' ? $contents->carousel_image_2_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$contents->carousel_image_2_text->data}}</h5></a>
                                 </div>
-                                <a class="carousel-page-link" href="{{$lang == 'it' ? $contents->carousel_image_2_link->data->it : $contents->carousel_image_1_link->data->en}}"></a>
+
                             </div>
                             <div class="carousel-item">
                                 <img src="{{$contents->carousel_image_3->data}}" class="d-block " alt="...">
                                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
-                                    <h5>{{$contents->carousel_image_3_text->data}}</h5>
+
+                                    <a href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$contents->carousel_image_3_text->data}}</h5></a>
                                 </div>
 
-                                <a class="carousel-page-link" href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"></a>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
