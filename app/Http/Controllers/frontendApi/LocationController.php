@@ -44,11 +44,11 @@ class LocationController extends Controller
 
        if($boutiques->isEmpty()){
            $response = [
-               'success' => false,
+               'success' => true,
                'boutiques' => [],
-               'message' => 'Boutiques not found.'
+               'message' => 'No Boutiques for this street'
            ];
-           return response()->json($response, 404);
+           return response()->json($response, 200);
        }
 
 
