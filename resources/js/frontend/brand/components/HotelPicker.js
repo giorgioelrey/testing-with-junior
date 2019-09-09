@@ -21,11 +21,10 @@ class HotelPicker extends React.Component{
 
     try {
         const {data} = await this.getHotels();
-       console.log(data)
+
         this.setState({hotels: data.hotels});
 
     }catch(error){
-        console.log(error.response.data.message)
     }
 
   }

@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4a589b0-61eb-4ceb-a829-ae20236cd90a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/archivio-storico/components/ArchivioStoricoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/archivio-storico/components/ArchivioStoricoList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/brand/components/HotelPicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/brand/components/HotelPicker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/calendar/components/Calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/calendar/components/Calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/gmaps/components/GmapApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/gmaps/components/GmapApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/press/components/PressList.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/press/components/PressList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/frontend/search/components/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/frontend/search/components/Search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/partials/navbar.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,17 +32,7 @@
     <favorites_list name="testing-with-junior" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="525" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,6 +71,8 @@
       <dir>$PROJECT_DIR$/resources/js</dir>
       <dir>$PROJECT_DIR$/resources/js/frontend/calendar</dir>
       <dir>$PROJECT_DIR$/resources/js/backend</dir>
+      <dir>$PROJECT_DIR$/resources/views/frontend/pages</dir>
+      <dir>$PROJECT_DIR$/resources/views/frontend</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -77,18 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/seeds/PageHomeWithVideoSeeder.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/backendApi/LocationController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_09_02_192944_add_meta_descriptions_to_locations.php" />
-        <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/Navbar.js" />
-        <option value="$PROJECT_DIR$/resources/sass/backend/partials/_dashboard.scss" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/news/NewsList.js" />
-        <option value="$PROJECT_DIR$/resources/sass/backend/app.scss" />
-        <option value="$PROJECT_DIR$/resources/sass/backend/common.scss" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" />
-        <option value="$PROJECT_DIR$/database/seeds/PagesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_06_165709_add_form_layout_column_to_pages.php" />
         <option value="$PROJECT_DIR$/resources/views/frontend/pages/vendemmia.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/PagesUpdateTableSeeder.php" />
@@ -125,9 +117,21 @@
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PageFields.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/PagesManagementPage.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js" />
-        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js" />
         <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/WisiwygEditorPageField.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/partials/navbar.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php" />
+        <option value="$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/HotelPicker.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/press/components/PressList.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/gmaps/components/GmapApp.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/events/components/EventsList.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/search/components/Search.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/calendar/homeCalendar.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/archivio-storico/components/ArchivioStoricoList.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/calendar/components/Calendar.js" />
+        <option value="$PROJECT_DIR$/resources/js/frontend/brand/components/BrandLocationPicker.js" />
       </list>
     </option>
   </component>
@@ -261,28 +265,26 @@
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="testing-with-junior" type="b2602c69:ProjectViewProjectNode" />
               <item name="testing-with-junior" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="frontendApi" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -361,18 +363,17 @@
       <workItem from="1567614551065" duration="2494000" />
       <workItem from="1567696053948" duration="78000" />
       <workItem from="1567787926270" duration="12366000" />
-      <workItem from="1568059534359" duration="4911000" />
+      <workItem from="1568059534359" duration="6127000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104803000" />
+    <option name="totallyTimeSpent" value="106019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8396861" visible="true" weight="0.18368618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8396861" visible="true" weight="0.2920299" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.1603139" side_tool="true" weight="0.17980692" />
@@ -420,62 +421,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/frontend/brand/components/HotelPicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="198" column="18" selection-start-line="198" selection-start-column="18" selection-end-line="198" selection-end-column="18" />
-          <folding>
-            <element signature="e#998#1006#0#HTML" />
-            <element signature="e#1078#1367#0#HTML" />
-            <element signature="e#1390#1857#0#HTML" />
-            <element signature="e#1932#2105#0#HTML" />
-            <element signature="e#2179#2323#0#HTML" />
-            <element signature="e#2398#2661#0#HTML" />
-            <element signature="e#2714#2741#0#HTML" />
-            <element signature="e#2782#2810#0#HTML" />
-            <element signature="e#2874#3131#0#HTML" />
-            <element signature="e#3179#3219#0#HTML" />
-            <element signature="e#3280#3326#0#HTML" />
-            <element signature="e#3369#3418#0#HTML" />
-            <element signature="e#3758#3963#0#HTML" />
-            <element signature="e#4004#4039#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/PageBrandTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_19_190303_create_pages_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_08_29_134624_add_body_top_bottom_en_it_to_events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="38" column="66" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="66" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_09_06_165709_add_form_layout_column_to_pages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -779,27 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#571#2007#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/pages/WisiwygEditorPageField.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -878,8 +802,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/frontendApi/LocationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="243">
           <caret line="50" column="49" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/Sidebar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/components/dashboard/sidebar/SidebarLink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/brand.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/pages/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#6745#7253#0#HTML" />
+            <element signature="e#7165#7240#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/layout/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/partials/navbar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="54" column="43" lean-forward="true" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/backend/react/backoffice.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>

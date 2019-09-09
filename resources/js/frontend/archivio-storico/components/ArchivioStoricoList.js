@@ -23,13 +23,10 @@ class ArchivioStoricoList extends React.Component{
     })
     .then(({data}) => {
 
-      console.log('archive found', data);
-
       this.setState({archive: data.archive});
 
     })
     .catch(error => {
-      console.log(error.response.data.message)
     })
 
   }

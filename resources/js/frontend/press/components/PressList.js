@@ -23,13 +23,10 @@ class PressList extends React.Component{
     })
     .then(({data}) => {
 
-      console.log('press found', data.press);
-
       this.setState({press: data.press});
 
     })
     .catch(error => {
-      console.log(error.response.data.message)
     })
 
   }
