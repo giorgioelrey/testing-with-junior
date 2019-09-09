@@ -11358,6 +11358,10 @@ p {
   height: 800px;
 }
 
+#home .carousel .carousel-caption a h5 {
+  color: white;
+}
+
 #home .previous .nav-inner {
   margin-left: 16px;
 }
