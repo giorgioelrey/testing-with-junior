@@ -11346,6 +11346,14 @@ p {
   font-weight: 900;
 }
 
+#home .fa-angle-right {
+  color: black;
+}
+
+#home .fa-angle-left {
+  color: black;
+}
+
 #home [type=button] {
   -webkit-appearance: none;
 }
@@ -11427,6 +11435,7 @@ p {
 
 #home #react-calendar .Calendar th,
 #home #react-calendar .Calendar td {
+  vertical-align: middle;
   border-top: 0px solid #dee2e6;
   text-align: center;
 }
