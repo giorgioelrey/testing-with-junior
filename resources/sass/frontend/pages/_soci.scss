@@ -10,12 +10,41 @@
 
 
 select {
+
+  border-color: #000000;
   height: calc(1.6em + 0.75rem + 10px);
     line-height: 24px;
     text-transform: uppercase;
     font-size: 19px;
     word-wrap: normal;
+
 }
+
+
+  /*   .via {
+    top: 42%;
+    position: absolute;
+    right: 20%;
+    height: 29px;
+    width: 29px;
+    background-image: none;
+    border: solid #07070770;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}*/
+
+
+
+
+  /*  content: "/f078";   this is your text. You can also use UTF-8 character codes as I do here
+    font-family: FontAwesome;
+    position:absolute;
+    position: absolute;
+    right: 112px;
+    top: 289px;*/
 
 
 
