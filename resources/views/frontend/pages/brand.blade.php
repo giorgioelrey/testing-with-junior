@@ -40,7 +40,9 @@
     </div>
     </div>
 
-      <div id="brand-location-picker"></div>
+      <div id="brand-location-picker">
+
+      </div>
 
 
   </div>
