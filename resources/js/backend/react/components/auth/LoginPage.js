@@ -88,7 +88,6 @@ submitLoginForm(fields) {
                                <div className="form-group">
                                    <button type="submit" className="btn btn-primary mr-2">Login</button>
                                    <button type="reset" className="btn btn-info text- mr-2">Reset</button>
-                                   <button type="submit" className="btn btn-warning text-white">Forgot Password</button>
                                </div>
                            </Form>
                        )}
