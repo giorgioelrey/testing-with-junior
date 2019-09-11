@@ -6,7 +6,7 @@ const StreetSelectFormikField = ({ errors, touched, selectOptions, optionsTitle,
   <div className="form-group form-label-group">
    <label htmlFor={name}>{label}</label>
     <Field name={name} component="select" className={'form-control'}>
-      <option value="">{optionsTitle}</option>
+        <option value="">{optionsTitle}</option>
        {
          selectOptions.map((option, idx) =>
          ( <option key={idx} value={option.id} >{option.name_it}</option>))
