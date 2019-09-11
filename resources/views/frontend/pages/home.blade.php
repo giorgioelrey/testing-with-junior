@@ -31,22 +31,26 @@
             onYouTubeIframeAPIReady();
 
             function onYouTubeIframeAPIReady() {
-                player = new YT.Player('video-placeholder', {
+                if((typeof YT !== "undefined") && YT && YT.Player) {
+                    player = new YT.Player('video-placeholder', {
 
-                    height: 800,
-                    videoId: '73NvZaznyg8',
-                    playerVars: {
+                        height: 800,
+                        videoId: '{{$contents->youtube_video_link->data}}',
+                        playerVars: {
 
-                        controls: 0,
-                        rel: 0,
-                        color: 'white',
-                        origin: "{{Request::url()}}"
+                            controls: 0,
+                            rel: 0,
+                            color: 'white',
+                            origin: "{{Request::url()}}"
 
-                    },
-                    events: {
-                        onReady: initialize
-                    }
-                });
+                        },
+                        events: {
+                            onReady: initialize
+                        }
+                    });
+                }else {
+                    setTimeout(onYouTubeIframeAPIReady, 100);
+                }
             }
 
             function initialize(){
