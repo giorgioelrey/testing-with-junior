@@ -6,8 +6,14 @@
       color: white;
       font-weight: 900;
   }
+.fa-angle-right{
 
+    color: black;
 
+}
+.fa-angle-left {
+    color: black;
+}
 
   [type=button] {
       -webkit-appearance: none;
@@ -113,7 +119,7 @@
 
 
       th,td {
-
+vertical-align: middle;
 border-top: 0px solid #dee2e6;
           text-align: center;
       }
