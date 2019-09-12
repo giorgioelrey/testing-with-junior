@@ -15,8 +15,8 @@ class UserAdminSeeder extends Seeder
       $admin = new User;
       $admin->first_name = 'giorgio';
       $admin->last_name = 'petetti';
-      $admin->email = 'petetti.giorgio@gmail.com' ;
-      $admin->password = \Hash::make('123456789');
+      $admin->email = 'segreteria@montenapoleonedistrict.it' ;
+      $admin->password = \Hash::make('5H!bNu9neqpXqjM@');
       $admin->country = 'it';
       $admin->image_profile = 'ciao';
       $admin->phone_number = '24234234324324';
