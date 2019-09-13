@@ -10689,7 +10689,7 @@ a:hover {
 }
 
 main {
-  margin-top: 146px;
+  margin-top: 145px;
 }
 
 .section-video-bg-overlay {
@@ -11251,7 +11251,7 @@ p {
 }
 
 #nav .bg-light {
-  border-bottom: 1px solid black;
+  border-bottom: 0px solid black;
   background-color: #ffffff !important;
 }
 
@@ -11363,7 +11363,8 @@ p {
 }
 
 #home .carousel img {
-  height: 800px;
+  max-width: 100%;
+  height: auto;
 }
 
 #home .carousel .carousel-caption a h5 {

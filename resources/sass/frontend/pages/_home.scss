@@ -22,8 +22,8 @@
 .carousel {
   overflow:hidden;
   img{
-
-    height: 800px;
+    max-width: 100%;
+    height: auto;
   }
     .carousel-caption a h5 { color: white}
 
