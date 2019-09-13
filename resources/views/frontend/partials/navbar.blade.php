@@ -50,10 +50,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto mt-2">
-            <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
+          {{-- <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
               <a class="nav-link"style="color:#90294E;" href="{{route('fe.vendemmia')}}">la vendemmia<span class="sr-only">(current)</span></a>
               <div class="underline"></div>
-            </li>
+            </li> --}}
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.chi-siamo' ? 'active' : '' }} ">
               <a class="nav-link" href="{{route('fe.chi-siamo')}}">chi siamo <span class="sr-only">(current)</span></a>
               <div class="underline"></div>
