@@ -11268,7 +11268,7 @@ p {
 }
 
 #nav .lingua {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #nav .lingua li a {
@@ -11336,6 +11336,22 @@ p {
 #footer .footer-copyright {
   padding-bottom: 40px;
   padding-top: 40px;
+}
+
+#footer .info {
+  font-size: 14px;
+  left: 56px;
+  padding-top: 55px;
+  position: absolute;
+}
+
+@media all and (max-width: 768px) {
+  #footer .info {
+    font-size: 10px;
+    left: 16px;
+    padding-top: 96px;
+    position: absolute;
+  }
 }
 
 #home .fas {
