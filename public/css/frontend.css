@@ -10689,7 +10689,7 @@ a:hover {
 }
 
 main {
-  margin-top: 146px;
+  margin-top: 145px;
 }
 
 .section-video-bg-overlay {
@@ -11251,7 +11251,7 @@ p {
 }
 
 #nav .bg-light {
-  border-bottom: 1px solid black;
+  border-bottom: 0px solid black;
   background-color: #ffffff !important;
 }
 
@@ -11268,11 +11268,11 @@ p {
 }
 
 #nav .lingua {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #nav .lingua li a {
-  font-family: "Playfair Display", serif;
+  font-family: "Lato", sans-serif;
   color: black;
 }
 
@@ -11338,12 +11338,36 @@ p {
   padding-top: 40px;
 }
 
+#footer .info {
+  font-size: 14px;
+  left: 56px;
+  padding-top: 55px;
+  position: absolute;
+}
+
+@media all and (max-width: 768px) {
+  #footer .info {
+    font-size: 10px;
+    left: 16px;
+    padding-top: 96px;
+    position: absolute;
+  }
+}
+
 #home .fas {
   cursor: pointer;
   padding-top: 15px;
   padding-bottom: 15px;
   color: white;
   font-weight: 900;
+}
+
+#home .fa-angle-right {
+  color: black;
+}
+
+#home .fa-angle-left {
+  color: black;
 }
 
 #home [type=button] {
@@ -11355,7 +11379,8 @@ p {
 }
 
 #home .carousel img {
-  height: 800px;
+  max-width: 100%;
+  height: auto;
 }
 
 #home .carousel .carousel-caption a h5 {
@@ -11427,6 +11452,7 @@ p {
 
 #home #react-calendar .Calendar th,
 #home #react-calendar .Calendar td {
+  vertical-align: middle;
   border-top: 0px solid #dee2e6;
   text-align: center;
 }

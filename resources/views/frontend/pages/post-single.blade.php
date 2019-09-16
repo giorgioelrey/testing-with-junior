@@ -28,7 +28,7 @@
 
 
 
-  <div class='col-md-5'>
+  <div class='col-md-5 text-center'>
 
   <div  class='title single-title'>
   {{$post['title_'.$lang]}}
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-<p class='paragrafo-single'>{!!$post['postbodytop_'.$lang]!!}</p>
+<p class='paragrafo-single '>{!!$post['postbodytop_'.$lang]!!}</p>
 
 
 

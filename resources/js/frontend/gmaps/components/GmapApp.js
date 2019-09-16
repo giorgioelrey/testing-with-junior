@@ -98,7 +98,7 @@ class GmappApp extends Component {
           opts={{
             styles: this.props.mapStyle,
             center: {lat: 45.4682, lng: 9.195269999999937},
-            zoom: 13,
+            zoom: 16,
           }}
           useDrawing
           useGeometry

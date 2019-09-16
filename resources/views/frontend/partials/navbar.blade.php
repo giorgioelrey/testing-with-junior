@@ -50,36 +50,36 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto mt-2">
-            <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
+          {{-- <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
               <a class="nav-link"style="color:#90294E;" href="{{route('fe.vendemmia')}}">la vendemmia<span class="sr-only">(current)</span></a>
               <div class="underline"></div>
-            </li>
+            </li> --}}
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.chi-siamo' ? 'active' : '' }} ">
-              <a class="nav-link" href="{{route('fe.chi-siamo')}}">chi siamo <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{route('fe.chi-siamo')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'chi siamo' : 'ABOUT US'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.brand' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.brand')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'Soci e Partner' : 'brand'}}</a>
+              <a class="nav-link" href="{{route('fe.brand')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'Soci e Partner' : 'brands'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.eventi' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.eventi')}}">eventi</a>
+              <a class="nav-link" href="{{route('fe.eventi')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'Eventi' : 'Events'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.mn-vip-lounge' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.mn-vip-lounge')}}">mn vip lounge</a>
+              <a class="nav-link" href="{{route('fe.mn-vip-lounge')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'mn-vip-lounge' : 'mn-vip-lounge'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.press' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.press')}}">press</a>
+              <a class="nav-link" href="{{route('fe.press')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'press' : 'press'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.archivio-storico' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.archivio-storico')}}">archivio storico</a>
+              <a class="nav-link" href="{{route('fe.archivio-storico')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'archivio storico' : 'HERITAGE'}}</a>
               <div class="underline"></div>
             </li>
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.contatti' ? 'active' : '' }}">
-              <a class="nav-link" href="{{route('fe.contatti')}}">contatti</a>
+              <a class="nav-link" href="{{route('fe.contatti')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'contatti' : 'CONTACTS'}}</a>
               <div class="underline"></div>
             </li>
 
