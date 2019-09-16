@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import TextInputPageField from './TextInputPageField';
 import WisiwygEditorPageField from './WisiwygEditorPageField';
 import FileUploadInputFormikField from './../forms/FileUploadInputFormikField';
+import SelectVeroFalso from './SelectVeroFalso';
 
 const PageFields = ({ errors, status, touched, fieldsData, setFieldValue, values, layout }) => {
 
@@ -15,6 +16,7 @@ const PageFields = ({ errors, status, touched, fieldsData, setFieldValue, values
 
             case 'image': return (<FileUploadInputFormikField key={idx} setFieldValue={setFieldValue} label={field.name} name={field.name} values={values} errors={errors} touched={touched} currentImage={field.previousUrl}/>); break;
 
+            case 'select': return (<SelectVeroFalso key={idx}        >)
             default: break;
         }
 
