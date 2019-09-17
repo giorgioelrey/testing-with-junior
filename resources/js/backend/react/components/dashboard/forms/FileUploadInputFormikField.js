@@ -64,7 +64,7 @@ const FileUploadInputFormikField = ({setFieldValue, touched,  label, name , valu
     return (
 
               <div className="form-group mb-5">
-              <label className="text-uppercase">Dimensione massima immagine 2MB</label>
+              <label className="text-uppercase">Dimensione massima immagine 300kb</label>
                 <div className="custom-file">
                    <label className="custom-file-label" htmlFor={name}>{label}</label>
                    <input name={name} type="file" onChange={(event) => {

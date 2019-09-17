@@ -9,6 +9,14 @@
 @endsection
 
 @section('content')
+ @if ($contents->select_vendemmia->data == 'false')
+<div class='container-fluid p-0 m-0 text-center'>
+<img src='{{ asset('images/slide_home_page_vendemmia.jpg')   }}' style='max-width:100%;'>
+</div>
+
+@else
+
+
 
   <div class='container-fluid p-0 m-0' id='home'>
     <div class='row m-0'id='vendemmia'>
@@ -247,7 +255,7 @@
 </div>
 <div class='loghi'>
 
-  <img src='{{ asset('images/vendemmia-loghi.png')   }}'>
+  <img src='{{$contents->logo_vendemmia->data}}'>
 </div>
-
+@endif
 @endsection
