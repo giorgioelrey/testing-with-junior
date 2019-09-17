@@ -1,3 +1,9 @@
+<?php
+$vendemmiaPage = \App\Page::where('name', 'vendemmia')->get()->first();
+
+$vendemmiaIsOn = json_decode($vendemmiaPage->contents,true)['select_vendemmia']['data'];
+
+?>
 
 
 <div id='nav'>
