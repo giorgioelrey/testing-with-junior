@@ -113,7 +113,7 @@ render(){
                   </div>
 
 
-                  <div className="immagine-modale ">
+                  <div className="immagine-modale text-center">
                       <img className="img-fluid" src={this.state.pickedHotel.image_url} alt="no location image..."/>
                   </div>
               </div>

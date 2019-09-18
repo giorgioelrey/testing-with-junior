@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import * as Yup from 'yup';
 import ErrorsAlert from './../components/ErrorsAlert';
+import TextInputPageField from "../components/dashboard/pages/TextInputPageField";
+import WisiwygEditorPageField from "../components/dashboard/pages/WisiwygEditorPageField";
+import FileUploadInputFormikField from "../components/dashboard/forms/FileUploadInputFormikField";
+import SelectVeroFalso from "../components/dashboard/pages/SelectVeroFalso";
 
 
 const PageFormConnector = ((WrappedComponent) => {
@@ -29,7 +33,7 @@ const PageFormConnector = ((WrappedComponent) => {
 
     async pageUpdate(pageId, fields){
 
-        const updatedPageData = await this.prepareFormDataForSubmission(fields, pageId);
+      const updatedPageData = await this.prepareFormDataForSubmission(fields, pageId);
 
       try {
 
@@ -58,7 +62,8 @@ const PageFormConnector = ((WrappedComponent) => {
             const fieldTranslated = pageContents[key]['translated'];
             const isNotImageField = (pageContents[key]['type'] !== 'image');
 
-            if (isNotImageField){
+
+            if (isNotImageField ){
                 var validationMinChars = pageContents[key]['type'] == 'wisiwyg' ? 30 : 6;
             }
 
@@ -77,12 +82,27 @@ const PageFormConnector = ((WrappedComponent) => {
                 }
 
                 fieldsData[key]['type'] = pageContents[key]['type'];
+                /*
+                switch (fieldsData[key]['type']) {
 
-                if (isNotImageField){
-                yupValSchema[key] = Yup.string()
-                                .min(validationMinChars, `${key} must be at least ${validationMinChars} characters`)
-                                .required(`${key} is required`);
+                    case 'string': yupValSchema[key] = Yup.string()
+                        .min(validationMinChars, `${key} must be at least ${validationMinChars} characters`)
+                        .required(`${key} is required`);break;
+
+                    case 'wisiwyg': yupValSchema[key] = Yup.string()
+                        .min(validationMinChars, `${key} must be at least ${validationMinChars} characters`)
+                        .required(`${key} is required`); break;
+
+                    case 'select-true-false': yupValSchema[key] = Yup.string()
+                        .required(`${key} is required`); break;
+
+                    default: break;
                 }
+
+                */
+
+
+
 
             } else {
               //caso 2. ha una traduzione
@@ -98,13 +118,14 @@ const PageFormConnector = ((WrappedComponent) => {
                     fieldsData[objKeyLocalized]['name'] = objKeyLocalized
                     fieldsData[objKeyLocalized]['data'] = pageContents[key]['data'][langKey];
                     fieldsData[objKeyLocalized]['type'] = pageContents[key]['type'];
-
+                    /*
                     if (isNotImageField){
                     yupValSchema[objKeyLocalized] = Yup.string()
                                     .min(validationMinChars, `${objKeyLocalized} must be at least ${validationMinChars} characters`)
                                     .required(`${objKeyLocalized} is required`);
                     }
 
+                    */
                 }
             }
         }
@@ -115,8 +136,10 @@ const PageFormConnector = ((WrappedComponent) => {
 
   async prepareFormDataForSubmission(fields, pageId){
 
+      //store previousFields values (values before update)
       const previousContents = JSON.parse(this.props.page.contents);
 
+      //loop all fields and manage new values
       for (var fieldName in previousContents) {
 
         var isNotImageField = previousContents[fieldName].type != 'image';
@@ -176,7 +199,7 @@ const PageFormConnector = ((WrappedComponent) => {
         }
 
       }
-      
+
       return previousContents
 
     }

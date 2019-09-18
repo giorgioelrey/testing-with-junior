@@ -1,3 +1,9 @@
+<?php
+$vendemmiaPage = \App\Page::where('name', 'vendemmia')->get()->first();
+
+$vendemmiaIsOn = json_decode($vendemmiaPage->contents,true)['select_vendemmia']['data'];
+
+?>
 
 
 <div id='nav'>
@@ -8,7 +14,7 @@
     {{-- <div class='d-flex flex-column justify-content-end ml-auto mobile-tap'> --}}
       <ul class='list-inline lingua text-right'>
         <li class='list-inline-item '>
-          <a href="https://www.google.com"><i class="fab fa-weixin mr-1 d-none d-md-inline-block"></i></a>
+        {{-- <a href="https://www.google.com"><i class="fab fa-weixin mr-1 d-none d-md-inline-block"></i></a> --}}
             <a href="https://www.google.com"><i class="fab fa-facebook-f mr-1 d-none d-md-inline-block"></i></a>
           <a href="https://www.instagram.com/montenapoleonedistrict/">  <i class="fab fa-instagram mr-4 d-none d-md-inline-block"></i></a>
           <a class="" href="{{route('fe.search')}}">
@@ -50,10 +56,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto mt-2">
-          {{-- <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
-              <a class="nav-link"style="color:#90294E;" href="{{route('fe.vendemmia')}}">la vendemmia<span class="sr-only">(current)</span></a>
-              <div class="underline"></div>
-            </li> --}}
+
+
+         @if ($vendemmiaIsOn == 'true')
+         <li class="nav-item pb-3 vendemmia {{ $currentRouteName == 'fe.vendemmia' ? 'active' : '' }} ">
+            <a class="nav-link"style="color:#90294E;" href="{{route('fe.vendemmia')}}">la vendemmia<span class="sr-only">(current)</span></a>
+            <div class="underline"></div>
+          </li>
+        @else
+
+            @endif
+
+
+
             <li class="nav-item pb-3 {{ $currentRouteName == 'fe.chi-siamo' ? 'active' : '' }} ">
               <a class="nav-link" href="{{route('fe.chi-siamo')}}">{{LaravelLocalization::getCurrentLocale() == 'it' ? 'chi siamo' : 'ABOUT US'}}</a>
               <div class="underline"></div>
