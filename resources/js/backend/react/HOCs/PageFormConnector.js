@@ -82,7 +82,7 @@ const PageFormConnector = ((WrappedComponent) => {
                 }
 
                 fieldsData[key]['type'] = pageContents[key]['type'];
-
+                /*
                 switch (fieldsData[key]['type']) {
 
                     case 'string': yupValSchema[key] = Yup.string()
@@ -98,6 +98,8 @@ const PageFormConnector = ((WrappedComponent) => {
 
                     default: break;
                 }
+
+                */
 
 
 
@@ -116,13 +118,14 @@ const PageFormConnector = ((WrappedComponent) => {
                     fieldsData[objKeyLocalized]['name'] = objKeyLocalized
                     fieldsData[objKeyLocalized]['data'] = pageContents[key]['data'][langKey];
                     fieldsData[objKeyLocalized]['type'] = pageContents[key]['type'];
-
+                    /*
                     if (isNotImageField){
                     yupValSchema[objKeyLocalized] = Yup.string()
                                     .min(validationMinChars, `${objKeyLocalized} must be at least ${validationMinChars} characters`)
                                     .required(`${objKeyLocalized} is required`);
                     }
 
+                    */
                 }
             }
         }
@@ -196,7 +199,7 @@ const PageFormConnector = ((WrappedComponent) => {
         }
 
       }
-      
+
       return previousContents
 
     }

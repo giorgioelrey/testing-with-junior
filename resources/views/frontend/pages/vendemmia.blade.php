@@ -9,6 +9,14 @@
 @endsection
 
 @section('content')
+ @if ($contents->select_vendemmia->data == 'false')
+<div class='container-fluid p-0 m-0 text-center'>
+<img src='{{ asset('images/slide_home_page_vendemmia.jpg')   }}' style='max-width:100%;'>
+</div>
+
+@else
+
+
 
   <div class='container-fluid p-0 m-0' id='home'>
     <div class='row m-0'id='vendemmia'>
@@ -22,20 +30,20 @@
                 <img src="{{$contents->carousel_image_1->data}}" class="d-block " alt="...">
                 <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
 
-                  <a href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$contents->carousel_image_1_text->data}}</h5></a>
+                  <a href="{{$lang == 'it' ? $contents->carousel_image_1_link->data->it : $contents->carousel_image_1_link->data->en}}"><h5>{{$lang == 'it' ? $contents->carousel_image_1_text->data : $contents->carousel_image_text_en_1->data}}</h5></a>
                 </div>
               </div>
               <div class="carousel-item position-relative">
                 <img src="{{$contents->carousel_image_2->data}}" class="d-block " alt="...">
                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
 
-                  <a href="{{$lang == 'it' ? $contents->carousel_image_2_link->data->it : $contents->carousel_image_2_link->data->en}}"><h5>{{$contents->carousel_image_2_text->data}}</h5></a>
+                  <a href="{{$lang == 'it' ? $contents->carousel_image_2_link->data->it : $contents->carousel_image_2_link->data->en}}"><h5>{{$lang == 'it' ? $contents->carousel_image_2_text->data : $contents->carousel_image_text_en_2->data}}</h5></a>
                 </div>
               </div>
               <div class="carousel-item position-relative">
                 <img src="{{$contents->carousel_image_3->data}}" class="d-block " alt="...">
                 <div class="carousel-caption  d-flex h-100 align-items-center justify-content-center">
-                    <a href="{{$lang == 'it' ? $contents->carousel_image_3_link->data->it : $contents->carousel_image_3_link->data->en}}"><h5>{{$contents->carousel_image_3_text->data}}</h5></a>
+                    <a href="{{$lang == 'it' ? $contents->carousel_image_3_link->data->it : $contents->carousel_image_3_link->data->en}}"><h5>{{$lang == 'it' ? $contents->carousel_image_3_text->data : $contents->carousel_image_text_en_3->data}}</h5></a>
                 </div>
 
               </div>
@@ -247,7 +255,7 @@
 </div>
 <div class='loghi'>
 
-  <img src='{{ asset('images/vendemmia-loghi.png')   }}'>
+  <img src='{{$contents->logo_vendemmia->data}}'>
 </div>
-
+@endif
 @endsection
