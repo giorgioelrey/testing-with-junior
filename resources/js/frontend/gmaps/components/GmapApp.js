@@ -87,7 +87,7 @@ class GmappApp extends Component {
         </div>
 
 
-        <div className="immagine-modale ">
+        <div className="immagine-modale text-center">
            <img className="img-fluid" src={this.state.clickedLocation.image_url} alt="no location image..."/>
         </div>
       </div>

@@ -14,7 +14,7 @@ $vendemmiaIsOn = json_decode($vendemmiaPage->contents,true)['select_vendemmia'][
     {{-- <div class='d-flex flex-column justify-content-end ml-auto mobile-tap'> --}}
       <ul class='list-inline lingua text-right'>
         <li class='list-inline-item '>
-          <a href="https://www.google.com"><i class="fab fa-weixin mr-1 d-none d-md-inline-block"></i></a>
+        {{-- <a href="https://www.google.com"><i class="fab fa-weixin mr-1 d-none d-md-inline-block"></i></a> --}}
             <a href="https://www.google.com"><i class="fab fa-facebook-f mr-1 d-none d-md-inline-block"></i></a>
           <a href="https://www.instagram.com/montenapoleonedistrict/">  <i class="fab fa-instagram mr-4 d-none d-md-inline-block"></i></a>
           <a class="" href="{{route('fe.search')}}">

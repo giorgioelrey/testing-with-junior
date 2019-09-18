@@ -95,7 +95,7 @@ const LocationForm = ({ location, categories = [], streets = [], initialValues, 
 
                           <TextInputFormikField name={"latitude"} label="Latitudine" touched={touched} errors={errors} />
 
-                          <TextInputFormikField name={"longitude"} label="Indirizzo" touched={touched} errors={errors} />
+                          <TextInputFormikField name={"longitude"} label="Longitudine" touched={touched} errors={errors} />
 
                         <TextInputFormikField name={"phonenumber"} label="Numero di telefono" touched={touched} errors={errors} />
 

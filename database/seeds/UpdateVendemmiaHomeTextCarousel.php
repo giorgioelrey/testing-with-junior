@@ -19,6 +19,7 @@ class UpdateVendemmiaHomeTextCarousel extends Seeder
             'type' => 'string',
             'translated' => false,
             'data' => 'testo inglese',
+            
         ],
         'carousel_image_text_en_2' => [
             'type' => 'string',
@@ -33,7 +34,7 @@ class UpdateVendemmiaHomeTextCarousel extends Seeder
 
   ];
 
-        
+
 
         $pageVendemmia->contents = json_encode(array_merge((array)json_decode($pageVendemmia->contents),$TextImageEnnewFieldVendemmia));
 
