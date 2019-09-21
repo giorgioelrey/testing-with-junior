@@ -10986,6 +10986,11 @@ p {
     margin-top: 30px !important;
   }
 
+  #home .carousel img {
+    max-width: initial !important;
+    height: auto;
+  }
+
   .carousel-control-prev {
     left: 20px;
   }
