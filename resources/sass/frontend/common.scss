@@ -383,7 +383,10 @@ p{
   .single-title {
     margin-top: 30px !important;
 }
-
+#home .carousel img {
+    max-width: initial!important;
+    height: auto;
+}
 
 
   .carousel-control-prev {
