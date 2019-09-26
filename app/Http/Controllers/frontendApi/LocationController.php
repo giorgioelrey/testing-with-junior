@@ -61,7 +61,7 @@ class LocationController extends Controller
             if (!in_array('montenapoleone', $urlSplit)){
                 $item['image_url'] = Storage::url($item['image_url']);
             }
-        })->sortBy('name')->toArray(),
+            })->sortBy('name_it', SORT_NATURAL|SORT_FLAG_CASE)->values()->all(),
             'message' => 'Boutiques retrieved successfully.'
         ];
 
@@ -82,7 +82,7 @@ public function hotels(){
           $item->image_url = Storage::url($item->image_url);
          }
 
-        })->sortBy('name')->toArray(),
+        })->sortBy('name_it', SORT_NATURAL|SORT_FLAG_CASE)->values()->all(),
        'message' => 'All hotels retrieved successfully.'
    ];
 
