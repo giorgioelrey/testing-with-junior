@@ -88,9 +88,6 @@ class ImageLogoVendemmiaUpdate extends Seeder
             ],
         ]);
 
-
-
-
         $pageVendemmia->save();
     }
 }
