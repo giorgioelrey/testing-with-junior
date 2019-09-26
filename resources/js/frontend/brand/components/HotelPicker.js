@@ -50,7 +50,7 @@ modalBackdropClicked(){
 
 
 render(){
-console.log(this.state.hotels[idx]);
+
   return(
 
   <React.Fragment>

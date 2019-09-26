@@ -28,7 +28,7 @@ class LocationController extends Controller
              $item->image_url = Storage::url($item->image_url);
            }
 
-           })->toArray()),
+           })->sortBy('name')->toArray()),
           'message' => 'All Locations retrieved successfully.'
       ];
 
@@ -61,7 +61,7 @@ class LocationController extends Controller
             if (!in_array('montenapoleone', $urlSplit)){
                 $item['image_url'] = Storage::url($item['image_url']);
             }
-        })->toArray(),
+        })->sortBy('name')->toArray(),
             'message' => 'Boutiques retrieved successfully.'
         ];
 
@@ -82,9 +82,13 @@ public function hotels(){
           $item->image_url = Storage::url($item->image_url);
          }
 
-        })->toArray(),
+        })->sortBy('name')->toArray(),
        'message' => 'All hotels retrieved successfully.'
    ];
+
+
+
+
 
    return response()->json($response, 200);
 }
