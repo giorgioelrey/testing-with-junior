@@ -13,6 +13,7 @@ class HotelPicker extends React.Component{
       hotels: [],
       pickedHotel: {}
     }
+
     this.modalBackdropClicked = this.modalBackdropClicked.bind(this);
   this.getHotels = this.getHotels.bind(this);
   }
@@ -51,9 +52,11 @@ modalBackdropClicked(){
 render(){
 
   return(
+
   <React.Fragment>
           {this.state.hotels.length > 0 &&(
             <ul className="hotel">
+
               {this.state.hotels.map((hotel, idx) =>(
 
                 <li key={idx}

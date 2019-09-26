@@ -252,7 +252,64 @@
 
     </div>
   </div>
-</div>
+
+  {{-- RIGA 9 - 10 --}}
+  <div class='container-fluid m-0 p-0'>
+    <div class='row m-0'id='vendemmia'>
+
+      <div class='col-md-6 p-0 bg-dark vh-100 order-2' style="height: 100vh;overflow: hidden;background-size: cover;background-repeat: no-repeat;background-image: url('{{$contents->image_riga_9_url->data}}')">
+
+      </div>
+
+      <div class='col-md-6 order-1 p-0 order-md-2 colore_1'>
+        <div  class='title '>
+          {{$lang == 'it' ? $contents->titolo_riga_9->data->it : $contents->titolo_riga_9->data->en }}
+
+          <div class='sotto_title'>
+
+          </div>
+        </div>
+        <div class='px-5 rif-contatti'>
+
+          <p>{!!$lang == 'it' ? $contents->content_riga_9->data->it : $contents->content_riga_9->data->en !!}
+
+        </div>
+
+      </div>
+
+      <div class='col-md-6 p-0 order-3 aria colore_2'>
+        <div  class='title'>
+          {{$lang == 'it' ? $contents->titolo_riga_10->data->it : $contents->titolo_riga_10->data->en }}
+
+          <div class='sotto_title'>
+
+          </div>
+        </div>
+        <div class='px-5 rif-contatti'>
+
+          <p>{!!$lang == 'it' ? $contents->content_riga_10->data->it : $contents->content_riga_10->data->en !!}
+
+        </div>
+
+
+      </div>
+
+      <div class='col-md-6 p-0 order-4 bg-dark vh-100' style="height: 100vh;overflow: hidden;background-size:cover;background-repeat: no-repeat;background-image: url('{{$contents->image_riga_10_url->data}}')">
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
 <div class='loghi'>
 
   <img src='{{$contents->logo_vendemmia->data}}'>
