@@ -9,7 +9,7 @@ const StreetSelectFormikField = ({ errors, touched, selectOptions, optionsTitle,
         <option value="">{optionsTitle}</option>
        {
          selectOptions.map((option, idx) =>
-         ( <option key={idx} value={option.id} >{option.name_it}</option>))
+         ( <option  key={idx} value={option.id} >{option.name_it}</option>))
        }
      </Field>
 

@@ -56,7 +56,7 @@ class BrandLocationPicker extends React.Component{
     }
 
 
-    
+
 
 
 
@@ -73,7 +73,7 @@ class BrandLocationPicker extends React.Component{
     render(){
 
         const boutiquesForStreet = this.state.boutiques.length > 0 && (
-            <ul>
+            <ul className="street_lista">
                 {this.state.boutiques.map((boutique, idx) =>
                 <li key={idx}
                     onClick={(event) => {this.setState({pickedBoutique: boutique, modalOpen: true})}}
