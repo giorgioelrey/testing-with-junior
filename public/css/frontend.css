@@ -11563,6 +11563,7 @@ select {
 #brand-location-picker {
   margin: 0 auto;
   width: 70%;
+  margin-top: 200px;
 }
 
 #brand-location-picker select {
@@ -11570,7 +11571,7 @@ select {
 }
 
 #brand-location-picker ul {
-  height: 110px;
+  height: 310px;
   overflow: auto;
   cursor: pointer;
   margin-top: 15px;
