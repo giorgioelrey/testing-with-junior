@@ -7,6 +7,21 @@
 @section('title')
   <title>{{$lang == 'it' ? 'Servizi-MN-Lounge' : 'MN-Lounge-Services'}}</title>
 @endsection
+@section('css')
+<style>
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a{
+  color: #caa660;
+}
+</style>
+@endsection
+
+
+
 
 @section('content')
 
@@ -126,7 +141,7 @@
 
 
 
-      <div class='quadrato lounge content col-lg-6 order-5  d-flex align-items-center aria pb-3 pb-lg-0'>
+      <div style='margin-bottom: 70px;margin-top: 70px;'class='quadrato lounge content col-lg-6 order-5  d-flex align-items-center aria pb-3 pb-lg-0'>
 
           <form action="{{route('routes.sendmail', ['page' => 'mnlounge'])}}" method="GET">
               @csrf
