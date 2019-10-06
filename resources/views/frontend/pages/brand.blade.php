@@ -31,7 +31,7 @@
 
 
 
-  <div class='col-lg-6 bg-gold order-1 d-flex align-items-center mobile_place'>
+  <div class='col-lg-6 bg-gold order-1  mobile_place'>
     <div  class='title'>Boutiques
 
     <div class='sotto_title'>
