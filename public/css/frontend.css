@@ -10987,6 +10987,7 @@ p {
   }
 
   #home .carousel img {
+    margin-left: -500px;
     max-width: initial !important;
     height: auto;
   }
