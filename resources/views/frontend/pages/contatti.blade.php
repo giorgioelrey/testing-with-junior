@@ -43,6 +43,8 @@
             <div class='contatti-underline'></div>
             <p class='sotto'>  {{$contents->phone->data}}  </p>
 
+            <p><strong>Press Office and Media Relations:</strong><br> Marina Riva, <a href='mailto:m.riva@barabino.it'>m.riva@barabino.it</a>, +39 347/2975426</p>
+
           </div>
 
         </div>
