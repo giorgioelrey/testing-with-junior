@@ -11351,6 +11351,11 @@ p {
   position: absolute;
 }
 
+#footer .privacy-link {
+  display: inline-block;
+  font-size: 14px;
+}
+
 @media all and (max-width: 768px) {
   #footer .info {
     font-size: 10px;
