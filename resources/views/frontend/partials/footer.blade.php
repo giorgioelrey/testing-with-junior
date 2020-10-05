@@ -6,8 +6,8 @@
 <div id="top"></div>
 </div>
         <p class="info">MONTENAPOLEONE DISTRICT -  Via Bigli 24 20121 Milano -  P.I. 07518050963
-            <a class="privacy-link d-inline-block" target="_blank" href="/pdf/privacy-policy.pdf">Privacy Policy</a>
-            <a class="privacy-link d-inline-block" target="_blank" href="/pdf/privacy-newsletter.pdf">Privacy Newsletter</a>
+            <a class="privacy-link d-inline-block" target="_blank" href="/pdf/{{$detectedLocale}}/privacy-policy.pdf">Privacy Policy</a>
+            <a class="privacy-link d-inline-block" target="_blank" href="/pdf/{{$detectedLocale}}/privacy-newsletter.pdf">Privacy Newsletter</a>
         </p>
 
       <!-- Copyright -->
