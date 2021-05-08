@@ -5,52 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   @yield('meta-description')
-
-  <script src="https://kit.fontawesome.com/71611066a6.js"></script>
-
-  @php
-  $currentRouteName =  Route::currentRouteName();
-
-  $detectedLocale = App::getLocale();
-
-  $detectedLocaleIsIt = App::isLocale('it') ? true : false;
-
-  //$lang gets received by route function
-
-  @endphp
-  {{-- Passing to js userLanguage--}}
-  <script type="text/javascript">
-    const userLanguage = "{{$lang}}";
-  </script>
-
-  {{-- Passing to js gmapsApiKey--}}
-  <script type="text/javascript">
-    const gmapsApiKey = "{{config('app.gmaps_api_key')}}";
-  </script>
-
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-
-  @yield('title')
-
-  <!-- Scripts -->
-    @yield('header_scripts')
-  <script src="{{ asset('js/frontend/app.js') }}" defer></script>
-
-  <!-- Fonts -->
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-
-
-  <!-- Styles -->
-  <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
-
-  @yield('css')
-
+  @yield('head-css')
 </head>
 
 <body>
-
-  @include('frontend.partials.navbar')
 
   <main>
 
@@ -58,8 +16,6 @@
 
   </main>
   @yield('scripts')
-
-  @include('frontend.partials.footer')
 
 </body>
 </html>
