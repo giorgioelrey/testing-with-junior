@@ -12,6 +12,10 @@
 */
 
 //CATCH ALL ROUTES
-Route::any('/{any}', function(){
+Route::any('/', function(){
     return View::make('frontend.pages.test-page');
+})->name('home');
+
+Route::any('/{any}', function(){
+    return redirect()->route('home');
 })->where('any', '.*');
